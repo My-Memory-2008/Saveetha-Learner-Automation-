@@ -80,7 +80,7 @@ jobs:
       run: |
         ollama serve > ollama.log 2>&1 &
         sleep 7 # Give background server enough time to allocate internal network ports
-        ollama pull qwen2.5-vl:3b
+        ollama pull qwen2.5vl:3b
 
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
