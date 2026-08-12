@@ -1,0 +1,48 @@
+name: Run Web Agent Automation
+
+on:
+  # 1. Allows you to manually trigger this anytime by clicking a button on GitHub
+  workflow_dispatch:
+
+
+jobs:
+  run-agent:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Step 1: Clone your repository files into the runner machine
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    # Step 2: Set up Python
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-state: '3.12'
+
+    # Step 3: Install all your required tools and dependencies
+    - name: Install Dependencies
+      run: |
+        pip install playwright httpx
+        playwright install chromium
+
+    # Step 4: Install and launch Ollama in the background
+    - name: Set up Ollama and Qwen
+      run: |
+        curl -fsSL https://ollama.com | sh
+        ollama serve > ollama.log 2>&1 &
+        sleep 5 # Wait for server to boot up
+        ollama pull qwen2.5-vl:3b
+
+    # Step 5: Run your automation script
+    - name: Execute Automation Script
+      run: python run_agent.py
+
+    # Step 6: Save the results (Text reports or Screenshots) back to your GitHub account
+    - name: Upload Automation Results
+      uses: actions/upload-artifact@v4
+      with:
+        name: automation-results
+        path: |
+          dashboard_report.txt
+          page_view.png
