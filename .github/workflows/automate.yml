@@ -1,48 +1,41 @@
 name: Run Web Agent Automation
 
 on:
-  # 1. Allows you to manually trigger this anytime by clicking a button on GitHub
-  workflow_dispatch:
-
-
+  workflow_dispatch: # Allows you to run it with a click of a button on the site
+  
 jobs:
   run-agent:
     runs-on: ubuntu-latest
 
     steps:
-    # Step 1: Clone your repository files into the runner machine
-    - name: Checkout Repository
+    - name: Checkout Repository Code
       uses: actions/checkout@v4
 
-    # Step 2: Set up Python
-    - name: Set up Python
+    - name: Configure Python Machine Environment
       uses: actions/setup-python@v5
       with:
-        python-state: '3.12'
+        python-version: '3.12'
 
-    # Step 3: Install all your required tools and dependencies
-    - name: Install Dependencies
+    - name: Install Runtime Library Dependencies
       run: |
         pip install playwright httpx
         playwright install chromium
 
-    # Step 4: Install and launch Ollama in the background
-    - name: Set up Ollama and Qwen
+    - name: Boot Ollama and Pull Qwen Vision Brain
       run: |
         curl -fsSL https://ollama.com | sh
         ollama serve > ollama.log 2>&1 &
-        sleep 5 # Wait for server to boot up
+        sleep 7 
         ollama pull qwen2.5-vl:3b
 
-    # Step 5: Run your automation script
-    - name: Execute Automation Script
+    - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
 
-    # Step 6: Save the results (Text reports or Screenshots) back to your GitHub account
-    - name: Upload Automation Results
+    - name: Securely Store Scraped Artifact Summaries
+      if: always()
       uses: actions/upload-artifact@v4
       with:
-        name: automation-results
+        name: execution-results-bundle
         path: |
           dashboard_report.txt
           page_view.png
