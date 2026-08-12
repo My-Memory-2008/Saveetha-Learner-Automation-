@@ -7,7 +7,7 @@ from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
 # ⚠️ UPDATE THIS to your real dashboard URL
-DASHBOARD_URL = "https://example.com" 
+DASHBOARD_URL = "https://learner.saveetha.in" 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
 def image_to_base64(image_path):
