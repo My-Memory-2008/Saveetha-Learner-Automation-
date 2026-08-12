@@ -6,8 +6,8 @@ import base64
 from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
-# ⚠️ UPDATE THIS to the exact dashboard URL you want the agent to monitor
-DASHBOARD_URL = "https://learner.saveetha.in" 
+# ⚠️ UPDATE THIS to your real dashboard URL
+DASHBOARD_URL = "https://example.com" 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 
 def image_to_base64(image_path):
@@ -46,14 +46,25 @@ async def run_ai_automation():
             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
         )
         
-        print("🔑 Pre-authenticating session via state mapping...")
+        print("🔑 Pre-authenticating session via native storage state mapping...")
         
-        # Load custom cookie array structure cleanly
-        with open(COOKIE_FILE, 'r') as f:
-            cookies = json.load(f)
-        
-        context = await browser.new_context()
-        await context.add_cookies(cookies)
+        # FIXED LINE: We pass the cookie file directly into the context creator.
+        # Playwright will automatically handle if it's structured as an array or state object.
+        try:
+            context = await browser.new_context(storage_state=COOKIE_FILE)
+        except Exception as e:
+            print(f"⚠️ Warning: Direct storage_state failed ({e}). Trying backup loader...")
+            # Fallback block if your JSON is structured as a strict array
+            with open(COOKIE_FILE, 'r') as f:
+                cookies_data = json.load(f)
+            context = await browser.new_context()
+            if isinstance(cookies_data, list):
+                await context.add_cookies(cookies_data)
+            elif isinstance(cookies_data, dict) and "cookies" in cookies_data:
+                await context.add_cookies(cookies_data["cookies"])
+            else:
+                raise ValueError("cookies.json format is unrecognized.")
+
         page = await context.new_page()
         
         print(f"🌐 Loading endpoint: {DASHBOARD_URL}")
