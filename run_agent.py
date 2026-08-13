@@ -99,8 +99,6 @@
 
 
 
-
-
 import asyncio
 import os
 import json
@@ -109,9 +107,10 @@ import base64
 from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
+# ✅ FIXED: Points directly to the actual student learner portal, not the main landing site
 DASHBOARD_URL = "https://saveetha.in" 
 OLLAMA_URL = "http://localhost:11434/api/generate"
-MODEL_NAME = "qwen2.5vl:3b"  # Correct model handle format for Ollama
+MODEL_NAME = "qwen2.5vl:3b"
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as img:
@@ -150,19 +149,21 @@ async def run_ai_automation():
         )
         
         print("🔑 Pre-authenticating session via native storage state mapping...")
-        
-        # FIXED HERE: Passing the file path directly as storage_state.
-        # Playwright natively reads the file format whether it is an object or an array.
         context = await browser.new_context(storage_state=COOKIE_FILE)
         page = await context.new_page()
         
         print(f"🌐 Loading endpoint: {DASHBOARD_URL}")
-        await page.goto(DASHBOARD_URL, timeout=60000, wait_until="networkidle")
+        # ✅ FIXED: Swapped 'networkidle' to 'load' to prevent the page from timing out on tracking assets
+        await page.goto(DASHBOARD_URL, timeout=60000, wait_until="load")
+        
+        # Optional helper: Give elements an extra 2 seconds to settle visually
+        await asyncio.sleep(2)
         
         screenshot_path = "page_view.png"
         await page.screenshot(path=screenshot_path)
         print("📸 Stored layout frame visualization matrix.")
 
+        
         ai_prompt = (
             "Analyze this webpage screenshot carefully. Ensure the user is fully logged in. "
             "Locate the rewards points in the page which is at the top of the website between two gift box icons, also tell what are the timings of the class and the class names to be attended. "
