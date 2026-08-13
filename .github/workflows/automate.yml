@@ -41,11 +41,76 @@
 #           page_view.png
 
 
+
+
+
+
+
+
+# name: Run Web Agent Automation
+
+# on:
+#   workflow_dispatch: # Allows you to run it with a click of a button on the site
+  
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx
+#         playwright install chromium
+
+#     # FIXED STEP: Downloads and extracts the Linux binary package manually
+#     - name: Download and Install Ollama Manually
+#       run: |
+#         echo "Downloading Ollama Linux binary..."
+#         curl -L https://ollama.com/download/ollama-linux-amd64.tar.zst -o ollama.tar.zst
+        
+#         echo "Extracting binary to system path..."
+#         sudo tar -xvf ollama.tar.zst -C /usr
+        
+#         echo "Verifying installation..."
+#         ollama --version
+
+#     - name: Boot Ollama and Pull Qwen Vision Brain
+#       run: |
+#         ollama serve > ollama.log 2>&1 &
+#         sleep 7 # Give background server enough time to allocate internal network ports
+#         ollama pull qwen2.5vl:3b
+
+#     - name: Run Web AI Automation Agent Execution Script
+#       run: python run_agent.py
+
+#     - name: Securely Store Scraped Artifact Summaries
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: execution-results-bundle
+#         path: |
+#           dashboard_report.txt
+#           page_view.png
+
+
+
+
+
 name: Run Web Agent Automation
 
 on:
   workflow_dispatch: # Allows you to run it with a click of a button on the site
-  
+  schedule:
+    - cron: '0 8 * * *' # Automated daily schedule ticker
+
 jobs:
   run-agent:
     runs-on: ubuntu-latest
@@ -64,11 +129,10 @@ jobs:
         pip install playwright httpx
         playwright install chromium
 
-    # FIXED STEP: Downloads and extracts the Linux binary package manually
     - name: Download and Install Ollama Manually
       run: |
         echo "Downloading Ollama Linux binary..."
-        curl -L https://ollama.com/download/ollama-linux-amd64.tar.zst -o ollama.tar.zst
+        curl -L https://ollama.com -o ollama.tar.zst
         
         echo "Extracting binary to system path..."
         sudo tar -xvf ollama.tar.zst -C /usr
@@ -76,10 +140,23 @@ jobs:
         echo "Verifying installation..."
         ollama --version
 
+    # FIXED STEP: Uses nohup to lock the server in active status in the system kernel memory
     - name: Boot Ollama and Pull Qwen Vision Brain
       run: |
-        ollama serve > ollama.log 2>&1 &
-        sleep 7 # Give background server enough time to allocate internal network ports
+        echo "Starting Ollama server process safely..."
+        nohup ollama serve > ollama.log 2>&1 &
+        
+        echo "Waiting for local network port 11434 to wake up..."
+        for i in {1..15}; do
+          if curl -s http://localhost:11434 > /dev/null; then
+            echo "✅ Ollama is awake and responsive!"
+            break
+          fi
+          echo "Waiting..."
+          sleep 2
+        done
+        
+        echo "Downloading Qwen Vision Model layers..."
         ollama pull qwen2.5vl:3b
 
     - name: Run Web AI Automation Agent Execution Script
