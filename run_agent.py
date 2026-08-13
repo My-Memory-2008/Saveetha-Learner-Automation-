@@ -108,7 +108,7 @@ from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
 # ✅ FIXED: Points directly to the actual student learner portal, not the main landing site
-DASHBOARD_URL = "https://saveetha.in" 
+DASHBOARD_URL = "https://learner.saveetha.in" 
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 
