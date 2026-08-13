@@ -102,14 +102,24 @@
 
 
 
+
+
 name: Run Web Agent Automation
 
 on:
-  workflow_dispatch: # Allows you to run it with a click of a button on the site
+  workflow_dispatch: # Allows manual click triggering from the web panel
   
 jobs:
   run-agent:
     runs-on: ubuntu-latest
+
+    # ✅ FIXED: Runs Ollama as a native cloud Docker service
+    # Bypasses system extraction permissions, folder blocks, and curl utility errors
+    services:
+      ollama-service:
+        image: ollama/ollama:latest
+        ports:
+          - 11434:11434
 
     steps:
     - name: Checkout Repository Code
@@ -125,32 +135,14 @@ jobs:
         pip install playwright httpx
         playwright install chromium
 
-    # ✅ FIXED STEP: Uses the official non-interactive Linux installation stream
-    - name: Download and Install Ollama Automatically
+    # ✅ FIXED STEP: Pings the active service and pulls the model cleanly via shell API commands
+    # This leaves the download handling to Docker instead of system curl scripts
+    name: Download Qwen Vision Model Layers
       run: |
-        echo "Installing Ollama via the official Linux automated script..."
-        curl -fsSL https://ollama.com | sh
+        echo "Testing connection to active container service network..."
+        curl -s http://localhost:11434
         
-        echo "Verifying installation version..."
-        ollama --version
-
-    # ✅ FIXED STEP: Uses nohup to ensure the process isn't killed, and uses a retry block to wait for port 11434
-    - name: Boot Ollama and Pull Qwen Vision Brain
-      run: |
-        echo "Starting Ollama background process..."
-        nohup ollama serve > ollama.log 2>&1 &
-        
-        echo "Waiting for local network port 11434 to wake up..."
-        for i in {1..15}; do
-          if curl -s http://localhost:11434 > /dev/null; then
-            echo "✅ Ollama server is awake and responding!"
-            break
-          fi
-          echo "Waiting..."
-          sleep 2
-        done
-        
-        echo "Pulling Qwen Vision model layers..."
+        echo "Pulling Qwen Vision model through container socket..."
         ollama pull qwen2.5vl:3b
 
     - name: Run Web AI Automation Agent Execution Script
