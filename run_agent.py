@@ -77,7 +77,7 @@ async def run_ai_automation():
         
         ai_prompt = (
             "Analyze this webpage screenshot carefully. Ensure the user is fully logged in. "
-            "Locate and extract the primary stats, summary grids, update cards, or logs "
+            "Locate the rewards points in the page which is at the top of the website between two gift box icons, also tell what are the timings of the class and the class names to be attended. "
             "visible on this layout context. Summarize everything found into clean Markdown format."
         )
         
