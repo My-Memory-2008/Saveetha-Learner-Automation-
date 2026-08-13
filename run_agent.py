@@ -99,6 +99,8 @@
 
 
 
+
+
 import asyncio
 import os
 import json
@@ -107,19 +109,20 @@ import base64
 from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
-DASHBOARD_URL = "https://learner.saveetha.in" 
+DASHBOARD_URL = "https://saveetha.in" 
 OLLAMA_URL = "http://localhost:11434/api/generate"
+MODEL_NAME = "qwen2.5vl:3b"  # Correct model handle format for Ollama
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as img:
         return base64.b64encode(img.read()).decode('utf-8')
 
 async def ask_qwen_vision(prompt, image_path):
-    print(f"🧠 Querying Qwen-2.5-VL Vision Model inside cloud context...")
+    print("🧠 Querying Qwen-2.5-VL Vision Model inside cloud context...")
     image_base64 = image_to_base64(image_path)
     
     payload = {
-        "model": "qwen2.5vl:3b",  # FIXED HERE
+        "model": MODEL_NAME,
         "prompt": prompt,
         "images": [image_base64],
         "stream": False
@@ -147,11 +150,10 @@ async def run_ai_automation():
         )
         
         print("🔑 Pre-authenticating session via native storage state mapping...")
-        with open(COOKIE_FILE, 'r') as f:
-            cookies = json.load(f)
         
-        context = await browser.new_context()
-        await context.add_cookies(cookies)
+        # FIXED HERE: Passing the file path directly as storage_state.
+        # Playwright natively reads the file format whether it is an object or an array.
+        context = await browser.new_context(storage_state=COOKIE_FILE)
         page = await context.new_page()
         
         print(f"🌐 Loading endpoint: {DASHBOARD_URL}")
@@ -160,7 +162,6 @@ async def run_ai_automation():
         screenshot_path = "page_view.png"
         await page.screenshot(path=screenshot_path)
         print("📸 Stored layout frame visualization matrix.")
-
 
         ai_prompt = (
             "Analyze this webpage screenshot carefully. Ensure the user is fully logged in. "
@@ -179,7 +180,6 @@ async def run_ai_automation():
             
         await context.close()
         await browser.close()
-
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
