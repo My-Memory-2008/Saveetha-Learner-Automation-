@@ -102,14 +102,11 @@
 
 
 
-
 name: Run Web Agent Automation
 
 on:
   workflow_dispatch: # Allows you to run it with a click of a button on the site
-  schedule:
-    - cron: '0 8 * * *' # Automated daily schedule ticker
-
+  
 jobs:
   run-agent:
     runs-on: ubuntu-latest
@@ -128,11 +125,33 @@ jobs:
         pip install playwright httpx
         playwright install chromium
 
-    # FIXED STEP: Uses a trusted community tool to install & run Ollama instantly
-    - name: Setup and Start Ollama with Qwen Vision Model
-      uses: pydantic/ollama-action@v3
-      with:
-        model: qwen2.5vl:3b  # Automatically pulls and caches your exact model name
+    # ✅ FIXED STEP: Uses the official non-interactive Linux installation stream
+    - name: Download and Install Ollama Automatically
+      run: |
+        echo "Installing Ollama via the official Linux automated script..."
+        curl -fsSL https://ollama.com | sh
+        
+        echo "Verifying installation version..."
+        ollama --version
+
+    # ✅ FIXED STEP: Uses nohup to ensure the process isn't killed, and uses a retry block to wait for port 11434
+    - name: Boot Ollama and Pull Qwen Vision Brain
+      run: |
+        echo "Starting Ollama background process..."
+        nohup ollama serve > ollama.log 2>&1 &
+        
+        echo "Waiting for local network port 11434 to wake up..."
+        for i in {1..15}; do
+          if curl -s http://localhost:11434 > /dev/null; then
+            echo "✅ Ollama server is awake and responding!"
+            break
+          fi
+          echo "Waiting..."
+          sleep 2
+        done
+        
+        echo "Pulling Qwen Vision model layers..."
+        ollama pull qwen2.5vl:3b
 
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
