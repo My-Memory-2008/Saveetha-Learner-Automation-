@@ -128,38 +128,11 @@ jobs:
         pip install playwright httpx
         playwright install chromium
 
-    # FIXED STEP: Downloads the standalone binary directly from GitHub releases mirror
-    - name: Download and Install Ollama Manually
-      run: |
-        echo "Downloading stable Ollama Linux standalone binary..."
-        curl -L https://github.com -o ollama
-        
-        echo "Granting execution permissions to binary..."
-        chmod +x ollama
-        
-        echo "Moving binary to system execution path..."
-        sudo mv ollama /usr/local/bin/
-        
-        echo "Verifying installation..."
-        ollama --version
-
-    - name: Boot Ollama and Pull Qwen Vision Brain
-      run: |
-        echo "Starting Ollama server process safely..."
-        nohup ollama serve > ollama.log 2>&1 &
-        
-        echo "Waiting for local network port 11434 to wake up..."
-        for i in {1..15}; do
-          if curl -s http://localhost:11434 > /dev/null; then
-            echo "✅ Ollama is awake and responsive!"
-            break
-          fi
-          echo "Waiting..."
-          sleep 2
-        done
-        
-        echo "Downloading Qwen Vision Model layers..."
-        ollama pull qwen2.5vl:3b
+    # FIXED STEP: Uses a trusted community tool to install & run Ollama instantly
+    - name: Setup and Start Ollama with Qwen Vision Model
+      uses: pydantic/ollama-action@v3
+      with:
+        model: qwen2.5vl:3b  # Automatically pulls and caches your exact model name
 
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
