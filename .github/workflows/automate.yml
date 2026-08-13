@@ -103,7 +103,6 @@
 
 
 
-
 name: Run Web Agent Automation
 
 on:
@@ -129,18 +128,21 @@ jobs:
         pip install playwright httpx
         playwright install chromium
 
+    # FIXED STEP: Downloads the standalone binary directly from GitHub releases mirror
     - name: Download and Install Ollama Manually
       run: |
-        echo "Downloading Ollama Linux binary..."
-        curl -L https://ollama.com -o ollama.tar.zst
+        echo "Downloading stable Ollama Linux standalone binary..."
+        curl -L https://github.com -o ollama
         
-        echo "Extracting binary to system path..."
-        sudo tar -xvf ollama.tar.zst -C /usr
+        echo "Granting execution permissions to binary..."
+        chmod +x ollama
+        
+        echo "Moving binary to system execution path..."
+        sudo mv ollama /usr/local/bin/
         
         echo "Verifying installation..."
         ollama --version
 
-    # FIXED STEP: Uses nohup to lock the server in active status in the system kernel memory
     - name: Boot Ollama and Pull Qwen Vision Brain
       run: |
         echo "Starting Ollama server process safely..."
