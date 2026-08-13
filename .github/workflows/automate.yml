@@ -103,7 +103,6 @@
 
 
 
-
 name: Run Web Agent Automation
 
 on:
@@ -113,8 +112,7 @@ jobs:
   run-agent:
     runs-on: ubuntu-latest
 
-    # ✅ FIXED: Runs Ollama as a native cloud Docker service
-    # Bypasses system extraction permissions, folder blocks, and curl utility errors
+    # Runs Ollama as a native cloud Docker service to bypass disk permission blocks
     services:
       ollama-service:
         image: ollama/ollama:latest
@@ -135,15 +133,14 @@ jobs:
         pip install playwright httpx
         playwright install chromium
 
-    # ✅ FIXED STEP: Pings the active service and pulls the model cleanly via shell API commands
-    # This leaves the download handling to Docker instead of system curl scripts
-    name: Download Qwen Vision Model Layers
+    - name: Verify Ollama Service and Pull Qwen Vision Model
       run: |
         echo "Testing connection to active container service network..."
         curl -s http://localhost:11434
         
-        echo "Pulling Qwen Vision model through container socket..."
-        ollama pull qwen2.5vl:3b
+        echo "Pulling Qwen Vision model through container API socket..."
+        # ✅ FIXED: Uses an API POST request to instruct the background Docker service to download the model
+        curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
 
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
