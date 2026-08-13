@@ -19,7 +19,7 @@ async def ask_qwen_vision(prompt, image_path):
     image_base64 = image_to_base64(image_path)
     
     payload = {
-        "model": "qwen2.5-vl:3b",
+        "model": "qwen2.5vl:3b",
         "prompt": prompt,
         "images": [image_base64],
         "stream": False
