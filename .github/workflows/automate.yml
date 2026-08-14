@@ -103,16 +103,86 @@
 
 
 
+
+
+
+
+
+
+
+# name: Run Web Agent Automation
+
+# on:
+#   workflow_dispatch: # Allows manual click triggering from the web panel
+  
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+
+#     # Runs Ollama as a native cloud Docker service to bypass disk permission blocks
+#     services:
+#       ollama-service:
+#         image: ollama/ollama:latest
+#         ports:
+#           - 11434:11434
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx
+#         playwright install chromium
+
+#     - name: Verify Ollama Service and Pull Qwen Vision Model
+#       run: |
+#         echo "Testing connection to active container service network..."
+#         curl -s http://localhost:11434
+        
+#         echo "Pulling Qwen Vision model through container API socket..."
+#         # ✅ FIXED: Uses an API POST request to instruct the background Docker service to download the model
+#         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
+
+#     - name: Run Web AI Automation Agent Execution Script
+#       run: python run_agent.py
+
+#     - name: Securely Store Scraped Artifact Summaries
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: execution-results-bundle
+#         path: |
+#           dashboard_report.txt
+#           page_view.png
+
+
+
+
+
+
+
+
+
+
+
+
 name: Run Web Agent Automation
 
 on:
-  workflow_dispatch: # Allows manual click triggering from the web panel
-  
+  workflow_dispatch: # Manual trigger
+  schedule:
+    - cron: '0 8 * * *' # Auto-trigger daily
+
 jobs:
   run-agent:
     runs-on: ubuntu-latest
 
-    # Runs Ollama as a native cloud Docker service to bypass disk permission blocks
     services:
       ollama-service:
         image: ollama/ollama:latest
@@ -122,6 +192,8 @@ jobs:
     steps:
     - name: Checkout Repository Code
       uses: actions/checkout@v4
+      with:
+        persist-credentials: true # Crucial to allow writing back to repo
 
     - name: Configure Python Machine Environment
       uses: actions/setup-python@v5
@@ -135,15 +207,27 @@ jobs:
 
     - name: Verify Ollama Service and Pull Qwen Vision Model
       run: |
-        echo "Testing connection to active container service network..."
         curl -s http://localhost:11434
-        
-        echo "Pulling Qwen Vision model through container API socket..."
-        # ✅ FIXED: Uses an API POST request to instruct the background Docker service to download the model
         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
 
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
+
+    # ✅ FIXED STEP: Commits the newly saved AI memory database back to your GitHub files
+    - name: Commit AI Self Learning Data to Repository Memory
+      if: always()
+      run: |
+        git config --global user.name "Cloud-AI-Learning-Agent"
+        git config --global user.email "actions@github.com"
+        
+        # Check if the text map or json base file changed before trying to save
+        if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ]; then
+          git add ai_self_learning_data.json dashboard_report.txt
+          
+          # Only commit if actual modifications are registered
+          git diff-index --quiet HEAD || git commit -m "🤖 AI Self-Learning Update: Expanded Portal Structural Training Maps"
+          git push origin main || echo "No remote changes to push or branch locked."
+        fi
 
     - name: Securely Store Scraped Artifact Summaries
       if: always()
@@ -152,4 +236,4 @@ jobs:
         name: execution-results-bundle
         path: |
           dashboard_report.txt
-          page_view.png
+          ai_self_learning_data.json
