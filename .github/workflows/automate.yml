@@ -172,12 +172,91 @@
 
 
 
+# name: Run Web Agent Automation
+
+# on:
+#   workflow_dispatch: # Manual trigger
+#   schedule:
+#     - cron: '0 8 * * *' # Auto-trigger daily
+
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+
+#     services:
+#       ollama-service:
+#         image: ollama/ollama:latest
+#         ports:
+#           - 11434:11434
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+#       with:
+#         persist-credentials: true # Crucial to allow writing back to repo
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx
+#         playwright install chromium
+
+#     - name: Verify Ollama Service and Pull Qwen Vision Model
+#       run: |
+#         curl -s http://localhost:11434
+#         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
+
+#     - name: Run Web AI Automation Agent Execution Script
+#       run: python run_agent.py
+
+#     # ✅ FIXED STEP: Commits the newly saved AI memory database back to your GitHub files
+#     - name: Commit AI Self Learning Data to Repository Memory
+#       if: always()
+#       run: |
+#         git config --global user.name "Cloud-AI-Learning-Agent"
+#         git config --global user.email "actions@github.com"
+        
+#         # Check if the text map or json base file changed before trying to save
+#         if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ]; then
+#           git add ai_self_learning_data.json dashboard_report.txt
+          
+#           # Only commit if actual modifications are registered
+#           git diff-index --quiet HEAD || git commit -m "🤖 AI Self-Learning Update: Expanded Portal Structural Training Maps"
+#           git push origin main || echo "No remote changes to push or branch locked."
+#         fi
+
+#     - name: Securely Store Scraped Artifact Summaries
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: execution-results-bundle
+#         path: |
+#           dashboard_report.txt
+#           ai_self_learning_data.json
+
+
+
+
+
+
+
+
 name: Run Web Agent Automation
 
 on:
   workflow_dispatch: # Manual trigger
   schedule:
     - cron: '0 8 * * *' # Auto-trigger daily
+
+
+
+permissions: 
+            contents: write #writed everything
+            
 
 jobs:
   run-agent:
@@ -193,7 +272,9 @@ jobs:
     - name: Checkout Repository Code
       uses: actions/checkout@v4
       with:
-        persist-credentials: true # Crucial to allow writing back to repo
+        # ✅ FIX 1: Explicitly pass the built-in GitHub Token to authenticate the commit action
+        token: ${{ secrets.GITHUB_TOKEN }}
+        persist-credentials: true 
 
     - name: Configure Python Machine Environment
       uses: actions/setup-python@v5
@@ -213,20 +294,25 @@ jobs:
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
 
-    # ✅ FIXED STEP: Commits the newly saved AI memory database back to your GitHub files
+    # ✅ FIX 2: Updated git mapping lines to ensure the file writes straight into the root folder
     - name: Commit AI Self Learning Data to Repository Memory
       if: always()
       run: |
-        git config --global user.name "Cloud-AI-Learning-Agent"
-        git config --global user.email "actions@github.com"
+        git config --global user.name "github-actions[bot]"
+        git config --global user.email "41898282+github-actions[bot]@://github.com"
         
-        # Check if the text map or json base file changed before trying to save
+        # Check if files exist before tracking
         if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ]; then
           git add ai_self_learning_data.json dashboard_report.txt
           
-          # Only commit if actual modifications are registered
-          git diff-index --quiet HEAD || git commit -m "🤖 AI Self-Learning Update: Expanded Portal Structural Training Maps"
-          git push origin main || echo "No remote changes to push or branch locked."
+          # Only commit and push if structural modifications are found
+          if ! git diff-index --quiet HEAD; then
+            git commit -m "🤖 AI Self-Learning Update: Expanded Portal Structural Training Maps"
+            git push origin HEAD:${{ github.ref }}
+            echo "✅ Successfully pushed updated memory directly into your repository root folder!"
+          else
+            echo "ℹ️ No new changes detected in the site structure. Skipping push."
+          fi
         fi
 
     - name: Securely Store Scraped Artifact Summaries
