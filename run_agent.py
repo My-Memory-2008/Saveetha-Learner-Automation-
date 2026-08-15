@@ -301,6 +301,150 @@
 
 
 
+# import asyncio
+# import os
+# import json
+# import httpx
+# import base64
+# from playwright.async_api import async_playwright
+
+# COOKIE_FILE = "cookies.json"
+# BASE_URL = "https://learner.saveetha.in"
+# OLLAMA_URL = "http://localhost:11434/api/generate"
+# MODEL_NAME = "qwen2.5vl:3b"
+# KNOWLEDGE_FILE = "ai_self_learning_data.json"
+
+# def load_previous_knowledge():
+#     """Loads knowledge saved from past workflow runs to act as training memory."""
+#     if os.path.exists(KNOWLEDGE_FILE):
+#         try:
+#             with open(KNOWLEDGE_FILE, 'r') as f:
+#                 print("📚 Old self-learning memory found! Injecting previous data...")
+#                 return json.load(f)
+#         except Exception:
+#             pass
+#     print("🆕 No previous memory found. Starting a fresh discovery map.")
+#     return {"visited_sections": {}, "site_structure": []}
+
+# def save_current_knowledge(knowledge):
+#     """Saves updated site map data cleanly into a local file block."""
+#     with open(KNOWLEDGE_FILE, 'w') as f:
+#         json.dump(knowledge, f, indent=2)
+#     print(f"💾 Updated learning data successfully committed locally to '{KNOWLEDGE_FILE}'")
+
+# def image_to_base64(image_path):
+#     with open(image_path, "rb") as img:
+#         return base64.b64encode(img.read()).decode('utf-8')
+
+# async def ask_qwen_vision(prompt, image_path):
+#     image_base64 = image_to_base64(image_path)
+#     payload = {
+#         "model": MODEL_NAME,
+#         "prompt": prompt,
+#         "images": [image_base64],
+#         "stream": False
+#     }
+#     async with httpx.AsyncClient(timeout=300.0) as client:
+#         try:
+#             response = await client.post(OLLAMA_URL, json=payload)
+#             if response.status_code == 200:
+#                 return response.json().get("response", "")
+#             return f"Error: {response.status_code}"
+#         except Exception as e:
+#             return f"Failed connecting to model server: {str(e)}"
+
+# async def run_ai_automation():
+#     knowledge = load_previous_knowledge()
+    
+#     if not os.path.exists(COOKIE_FILE):
+#         print("❌ Error: Missing credentials mapping context.")
+#         return
+
+#     print("🚀 Initializing deep crawler browser context...")
+#     async with async_playwright() as p:
+#         browser = await p.chromium.launch(
+#             headless=True,
+#             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
+#         )
+#         context = await browser.new_context(storage_state=COOKIE_FILE)
+#         page = await context.new_page()
+        
+#         # Start at the main internal dashboard
+#         print(f"🌐 Accessing secure root layer: {BASE_URL}")
+#         await page.goto(BASE_URL, timeout=90000, wait_until="load")
+#         await asyncio.sleep(8) # Allow slow scripts to settle
+        
+#         # --- PHASE 1: DISCOVER NAVIGATION CHANNELS ---
+#         print("🔍 Mapping navigation layout matrices...")
+#         # Automatically extract all visible internal dashboard URLs and link text
+#         links = await page.evaluate("""() => {
+#             return Array.from(document.querySelectorAll('a'))
+#                 .map(a => ({ text: a.innerText.trim(), href: a.href }))
+#                 .filter(link => link.href.includes('saveetha.in') && link.text.length > 1);
+#         }""")
+        
+#         print(f"🎯 Found {len(links)} navigation links across the current layout viewport.")
+        
+#         # --- PHASE 2: ROAM FREELY AND LEARN ---
+#         # Crawl up to 5 links per run to prevent hitting GitHub Action execution limits
+#         crawl_count = 0
+#         for link in links:
+#             url = link['href']
+#             name = link['text']
+            
+#             if url in knowledge["visited_sections"] or crawl_count >= 5:
+#                 continue # Skip already learned links or limit reach
+                
+#             print(f"🗺️ Roaming to new section: [{name}] -> {url}")
+#             try:
+#                 await page.goto(url, timeout=45000, wait_until="load")
+#                 await asyncio.sleep(5)
+                
+#                 # Snapshot the sub-page for Qwen to study
+#                 snap_path = f"section_{crawl_count}.png"
+#                 await page.screenshot(path=snap_path)
+                
+#                 ai_prompt = (
+                #     f"You are exploring the student portal section named '{name}'. Study this screenshot carefully. "
+                #     "Explain exactly what feature this section handles, list the data visible, and details "
+                #     "on how this portion of the portal works."
+                # )
+#                 analysis = await ask_qwen_vision(ai_prompt, snap_path)
+                
+#                 # Save data layer mapping to our long-term training schema
+#                 knowledge["visited_sections"][url] = {
+#                     "section_name": name,
+#                     "functional_analysis": analysis,
+#                     "status_checked": "verified"
+#                 }
+#                 crawl_count += 1
+                
+#             except Exception as e:
+#                 print(f"⚠️ Could not access section '{name}': {e}")
+                
+#         # --- PHASE 3: COMPILING SYSTEM MAP ---
+#         # Ask Qwen to create a master report of the portal based on all accumulated knowledge
+#         summary_text = "# Saveetha Learner Portal Master Knowledge Base\n\n"
+#         for url, data in knowledge["visited_sections"].items():
+#             summary_text += f"## Section: {data['section_name']}\n- **URL:** {url}\n### Functional Analysis:\n{data['functional_analysis']}\n\n---\n"
+            
+#         with open("dashboard_report.txt", "w") as f:
+#             f.write(summary_text)
+            
+#         save_current_knowledge(knowledge)
+#         await context.close()
+#         await browser.close()
+
+# if __name__ == "__main__":
+#     asyncio.run(run_ai_automation())
+
+
+
+
+
+
+
+
 import asyncio
 import os
 import json
@@ -309,13 +453,12 @@ import base64
 from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 KNOWLEDGE_FILE = "ai_self_learning_data.json"
 
 def load_previous_knowledge():
-    """Loads knowledge saved from past workflow runs to act as training memory."""
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
@@ -327,7 +470,6 @@ def load_previous_knowledge():
     return {"visited_sections": {}, "site_structure": []}
 
 def save_current_knowledge(knowledge):
-    """Saves updated site map data cleanly into a local file block."""
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(knowledge, f, indent=2)
     print(f"💾 Updated learning data successfully committed locally to '{KNOWLEDGE_FILE}'")
@@ -369,14 +511,12 @@ async def run_ai_automation():
         context = await browser.new_context(storage_state=COOKIE_FILE)
         page = await context.new_page()
         
-        # Start at the main internal dashboard
         print(f"🌐 Accessing secure root layer: {BASE_URL}")
         await page.goto(BASE_URL, timeout=90000, wait_until="load")
-        await asyncio.sleep(8) # Allow slow scripts to settle
+        await asyncio.sleep(8) 
         
         # --- PHASE 1: DISCOVER NAVIGATION CHANNELS ---
         print("🔍 Mapping navigation layout matrices...")
-        # Automatically extract all visible internal dashboard URLs and link text
         links = await page.evaluate("""() => {
             return Array.from(document.querySelectorAll('a'))
                 .map(a => ({ text: a.innerText.trim(), href: a.href }))
@@ -386,21 +526,19 @@ async def run_ai_automation():
         print(f"🎯 Found {len(links)} navigation links across the current layout viewport.")
         
         # --- PHASE 2: ROAM FREELY AND LEARN ---
-        # Crawl up to 5 links per run to prevent hitting GitHub Action execution limits
         crawl_count = 0
         for link in links:
             url = link['href']
             name = link['text']
             
             if url in knowledge["visited_sections"] or crawl_count >= 5:
-                continue # Skip already learned links or limit reach
+                continue 
                 
             print(f"🗺️ Roaming to new section: [{name}] -> {url}")
             try:
                 await page.goto(url, timeout=45000, wait_until="load")
                 await asyncio.sleep(5)
                 
-                # Snapshot the sub-page for Qwen to study
                 snap_path = f"section_{crawl_count}.png"
                 await page.screenshot(path=snap_path)
                 
@@ -411,7 +549,6 @@ async def run_ai_automation():
                 )
                 analysis = await ask_qwen_vision(ai_prompt, snap_path)
                 
-                # Save data layer mapping to our long-term training schema
                 knowledge["visited_sections"][url] = {
                     "section_name": name,
                     "functional_analysis": analysis,
@@ -423,7 +560,6 @@ async def run_ai_automation():
                 print(f"⚠️ Could not access section '{name}': {e}")
                 
         # --- PHASE 3: COMPILING SYSTEM MAP ---
-        # Ask Qwen to create a master report of the portal based on all accumulated knowledge
         summary_text = "# Saveetha Learner Portal Master Knowledge Base\n\n"
         for url, data in knowledge["visited_sections"].items():
             summary_text += f"## Section: {data['section_name']}\n- **URL:** {url}\n### Functional Analysis:\n{data['functional_analysis']}\n\n---\n"
@@ -432,6 +568,12 @@ async def run_ai_automation():
             f.write(summary_text)
             
         save_current_knowledge(knowledge)
+        
+        # ✅ NEW STEP: Capture the live, extended session authentication cookies before exiting!
+        print("🔄 Extracting live refreshed session tokens...")
+        await context.storage_state(path=COOKIE_FILE)
+        print(f"✅ Refreshed token lifecycle written cleanly back to '{COOKIE_FILE}'")
+        
         await context.close()
         await browser.close()
 
