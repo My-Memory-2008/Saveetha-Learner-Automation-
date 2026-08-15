@@ -245,18 +245,100 @@
 
 
 
+# name: Run Web Agent Automation
+
+# on:
+#   workflow_dispatch: # Manual trigger
+#   schedule:
+#     - cron: '0 8 * * *' # Auto-trigger daily
+
+
+
+# permissions: 
+#             contents: write #writed everything
+            
+
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+
+#     services:
+#       ollama-service:
+#         image: ollama/ollama:latest
+#         ports:
+#           - 11434:11434
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+#       with:
+#         # ✅ FIX 1: Explicitly pass the built-in GitHub Token to authenticate the commit action
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         persist-credentials: true 
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx
+#         playwright install chromium
+
+#     - name: Verify Ollama Service and Pull Qwen Vision Model
+#       run: |
+#         curl -s http://localhost:11434
+#         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
+
+#     - name: Run Web AI Automation Agent Execution Script
+#       run: python run_agent.py
+
+#     # ✅ FIX 2: Updated git mapping lines to ensure the file writes straight into the root folder
+#     - name: Commit AI Self Learning Data to Repository Memory
+#       if: always()
+#       run: |
+#         git config --global user.name "github-actions[bot]"
+#         git config --global user.email "41898282+github-actions[bot]@://github.com"
+        
+#         # Check if files exist before tracking
+#         if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ]; then
+#           git add ai_self_learning_data.json dashboard_report.txt
+          
+#           # Only commit and push if structural modifications are found
+#           if ! git diff-index --quiet HEAD; then
+#             git commit -m "🤖 AI Self-Learning Update: Expanded Portal Structural Training Maps"
+#             git push origin HEAD:${{ github.ref }}
+#             echo "✅ Successfully pushed updated memory directly into your repository root folder!"
+#           else
+#             echo "ℹ️ No new changes detected in the site structure. Skipping push."
+#           fi
+#         fi
+
+#     - name: Securely Store Scraped Artifact Summaries
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: execution-results-bundle
+#         path: |
+#           dashboard_report.txt
+#           ai_self_learning_data.json
+
+
+
+
+
+
+
+
 name: Run Web Agent Automation
 
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    - cron: '0 8 * * *' # Auto-trigger daily
-
-
-
-permissions: 
-            contents: write #writed everything
-            
+    # ✅ TIMED TRIGGERS: Runs automatically every single day at 8:00 AM UTC (1:30 PM IST)
+    # Running it daily keeps updating the session cookies so they stay permanently fresh.
+    - cron: '0 8 * * *' 
 
 jobs:
   run-agent:
@@ -272,7 +354,6 @@ jobs:
     - name: Checkout Repository Code
       uses: actions/checkout@v4
       with:
-        # ✅ FIX 1: Explicitly pass the built-in GitHub Token to authenticate the commit action
         token: ${{ secrets.GITHUB_TOKEN }}
         persist-credentials: true 
 
@@ -294,24 +375,24 @@ jobs:
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
 
-    # ✅ FIX 2: Updated git mapping lines to ensure the file writes straight into the root folder
-    - name: Commit AI Self Learning Data to Repository Memory
+    # ✅ REFRESSED STEP: Now tracks and commits your self-learning data AND the fresh cookies.json
+    - name: Commit AI Self Learning Data and Refreshed Cookies to Repository Root
       if: always()
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@://github.com"
         
-        # Check if files exist before tracking
-        if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ]; then
-          git add ai_self_learning_data.json dashboard_report.txt
+        # Check if code files exist
+        if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ] || [ -f cookies.json ]; then
+          # Add the refreshed authentication matrix alongside knowledge layers
+          git add ai_self_learning_data.json dashboard_report.txt cookies.json
           
-          # Only commit and push if structural modifications are found
           if ! git diff-index --quiet HEAD; then
-            git commit -m "🤖 AI Self-Learning Update: Expanded Portal Structural Training Maps"
+            git commit -m "🤖 AI Loop Update: Extended Session Cookie Lifespans & Site Structure Knowledge Base"
             git push origin HEAD:${{ github.ref }}
-            echo "✅ Successfully pushed updated memory directly into your repository root folder!"
+            echo "✅ Refreshed cookies and learning database committed straight back to your GitHub repository!"
           else
-            echo "ℹ️ No new changes detected in the site structure. Skipping push."
+            echo "ℹ️ No changes detected in token lifecycles or layout. Skipping push loop."
           fi
         fi
 
@@ -323,3 +404,4 @@ jobs:
         path: |
           dashboard_report.txt
           ai_self_learning_data.json
+          cookies.json
