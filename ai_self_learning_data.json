@@ -186,5 +186,49 @@
       "status_checked": "verified"
     }
   },
-  "site_structure": []
+  "site_structure": [],
+  "queue": [
+    "https://learner.saveetha.in/",
+    "https://learner.saveetha.in/academics/people_schedule/#",
+    "https://learner.saveetha.in/people/settings/",
+    "https://learner.saveetha.in/people/profile/",
+    "https://learner.saveetha.in/people/activity-log/",
+    "https://learner.saveetha.in/attendance/my-college-hours/",
+    "https://learner.saveetha.in/people/active-sessions/",
+    "https://learner.saveetha.in/academics/people_schedule/",
+    "https://learner.saveetha.in/academics/circulars/",
+    "https://learner.saveetha.in/rewards/my-reward-points/",
+    "https://learner.saveetha.in/academics/workflow-requests/",
+    "https://learner.saveetha.in/academics/workflow-approvals/",
+    "https://learner.saveetha.in/academicevents/event-booking/",
+    "https://learner.saveetha.in/academics/services/",
+    "https://learner.saveetha.in/mentormentee/mentees/",
+    "https://learner.saveetha.in/mentormentee/mentorship/",
+    "https://learner.saveetha.in/academics/facultysubjects/",
+    "https://learner.saveetha.in/academics/studentsubjects/",
+    "https://learner.saveetha.in/academicevents/event-managing/",
+    "https://learner.saveetha.in/academicevents/event-participating/",
+    "https://learner.saveetha.in/attendance/staff-biometric/",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=1",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=9&day=1",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=14",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=12",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=13",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=15",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=16",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=17",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=18",
+    "https://learner.saveetha.in/academics/attendance_process/?slotsession_id=37510&slot_id=1498&year=2026&month=8&day=15",
+    "https://learner.saveetha.in/academics/studentsubjects/1498/",
+    "https://learner.saveetha.in/academics/attendance_process/?slotsession_id=37479&slot_id=1416&year=2026&month=8&day=15",
+    "https://learner.saveetha.in/academics/studentsubjects/1416/",
+    "https://learner.saveetha.in/academics/attendance_process/?slotsession_id=37446&slot_id=1328&year=2026&month=8&day=15",
+    "https://learner.saveetha.in/academics/studentsubjects/1328/"
+  ],
+  "visited": {
+    "https://learner.saveetha.in": {
+      "node_url": "https://learner.saveetha.in",
+      "reverse_engineering_notes": "### Analysis of the Student Portal Section\n\n#### 1. Action or Transactional Feature it Controls\nThe section in question appears to be a part of a student portal, likely for managing and viewing course schedules, attendance records, and other related activities. The specific page shown is likely designed to display the student's schedule for a particular month, in this case, August 2026. The features it controls include:\n\n- **Viewing Course Schedules**: The page lists courses the student is enrolled in, along with their respective slots, lesson times, and venues.\n- **Viewing Attendance Records**: There are buttons labeled \"VIEW ATTENDANCE\" next to each course, which likely allow the student to view their attendance records for each course.\n- **Circulars and Workflow Requests**: The page also shows a count of circulars (likely announcements or important notices) and workflow requests, which the student can access for further information or actions.\n\n#### 2. Variables, Parameters, Text Grids, or Functions it Exposes\nThe page exposes several key variables and parameters that are relevant to the student's schedule and attendance:\n\n- **Course Details**: Each course has specific details such as the course code (e.g., 19AI305), course name (e.g., \"Advanced C Programming\"), slot number (e.g., 260D1171), lesson time (e.g., 08:00 AM - 09:59 AM), and venue (e.g., 2872).\n- **Attendance Records**: The \"VIEW ATTENDANCE\" button likely leads to a page where the student can view their attendance records for each course.\n- **Circulars and Workflow Requests**: The number of circulars and workflow requests is displayed, indicating the student can access these announcements or requests.\n\n#### 3. How this Page Passes Information to the Wider Web System Structure\nThe page appears to be part of a larger web system that manages student schedules and activities. Here\u2019s how it likely interacts with the wider system:\n\n- **User Authentication**: The student is logged in with their ID number (25013957) and name (MUHAMMAD ASJAD E). This information is likely stored in a database and used to authenticate the user.\n- **Course Scheduling**: The course details are likely stored in a database and retrieved based on the student's enrollment status. The page dynamically populates this information based on the student's enrollment.\n- **Attendance Records**: Attendance records are likely stored in a separate database and accessed by the student through the \"VIEW ATTENDANCE\" button. This button likely triggers a query to the database to retrieve the attendance records.\n- **Circulars and Workflow Requests**: Circulars and workflow requests are likely stored in a separate database and accessed by the student through the \"VIEW ATTENDANCE\" button. This button likely triggers a query to the database to retrieve the circulars and workflow requests.\n\n### Summary\nThe page in question is a part of a student portal that manages and displays the student's schedule, attendance records, and other related activities. It exposes variables such as course details, attendance records, and circulars/workflow requests. The page interacts with the wider web system by retrieving and displaying this information based on the student's enrollment status and access rights."
+    }
+  }
 }
