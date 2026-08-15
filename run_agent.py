@@ -453,7 +453,7 @@ import base64
 from playwright.async_api import async_playwright
 
 COOKIE_FILE = "cookies.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 KNOWLEDGE_FILE = "ai_self_learning_data.json"
