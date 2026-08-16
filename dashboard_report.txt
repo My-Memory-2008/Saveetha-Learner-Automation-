@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 69
-**Pending Sub-Layer Queue Boundaries:** 242
+**Total Verified Inner Nodes Mapped:** 73
+**Pending Sub-Layer Queue Boundaries:** 252
 
 ## Architectural Breakdown per Sub-System:
 
@@ -3536,6 +3536,187 @@ short_title=Short+Title&leave_type=Personal+Leave&leave_from=2026-08-17T08:00:00
 
 ### Summary
 The leave application section is a critical feature of the student portal, controlling the process of requesting and approving leave. It exposes various form fields for the student to input details about the leave request, and the data is sent to the server for processing. The server-side script can then validate the data, store it in a database, and send a response back to the client.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Manual Academic Attendance" feature. This feature allows users to draft, submit, and track manual academic attendance approvals. It is likely integrated into a larger system for managing student attendance records and academic workflows.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Short Title**: A text input field where users can enter a brief description or title for the attendance record.
+- **Subject**: A text input field where users can enter a subject or topic related to the attendance.
+- **Attendance Date**: A date input field where users can select or enter the date of the attendance.
+- **Slot Session**: A dropdown or select box where users can choose or select a specific slot session for the attendance.
+- **Content**: A text area where users can enter detailed information about the attendance, such as notes or descriptions.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system to store and manage the attendance records. Here’s a breakdown of how this might work:
+
+1. **Form Submission**: When the user submits the form, the data is sent to the backend server via an HTTP POST request. The form data is typically sent in the request body or as form data.
+
+2. **Backend Processing**: The backend server processes the form data. This could involve validating the input fields, storing the data in a database, and possibly triggering other workflows or notifications.
+
+3. **Database Interaction**: The backend might interact with a database to store the attendance record. This could involve inserting a new record into a table, updating an existing record, or performing other database operations.
+
+4. **Notifications or Alerts**: Depending on the system's configuration, the backend might send notifications or alerts to relevant parties (e.g., teachers, administrators, students) via email, SMS, or other communication channels.
+
+5. **User Feedback**: The backend might also return a response to the user, such as a confirmation message or an error message, to inform them of the status of their submission.
+
+### Example of a POST Request
+Here’s an example of what the request might look like:
+
+```http
+POST /api/manual-attendance HTTP/1.1
+Host: learner.saveetha.in
+Content-Type: application/json
+
+{
+  "shortTitle": "Classroom Attendance",
+  "subject": "Math",
+  "attendanceDate": "2023-10-01",
+  "slotSession": "Session 1",
+  "content": "Students attended the class on time."
+}
+```
+
+### Conclusion
+This section of the student portal is designed to facilitate the manual entry and tracking of academic attendance records. It exposes various fields for inputting details about the attendance, communicates with a backend system for processing and storing the data, and potentially triggers notifications or alerts. The backend system likely handles the database operations and user interactions to ensure the system's functionality and user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is designed to control the manual event attendance feature within the student portal. This feature allows users to draft, submit, and track manual event attendance approvals. The user can create a request for attendance, fill in the necessary details, and then submit it for approval.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Short title**: A text input field where the user can enter a short title for the event attendance request.
+- **Subject**: A text input field where the user can enter a subject for the event attendance request.
+- **Attendance date**: A date input field where the user can select the date of attendance.
+- **Event session**: A dropdown or select field where the user can choose the specific event session.
+- **Content**: A text area where the user can enter the content of the attendance request, including any additional details or comments.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page uses form submission to pass the data entered by the user to the wider web system structure. Here’s a breakdown of how this works:
+
+1. **Form Submission**: When the user clicks the "Submit" button, the form data is sent to the server using an HTTP POST request.
+2. **Form Data**: The form data includes all the fields filled by the user, such as the short title, subject, attendance date, event session, and content.
+3. **Server Processing**: The server receives the form data and processes it. This could involve validating the data, storing it in a database, or sending it to other systems for further processing.
+4. **Database Interaction**: The data might be stored in a database table specifically designed for event attendance requests. This table could have fields for the short title, subject, attendance date, event session, and content.
+5. **Response Handling**: The server can return a response to the user, indicating whether the request was successful or if there were any issues with the submission.
+
+### Example of Form Submission
+Here’s a simplified example of how the form data might be structured in the request body:
+
+```json
+{
+  "short_title": "Annual Conference",
+  "subject": "Event Attendance",
+  "attendance_date": "2026-08-16",
+  "event_session": "Session 1",
+  "content": "I attended the annual conference today."
+}
+```
+
+### Security Considerations
+- **Input Validation**: The server should validate all the input fields to ensure they are in the correct format and do not contain malicious content.
+- **Data Encryption**: Sensitive data, such as dates and personal information, should be encrypted before being sent to the server.
+- **Access Controls**: Ensure that only authorized users can access and modify the data in the database.
+
+### Conclusion
+This section of the student portal is designed to facilitate the manual process of event attendance tracking. It exposes various fields for user input and uses form submission to pass this data to the server for further processing. The data is stored in a database and can be accessed by authorized personnel for tracking and reporting purposes.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/
+### Analysis of the Student Portal Reward Claim Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a reward claim submission form. Users can draft, submit, and track their reward claim approvals. This feature allows students to request rewards for their academic achievements or other accomplishments, which can then be reviewed and approved by relevant authorities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Subject**: A text input field where users can enter a subject or title for their reward claim.
+- **Attachments**: A file upload field where users can attach documents or files related to their claim.
+- **Content**: A text area where users can provide detailed information about their claim, including reasons for the reward, achievements, or other relevant details.
+- **Approval Flow**: A tab that likely contains the approval process for the reward claim, showing the steps and individuals involved in the approval process.
+- **Chat**: A chat feature that allows users to communicate with the approval team or other users about their claim.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When a user submits the form, the data is sent to the server via an HTTP POST request. The form data is typically sent to a specific endpoint or URL that handles the reward claim submission.
+- **Approval Flow**: The approval flow tab likely contains a series of steps or pages where the claim is reviewed and approved. Each step might have its own endpoint or URL, and the user would navigate through these pages to complete the approval process.
+- **Chat**: The chat feature might use a different endpoint or URL for communication, possibly using a messaging service or a custom chat system integrated into the portal.
+
+### Detailed Breakdown
+
+#### Form Submission
+- **HTML Form**: The form is built using HTML, with fields for the subject, attachments, and content.
+- **JavaScript**: The form likely uses JavaScript for client-side validation and to handle form submission.
+- **Server-Side Handling**: When the form is submitted, the data is sent to a server-side endpoint using an HTTP POST request. The endpoint might be configured to handle the form data and perform any necessary processing or validation.
+
+#### Approval Flow
+- **Tabs**: The approval flow is likely displayed as a series of tabs, each representing a different step in the approval process.
+- **Endpoints**: Each tab might have its own endpoint or URL, and the user would navigate through these pages to complete the approval process.
+- **Communication**: The approval flow might use a different endpoint or URL for communication, possibly using a messaging service or a custom chat system integrated into the portal.
+
+#### Chat
+- **Endpoint**: The chat feature likely uses a different endpoint or URL for communication, possibly using a messaging service or a custom chat system integrated into the portal.
+- **Communication**: The chat feature allows users to communicate with the approval team or other users about their claim, using a messaging service or a custom chat system.
+
+### Conclusion
+The reward claim section is a critical feature of the student portal, allowing users to request and track rewards for their academic achievements. It involves form submission, approval flow, and communication features, all of which are integrated into a wider web system structure. The form data is sent to a server-side endpoint for processing, and the approval flow and chat features use different endpoints or URLs for communication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/
+### Analysis of the Student Portal Reward Redeem Section
+
+#### 1. Action or Transactional Feature
+The "Reward Redeem" section is designed to manage and track the approval process for redeeming reward points. This feature allows students to draft, submit, and track their reward redemption approvals. The primary actions include:
+- **Drafting**: Students can create a draft of their redemption request.
+- **Submitting**: The draft can be submitted for approval.
+- **Tracking**: Approval status can be tracked to ensure the redemption is processed.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following key elements:
+- **Subject**: A text field where the student can enter a subject for the email or message.
+- **Attachments**: A file upload field where the student can attach files (up to 2 files).
+- **Content**: An editor where the student can write the main content of the message.
+- **Approval Flow**: A tab that likely contains the approval process steps or flow.
+- **Chat**: A chat feature for real-time communication with the approval team.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page communicates information to the wider web system structure through the following mechanisms:
+- **Form Submission**: When the "Save Draft" button is clicked, the form data is submitted to the server. This data includes the subject, attachments, and content.
+- **Approval Flow**: The approval flow tab likely contains the steps for approval, which can be triggered by clicking on specific buttons or links.
+- **Chat Integration**: The chat feature allows real-time communication with the approval team, which can be initiated by clicking on the chat icon.
+
+### Detailed Breakdown
+
+#### Form Submission
+When the "Save Draft" button is clicked, the form data is sent to the server. The form data includes:
+- **Subject**: The text entered in the "Subject" field.
+- **Attachments**: The selected files from the "Attachments" field.
+- **Content**: The text entered in the "Content" editor.
+
+This data is typically sent via an HTTP POST request to the server's backend endpoint. The endpoint would handle the form submission, possibly storing the draft in a database or sending it to the approval flow.
+
+#### Approval Flow
+The "Approval Flow" tab likely contains the steps for the approval process. This could include:
+- **Step 1**: Review the draft.
+- **Step 2**: Approve or reject the request.
+- **Step 3**: Notify the student of the approval status.
+
+The approval flow could be triggered by clicking on specific buttons or links in the tab. Each step might involve sending a request to the server to update the approval status.
+
+#### Chat Integration
+The chat feature allows real-time communication with the approval team. When a student clicks on the chat icon, a message is sent to the chat server. The chat server then forwards the message to the approval team, who can respond in real-time.
+
+### Summary
+The "Reward Redeem" section is a comprehensive tool for students to manage and track their reward redemption requests. It exposes various fields for drafting, submitting, and tracking the approval process, and integrates with real-time communication for better management. The data is sent to the server via HTTP POST requests, and the approval flow and chat features are triggered through specific interactions with the page.
 
 --•--•--
 
