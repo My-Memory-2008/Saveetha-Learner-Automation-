@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 93
-**Pending Sub-Layer Queue Boundaries:** 259
+**Total Verified Inner Nodes Mapped:** 97
+**Pending Sub-Layer Queue Boundaries:** 543
 
 ## Architectural Breakdown per Sub-System:
 
@@ -4720,6 +4720,236 @@ $.ajax({
 
 ### Conclusion
 This section of the student portal is designed to provide a user-friendly interface for managing and viewing events. It uses JavaScript for client-side processing and AJAX for server-side communication, ensuring a smooth and responsive user experience. The page effectively filters and displays events based on the user's selections, and updates the database in real-time.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "Events Participating" in the student portal is designed to display the events to which the user is enrolled. This feature allows students to view their scheduled events, including their modules, exams, and study weeks. The user can filter and sort these events based on various criteria such as date, event type, and location.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Event Term**: A dropdown menu that allows the user to select the specific term or semester they are enrolled in.
+- **From Date**: A date input field that enables the user to specify the start date of the events they are interested in.
+- **To Date**: A date input field that allows the user to specify the end date of the events they are interested in.
+- **Event Type**: A dropdown menu that categorizes the events into different types such as "EXAMCENTRE," "STUDY WEEK - S1," and "CIA-I EXAM."
+- **Location**: A text input field that allows the user to specify the location of the events.
+- **Mode**: A dropdown menu that categorizes the mode of the events (e.g., "Booked," "Unread Chat").
+- **Unread Chat**: A checkbox that indicates whether the user has unread messages or notifications related to the events.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page uses JavaScript to dynamically load and display the events based on the user's selections. When the user applies the filters, the page sends an AJAX request to the server to fetch the relevant events data. The server processes the request, filters the events based on the selected criteria, and returns the results to the client. The page then updates the display with the filtered events.
+
+Additionally, the page uses session management to ensure that the user's selections are retained across page reloads. This is achieved through the use of cookies or local storage to store the user's selections and apply them automatically when the page is reloaded.
+
+### Detailed Explanation of the Process
+
+1. **User Interaction**:
+   - The user selects the event term from the dropdown menu.
+   - The user specifies the start and end dates in the date input fields.
+   - The user selects the event type from the dropdown menu.
+   - The user specifies the location in the text input field.
+   - The user checks the "Unread Chat" box if they have unread messages related to the events.
+
+2. **AJAX Request**:
+   - When the user clicks the "Apply" button, the page sends an AJAX request to the server with the selected filters.
+   - The server processes the request and filters the events based on the selected criteria.
+   - The server returns the filtered events data to the client.
+
+3. **Page Update**:
+   - The page updates the display with the filtered events data.
+   - The page retains the user's selections using session management (cookies or local storage) to ensure the user's selections are retained across page reloads.
+
+4. **Session Management**:
+   - The page uses session management to store the user's selections and apply them automatically when the page is reloaded.
+   - This ensures that the user's selections are not lost and are applied consistently across different sessions.
+
+By following this process, the student portal effectively manages and displays the user's enrolled events, providing a seamless and efficient user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12743/
+API server link offline: 
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section you are analyzing appears to be a part of a student portal, specifically for tracking and managing student attendance and feedback for an exam. The key features it controls include:
+
+- **Attendance Tracking**: Monitoring the student's attendance status.
+- **Feedback Submission**: Allowing students to submit feedback on the exam.
+- **Booking Information**: Providing booking details for the exam session.
+- **Event Management**: Managing and tracking the event details and status.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+
+- **Student Information**:
+  - **Student Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+
+- **Event Details**:
+  - **Event Name**: Module/LeetCode/SA
+  - **Event ID**: 26-27-ODD-EXAMCENTRE
+  - **Location**: 1851
+  - **Time**: 3 p.m. - 3:59 p.m.
+
+- **Feedback Status**:
+  - **Status**: Present
+  - **Feedback**: Feedback Posted
+
+- **Booking Information**:
+  - **Booking Date**: Aug 6, 2026
+  - **Booking Time**: 5:32
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means:
+
+- **Session Data**: The session data is embedded within the HTML structure, which is then processed by the web server.
+- **JavaScript and AJAX**: The page uses JavaScript and AJAX to interact with the backend system, allowing real-time updates and data retrieval.
+- **Cookies and Local Storage**: The page uses cookies and local storage to store user session data and preferences.
+- **API Calls**: The page makes API calls to the backend system to fetch and update data, such as attendance and feedback status.
+- **Server-Side Processing**: The backend system processes the data and updates the database, which is then reflected on the frontend.
+
+### Detailed Breakdown
+
+#### HTML Structure
+The HTML structure of the page is designed to display the student's details and event information. The key elements are:
+
+```html
+<div class="student-portal">
+  <h1>Module/LeetCode/SA</h1>
+  <p>26-27-ODD-EXAMCENTRE - EXAMINATIONS</p>
+  <div class="student-info">
+    <h2>Student Information</h2>
+    <p>Student Name: Muhammad Asjad E</p>
+    <p>Register Number: 212225240091</p>
+    <p>Mode: Booked</p>
+  </div>
+  <div class="event-info">
+    <h2>Event Details</h2>
+    <p>Event Name: Module/LeetCode/SA</p>
+    <p>Event ID: 26-27-ODD-EXAMCENTRE</p>
+    <p>Location: 1851</p>
+    <p>Time: 3 p.m. - 3:59 p.m.</p>
+  </div>
+  <div class="feedback-info">
+    <h2>Feedback Status</h2>
+    <p>Status: Present</p>
+    <p>Feedback: Feedback Posted</p>
+  </div>
+  <div class="booking-info">
+    <h2>Booking Information</h2>
+    <p>Booking Date: Aug 6, 2026</p>
+    <p>Booking Time: 5:32</p>
+  </div>
+</div>
+```
+
+#### JavaScript and AJAX
+The page uses JavaScript to handle user interactions and AJAX to fetch data from the backend. For example:
+
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+  // Fetch feedback status
+  fetch('/api/feedback/status')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('feedback-status').innerText = data.status;
+      document.getElementById('feedback').innerText = data.feedback;
+    });
+
+  // Fetch booking information
+  fetch('/api/booking/info')
+    .then(response => response.json())
+    .then(data => {
+      document.getElementById('booking-date').innerText = data.date;
+      document.getElementById('booking-time').innerText = data.time;
+    });
+});
+```
+
+#### Server-Side Processing
+The backend system processes the data and updates the database. For example, when a student submits feedback:
+
+```python
+@app.route('/api/feedback', methods=['POST'])
+def feedback():
+    data = request.json
+    student_id = data['student_id']
+    feedback = data['feedback']
+    timestamp = datetime.now()
+    db.session.add(Feedback(student_id, feedback, timestamp))
+    db.session.commit()
+    return jsonify({'status': 'success'})
+```
+
+### Conclusion
+The student portal section is designed to provide a comprehensive view of the student's exam participation, including attendance, feedback, and booking information. It uses a combination of HTML, JavaScript, and AJAX to interact with the backend system and update the user interface in real-time. The page also leverages server-side processing to manage and update the database, ensuring that the data is accurate and up-to-date.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12849/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section you are analyzing appears to be a part of a student portal that manages academic events and student attendance. The specific page you are looking at seems to be related to a particular event, likely a coding or programming module, given the "Module/LeetCode/SA" label. This section controls the following transactional features:
+
+- **Event Attendance Tracking**: It tracks the attendance of students in the event.
+- **Feedback Submission**: It allows students to submit feedback on the event.
+- **Booking Confirmation**: It confirms the booking status of the event for the student.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes several key variables and parameters that are critical for the functionality and data flow of the system. These include:
+
+- **Event ID**: The unique identifier for the event, which is 12849 in this case.
+- **Student ID**: The student's unique identifier, which is 25013957.
+- **Event Name**: The name of the event, which is "Module/LeetCode/SA".
+- **Session Date**: The date and time of the session, which is August 7, 2026, from 9 a.m. to 9:59 a.m.
+- **Session ID**: The unique identifier for the session, which is 1851.
+- **Feedback Status**: Whether the feedback has been posted, which is "Feedback Posted".
+- **Booking Status**: Whether the booking is confirmed, which is "Booked".
+- **Attendance Status**: Whether the student is present, which is "Present" with an attendance percentage of 100%.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means, including:
+
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user sessions and track user interactions.
+- **API Calls**: The page may make API calls to the backend system to update attendance records, post feedback, and manage booking confirmations.
+- **Database Queries**: The page interacts with a database to retrieve and display the necessary information about the event, student, and feedback.
+- **JavaScript**: The page uses JavaScript to dynamically update the page content based on user interactions and to handle form submissions.
+
+### Detailed Breakdown of the Page
+
+#### Overview
+- **Overview Tab**: Displays a summary of the event, including the student's name, registration number, and booking mode.
+- **Session Details**: Provides details about the session, including the event term, location, and time.
+
+#### Student Information
+- **Student Name**: Muhammad Asjad E
+- **Registration Number**: 212225240091
+- **Booking Mode**: Booked
+
+#### Event Details
+- **Event Name**: Module/LeetCode/SA
+- **Event Term**: 26-27-ODD-EXAMCENTRE
+- **Location**: 1851
+- **Time**: 9 a.m. - 9:59 a.m.
+
+#### Feedback Status
+- **Feedback Status**: Feedback Posted
+
+#### Attendance Status
+- **Attendance Status**: Present
+- **Attendance Percentage**: 100%
+
+### Conclusion
+This section of the student portal is designed to manage and display the attendance and feedback of students in academic events. It uses various web technologies and database interactions to provide a seamless user experience while ensuring data integrity and security. The page's functionality is tightly integrated with the wider web system, ensuring that all events, student records, and feedback are accurately tracked and managed.
 
 --•--•--
 
