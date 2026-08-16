@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 125
-**Pending Sub-Layer Queue Boundaries:** 1523
+**Total Verified Inner Nodes Mapped:** 129
+**Pending Sub-Layer Queue Boundaries:** 1542
 
 ## Architectural Breakdown per Sub-System:
 
@@ -6258,6 +6258,197 @@ The section in question appears to be a schedule or calendar view for a student 
 
 ### Summary
 The section in question is a highly interactive and detailed view of a student's schedule, allowing them to see their upcoming courses, lessons, and attendance details. It leverages URL parameters, JavaScript, and server-side interactions to dynamically display the schedule and provide additional functionality such as viewing attendance. The page also maintains the user's session information to ensure they have the necessary permissions to access their schedule.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=10&day=1
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a part of a student portal that manages academic schedules. It allows students to view and manage their academic schedules for a specific month and day. The primary action it controls is the retrieval and display of a student's schedule for a particular date.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026 (Fixed)
+  - **Month:** October (Fixed)
+  - **Day:** 1 (Fixed)
+  - **User ID:** 25013957 (Logged in user)
+
+- **Parameters:**
+  - **Year:** `2026`
+  - **Month:** `10`
+  - **Day:** `1`
+
+- **Text Grids:**
+  - **Header:** "OCTOBER 2026"
+  - **Days of the Week:** Mon, Tue, Wed, Thu, Fri, Sat, Sun
+  - **Current Date:** Thu (1st October 2026)
+
+- **Functions:**
+  - **Display Schedule:** The page fetches and displays the schedule for the specified date.
+  - **Error Handling:** If no schedule is found for the specified date, it displays a message: "No schedule found for this date."
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **URL Parameters:**
+  - The page uses URL parameters to pass the year, month, and day to the backend system. These parameters are embedded in the URL, such as `https://learner.saveetha.in/academics/people_schedule/?year=2026&month=10&day=1`.
+
+- **Session Management:**
+  - The logged-in user's ID (25013957) is stored in the session. This information is used to authenticate the user and ensure that the correct schedule is displayed.
+
+- **Backend Interaction:**
+  - The page makes an HTTP request to the backend system to fetch the schedule data for the specified date. The backend system processes the request and returns the schedule data, which is then displayed on the frontend.
+
+### Summary
+The section in question is a part of a student portal that manages academic schedules. It controls the retrieval and display of a student's schedule for a specific date. The page passes information to the wider web system structure through URL parameters, session management, and backend interaction. This allows the page to dynamically display the schedule based on the user's logged-in status and the specified date.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=31
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to control the display of academic schedules for students at Saveetha Engineering College. It allows users to view their schedule for a specific month and year, in this case, August 2026. The user can navigate through the month and view specific days to see their scheduled classes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 31 (Selected day for viewing schedule)
+  
+- **Parameters:**
+  - **Year:** `year=2026`
+  - **Month:** `month=8`
+  - **Day:** `day=31`
+
+- **Text Grids:**
+  - **Schedule:** Displays the schedule for the selected day.
+  - **Circulars:** Displays any circulars or announcements related to the selected day.
+  - **My Reward Points:** Displays the user's reward points.
+  - **Workflow Requests:** Displays any workflow requests the user has.
+  - **Workflow Approvals:** Displays any workflow approvals the user has.
+  - **Bookings:** Displays any bookings the user has.
+  - **Services:** Displays any services the user has.
+  - **Mentees:** Displays any mentees the user has.
+  - **Mentorship:** Displays any mentorship the user has.
+
+- **Functions:**
+  - **View Attendance:** Allows the user to view their attendance for the selected day.
+  - **Settings:** Allows the user to adjust settings related to their schedule.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **HTTP Request:**
+  - The page makes an HTTP GET request to the server to fetch the schedule data for the selected day.
+  - The request includes the following parameters:
+    - **Year:** `year=2026`
+    - **Month:** `month=8`
+    - **Day:** `day=31`
+    - **User ID:** `25013957` (logged in user ID)
+    - **Session ID:** `1495.99:1495.99` (session token)
+
+- **Response:**
+  - The server processes the request and returns the schedule data in JSON format.
+  - The data includes:
+    - **Schedule:** List of classes scheduled for the selected day.
+    - **Circulars:** List of circulars or announcements for the selected day.
+    - **My Reward Points:** List of reward points.
+    - **Workflow Requests:** List of workflow requests.
+    - **Workflow Approvals:** List of workflow approvals.
+    - **Bookings:** List of bookings.
+    - **Services:** List of services.
+    - **Mentees:** List of mentees.
+    - **Mentorship:** List of mentorship.
+
+- **Session Management:**
+  - The session token (`1495.99:1495.99`) is used to maintain the user's session and track their actions.
+  - The user ID (`25013957`) is used to identify the logged-in user.
+
+### Summary
+This section of the student portal is designed to provide a comprehensive view of the student's academic schedule for a specific day in August 2026. It exposes various variables, parameters, and functions related to the schedule, rewards, and other student-related information. The page passes this information to the wider web system structure through an HTTP GET request, which is processed by the server to return the relevant data in JSON format. The session management ensures that the user's actions are tracked and maintained across sessions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=29
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to control the student's schedule and attendance tracking for the specified academic year and month. It allows students to view their scheduled lessons, check their attendance records, and manage their academic activities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 29 (Saturday)
+  - **Student ID:** 25013957
+  - **Name:** Muhammad Asjad E
+  - **Ref1:** 212225240091
+  - **Ref2:** 25013957
+
+- **Parameters:**
+  - **Slot:** 26OD1171, 26OD1089, 26OD1001
+  - **Lesson:** Event Day, Deadlocks – System Model, Characterization, and Handling Methods, Event Day
+  - **Start Time:** 08:00 AM, 10:00 AM, 01:00 PM
+  - **End Time:** 09:59 AM, 11:59 AM, 02:59 PM
+  - **Venue:** 2872, 5453, 3681
+
+- **Text Grids:**
+  - **Schedule:** Displays the student's schedule for the specified day.
+  - **View Attendance:** Links to the student's attendance record for the specified lesson.
+  - **Settings:** Allows the student to manage their schedule or attendance settings.
+
+- **Functions:**
+  - **View Attendance:** Allows the student to view their attendance record for the specified lesson.
+  - **Settings:** Allows the student to manage their schedule or attendance settings.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Structure:**
+  - The URL structure is `https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=29`.
+  - Parameters are passed via query strings.
+
+- **Data Transmission:**
+  - The student's ID, name, and other details are passed in the URL.
+  - The specific lesson details (slot, lesson, start time, end time, venue) are also passed in the query string.
+
+- **Web Server Interaction:**
+  - The web server receives the request and processes the query string parameters.
+  - The server then fetches the student's schedule and attendance records based on the parameters.
+  - The server sends the response back to the client, which is displayed on the student portal.
+
+- **Database Interaction:**
+  - The server interacts with the database to retrieve the student's schedule and attendance records.
+  - The database is likely a relational database system (e.g., MySQL, PostgreSQL) that stores the student's schedule and attendance data.
+
+- **Security Measures:**
+  - The use of query strings for passing parameters is a common practice for GET requests.
+  - The server should validate and sanitize the parameters to prevent SQL injection and other security vulnerabilities.
+
+### Summary
+The section in question is a user interface for viewing and managing a student's schedule and attendance records. It exposes variables, parameters, and functions related to the student's schedule and attendance. The page passes information to the wider web system structure through the URL and database interactions. Security measures are in place to prevent potential vulnerabilities.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=30
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is likely a part of a student portal that allows students to view their academic schedules. The specific date displayed is August 30, 2026. This section controls the functionality of displaying the student's schedule for that particular day.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Date Parameter**: The date is hardcoded in the URL, specifically `month=8` and `day=30`. This means the page is designed to show the schedule for August 30, 2026.
+- **User ID**: The user is logged in with the ID `25013957`, which is likely a unique identifier for the student.
+- **Year**: The year is hardcoded as `2026`, indicating the specific academic year.
+- **Page Title**: The title of the page is `AUGUST 2026`, which is dynamically generated based on the date parameter.
+- **Content**: The page displays a message "No schedule found for this date," indicating that the schedule for August 30, 2026, is not available or has not been populated yet.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The URL parameters are used to pass the specific date and year to the server. For example, `month=8` and `day=30` are passed to the server to fetch the schedule for August 30, 2026.
+- **Server-Side Logic**: The server-side logic would handle the request, retrieve the schedule data for the specified date, and then return it to the client. This could involve querying a database or an API that provides the schedule data.
+- **Database Interaction**: The server might use a database to store and retrieve the schedule data. The database would have tables for students, schedules, and dates, with foreign keys to link the student to their schedule.
+- **API Integration**: The page might also integrate with an external API to fetch the schedule data, especially if the schedule is dynamic or requires real-time updates.
+
+### Summary
+The section in question is a part of a student portal that displays the schedule for a specific date. It uses URL parameters to pass the date and year to the server, which then retrieves the schedule data from a database or an API. The page displays a message if the schedule for the specified date is not available.
 
 --•--•--
 
