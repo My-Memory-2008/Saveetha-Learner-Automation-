@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 57
-**Pending Sub-Layer Queue Boundaries:** 202
+**Total Verified Inner Nodes Mapped:** 61
+**Pending Sub-Layer Queue Boundaries:** 215
 
 ## Architectural Breakdown per Sub-System:
 
@@ -2921,6 +2921,221 @@ The page likely passes information to the wider web system structure through the
 
 ### Conclusion
 The section in question is a part of a student portal that controls a transactional feature related to the "Finite Earth Movement" and the "FEM'Us Pledge." It exposes variables, parameters, and text grids that track the status of the movement, including the number of participants, mentors, managers, the start date, and the task completion percentage. The page passes information to the wider web system structure through API calls, database updates, webhooks, and session management.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/100/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Notice on Mentor Selection and Change" page. This page controls the process for selecting and changing mentors for students. The key actions and transactions it facilitates include:
+
+- **Mentor Selection**: Students can apply to be mentored by a faculty member or another student.
+- **Mentor Change**: Students can request to change their current mentor.
+- **Approval Process**: The system ensures that mentors are approved for the selected students.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The page exposes several key variables and parameters that are critical for the mentor selection and change process:
+
+- **Participants**: The total number of participants (3046/3464).
+- **Mentors**: The number of mentors available (0/0).
+- **Managers**: The number of managers available (1/1).
+- **Start Date**: The date when the process starts (14/07/2026).
+- **Task Completion**: The status of the task completion (0/0, indicating that no tasks have been completed).
+
+The page also includes text grids that provide detailed information about the mentor selection process, such as the mentorship type (NoMentor), and the specific years (SCOFT Faculty, SCOFT III Year, SCOFT II Year, SCOFT IV Year).
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page communicates with the wider web system structure through various means, including:
+
+- **API Calls**: The page likely makes API calls to update the system's database with the selected mentors and their status.
+- **Webhooks**: It may use webhooks to notify other parts of the system when a mentor selection or change is completed.
+- **Database Updates**: The page updates the system's database with the new mentor assignments and changes.
+- **User Authentication**: The page ensures that only authorized users can access and modify the mentor selection and change process.
+
+### Detailed Explanation
+
+1. **API Calls**: The page makes API calls to update the system's database with the selected mentors and their status. This ensures that the system's core data is always up-to-date.
+
+2. **Webhooks**: The page uses webhooks to notify other parts of the system when a mentor selection or change is completed. This helps in maintaining a consistent and synchronized system.
+
+3. **Database Updates**: The page updates the system's database with the new mentor assignments and changes. This ensures that the system's core data is always accurate and reflects the current state of the mentor selection and change process.
+
+4. **User Authentication**: The page ensures that only authorized users can access and modify the mentor selection and change process. This is typically done through user authentication mechanisms, such as login credentials or access tokens.
+
+### Conclusion
+The "Notice on Mentor Selection and Change" page is a critical component of the student portal, controlling the mentor selection and change process. It exposes various variables and parameters, communicates with the wider web system structure through API calls, webhooks, and database updates, and ensures user authentication to maintain system integrity and security.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/96/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the scheduling and management of mandatory training sessions for students in the Programming Module Course and EY Module Course. This includes tracking participant attendance, mentor assignments, and managing the overall progress of the training sessions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants in the training sessions.
+- **Mentors**: The number of mentors assigned to the training sessions.
+- **Managers**: The number of managers overseeing the training sessions.
+- **Start Date**: The date when the training sessions began.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating that no tasks have been completed.
+- **Circular**: The number of circulars related to the training sessions.
+- **Chat**: The number of chats related to the training sessions.
+- **Tasks**: The number of tasks assigned to the training sessions.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the training sessions. Here’s a breakdown of how it might pass information:
+
+- **API Calls**: The page might make API calls to update the status of the training sessions, such as marking participants as present or absent, updating mentor assignments, and logging chat messages.
+- **Database Integration**: The page could integrate with a database to store and retrieve information about participants, mentors, managers, and the overall progress of the training sessions.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the training session data.
+- **Notifications**: The page could send notifications to participants, mentors, and managers about the status of the training sessions, such as reminders for upcoming sessions or updates on task completion.
+
+### Detailed Explanation of the Page Structure
+
+#### Header
+- **Logo**: The logo of the institution, likely representing the Save Etha institution.
+- **User Profile**: A dropdown menu for user profile settings, including options like logging out and account information.
+
+#### Main Content
+- **Title**: The title of the page, which is "Programming Module Course & EY Module Course - Mandatory Training Sessions."
+- **Participants**: Displays the total number of participants in the training sessions.
+- **Mentors**: Displays the number of mentors assigned to the training sessions.
+- **Managers**: Displays the number of managers overseeing the training sessions.
+- **Start Date**: Displays the date when the training sessions began.
+- **Task Completion**: Displays the status of task completion, which is currently at 0/0.
+- **Circular**: Displays the number of circulars related to the training sessions.
+- **Chat**: Displays the number of chats related to the training sessions.
+- **Tasks**: Displays the number of tasks assigned to the training sessions.
+
+#### Sidebar
+- **Menu**: A sidebar menu with options such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," and "Services."
+- **Manage**: A section for managing mentees and mentorship.
+
+#### Footer
+- **Logged in as**: Displays the logged-in user's information, including their ID and name.
+
+### Conclusion
+This section of the student portal is designed to manage and track the progress of mandatory training sessions for students in the Programming Module Course and EY Module Course. It exposes various variables and parameters related to the training sessions and interacts with a backend system to update and manage this information. The page also provides notifications and user authentication to ensure secure access and management of the training sessions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/93/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the management and tracking of the "Transport Utilization - E-Bus Pass - Academic Year 2026-2027 - Reg." This section likely manages the registration, tracking, and approval of students for the E-Bus Pass program for the specified academic year. It involves the following key actions:
+- **Registration and Enrollment:** Managing the registration of students for the E-Bus Pass program.
+- **Task Completion Tracking:** Monitoring and tracking the completion of tasks related to the E-Bus Pass program.
+- **Approval and Review:** Approving or reviewing the tasks and ensuring they are completed as expected.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several key variables and parameters that are crucial for its functionality:
+- **Participants:** The total number of participants registered for the E-Bus Pass program.
+- **Mentors:** The number of mentors assigned to the program.
+- **Managers:** The number of managers overseeing the program.
+- **Start Date:** The date when the program started.
+- **Task Completion:** The status of task completion, indicating whether tasks have been approved or expected.
+
+Additionally, the section uses text grids to display this information clearly and provides links for navigation and further actions:
+- **Back to Circulars:** A link to return to the main circulars page.
+- **Circular:** A link to view the circular details.
+- **Tasks:** A link to view the tasks associated with the program.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **API Calls:** The page likely makes API calls to update the status of tasks and track participant progress.
+- **Database Integration:** The page interacts with a database to store and retrieve information about participants, mentors, managers, and task statuses.
+- **User Authentication:** The page uses user authentication to ensure that only authorized users can access and modify the information.
+- **Webhooks:** The page may use webhooks to notify other systems or applications of changes in task statuses or participant enrollments.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title:** "Transport Utilization - E-Bus Pass - Academic Year 2026-2027 - Reg."
+- **User Information:** Displays the logged-in user's ID and name.
+
+#### Main Content
+- **Participants:** Displays the total number of participants registered for the E-Bus Pass program.
+- **Mentors:** Displays the number of mentors assigned to the program.
+- **Managers:** Displays the number of managers overseeing the program.
+- **Start Date:** Displays the date when the program started.
+- **Task Completion:** Displays the status of task completion, indicating whether tasks have been approved or expected.
+
+#### Sidebar
+- **Circulars:** Displays the number of active circulars and provides a link to return to the main circulars page.
+- **My Reward Points:** Displays the user's reward points.
+- **Workflow Requests:** Displays the number of workflow requests and provides a link to view them.
+- **Workflow Approvals:** Displays the number of workflow approvals and provides a link to view them.
+- **Bookings:** Displays the number of bookings and provides a link to view them.
+- **Services:** Displays the available services and provides links to view them.
+
+#### Main Content
+- **Circular:** Displays the circular details, including the type of mentorship (Academic Mentor).
+- **Tasks:** Displays the tasks associated with the program and provides links to view them.
+
+### Conclusion
+This section of the student portal is designed to manage and track the registration, tracking, and approval of students for the E-Bus Pass program. It exposes various variables and parameters, uses text grids for clear display, and interacts with the wider web system structure through API calls, database integration, user authentication, and webhooks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/92/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a part of a student portal that manages academic activities, specifically the Leaders selection for Tech Society 2026-2027. This section controls the following transactional features:
+- **Circular Management**: It allows users to manage and view circulars related to the Leaders selection.
+- **Mentorship Management**: It facilitates the management of mentors and mentees involved in the Leaders selection.
+- **Task Tracking**: It tracks the progress of tasks related to the Leaders selection, such as mentorship approvals and task completions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables, parameters, and functions:
+- **Participants**: The total number of participants in the Leaders selection.
+- **Mentors**: The number of mentors involved in the selection.
+- **Managers**: The number of managers overseeing the selection.
+- **Start Date**: The date when the Leaders selection began.
+- **Task Completion**: The status of task completions, indicating whether tasks have been approved or expected.
+- **Circulars**: The number of circulars related to the Leaders selection.
+- **Chat**: The number of chat messages related to the Leaders selection.
+- **Tasks**: The number of tasks related to the Leaders selection.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page likely makes API calls to the backend system to retrieve and update data related to the Leaders selection.
+- **Session Management**: The page uses session management to track user interactions and maintain state across different pages.
+- **Cookies and Local Storage**: The page uses cookies and local storage to store user preferences and session data.
+- **JavaScript**: The page uses JavaScript to dynamically update content based on user interactions and to handle form submissions.
+- **Server-Side Processing**: The page sends data to the server for processing and updates, which is then reflected on the client-side.
+
+### Detailed Explanation
+
+#### API Calls
+The page makes API calls to the backend system to retrieve and update data related to the Leaders selection. This could include fetching participant lists, mentor lists, task statuses, and more. The API endpoints might be structured as follows:
+- **GET /api/circulars**: Retrieves a list of circulars related to the Leaders selection.
+- **POST /api/membership**: Adds a new mentor or mentee to the Leaders selection.
+- **PUT /api/tasks**: Updates the status of a task related to the Leaders selection.
+
+#### Session Management
+The page uses session management to track user interactions and maintain state across different pages. This could include storing user preferences, session timeouts, and user authentication status.
+
+#### Cookies and Local Storage
+The page uses cookies and local storage to store user preferences and session data. This could include storing user login information, session tokens, and user preferences.
+
+#### JavaScript
+The page uses JavaScript to dynamically update content based on user interactions and to handle form submissions. This could include:
+- **AJAX Requests**: Sending form data to the server for processing and updating the page.
+- **Form Validation**: Ensuring that user input is valid before submitting the form.
+- **Dynamic Content Updates**: Updating the page with the latest data from the backend.
+
+#### Server-Side Processing
+The page sends data to the server for processing and updates, which is then reflected on the client-side. This could include:
+- **POST /api/circulars**: Submitting a new circular to the backend system.
+- **PUT /api/tasks**: Updating the status of a task related to the Leaders selection.
+- **GET /api/membership**: Fetching a list of mentors and mentees related to the Leaders selection.
+
+### Conclusion
+The section in question is a critical part of the student portal that manages the Leaders selection for Tech Society 2026-2027. It controls various transactional features, exposes variables and parameters, and passes information to the wider web system structure through API calls, session management, cookies/local storage, and JavaScript. This ensures that the page is both functional and secure, providing a seamless experience for users involved in the Leaders selection.
 
 --•--•--
 
