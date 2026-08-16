@@ -336,9 +336,8 @@ name: Run Web Agent Automation
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    # ✅ TIMED TRIGGERS: Runs automatically every single day at 8:00 AM UTC (1:30 PM IST)
-    # Running it daily keeps updating the session cookies so they stay permanently fresh.
-    - cron: '0 8 * * *' 
+    # Triggers the workflow every 20 minutes
+    - cron: '*/20 * * * *'
 
 jobs:
   run-agent:
