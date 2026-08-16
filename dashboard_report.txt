@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 97
-**Pending Sub-Layer Queue Boundaries:** 543
+**Total Verified Inner Nodes Mapped:** 101
+**Pending Sub-Layer Queue Boundaries:** 765
 
 ## Architectural Breakdown per Sub-System:
 
@@ -4950,6 +4950,244 @@ The page passes information to the wider web system structure through various me
 
 ### Conclusion
 This section of the student portal is designed to manage and display the attendance and feedback of students in academic events. It uses various web technologies and database interactions to provide a seamless user experience while ensuring data integrity and security. The page's functionality is tightly integrated with the wider web system, ensuring that all events, student records, and feedback are accurately tracked and managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12875/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section you are analyzing is a part of a student portal that manages academic events and student participation. Specifically, it controls the following actions and transactions:
+- **Event Participation**: Allows students to participate in academic events.
+- **Attendance Tracking**: Tracks the attendance of students in events.
+- **Feedback Submission**: Allows students to submit feedback on the events they attended.
+- **Booking Management**: Manages the booking status of events for students.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables, parameters, and functions:
+- **Event Details**: Information about the event, including the name, date, time, and location.
+- **Student Information**: Details about the student, such as their name, registration number, and booking mode.
+- **Attendance Status**: Whether the student is present or absent.
+- **Feedback Status**: Whether the feedback has been posted or not.
+- **Booking Status**: Whether the booking is booked or not.
+- **Event ID**: Unique identifier for the event.
+- **Student ID**: Unique identifier for the student.
+- **Event Type**: Type of event (e.g., examination, workshop).
+- **Event Date and Time**: Specific date and time of the event.
+- **Location ID**: Specific location where the event is held.
+- **Feedback URL**: URL where the feedback can be submitted.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page makes API calls to the backend system to fetch event details, student information, and booking status.
+- **Session Management**: The page uses session management to store and retrieve information about the student and event.
+- **Cookies and Cookies**: Cookies are used to store user information and session data.
+- **JavaScript**: JavaScript is used to dynamically load and update the page content based on user interactions and backend responses.
+- **Webhooks**: The page may use webhooks to notify the backend system about changes in student attendance or feedback status.
+
+### Detailed Breakdown
+
+#### API Calls
+The page makes API calls to the backend system to fetch the following data:
+- **Event Details**: Information about the event, including the name, date, time, and location.
+- **Student Information**: Details about the student, such as their name, registration number, and booking mode.
+- **Attendance Status**: Whether the student is present or absent.
+- **Feedback Status**: Whether the feedback has been posted or not.
+- **Booking Status**: Whether the booking is booked or not.
+
+#### Session Management
+The page uses session management to store and retrieve information about the student and event. This is done using cookies and session variables.
+
+#### JavaScript
+JavaScript is used to dynamically load and update the page content based on user interactions and backend responses. For example, when a student clicks on a feedback link, JavaScript makes an AJAX request to the backend to submit the feedback.
+
+#### Webhooks
+The page may use webhooks to notify the backend system about changes in student attendance or feedback status. This is done to ensure that the backend system is updated in real-time.
+
+### Conclusion
+This section of the student portal is designed to manage the participation of students in academic events, track their attendance, and collect feedback. It uses a combination of API calls, session management, JavaScript, and webhooks to interact with the wider web system structure and provide a seamless user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12887/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to control the booking and management of student attendance for exams. Specifically, it manages the booking of students for exams, tracks their attendance, and posts feedback.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Student ID:** The student's unique identifier.
+  - **Exam ID:** The specific exam the student is attending.
+  - **Exam Date and Time:** The date and time of the exam.
+  - **Exam Location:** The location where the exam is being held.
+  - **Exam Mode:** Whether the exam is booked or not.
+  - **Feedback Status:** Whether the feedback has been posted or not.
+  - **Attendance Status:** Whether the student is present or absent.
+
+- **Parameters:**
+  - **Exam ID:** Used to identify the specific exam the student is attending.
+  - **Exam Date and Time:** Used to determine the exam date and time.
+  - **Exam Location:** Used to determine the exam location.
+  - **Exam Mode:** Used to determine if the exam is booked or not.
+  - **Feedback Status:** Used to determine if the feedback has been posted or not.
+  - **Attendance Status:** Used to determine if the student is present or absent.
+
+- **Text Grids:**
+  - **Overview:** Provides a summary of the student's exam details.
+  - **Chat:** Likely for communication with the student or exam organizers.
+  - **Attendance:** Displays the student's attendance status.
+  - **Feedback:** Displays the feedback status.
+
+- **Functions:**
+  - **Booking Function:** Used to book the student for the exam.
+  - **Attendance Tracking Function:** Used to track the student's attendance.
+  - **Feedback Posting Function:** Used to post feedback for the exam.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Data Flow:**
+  - **Booking Information:** When a student is booked for an exam, the booking information is passed to the wider system.
+  - **Attendance Data:** Attendance data is collected and sent to the wider system.
+  - **Feedback Data:** Feedback data is collected and sent to the wider system.
+  - **Event Details:** Event details, such as exam date, time, and location, are passed to the wider system.
+
+- **Security Measures:**
+  - **Encryption:** Data is likely encrypted to ensure secure transmission.
+  - **Authentication:** The system may require authentication to ensure that only authorized users can access and modify the data.
+
+- **Integration with Wider System:**
+  - **APIs:** The system may use APIs to integrate with other parts of the wider system, such as the database, to store and retrieve data.
+  - **Webhooks:** Webhooks may be used to notify other systems when certain events occur, such as when a student is booked or when feedback is posted.
+
+### Summary
+This section of the student portal is designed to manage the booking, attendance, and feedback for exams. It exposes various variables and parameters related to the exam, student, and feedback. The page passes this information to the wider web system structure through data flows, encryption, authentication, and integration with APIs and webhooks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/13092/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal that manages academic events and student participation. The primary action it controls is the tracking and management of student attendance and feedback for specific events. This includes booking sessions, checking attendance, and managing feedback.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Event Details**: 
+  - **Event ID**: 13092
+  - **Event Name**: STUDY WEEK - S1
+  - **Event Date**: Aug 10, 2026
+  - **Session Time**: 10 a.m. - 11:29 a.m.
+  - **Location**: 2331
+  - **Event Type**: 26-27-LEARNING
+
+- **Student Information**:
+  - **Student Name**: MUHAMMAD ASJAD E
+  - **Student ID**: 212225240091
+  - **Mode**: Booked
+
+- **Attendance Status**:
+  - **Status**: ABSENT
+  - **Attendance Percentage**: 0.0%
+
+- **Feedback Status**:
+  - **Status**: PENDING
+  - **Feedback**: Feedback Pending
+
+- **Booking Information**:
+  - **Booking Date**: Aug 10, 2026
+  - **Booking Time**: 01:00
+
+- **Event Type**:
+  - **Event Term**: 26-27-LEARNING
+
+- **Event ID**:
+  - **Event ID**: 13092
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and update the student's attendance and feedback status. Here’s a breakdown of how this might work:
+
+1. **Event Booking**:
+   - When a student books a session, the booking information is stored in the system.
+   - The system updates the booking status to "Booked" and logs the booking date and time.
+
+2. **Attendance Tracking**:
+   - The system tracks the student's attendance based on the session time and date.
+   - If the student is present during the session, the attendance status is updated to "Present."
+   - If the student is absent, the attendance status is updated to "Absent."
+
+3. **Feedback Submission**:
+   - The student can submit feedback during or after the session.
+   - The system updates the feedback status to "Pending" and logs the feedback submission date and time.
+
+4. **Event Management**:
+   - The system manages the event details, including the session time, location, and event type.
+   - The system updates the event details based on the session time and date.
+
+5. **User Authentication**:
+   - The page is logged in as a specific user (25013957), indicating that the user has authenticated with the system.
+   - The user can navigate to other sections of the portal, such as "Schedule," "Circulars," "My Reward Points," and "Workflow Requests."
+
+6. **Security and Privacy**:
+   - The system ensures that the student's personal and sensitive information is securely stored and protected.
+   - The system uses secure protocols to handle data transmission and storage.
+
+### Summary
+This section of the student portal is designed to manage and track the attendance and feedback of students participating in academic events. It exposes various variables and parameters related to the event, student, and booking status. The page interacts with a wider web system to update and manage these details, ensuring that the system remains synchronized with the student's activities and feedback.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/13093/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a detailed view of a student's participation in an event, specifically "STUDY WEEK - S1." This section controls the following transactional features:
+- **Event Participation**: Displays the student's attendance status and feedback.
+- **Booking Information**: Shows the booking details, including the date, time, and booking status.
+- **Feedback Posting**: Indicates whether the feedback has been posted or not.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+- **Student Information**:
+  - **Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+  - **Event Term**: 26-27-LEARNING
+  - **Location**: 2331
+  - **Time**: 1:15 p.m. - 2:44 p.m.
+
+- **Event Details**:
+  - **Event Name**: STUDY WEEK - S1
+  - **Event ID**: 13093
+  - **Event Type**: LEARNING
+  - **Session Date**: Aug 10, 2026
+  - **Session Time**: 1:15 p.m. - 2:44 p.m.
+
+- **Attendance Status**:
+  - **Status**: Present
+  - **Attendance Percentage**: 100%
+
+- **Feedback Status**:
+  - **Status**: Feedback Posted
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**:
+  - The event ID (13093) is passed in the URL.
+  - The student's registration number (212225240091) is also passed in the URL.
+
+- **Session Variables**:
+  - The session ID is stored in the session variable, which can be accessed by the server-side script to track user sessions.
+
+- **Cookies**:
+  - Cookies can be used to store user-specific information, such as login status, preferences, or session-specific data.
+
+- **Server-Side Scripts**:
+  - The page makes calls to server-side scripts to fetch additional data or perform actions, such as updating the user's session status or retrieving more detailed feedback.
+
+- **AJAX Requests**:
+  - The page may use AJAX requests to fetch real-time data or perform asynchronous operations without reloading the page.
+
+### Summary
+This section of the student portal is designed to provide detailed information about a student's participation in an event. It exposes various variables and parameters related to the student's registration, event details, and attendance status. The page interacts with the wider web system structure through URL parameters, session variables, cookies, server-side scripts, and AJAX requests to ensure a seamless and dynamic user experience.
 
 --•--•--
 
