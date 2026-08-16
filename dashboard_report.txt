@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 5
-**Pending Sub-Layer Queue Boundaries:** 38
+**Total Verified Inner Nodes Mapped:** 9
+**Pending Sub-Layer Queue Boundaries:** 42
 
 ## Architectural Breakdown per Sub-System:
 
@@ -211,6 +211,167 @@ The page likely communicates with the wider web system structure through the fol
 
 ### Summary
 This section of the student portal is designed to allow users to manage their public profile details, including their profile photo, LinkedIn and GitHub URLs, and a brief description. The page communicates with the wider web system structure through form submissions, API calls, and session management to update and maintain the user's profile information.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/people/activity-log/
+### Analysis of the Activity Log Section
+
+#### 1. Action or Transactional Feature it Controls
+The Activity Log section in the student portal is designed to track and log user activities, such as logins and logouts. This feature helps in monitoring user behavior and ensuring security by recording who accessed the system and when. It also aids in troubleshooting and auditing purposes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `Date/Time`: The timestamp of the activity.
+  - `Activity`: The type of action (e.g., Login, Logout).
+  - `Details`: Additional information about the activity, which is currently empty in this log.
+  - `IP Address`: The IP address of the device from which the activity was performed.
+
+- **Parameters:**
+  - `Date/Time`: The specific date and time of the activity.
+  - `Activity`: The type of action (e.g., Login, Logout).
+  - `Details`: Any additional information about the activity.
+  - `IP Address`: The IP address of the device.
+
+- **Text Grids:**
+  - The table structure is used to display the activity log in a tabular format, making it easy to read and understand.
+
+- **Functions:**
+  - The page likely uses JavaScript or a similar scripting language to dynamically update the table with the latest activity logs.
+  - It may also use server-side scripting (e.g., PHP, Python) to fetch and display the logs.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Data Flow:**
+  - The Activity Log page likely interacts with a backend server to fetch the latest activity logs.
+  - The server sends the logs to the client (browser) in real-time or periodically.
+  - The client-side JavaScript updates the table with the latest logs.
+
+- **Security Considerations:**
+  - The IP address is displayed, which could be used for auditing or security purposes.
+  - The logs are stored on the server, which should be secured to prevent unauthorized access.
+  - The logs are timestamped, which helps in tracking and analyzing user behavior over time.
+
+- **User Authentication:**
+  - The page is logged in as a specific user (e.g., "25013957"), indicating that the user is authenticated and has access to this section.
+  - The user's ID and reference numbers are displayed, which can be used for further authentication or authorization checks.
+
+### Summary
+The Activity Log section in the student portal is a crucial feature that tracks user activities, logs them, and displays them in a readable format. It exposes various variables and parameters related to the activity, such as the date, time, activity type, details, and IP address. The page interacts with a backend server to fetch and display the logs, ensuring that the logs are secure and can be used for auditing and security purposes. The page is logged in as a specific user, which helps in further authentication and authorization checks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/attendance/my-college-hours/
+### Analysis of the "My College Hours" Section
+
+#### 1. Action or Transactional Feature
+The "My College Hours" section is likely designed to allow students to manage their recurring attendance patterns for their college hours. This feature enables students to set and manage their attendance schedules for specific days of the week, such as Sunday to Saturday. The section is crucial for students to ensure they are attending their college hours on the correct days and times.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Cluster ID:** The specific cluster ID for which the student's college hours are being managed.
+  - **Attendance Pattern:** The current attendance pattern for the student, which is currently not active.
+
+- **Parameters:**
+  - **Cluster ID:** This is a unique identifier for the student's cluster, which is used to fetch the student's attendance records.
+  - **Attendance Pattern:** This is the current attendance pattern for the student, which is currently not active.
+
+- **Text Grids:**
+  - **Message:** A message indicating that no active college hours record is currently available for the student's clusters.
+
+- **Functions:**
+  - **Fetch Attendance Pattern:** A function that retrieves the student's current attendance pattern.
+  - **Set Attendance Pattern:** A function that allows the student to set their desired attendance pattern.
+  - **Update Attendance Pattern:** A function that updates the student's attendance pattern if changes are made.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Information Flow:**
+  - **User Interaction:** The student interacts with the "My College Hours" section by setting or updating their attendance pattern.
+  - **Data Transfer:** The student's interaction is processed by the web application, which then updates the student's attendance pattern in the wider system.
+  - **System Response:** The system responds by updating the student's attendance pattern in the database and possibly sending notifications to the student.
+
+- **Security Measures:**
+  - **Authentication:** The student's login credentials are verified to ensure they are authorized to manage their attendance pattern.
+  - **Data Encryption:** The data transmitted between the student's device and the web application is encrypted to protect sensitive information.
+  - **Access Control:** The system enforces access controls to ensure that only authorized users can manage their attendance patterns.
+
+### Summary
+The "My College Hours" section is a critical feature of the student portal that allows students to manage their recurring attendance patterns. It exposes variables such as the cluster ID and current attendance pattern, parameters like the cluster ID and attendance pattern, and functions for setting and updating attendance patterns. The page passes information to the wider web system structure through user interaction, data transfer, and system responses, while ensuring security through authentication, encryption, and access controls.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/people/active-sessions/
+### Analysis of the Student Portal's Active Sessions Page
+
+#### 1. What Action or Transactional Feature it Controls:
+The "Active Sessions" page is designed to manage and monitor the sessions of users who are currently logged into the student portal. It allows administrators to review and control sessions, including ending sessions, invalidating sessions, and managing sessions for specific users. This feature is crucial for maintaining security and ensuring that only authorized users have access to the system.
+
+#### 2. The Variables, Parameters, Text Grids, or Functions it Exposes:
+- **Session ID**: Each session is assigned a unique ID, which is used to identify and manage the session.
+- **Browser/Device**: Information about the browser and device used to access the session.
+- **Session Started**: The date and time when the session was initiated.
+- **Last Accessed**: The date and time when the session was last accessed.
+- **IP Address**: The IP address of the device from which the session was accessed.
+- **Action**: Options to either "Use Logout to end this session" or "Invalidate" the session.
+- **User ID**: The user ID associated with the session, which is used to identify the user.
+- **User Name**: The name of the user associated with the session.
+- **User Email**: The email address of the user associated with the session.
+- **User Role**: The role of the user (e.g., student, administrator).
+- **Session Status**: Indicates whether the session is active or inactive.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure:
+- **Session Management**: The page uses session IDs to manage and track sessions. When a user logs in, a session ID is generated and stored in the session cookie. This session ID is used throughout the session to identify the user.
+- **User Authentication**: The page checks the session ID against the session cookie to ensure that the user is authenticated and authorized to access the session.
+- **User Data**: The page retrieves user data from the database using the session ID. This data includes user information such as name, email, and role.
+- **Session Control**: The page allows administrators to control sessions by using the "Use Logout to end this session" and "Invalidate" options. These actions are typically handled by server-side scripts that update the session status in the database.
+- **IP Address Tracking**: The page logs the IP address of the device accessing the session, which can be used for security and troubleshooting purposes.
+- **User Tracking**: The page tracks user activity by recording the date and time of the last access, which can be used for reporting and analytics.
+
+### Summary
+The "Active Sessions" page is a critical component of the student portal that manages and controls user sessions. It exposes various variables and parameters related to user sessions, including session IDs, browser/device information, and user data. The page interacts with the wider web system structure by managing session status, tracking user activity, and allowing administrators to control sessions. This functionality is essential for maintaining security, managing user access, and providing analytics.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal, likely used for managing schedules, notifications, and other academic-related activities. The specific page shown is related to scheduling and notifications, specifically for the month of August 2026. The page is designed to display and manage schedules, alerts, and other academic communications.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Date:** The page displays a calendar for August 2026, showing dates from the 13th to the 19th.
+  - **Notifications:** There is a section for "Circulars" with a count of 4 notifications.
+  - **Schedule:** The page shows a schedule for the selected date (August 16, 2026), indicating that no schedule is found for that date.
+
+- **Parameters:**
+  - **Date:** The date is dynamically displayed based on user interaction, allowing the user to select a specific date.
+  - **Notifications:** The number of notifications is displayed, which can be filtered or viewed in detail.
+
+- **Text Grids:**
+  - **Calendar:** The calendar is a grid layout showing dates from the 13th to the 19th of August 2026.
+  - **Notifications:** A section for "Circulars" with a count of 4 notifications.
+
+- **Functions:**
+  - **Date Selection:** The user can select a specific date from the calendar to view the schedule for that day.
+  - **Notification Viewing:** The user can view the details of the notifications by clicking on the "Circulars" section.
+  - **Schedule Viewing:** The user can view the schedule for the selected date, which currently shows no schedule found for August 16, 2026.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Interaction:**
+  - **Date Selection:** The user can select a specific date from the calendar, which is likely passed to the server as a parameter.
+  - **Notification Viewing:** The user can view the details of notifications by clicking on the "Circulars" section, which might trigger a request to the server to fetch the specific notifications.
+
+- **Server Response:**
+  - The server processes the user's interaction and returns the appropriate data based on the selected date and the number of notifications.
+  - The server might also handle the request for the schedule and return the schedule data if available, or indicate that no schedule is found for the selected date.
+
+- **Data Flow:**
+  - The user's interaction with the calendar and notification sections triggers server-side requests.
+  - The server processes these requests and returns the appropriate data to the client-side.
+  - The client-side displays the data based on the server's response.
+
+### Summary
+The section in question is a part of a student portal designed to manage and display schedules, notifications, and other academic activities. It exposes variables such as the date, notifications, and schedule, and functions for date selection and notification viewing. The page passes information to the wider web system structure through user interaction, server processing, and data display.
 
 --•--•--
 
