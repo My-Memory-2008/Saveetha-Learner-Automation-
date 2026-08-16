@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 41
-**Pending Sub-Layer Queue Boundaries:** 163
+**Total Verified Inner Nodes Mapped:** 45
+**Pending Sub-Layer Queue Boundaries:** 166
 
 ## Architectural Breakdown per Sub-System:
 
@@ -2083,6 +2083,310 @@ The "My College Hours" section is designed to manage and display the student's c
 
 ### Summary
 The "My College Hours" section is a critical feature that allows students to manage their college hours schedule. It exposes variables and parameters related to the student's clusters and college hours pattern. The page communicates with the backend system using RESTful APIs, ensuring secure and efficient data exchange. The backend processes the request and returns the appropriate response, while the database stores the college hours record for future reference.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/people/active-sessions/#
+### Analysis of the Active Sessions Page
+
+#### 1. Action or Transactional Feature it Controls
+The "Active Sessions" page is designed to manage and monitor the sessions of users who are currently logged into the student portal. It allows administrators to review and control sessions, including ending sessions, invalidating sessions, and managing sessions through IP addresses. This feature is crucial for maintaining security and managing user access.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Session ID**: Each session is uniquely identified by a session ID, which is displayed in the "Session Started" column.
+- **IP Address**: The IP address of the device is listed in the "IP Address" column.
+- **Last Access Time**: The last time the session was accessed is shown in the "Last Access" column.
+- **Action Buttons**: There are buttons for "Use Logout to end this session" and "Invalidate" for each session. These buttons likely trigger actions such as logging out the user or invalidating the session.
+- **Page Navigation**: The page includes navigation buttons for "Previous," "Page 1 of 1," and "Next," allowing users to browse through multiple pages of sessions if there are more than one page.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Session Management**: The page likely interacts with a backend system that manages user sessions. When a user logs in, their session is created and associated with a unique session ID. This session ID is then used to track the user's activity and manage sessions.
+- **IP Address Tracking**: The IP address is used to identify the device from which the session is being accessed. This helps in tracking user activity and managing sessions based on the device.
+- **User Authentication**: The page is accessed by users who are already logged in, indicating that the session management system is integrated with the authentication system.
+- **Security Measures**: The page includes features like invalidating sessions and logging out users, which are security measures to prevent unauthorized access and maintain system integrity.
+
+### Detailed Breakdown of the Page
+
+#### Browser/Device
+- **Chrome 151.0.7922.34**: The current session being displayed.
+- **Chrome 151.0.0.0**: Sessions from other devices.
+- **Windows 10.0.0.0**: Sessions from other devices.
+
+#### Session Started
+- **Aug 15, 2026 20:55:07**: The start time of the current session.
+- **Aug 13, 2026 11:45:33**: The start time of the first session.
+- **Aug 14, 2026 23:46:47**: The start time of the second session.
+
+#### Last Access
+- **Aug 16, 2026 16:27:46**: The last time the current session was accessed.
+- **Aug 16, 2026 16:24:18**: The last time the first session was accessed.
+- **Aug 15, 2026 23:25:20**: The last time the second session was accessed.
+
+#### IP Address
+- **10.0.0.7**: The IP address of the current session device.
+- **10.0.0.5**: The IP address of other devices.
+
+#### Action
+- **Use Logout to end this session**: A button to end the current session.
+- **Invalidate**: A button to invalidate the session.
+
+#### Page Navigation
+- **Previous**: A button to navigate to the previous page of sessions.
+- **Page 1 of 1**: Indicates that the user is on the first page of sessions.
+- **Next**: A button to navigate to the next page of sessions.
+
+### Conclusion
+The "Active Sessions" page is a critical component of the student portal, providing administrators with a detailed view of user sessions. It allows for session management, security measures, and user tracking, ensuring that the system remains secure and user activity is properly managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=19
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a part of a student portal that displays academic schedule information. The specific page shown is for the "Operating System" course on August 19, 2026. This page likely controls the following transactional features:
+- **View Attendance**: Allows students to check their attendance for the course.
+- **Course Details**: Provides detailed information about the course, including lesson topics, schedule, and venue.
+- **Circulars**: Displays any relevant circulars or announcements related to the course.
+- **Workflow Requests**: Likely allows students to submit or view workflow requests related to the course.
+- **Workflow Approvals**: Provides a platform for students to approve or view workflow approvals for the course.
+- **Bookings**: Allows students to book or view their schedule for the course.
+- **Services**: Possibly links to other services or resources related to the course.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes the following variables and parameters:
+- **Course ID**: 19CS405
+- **Course Name**: Operating System
+- **Slot**: 26OD1089
+- **Lesson Topics**: Process Synchronization, Message Queues, Client-Server IPC, Semaphores & Shared Memory
+- **Start Time**: 08:00 AM
+- **End Time**: 09:59 AM
+- **Venue**: 3483
+- **Date**: August 19, 2026
+- **Year**: 2026
+- **Month**: August
+- **Day**: 19
+
+The page also exposes text grids for:
+- **Course Details**
+- **Circulars**
+- **Workflow Requests**
+- **Workflow Approvals**
+- **Bookings**
+- **Services**
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**: The page is accessed via a URL with parameters such as `year`, `month`, and `day`. For example, `https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=19`.
+- **Cookies and Sessions**: The page may use cookies or sessions to track user sessions and maintain state across multiple page requests.
+- **API Calls**: The page might make API calls to the backend system to fetch additional data or perform actions such as viewing attendance or approving workflow requests.
+- **JavaScript**: The page uses JavaScript to dynamically load content, handle user interactions, and update the page based on user actions.
+
+### Summary
+The page in question is a part of a student portal that displays detailed information about a course on a specific date. It exposes various variables and parameters related to the course and provides access to different transactional features. The page passes information to the wider web system structure through URL parameters, cookies, sessions, and API calls.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/#
+### Analysis of the Student Portal's Circulars Section
+
+#### 1. Action or Transactional Feature it Controls
+The "Circulars" section in the student portal is designed to manage and track various circular communications, task progress, mentor verification, and manager approvals. It allows users to view, filter, and manage different circulars based on specific criteria such as title, role, and date range.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Title**: A text input field where users can search for circulars by partial title.
+- **Role**: A dropdown menu that allows users to filter circulars by role (e.g., "All", "Participant", "Manager", etc.).
+- **From Date**: A date input field that users can specify the start date of the circular.
+- **To Date**: A date input field that users can specify the end date of the circular.
+- **Info**: A checkbox that, when checked, displays additional information about the circular.
+- **Notification**: A checkbox that, when checked, sends notifications about the circular.
+- **Apply**: A button that applies the selected filters and displays the filtered circulars.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The "Circulars" section interacts with the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the user clicks the "Apply" button, the form data (title, role, from date, to date, info, notification) is submitted to the server.
+- **Server Response**: The server processes the form data and returns a list of filtered circulars to the client.
+- **Data Display**: The filtered circulars are displayed on the page, and the user can interact with them (e.g., open, close, view details).
+
+### Detailed Breakdown
+
+#### Form Submission
+When the user clicks the "Apply" button, the form data is submitted to the server. The form data includes:
+- **Title**: Partial title of the circular.
+- **Role**: Filtered by the selected role.
+- **From Date**: The start date of the circular.
+- **To Date**: The end date of the circular.
+- **Info**: Whether to display additional information.
+- **Notification**: Whether to send notifications.
+
+#### Server Response
+The server processes the form data and returns a list of filtered circulars. The server might use a database query to fetch the circulars based on the specified filters.
+
+#### Data Display
+The filtered circulars are displayed on the page. Each circular is represented by a card or a list item, and the user can interact with them (e.g., open, close, view details).
+
+### Example of Data Structure
+Here is an example of how the data might be structured in the database:
+```json
+{
+  "circulars": [
+    {
+      "id": 1,
+      "title": "MY Bharat Registration Drive",
+      "role": "Participant",
+      "from_date": "2026-05-18",
+      "to_date": "2026-08-16",
+      "info": true,
+      "notification": true,
+      "clusters": [
+        {
+          "year": "Final Year",
+          "clusters": [
+            {
+              "cluster": "All Faculties",
+              "role": "All"
+            },
+            {
+              "cluster": "All Non-Teaching",
+              "role": "All"
+            }
+          ]
+        },
+        {
+          "year": "Second Year",
+          "clusters": [
+            {
+              "cluster": "All Faculties",
+              "role": "All"
+            },
+            {
+              "cluster": "All Non-Teaching",
+              "role": "All"
+            }
+          ]
+        },
+        {
+          "year": "Third Year",
+          "clusters": [
+            {
+              "cluster": "All Faculties",
+              "role": "All"
+            },
+            {
+              "cluster": "All Non-Teaching",
+              "role": "All"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "title": "80th Independence Day Celebration - Reg.",
+      "role": "Participant",
+      "from_date": "2026-08-12",
+      "to_date": "2026-08-12",
+      "info": true,
+      "notification": true,
+      "clusters": [
+        {
+          "year": "Final Year",
+          "clusters": [
+            {
+              "cluster": "All Faculties",
+              "role": "All"
+            },
+            {
+              "cluster": "All Non-Teaching",
+              "role": "All"
+            }
+          ]
+        },
+        {
+          "year": "Second Year",
+          "clusters": [
+            {
+              "cluster": "All Faculties",
+              "role": "All"
+            },
+            {
+              "cluster": "All Non-Teaching",
+              "role": "All"
+            }
+          ]
+        },
+        {
+          "year": "Third Year",
+          "clusters": [
+            {
+              "cluster": "All Faculties",
+              "role": "All"
+            },
+            {
+              "cluster": "All Non-Teaching",
+              "role": "All"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
+```
+
+### Conclusion
+The "Circulars" section in the student portal is a powerful tool for managing and tracking various circular communications. It uses form submission, server response, and data display mechanisms to interact with the wider web system structure. The section exposes variables, parameters, text grids, and functions that allow users to filter and manage circulars based on specific criteria.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/132/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a registration or participation form for the "MY Bharat Registration Drive." This form is designed to collect essential information from participants, such as their details, preferences, and goals. The form likely includes fields for personal information (e.g., name, contact details), preferences (e.g., mentorship type, desired mentor), and possibly a brief description of the participant's goals or interests.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Participant ID:** A unique identifier for each participant.
+  - **Mentor ID:** A unique identifier for each mentor.
+  - **Manager ID:** A unique identifier for each manager.
+  - **Start Date:** The date when the registration drive started.
+  - **Task Completion:** A field to track the progress of tasks assigned to participants.
+
+- **Parameters:**
+  - **Mentorship Type:** The type of mentorship (e.g., AcademicMentor).
+  - **Year:** The year of the registration drive (e.g., Final Year, Second Year, Third Year).
+
+- **Text Grids:**
+  - **About MY Bharat:** A brief description of the platform, its mission, and its goals.
+  - **Contact Information:** Links or buttons to contact the organization for more information.
+
+- **Functions:**
+  - **Form Submission:** A function to submit the form and save the participant's information.
+  - **Task Assignment:** A function to assign tasks to mentors and managers based on the participant's preferences.
+  - **Progress Tracking:** A function to update the task completion status.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission:**
+  - When a participant submits the form, the data is sent to the server using an HTTP POST request.
+  - The form data is typically sent to a backend server using a form submission handler.
+  - The server processes the form data and updates the participant's information in the database.
+
+- **Task Assignment:**
+  - The server assigns tasks to mentors and managers based on the participant's preferences.
+  - The server updates the task assignment status in the database.
+
+- **Progress Tracking:**
+  - The server tracks the progress of tasks assigned to participants.
+  - The server updates the task completion status in the database.
+
+- **Contact Information:**
+  - The server provides contact information for the organization.
+  - The server sends the contact information to the participant via email or a chat system.
+
+### Summary
+The section in question is a registration or participation form for the "MY Bharat Registration Drive." It controls the submission of participant information, assignment of tasks, and tracking of task progress. The form data is sent to the server for processing and updating in the database. The server then assigns tasks to mentors and managers and tracks the progress of these tasks. The contact information for the organization is also provided to the participant.
 
 --•--•--
 
