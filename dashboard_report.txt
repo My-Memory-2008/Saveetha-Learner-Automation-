@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 61
-**Pending Sub-Layer Queue Boundaries:** 215
+**Total Verified Inner Nodes Mapped:** 65
+**Pending Sub-Layer Queue Boundaries:** 232
 
 ## Architectural Breakdown per Sub-System:
 
@@ -3136,6 +3136,213 @@ The page sends data to the server for processing and updates, which is then refl
 
 ### Conclusion
 The section in question is a critical part of the student portal that manages the Leaders selection for Tech Society 2026-2027. It controls various transactional features, exposes variables and parameters, and passes information to the wider web system structure through API calls, session management, cookies/local storage, and JavaScript. This ensures that the page is both functional and secure, providing a seamless experience for users involved in the Leaders selection.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/91/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a mandatory registration or verification process for NPTEL (National Programme on Technology Enhanced Learning) local chapters. The key actions and transactions it controls include:
+- **Affiliation Verification:** Ensuring that participants are affiliated with the correct local chapter.
+- **Profile Verification:** Confirming the identity and credentials of participants.
+- **Task Completion:** Tracking the status of the verification process.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following key variables and parameters:
+- **Participants:** Total number of participants.
+- **Mentors:** Number of mentors.
+- **Managers:** Number of managers.
+- **Start Date:** Date when the verification process began.
+- **Task Completion Status:** Whether the task is approved or expected.
+- **Circular Number:** Specific reference number for the circular.
+- **Circular Date:** Date when the circular was issued.
+- **Mentorship Type:** Type of mentorship (e.g., Academic Mentor).
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls:** The page might make API calls to update the status of the verification process, such as updating the task completion status or sending notifications.
+- **Database Updates:** The page could update a database with the current status of the verification process.
+- **Email Notifications:** The page might send email notifications to participants, mentors, and managers regarding the status of their verification.
+- **Webhooks:** The page might use webhooks to notify other systems or services about the progress of the verification process.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title:** "Mandatory NPTEL Local Chapter Affiliation and Profile Verification-Reg."
+- **Status Bar:** Displays the IP address and status icons.
+
+#### Main Content
+- **Participants:** 3235 / 5514
+- **Mentors:** 144 / 170
+- **Managers:** 2 / 2
+- **Start Date:** 30/06/2026
+- **Task Completion Status:** Approved / Expected
+- **Circular Number:** 2025-2026/112
+- **Circular Date:** 30.06.2026
+
+#### Sidebar
+- **Menu:** Contains links to different sections like Schedule, Circles, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+- **Logged in as:** Displays the user's ID and name.
+
+### Conclusion
+This section is designed to manage and track the verification process for NPTEL local chapters, ensuring that all participants, mentors, and managers are affiliated and verified. It exposes various variables and parameters related to the verification process and passes this information to the wider web system structure through various mechanisms such as API calls, database updates, email notifications, and webhooks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/?page=2
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is the "Circulars" page, which is designed to manage and track various circular communications, task progress, mentor verification, and manager approvals. This page allows users to view, filter, and manage different circulars based on specific criteria such as title, role, and date range.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Title**: Allows users to search for circulars by partial title.
+- **Role**: Filters circulars based on the role of the person involved.
+- **From Date**: Sets the start date for the circulars to be displayed.
+- **To Date**: Sets the end date for the circulars to be displayed.
+- **Info**: Displays additional information about the circular.
+- **Notification**: Sends a notification about the circular.
+- **Reset**: Resets the filters to their default state.
+- **Apply**: Applies the filters and displays the filtered circulars.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page uses the following methods to pass information to the wider web system structure:
+
+- **URL Parameters**: The page uses URL parameters to pass the selected filters and dates. For example, the URL might look like this:
+  ```
+  https://learner.saveetha.in/academics/circulars/?page=2&title=Foreign%20Languages&role=All&from_date=18/05/2026&to_date=16/08/2026
+  ```
+  Here, `page=2` indicates the page number, `title=Foreign%20Languages` filters by the title, `role=All` filters by all roles, `from_date=18/05/2026` sets the start date, and `to_date=16/08/2026` sets the end date.
+
+- **JavaScript**: The page uses JavaScript to dynamically update the content based on the filters applied. For example, when the "Apply" button is clicked, JavaScript might update the page to display the filtered circulars.
+
+- **Server-Side Processing**: The page likely communicates with a server-side script to handle the filtering and display logic. This script might use the filters and dates to fetch the appropriate circulars from the database and return them to the client.
+
+### Summary
+The "Circulars" page in the student portal is a powerful tool for managing and tracking various circular communications. It exposes several variables and parameters that allow users to filter and view specific circulars based on title, role, and date range. The page communicates this information to the wider web system structure using URL parameters, JavaScript for dynamic updates, and server-side processing to handle the filtering logic.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/rewards/my-reward-points/#
+### Analysis of the Student Portal Reward Points Section
+
+#### 1. What Action or Transactional Feature it Controls:
+The "My Reward Points" section in the student portal is designed to track and manage the reward points earned by students. This section allows students to view their reward points, credits, debits, and balance by reward term. It also provides options to apply reward policies and view the reward policy details. The section controls the following transactional features:
+- **Viewing Reward Points**: Students can see the total reward points earned across all terms.
+- **Applying Reward Policies**: Students can apply reward policies to manage their reward points.
+- **Viewing Reward Policy Details**: Students can view the reward policy details to understand how their reward points are calculated and applied.
+
+#### 2. The Variables, Parameters, Text Grids, or Functions it Exposes:
+The section exposes the following variables, parameters, and functions:
+- **Reward Term**: A dropdown menu that allows students to select the reward term they want to view.
+- **Apply Button**: A button that applies the selected reward term.
+- **Reward Policy Button**: A button that opens the reward policy details.
+- **Table Data**: A table that displays the reward points, credits, debits, and balance for each reward term.
+  - **Table Headers**: `Reward Term`, `Date`, `Debit`, `Credit`, `Balance`, and `Description`.
+  - **Table Rows**: Each row represents a reward term, showing the date, debit, credit, balance, and description of the reward.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure:
+The page passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**: The URL parameters include the `reward_term` which is used to filter the reward points displayed.
+- **JavaScript**: The page uses JavaScript to dynamically load and update the reward points table based on the selected reward term.
+- **Server-Side Logic**: The server-side logic processes the reward term selection and returns the appropriate reward points data to the client-side.
+- **API Calls**: The page may make API calls to the server to fetch or update reward points data.
+
+### Detailed Explanation of the Mechanisms:
+
+1. **URL Parameters**:
+   - The URL includes a parameter `reward_term` which is used to filter the reward points displayed. For example, if a student selects a specific reward term, the URL might look like this:
+     ```
+     https://learner.saveetha.in/rewards/my-reward-points/#?reward_term=1
+     ```
+
+2. **JavaScript**:
+   - The page uses JavaScript to dynamically load and update the reward points table based on the selected reward term. This is achieved through event listeners and AJAX requests.
+   - When a student selects a reward term, the JavaScript code updates the table with the corresponding reward points data.
+
+3. **Server-Side Logic**:
+   - The server-side logic processes the reward term selection and returns the appropriate reward points data to the client-side. This is typically done using a server-side framework like Node.js, Django, or Flask.
+   - The server-side code might look something like this:
+     ```python
+     # Flask Example
+     @app.route('/rewards/my-reward-points/<int:reward_term>')
+     def get_reward_points(reward_term):
+         # Fetch reward points data from database
+         reward_points = get_reward_points_from_database(reward_term)
+         return render_template('reward_points.html', reward_points=reward_points)
+     ```
+
+4. **API Calls**:
+   - The page may make API calls to the server to fetch or update reward points data. This is done using HTTP requests, typically via AJAX.
+   - The API might look something like this:
+     ```javascript
+     fetch('/api/reward_points', {
+       method: 'GET',
+       headers: {
+         'Content-Type': 'application/json',
+       },
+       params: {
+         reward_term: 1,
+       }
+     })
+     .then(response => response.json())
+     .then(data => {
+       // Update the table with the fetched data
+     });
+     ```
+
+By understanding these mechanisms, students can effectively manage their reward points, apply reward policies, and view detailed reward policy information within the student portal.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/rewards/my-reward-points/general-information/8/
+### Analysis of the Student Portal Reward Points Policy Page
+
+#### 1. Action or Transactional Feature it Controls
+The page in question is a part of a student portal that manages reward points for students. The primary action it controls is the tracking and management of reward points earned by students. This includes the ability to view, earn, redeem, and manage reward points.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `Reward Points`: The total points a student has earned.
+  - `Points Earned`: The points earned from specific activities or events.
+  - `Points Redeemed`: The points redeemed for academic benefits or facilities.
+  - `Pending Points`: Points that have not yet been redeemed.
+
+- **Parameters:**
+  - `Activity Type`: The type of activity (e.g., technical event, skill development program).
+  - `Event ID`: The unique identifier for the event.
+  - `Event Date`: The date the event took place.
+  - `Event Description`: A brief description of the event.
+
+- **Text Grids:**
+  - `Objective of the Reward Points System`: A list of objectives for the reward points system.
+  - `Ways to Earn Reward Points`: A list of methods to earn reward points.
+  - `Redeemable Points`: A list of academic benefits or facilities that can be redeemed for reward points.
+
+- **Functions:**
+  - `Earn Points`: A function to calculate and update the reward points based on the activity.
+  - `Redeem Points`: A function to update the reward points after redeeming for academic benefits.
+  - `Update Points`: A function to update the reward points in real-time.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Data Flow:**
+  - **Input:** User interaction (e.g., clicking on a button to redeem points).
+  - **Processing:** The page sends the necessary data (e.g., event ID, event date) to the backend system.
+  - **Backend:** The backend processes the request, updates the database, and sends a response.
+  - **Response:** The backend sends a response back to the frontend, updating the reward points and displaying the updated information.
+
+- **Database Interaction:**
+  - The page interacts with a database to store and retrieve reward points data.
+  - The database is updated with the new points earned or redeemed.
+  - The page fetches the updated data from the database to display the current reward points.
+
+- **Security Measures:**
+  - The page uses secure communication protocols (e.g., HTTPS) to ensure data integrity and confidentiality.
+  - The page implements authentication and authorization mechanisms to ensure that only authorized users can access and modify reward points data.
+
+### Summary
+The page in question is a critical component of a student portal that manages reward points. It controls the tracking and management of reward points, exposes various variables, parameters, and functions related to reward points, and passes information to the wider web system structure through secure data flow and database interactions.
 
 --•--•--
 
