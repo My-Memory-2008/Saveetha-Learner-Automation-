@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 81
-**Pending Sub-Layer Queue Boundaries:** 250
+**Total Verified Inner Nodes Mapped:** 85
+**Pending Sub-Layer Queue Boundaries:** 258
 
 ## Architectural Breakdown per Sub-System:
 
@@ -4040,6 +4040,273 @@ The section "Mentees" in the student portal is designed to manage mentor-mentee 
 
 ### Summary
 The "Mentees" section in the student portal is a critical feature that manages mentor-mentee relationships. It exposes variables, parameters, and functions related to mentor and mentee details, as well as actions such as assigning and removing mentors. The page communicates with the server using HTTP requests, session management, and API calls to update the database and display the information to the user.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/mentorship/#
+### Analysis of the Mentorship Section
+
+#### 1. Action or Transactional Feature
+The Mentorship section is designed to manage and view mentorship groups that the user is part of. Users can join or leave mentorship groups, and the system tracks their role (Mentor or Mentee) within these groups. The primary actions controlled by this section include:
+- **Joining a Mentorship Group**: Users can click on the "Open Mentorship" button to join a group.
+- **Leaving a Mentorship Group**: Users can click on the "Leave Mentorship" button to exit a group.
+- **Viewing Group Details**: Users can view the details of the mentorship groups they are part of, including the number of mentors and mentees.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The Mentorship section exposes the following variables and parameters:
+- **Group ID**: The unique identifier for each mentorship group.
+- **Group Name**: The name of the mentorship group.
+- **Status**: Whether the group is active or not.
+- **Mentor Count**: The number of mentors in the group.
+- **Mentee Count**: The number of mentees in the group.
+- **User Role**: The role of the user within the group (Mentor or Mentee).
+
+The section also uses text grids to display this information clearly and concisely.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The Mentorship section interacts with the wider web system structure through the following mechanisms:
+- **User Authentication**: The system checks the user's authentication status to ensure they are logged in and have the necessary permissions to view and manage mentorship groups.
+- **Group Management**: The system uses the group ID and user role to determine the appropriate actions and permissions for the user.
+- **Database Interaction**: The system likely interacts with a database to retrieve the list of mentorship groups and their details.
+- **API Calls**: The system may make API calls to update the user's role within the group or to manage the group's membership.
+
+### Detailed Breakdown
+
+#### User Authentication
+- **Logged In as**: The user's ID and name are displayed, indicating their authentication status.
+- **Ref1 and Ref2**: These fields likely contain additional user information or identifiers.
+
+#### Group Management
+- **Group ID**: Each mentorship group has a unique ID.
+- **Group Name**: The name of the group, which is displayed prominently.
+- **Status**: Indicates whether the group is active or not.
+- **Mentor Count**: The number of mentors in the group.
+- **Mentee Count**: The number of mentees in the group.
+- **User Role**: The role of the user within the group (Mentor or Mentee).
+
+#### Text Grids
+- **Mentorship Group Details**: The information about the group is displayed in a clear, readable format using text grids.
+
+#### Database Interaction
+- **Retrieving Group Details**: The system retrieves the list of mentorship groups and their details from the database.
+- **Updating Group Membership**: The system updates the user's role within the group when they join or leave.
+
+#### API Calls
+- **Joining a Group**: When a user clicks the "Open Mentorship" button, the system makes an API call to join the group.
+- **Leaving a Group**: When a user clicks the "Leave Mentorship" button, the system makes an API call to leave the group.
+- **Updating Group Role**: The system updates the user's role within the group when they join or leave.
+
+### Conclusion
+The Mentorship section is a critical component of the student portal, managing the user's participation in mentorship groups. It leverages user authentication, database interactions, and API calls to ensure that users can join, leave, and manage their roles within mentorship groups effectively.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/131/mentorship/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a mentorship management page within a student portal. It controls the following actions and transactions:
+- **Mentorship Management**: It allows users to manage their mentorship relationships, including creating, updating, and deleting mentorship pairs.
+- **Mentor and Mentee Matching**: It facilitates the matching of mentors and mentees based on predefined criteria such as academic performance, interests, and availability.
+- **Status Updates**: It enables users to update the status of their mentorship relationships, such as marking a mentor as active or inactive.
+- **Communication**: It provides a platform for communication between mentors and mentees, allowing them to interact through chat or counselling sessions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes the following variables, parameters, and functions:
+- **Mentor and Mentee Lists**: It displays a list of mentors and mentees, including their names, roles, and statuses.
+- **Status Update Function**: It allows users to update the status of their mentorship relationship, such as marking a mentor as active or inactive.
+- **Chat Function**: It provides a chat interface for users to communicate with their mentors and mentees.
+- **Counselling Function**: It offers a counselling session interface for users to seek advice or guidance from their mentors.
+- **Pagination and Filtering**: It supports pagination and filtering to manage a large number of mentorship relationships efficiently.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: It makes API calls to update the mentorship status, match mentors and mentees, and manage communication sessions.
+- **Session Management**: It uses session management to track user sessions and maintain the state of the mentorship relationships.
+- **Database Interaction**: It interacts with a database to store and retrieve mentorship data, such as mentor and mentee information, status updates, and communication logs.
+- **User Authentication**: It ensures user authentication through session management to ensure that only authorized users can access and manage their mentorship relationships.
+
+### Detailed Breakdown
+
+#### API Calls
+The page makes API calls to update the mentorship status, match mentors and mentees, and manage communication sessions. For example, when a user updates their mentorship status, the page makes an API call to the backend system to update the status in the database.
+
+#### Session Management
+The page uses session management to track user sessions and maintain the state of the mentorship relationships. This ensures that the user's progress and status are preserved across different sessions.
+
+#### Database Interaction
+The page interacts with a database to store and retrieve mentorship data. For example, when a user creates a new mentorship pair, the page makes an API call to the backend system to insert the new pair into the database.
+
+#### User Authentication
+The page ensures user authentication through session management to ensure that only authorized users can access and manage their mentorship relationships. This is crucial for maintaining the security and integrity of the system.
+
+### Conclusion
+The mentorship management page in the student portal is a complex system that manages mentorship relationships, communication, and status updates. It uses various mechanisms such as API calls, session management, database interaction, and user authentication to ensure that the system functions smoothly and securely.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/378/mentorship/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a mentorship management page within a student portal. It controls the following transactional features:
+- **Mentorship Management**: Allows users to manage their mentorship relationships, including finding mentors, connecting with peer mentees, and tracking the status of their mentorship.
+- **Mentor and Peer Mentee Search**: Enables users to search for mentors and peer mentees based on specific criteria such as name, role, or status.
+- **Status Tracking**: Provides real-time updates on the status of mentorship relationships, including whether a mentor is active or inactive.
+- **User Authentication**: Ensures that only logged-in users can access and manage their mentorship profiles.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes the following variables, parameters, and functions:
+- **Mentor and Peer Mentee Lists**: Displays a list of mentors and peer mentees, including their names, roles, and statuses.
+- **Mentor and Peer Mentee Search**: Allows users to search for mentors and peer mentees using text grids.
+- **Status Tracking**: Shows the active status of mentors and peer mentees.
+- **User Authentication**: Ensures that only logged-in users can access and manage their mentorship profiles.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **User Authentication**: The page checks if the user is logged in and redirects them to the appropriate page if they are not.
+- **Mentor and Peer Mentee Lists**: The page fetches data from the backend system to display the list of mentors and peer mentees.
+- **Status Tracking**: The page updates the status of mentorship relationships in real-time, which is then reflected in the backend system.
+- **Mentor and Peer Mentee Search**: The page sends search queries to the backend system to retrieve the relevant data.
+- **User Interaction**: The page processes user interactions such as clicking on mentor or peer mentee names, which triggers backend actions to update the status or display more information.
+
+### Detailed Breakdown
+
+#### User Authentication
+- **Check Login Status**: The page checks if the user is logged in using session variables or cookies.
+- **Redirect if Not Logged In**: If the user is not logged in, they are redirected to the login page.
+
+#### Mentor and Peer Mentee Lists
+- **Fetch Data**: The page fetches data from the backend system using AJAX requests.
+- **Display Data**: The fetched data is displayed in a structured format, including names, roles, and statuses.
+
+#### Status Tracking
+- **Real-Time Updates**: The page updates the status of mentorship relationships in real-time using AJAX requests.
+- **Backend Interaction**: The backend system is updated with the current status of mentorship relationships.
+
+#### Mentor and Peer Mentee Search
+- **User Input**: The page captures user input from text grids.
+- **Search Query**: The search query is sent to the backend system using AJAX requests.
+- **Data Retrieval**: The backend system retrieves the relevant data based on the search query.
+- **Display Data**: The retrieved data is displayed in a structured format, including names, roles, and statuses.
+
+### Conclusion
+This section of the student portal is designed to manage and track mentorship relationships, providing users with real-time updates and search capabilities. It ensures that only logged-in users can access and manage their mentorship profiles, and it interacts with the backend system to update status information and retrieve data.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/facultysubjects/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "Subjects Handling" in the student portal is designed to manage and display the subjects assigned to the student for a specific academic term. This feature allows students to view and possibly update their subject assignments, ensuring they are aware of the courses they are enrolled in for the current term.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Academic Term Dropdown**: This is a text grid that allows the student to select the academic term they are enrolled in. The dropdown is pre-filled with the term "25-26-EVEN-T1-PLT," which is likely the current term.
+- **Apply Button**: This button is used to apply the selected term and refresh the list of subjects assigned to the student.
+- **Reset Button**: This button allows the student to reset the term selection and return to the default term.
+- **No subjects found for the selected term**: This message indicates that there are no subjects assigned for the selected term, which could be due to the term being in the process of being assigned or the student not being enrolled in any subjects for that term.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The term "25-26-EVEN-T1-PLT" is passed as a URL parameter, which is likely used to filter the subjects displayed on the page. This parameter is not visible in the URL but is embedded in the page's HTML.
+- **JavaScript and AJAX**: The page likely uses JavaScript and AJAX to dynamically load the list of subjects based on the selected term. This ensures that the page updates without a full page reload, improving the user experience.
+- **Server-Side Processing**: The page communicates with the server to fetch the list of subjects for the selected term. This could involve making an AJAX request to a server-side endpoint that handles the request and returns the list of subjects.
+
+### Detailed Breakdown of the Page Structure
+
+#### HTML Structure
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Subjects Handling</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <div class="logo">SEC</div>
+        <div class="user-profile">
+            <div class="user-info">
+                <div class="user-name">Muhammad Asjad E</div>
+                <div class="user-id">25013957</div>
+            </div>
+            <div class="user-profile-links">
+                <a href="#">Circulars</a>
+                <a href="#">My Reward Points</a>
+                <a href="#">Workflow Requests</a>
+                <a href="#">Workflow Approvals</a>
+                <a href="#">Bookings</a>
+                <a href="#">Services</a>
+                <a href="#">Mentees</a>
+                <a href="#">Mentorship</a>
+            </div>
+        </div>
+    </div>
+    <div class="main-content">
+        <div class="title">Subjects Handling</div>
+        <div class="term-selection">
+            <div class="term-label">Academic Term</div>
+            <div class="term-select">
+                <select id="term-select">
+                    <option value="25-26-EVEN-T1-PLT">25-26-EVEN-T1-PLT</option>
+                    <!-- Other terms -->
+                </select>
+            </div>
+            <button id="apply-btn">Apply</button>
+            <button id="reset-btn">Reset</button>
+        </div>
+        <div class="subject-list">
+            <div class="message">No subjects found for the selected term.</div>
+        </div>
+    </div>
+    <script src="scripts.js"></script>
+</body>
+</html>
+```
+
+#### JavaScript and AJAX
+```javascript
+document.addEventListener('DOMContentLoaded', function() {
+    const termSelect = document.getElementById('term-select');
+    const applyBtn = document.getElementById('apply-btn');
+    const resetBtn = document.getElementById('reset-btn');
+    const subjectList = document.querySelector('.subject-list');
+
+    termSelect.addEventListener('change', function() {
+        const selectedTerm = termSelect.value;
+        // Fetch subjects for the selected term using AJAX
+        fetch(`/api/subjects?term=${selectedTerm}`)
+            .then(response => response.json())
+            .then(data => {
+                if (data.length > 0) {
+                    subjectList.innerHTML = '';
+                    data.forEach(subject => {
+                        const subjectElement = document.createElement('div');
+                        subjectElement.textContent = subject;
+                        subjectList.appendChild(subjectElement);
+                    });
+                } else {
+                    subjectList.innerHTML = '<div>No subjects found for the selected term.</div>';
+                }
+            });
+    });
+
+    applyBtn.addEventListener('click', function() {
+        // Apply the selected term and refresh the list
+        // This could involve updating the term in the URL or making a new AJAX request
+    });
+
+    resetBtn.addEventListener('click', function() {
+        // Reset the term selection
+        // This could involve clearing the dropdown or setting it to the default term
+    });
+});
+```
+
+### Conclusion
+The "Subjects Handling" section in the student portal is designed to manage and display the subjects assigned to the student for a specific academic term. It uses a dropdown to select the term, an "Apply" button to refresh the list of subjects, and a "Reset" button to clear the term selection. The page communicates with the server using AJAX to fetch the list of subjects for the selected term, ensuring a dynamic and responsive user experience.
 
 --•--•--
 
