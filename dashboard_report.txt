@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 117
-**Pending Sub-Layer Queue Boundaries:** 1513
+**Total Verified Inner Nodes Mapped:** 121
+**Pending Sub-Layer Queue Boundaries:** 1518
 
 ## Architectural Breakdown per Sub-System:
 
@@ -5936,6 +5936,151 @@ The section in question appears to control the scheduling and management of acad
 
 ### Summary
 This section of the student portal is designed to manage and display academic events for students. It exposes variables and parameters related to the user's schedule, event details, and cancellation status. The page interacts with a wider web system structure through API calls and session management to provide a seamless user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=1
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=1", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=30
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a part of a student portal that allows students to view their schedule for June 2026. The specific date displayed is June 30, 2026. The page indicates that no schedule is found for this date, suggesting that the student might be looking for a specific class or event scheduled for June 30, 2026, which does not exist.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **URL Parameters:**
+  - `year`: 2026 (indicating the academic year)
+  - `month`: 6 (indicating June)
+  - `day`: 30 (the specific day being queried)
+
+- **Text Grids:**
+  - The page displays a calendar for June 2026 with the days of the week labeled (Sat, Sun, Mon, Tue, Wed, Thu, Fri).
+  - The date June 30 is highlighted, but it is noted that "No schedule found for this date."
+
+- **Functions:**
+  - The page uses JavaScript to dynamically display the calendar and handle date selection.
+  - The page likely uses server-side logic to fetch the schedule data based on the selected date.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters:**
+  - The URL parameters (`year`, `month`, `day`) are passed to the server-side application.
+  - The server-side application uses these parameters to fetch the schedule data for the specified date.
+
+- **Server-Side Logic:**
+  - The server-side application processes the URL parameters to determine the correct schedule data.
+  - The server-side application might use a database query to fetch the schedule data for the specified date.
+  - The server-side application then returns the schedule data to the client-side application.
+
+- **Client-Side JavaScript:**
+  - The client-side JavaScript dynamically populates the calendar and handles date selection.
+  - The JavaScript code likely uses AJAX to send a request to the server with the selected date.
+  - The server responds with the schedule data, which is then displayed on the page.
+
+### Summary
+The section in question is a part of a student portal that allows students to view their schedule for a specific date. It uses URL parameters to pass the date to the server-side application, which then fetches the schedule data. The page dynamically populates the calendar and handles date selection using client-side JavaScript. The server-side application processes the request and returns the schedule data, which is then displayed on the page.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=28
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to control the scheduling and management of student activities or events for the month of June 2026. It likely allows students to view their schedules, manage their schedules, and possibly request or approve workflow tasks related to their academic or extracurricular activities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Date Parameter**: The page is specifically designed to display data for June 28, 2026. This suggests that the page is dynamically generated based on the date parameter passed in the URL.
+- **Text Grids**: The page displays a grid of dates from June 25 to June 30, 2026. Each date is clickable, likely leading to a detailed view of the schedule for that day.
+- **Functions**: The page likely uses JavaScript or a similar scripting language to handle date selection and display the appropriate schedule. It also uses server-side logic to fetch and display the correct schedule data based on the date parameter.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The page is accessed via a URL that includes parameters for the year (2026), month (June), and day (28). These parameters are likely used to dynamically load the correct schedule data.
+- **Server-Side Logic**: The page likely uses server-side logic to handle the date parameter. For example, it might use a database query to fetch the schedule data for June 28, 2026.
+- **JavaScript for Dynamic Content**: The page uses JavaScript to handle the date selection and display the correct schedule. This could involve using event listeners to update the schedule based on user interactions.
+- **API Calls**: The page might make API calls to a backend system to retrieve the schedule data. This data could be stored in a database or accessed through a web service.
+
+### Detailed Breakdown
+
+#### URL Structure
+The URL structure is:
+```
+https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=28
+```
+- **year**: 2026
+- **month**: 6 (June)
+- **day**: 28
+
+#### Server-Side Logic
+- The server-side logic would handle the date parameter and fetch the schedule data for June 28, 2026.
+- This data might be stored in a database table with columns for date, schedule details, and user information.
+
+#### JavaScript for Dynamic Content
+- The page uses JavaScript to handle the date selection and display the correct schedule.
+- For example, when a user clicks on a date, the JavaScript might:
+  1. Update the page to display the schedule for that date.
+  2. Use AJAX to fetch the schedule data from the server.
+  3. Update the page with the fetched data.
+
+#### API Calls
+- The page might make an API call to a backend system to retrieve the schedule data for the selected date.
+- This API call could be made using JavaScript's `fetch` or `XMLHttpRequest` methods.
+
+### Conclusion
+The section in question is a dynamic page that controls the scheduling and management of student activities for June 2026. It uses URL parameters to dynamically load the correct schedule data and JavaScript for dynamic content handling. The page likely makes API calls to a backend system to retrieve the schedule data and uses server-side logic to handle the date parameter.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=29
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a part of a student portal that allows students to view their schedule for June 2026. The specific date displayed is June 29, 2026. This section likely controls the following transactional features:
+- **Viewing Schedule**: Students can see their planned activities, assignments, or other scheduled events for the specified date.
+- **Notifications**: It may display any notifications or reminders related to the date, such as upcoming exams, assignments, or other important events.
+- **Calendar Integration**: It integrates with the student's calendar to provide a visual representation of their schedule.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+- **Year**: 2026 (fixed)
+- **Month**: June (fixed)
+- **Day**: 29 (fixed)
+- **User ID**: 25013957 (logged in user)
+- **Page URL**: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=29
+
+Additionally, the section uses text grids to display the days of the week and the date, and it may use JavaScript or similar technologies to dynamically load or update the schedule based on the logged-in user's schedule.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**: The page uses URL parameters to pass the year, month, and day to the backend system. For example, `year=2026&month=6&day=29`.
+- **User ID**: The logged-in user's ID is passed through the URL, which is typically used to authenticate the user and retrieve their schedule.
+- **JavaScript**: The page may use JavaScript to interact with the backend system, such as making AJAX requests to fetch the schedule data for the specific date.
+- **Cookies or Local Storage**: The page may use cookies or local storage to store user preferences or session data, which can be accessed by the backend system.
+
+### Detailed Explanation
+
+1. **URL Parameters**:
+   - The page uses URL parameters to pass the year, month, and day to the backend system. This allows the backend to determine which specific schedule to retrieve for the logged-in user.
+   - Example: `https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=29`
+
+2. **User ID**:
+   - The logged-in user's ID is passed through the URL, which is typically used to authenticate the user and retrieve their schedule. This ensures that only the logged-in user can access their schedule.
+   - Example: `https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=29&user_id=25013957`
+
+3. **JavaScript**:
+   - The page may use JavaScript to interact with the backend system, such as making AJAX requests to fetch the schedule data for the specific date. This allows for dynamic content loading and updating.
+   - Example: `fetch('/api/schedule', { method: 'GET', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ year: 2026, month: 6, day: 29, user_id: 25013957 }) })`
+
+4. **Cookies or Local Storage**:
+   - The page may use cookies or local storage to store user preferences or session data, which can be accessed by the backend system. This ensures that the user's preferences are remembered across sessions.
+   - Example: `localStorage.setItem('user_id', 25013957);`
+
+### Conclusion
+The section in question is a part of a student portal that allows students to view their schedule for a specific date. It uses URL parameters, user ID, JavaScript, and possibly cookies/local storage to interact with the backend system and pass information to the wider web system structure. This allows for dynamic content loading and updating based on the logged-in user's schedule.
 
 --•--•--
 
