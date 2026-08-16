@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 53
-**Pending Sub-Layer Queue Boundaries:** 190
+**Total Verified Inner Nodes Mapped:** 57
+**Pending Sub-Layer Queue Boundaries:** 202
 
 ## Architectural Breakdown per Sub-System:
 
@@ -2774,6 +2774,153 @@ The page uses webhooks to notify other systems of important events. For example,
 
 ### Conclusion
 The page is a critical component of the Smart India Hackathon system, managing participant registration, mentorship, and task completion. It communicates with the wider web system structure through API calls, database updates, notifications, and webhooks, ensuring that all aspects of the hackathon are tracked and communicated effectively.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/108/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a notification or announcement page related to the SCOTF Exam Centre Slot Booking during regular class hours. This page likely controls the following actions or transactions:
+- **Notification Display**: It displays a message to learners about the upcoming event.
+- **Event Management**: It manages the booking and scheduling of exam slots.
+- **User Interaction**: It allows learners to interact with the system to check their status or manage their slots.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The page exposes the following variables and parameters:
+- **Participants**: Number of participants (2831).
+- **Mentors**: Number of mentors (134).
+- **Managers**: Number of managers (3/5).
+- **Start Date**: Date of the event (25/07/2026).
+- **Task Completion**: Status of task completion (0/0).
+
+The page also includes text grids for:
+- **Circular**: Information about the circular.
+- **Chat**: Number of chat messages.
+- **Tasks**: Information about the tasks.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the status of the event or to retrieve data from the database.
+- **Cookies and Sessions**: The page uses cookies and sessions to track user interactions and maintain state.
+- **Webhooks**: The page might trigger webhooks to send notifications or updates to other systems.
+- **Database Queries**: The page might perform database queries to fetch or update data related to the event.
+
+### Detailed Explanation
+
+#### API Calls
+The page might make API calls to update the status of the event or to retrieve data from the database. For example, it could call an API to check if the event is still active or to get the latest updates.
+
+#### Cookies and Sessions
+The page uses cookies and sessions to track user interactions and maintain state. For instance, it might use a session to keep track of the user's progress or to store their preferences.
+
+#### Webhooks
+The page might trigger webhooks to send notifications or updates to other systems. For example, it could send a webhook to an email service to notify the managers or mentors about the event.
+
+#### Database Queries
+The page might perform database queries to fetch or update data related to the event. For example, it could query the database to check if the event is still active or to get the latest updates.
+
+### Conclusion
+The page in question is a notification or announcement page related to the SCOTF Exam Centre Slot Booking during regular class hours. It controls various actions and transactions, exposes variables and parameters, and passes information to the wider web system structure through API calls, cookies and sessions, webhooks, and database queries.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/107/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a registration or registration management page for a program called "Design Horizon Experience – II Year Learners-Reg." This page likely controls the registration process for students participating in this program. It manages the flow of participants, mentors, and managers, and tracks the start date and task completion status.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants registered for the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers assigned to the program.
+- **Start Date**: The date when the program starts.
+- **Task Completion**: The status of task completion, which is currently at 0/0 (uncompleted).
+- **Circular**: The specific circular number associated with this registration.
+- **Circular No.**: The specific circular number associated with this registration.
+- **Ref1**: A reference number for the registration process.
+- **Ref2**: Another reference number for the registration process.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the registration process. Here’s a breakdown of how it might communicate with the wider web system structure:
+
+1. **User Authentication**: The page is logged in as a user with the ID `25013957`. This user is likely authenticated to access the page.
+2. **Circular Information**: The page displays specific information about the circular, such as the circular number (`2026-2027/005`), the date (`21.07.2026`), and the reference numbers (`Ref1: 212225240091`, `Ref2: 25013957`).
+3. **Registration Data**: The page shows the number of participants, mentors, and managers, as well as the start date of the program.
+4. **Task Completion Status**: The task completion status is currently at 0/0, indicating that no tasks have been completed yet.
+5. **Circular Details**: The page provides details about the specific circular, such as the mentorship type (`AcademicMentor`).
+
+The page likely communicates this information to the backend system using HTTP requests. The backend system would then process this information, update the database, and potentially send notifications or updates to other systems or users.
+
+### Summary
+This page is a critical component of the student portal, managing the registration and tracking of participants, mentors, and managers for a specific program. It exposes various variables and parameters related to the registration process and communicates this information to the wider web system structure through HTTP requests.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/104/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section "Lesson Plan and Class Feedback for Effective Learning" appears to be a part of a student portal that manages lesson plans, class feedback, and possibly mentoring or mentoring-related activities. The primary action or transactional feature controlled by this section is likely the management and tracking of lesson plans and class feedback for effective learning. This could include the creation, modification, and approval of lesson plans, as well as the collection and evaluation of class feedback.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: This variable likely represents the number of participants in the lesson plan or class. It is currently set to 2549 out of 3464.
+- **Mentors**: This variable represents the number of mentors involved in the lesson plan or class. It is currently set to 0 out of 0.
+- **Managers**: This variable represents the number of managers involved in the lesson plan or class. It is currently set to 1 out of 1.
+- **Start Date**: This parameter specifies the start date of the lesson plan or class, which is set to 18/07/2026.
+- **Task Completion**: This variable indicates the status of task completion, which is currently set to 0/0 (Approved/Expected).
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and track the lesson plans and class feedback. This interaction could involve the following steps:
+
+1. **User Authentication**: The user logs in using their credentials, which are likely stored in a database.
+2. **Data Collection**: The user's information, such as their ID or username, is collected and stored in a database.
+3. **Lesson Plan Management**: The lesson plan details, including the participants, mentors, managers, start date, and task completion status, are stored in a database.
+4. **Class Feedback Collection**: Class feedback is collected and stored in a database, possibly associated with the lesson plan.
+5. **Approval Process**: The task completion status is updated based on the approval process, which could involve human review or automated checks.
+6. **Reporting and Analytics**: The data is used to generate reports and analytics, which can be accessed by administrators or other stakeholders.
+
+### Summary
+The section "Lesson Plan and Class Feedback for Effective Learning" is a critical part of the student portal, managing the creation, modification, and tracking of lesson plans and class feedback. It exposes variables and parameters related to participants, mentors, managers, start date, and task completion status. The page interacts with a backend system to manage and track this information, ensuring that the lesson plans and class feedback are effectively managed and evaluated.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/102/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal that encourages students to join the "Finite Earth Movement" and take the "FEM'Us Pledge." This section likely controls a transactional feature that involves collecting data from students, mentors, and managers, and tracking their progress and completion of tasks related to the pledge.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: This variable represents the number of participants who have joined the movement. It is currently set to 3268.
+- **Mentors**: This variable represents the number of mentors who have joined the movement. It is currently set to 143.
+- **Managers**: This variable represents the number of managers who have joined the movement. It is currently set to 2.
+- **Start Date**: This variable represents the date when the movement started. It is set to 15/07/2026.
+- **Task Completion**: This variable represents the percentage of tasks completed. It is currently set to 80% out of 5535 tasks.
+- **Circular**: This variable represents the current circular or event being tracked. It is set to "Chat" with 52 participants and "Tasks" with 1 task.
+- **Mentorship Type**: This variable represents the type of mentorship being tracked. It is set to "Academic Mentor."
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+
+- **API Calls**: The page might make API calls to update the status of the movement, track the progress of participants, mentors, and managers, and update the task completion percentage.
+- **Database Updates**: The page could update a database with the current status of the movement, including the number of participants, mentors, managers, and the start date.
+- **Webhooks**: The page might use webhooks to notify other systems or applications about the progress of the movement.
+- **Session Management**: The page might use session management to track the logged-in user and their role (e.g., student, mentor, manager) to ensure that the correct data is collected and processed.
+
+### Detailed Explanation
+
+1. **API Calls**: The page might call an API endpoint to update the status of the movement. For example, it could update the number of participants, mentors, and managers, and the start date. The API endpoint might be something like `https://api.saveetha.in/movement/update`.
+
+2. **Database Updates**: The page could update a database table that tracks the status of the movement. This table might have columns for the number of participants, mentors, managers, the start date, and the task completion percentage. The page could use SQL queries to update this table.
+
+3. **Webhooks**: The page might use webhooks to notify other systems or applications about the progress of the movement. For example, it could send a webhook to an email service to notify the administrators about the progress of the movement.
+
+4. **Session Management**: The page might use session management to track the logged-in user and their role. This could involve setting session variables to store the user's ID, role, and other relevant information.
+
+### Conclusion
+The section in question is a part of a student portal that controls a transactional feature related to the "Finite Earth Movement" and the "FEM'Us Pledge." It exposes variables, parameters, and text grids that track the status of the movement, including the number of participants, mentors, managers, the start date, and the task completion percentage. The page passes information to the wider web system structure through API calls, database updates, webhooks, and session management.
 
 --•--•--
 
