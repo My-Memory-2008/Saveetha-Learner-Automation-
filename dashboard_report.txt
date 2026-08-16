@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 17
-**Pending Sub-Layer Queue Boundaries:** 83
+**Total Verified Inner Nodes Mapped:** 21
+**Pending Sub-Layer Queue Boundaries:** 113
 
 ## Architectural Breakdown per Sub-System:
 
@@ -922,6 +922,209 @@ The Mentorship section is designed to manage and view mentorship groups that the
 
 ### Summary
 The Mentorship section is a critical part of the student portal, managing and displaying mentorship groups that users are part of. It exposes various variables, parameters, and functions to interact with the backend and manage mentorship groups. The page uses HTTP requests, cookies, sessions, and API calls to pass information to the wider web system structure, ensuring secure and efficient user interaction.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/facultysubjects/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "Subjects Handling" in the student portal is designed to manage and display the subjects assigned to the student for a specific academic term. This feature allows students to view and possibly update their subject assignments, ensuring they are aware of the courses they are enrolled in for the current term.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Academic Term**: This is a dropdown menu that allows the student to select the academic term they are enrolled in. The term is currently set to "25-26-EVEN-T1-PLT."
+- **Apply Button**: This button is used to apply the selected term and refresh the list of subjects.
+- **Reset Button**: This button allows the student to reset the term selection and return to the default term.
+- **No subjects found for the selected term**: This message indicates that there are no subjects assigned for the selected term, which could be due to the term being a new one or the student not having any subjects assigned yet.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the "Apply" button is clicked, the selected term is submitted to the wider web system. This submission likely triggers an API call or a server-side request to update the student's subject assignments.
+- **Session Management**: The page uses session management to ensure that the selected term is stored and applied correctly. This is crucial for maintaining the user's progress and ensuring that the correct term is displayed.
+- **User Authentication**: The page is logged in as a specific user (25013957), indicating that the user's session is active and the system is aware of the user's identity.
+
+### Detailed Explanation
+
+1. **Academic Term Dropdown**:
+   - **Action**: The dropdown menu allows the student to select the academic term they are enrolled in.
+   - **Parameters**: The term is hardcoded in the dropdown menu, but it can be dynamically populated based on the user's session or database.
+   - **Text Grid**: The dropdown menu is a text grid that displays the available terms.
+
+2. **Apply Button**:
+   - **Action**: Clicking the "Apply" button triggers an action to update the student's subject assignments based on the selected term.
+   - **Parameters**: The selected term is passed as a parameter to the server-side function.
+   - **Text Grid**: The button is a clickable element that triggers the action.
+
+3. **Reset Button**:
+   - **Action**: Clicking the "Reset" button resets the term selection to the default term.
+   - **Parameters**: The reset action does not pass any parameters, but it resets the dropdown menu to its default state.
+   - **Text Grid**: The button is a clickable element that resets the term selection.
+
+4. **No subjects found for the selected term**:
+   - **Action**: This message is displayed when no subjects are assigned for the selected term.
+   - **Parameters**: The message is a static text that is displayed based on the term selection.
+   - **Text Grid**: The message is a text grid that is displayed on the page.
+
+5. **Form Submission**:
+   - **Action**: The form submission is triggered when the "Apply" button is clicked.
+   - **Parameters**: The selected term is passed as a parameter to the server-side function.
+   - **Text Grid**: The form submission is a process that updates the student's subject assignments based on the selected term.
+
+6. **Session Management**:
+   - **Action**: The page uses session management to ensure that the selected term is stored and applied correctly.
+   - **Parameters**: The selected term is stored in the session and applied to the page.
+   - **Text Grid**: The session management is a process that ensures the correct term is displayed and applied.
+
+7. **User Authentication**:
+   - **Action**: The page is logged in as a specific user (25013957).
+   - **Parameters**: The user's session is active and the system is aware of the user's identity.
+   - **Text Grid**: The user's identity is displayed on the page.
+
+### Conclusion
+The "Subjects Handling" section in the student portal is designed to manage and display the student's subject assignments for a specific academic term. It uses dropdown menus, buttons, and text grids to interact with the user and the wider web system. The page passes information to the wider web system through form submissions and session management, ensuring that the correct term is displayed and applied.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/
+### Analysis of the Student Portal Page
+
+#### 1. Action or Transactional Feature it Controls
+The page in question is a student portal page that displays the subjects the student is enrolled in. It allows the student to view their academic schedule, attendance records, and other related information. The primary action it controls is the retrieval and display of the student's academic schedule and attendance data.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Academic Term**: This is a dropdown menu that allows the student to select their academic term. The current term is set to "25-26 EVEN-T1-PLT".
+- **Subjects**: The page lists the subjects the student is enrolled in, including their slot, academic term, mode, and overall attendance.
+  - **SW - Study Week**: This subject is listed with its slot, academic term, and mode.
+  - **19AI304 - Fundamentals of C Programming**: This subject is listed with its slot, academic term, and mode.
+  - **19EN101 - Communicative English**: This subject is listed with its slot, academic term, and mode.
+- **Overall Attendance**: This section provides the overall attendance percentage for each subject.
+  - **SW - Study Week**: The overall attendance is "N/A".
+  - **19AI304 - Fundamentals of C Programming**: The overall attendance is "100.00%".
+  - **19EN101 - Communicative English**: The overall attendance is "96.43%".
+- **Feedback**: This section provides the number of submitted and pending feedback for each subject.
+  - **SW - Study Week**: 15 submitted, 5 pending.
+  - **19AI304 - Fundamentals of C Programming**: 18 submitted, 13 pending.
+  - **19EN101 - Communicative English**: 16 submitted, 13 pending.
+- **Unread Chat**: This section provides the number of unread chats for each subject.
+  - **SW - Study Week**: 0 unread chats.
+  - **19AI304 - Fundamentals of C Programming**: 0 unread chats.
+  - **19EN101 - Communicative English**: 35 unread chats.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page does not explicitly pass information to the wider web system structure. However, it likely interacts with the backend system to fetch the student's academic schedule and attendance data. The page uses the following methods to interact with the backend:
+
+- **Dropdown Menu Selection**: When the student selects an academic term from the dropdown menu, the page likely sends a request to the backend to fetch the corresponding schedule and attendance data.
+- **Submit Button**: The "Apply" button is used to submit the selected academic term. This button likely triggers a request to the backend to update the student's schedule and attendance data.
+- **Feedback Submission**: The feedback submission is likely handled by the backend, where the student's feedback is stored and processed.
+- **Chat Interaction**: The unread chat count is likely updated by the backend, which tracks the unread messages in the chat system.
+
+### Summary
+The page in question is a student portal page that displays the student's academic schedule and attendance data. It uses dropdown menus, submit buttons, and other interactive elements to control the retrieval and display of this information. The page does not pass information to the wider web system structure directly but interacts with the backend system to fetch and update the student's data.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-managing/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "Events Managing" on the student portal is designed to control and manage events assigned to the user. Specifically, it allows the user to view, filter, and apply event sessions based on predefined criteria such as event term, date range, and other parameters. This feature is crucial for students to manage their academic events, such as workshops, seminars, or other educational activities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Event Term**: A dropdown menu that allows the user to select the specific event term or category.
+- **From Date**: A date input field that enables the user to specify the start date of the event session.
+- **To Date**: Another date input field that allows the user to specify the end date of the event session.
+- **Apply Button**: A button that triggers the application of the selected filters and displays the filtered event sessions.
+- **Reset Button**: A button that resets the filters to their default state.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page "Events Managing" likely interacts with a backend system that manages the events assigned to students. Here’s how the information is passed:
+
+1. **Form Submission**: When the user clicks the "Apply" button, the form data (event term, from date, to date) is submitted to the backend.
+2. **Backend Processing**: The backend receives the form data and processes it to filter the event sessions based on the selected criteria.
+3. **Response Handling**: The backend returns the filtered event sessions to the frontend.
+4. **Display**: The frontend displays the filtered event sessions on the page, or if no events are found, it shows a message indicating that no events were found.
+
+### Detailed Steps for Information Flow
+
+1. **User Interaction**:
+   - The user selects an event term from the dropdown menu.
+   - The user inputs the start and end dates in the date fields.
+   - The user clicks the "Apply" button.
+
+2. **Form Submission**:
+   - The form data is sent to the backend server via an HTTP POST request.
+
+3. **Backend Processing**:
+   - The backend server receives the form data.
+   - The backend processes the data to filter the event sessions based on the selected criteria.
+   - The backend returns the filtered event sessions to the frontend.
+
+4. **Frontend Display**:
+   - The frontend receives the filtered event sessions from the backend.
+   - The frontend updates the page to display the filtered event sessions.
+   - If no events are found, the frontend displays a message indicating that no events were found.
+
+### Security Considerations
+- **Data Privacy**: Ensure that the user's data is securely transmitted and stored.
+- **Authentication**: Ensure that only authenticated users can access this section.
+- **Data Integrity**: Validate the data to prevent any malicious inputs.
+
+### Conclusion
+The "Events Managing" section is a critical feature for students to manage their academic events. It uses form submission, backend processing, and frontend display to provide a user-friendly interface for filtering and viewing event sessions. The information flow ensures that the user's actions are securely processed and displayed, maintaining the integrity and privacy of the data.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+This section controls the display of event sessions that the user is enrolled in. It allows users to view their scheduled events, including the event term, date range, and session details. The user can also apply filters to refine the list of events based on specific criteria.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Event Term**: A dropdown menu that allows the user to select the event term they are interested in.
+- **From Date**: A date input field that enables the user to specify the start date of the event range.
+- **To Date**: A date input field that enables the user to specify the end date of the event range.
+- **Reset Button**: A button that resets the date range to the default values.
+- **Apply Button**: A button that applies the selected date range and filters to the list of events.
+- **Event Term Dropdown**: A dropdown menu that lists all available event terms.
+- **Event Term Text Grid**: Displays the selected event term.
+- **From Date Text Grid**: Displays the selected start date.
+- **To Date Text Grid**: Displays the selected end date.
+- **Event Term Filter**: A filter that allows the user to select specific event terms.
+- **Event Type Filter**: A filter that allows the user to select specific event types.
+- **Location Filter**: A filter that allows the user to select specific locations.
+- **Mode Filter**: A filter that allows the user to select specific modes of booking.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the user clicks the "Apply" button, the form data is submitted to the server.
+- **Server Response**: The server processes the form data and returns a list of events that match the specified criteria.
+- **Data Transfer**: The server sends the list of events back to the client, which then updates the page with the filtered events.
+- **AJAX Request**: The page uses AJAX to update the content without reloading the entire page, improving the user experience.
+
+### Detailed Breakdown
+
+#### 1. Event Term Selection
+- **Dropdown Menu**: The user can select an event term from a dropdown menu. This term is used to filter the list of events.
+- **Text Grid**: The selected event term is displayed in a text grid.
+
+#### 2. Date Range Selection
+- **From Date Input**: The user can specify the start date of the event range using a date input field.
+- **To Date Input**: The user can specify the end date of the event range using a date input field.
+- **Text Grids**: The selected start and end dates are displayed in text grids.
+
+#### 3. Filters
+- **Event Term Filter**: The user can select specific event terms using a filter.
+- **Event Type Filter**: The user can select specific event types using a filter.
+- **Location Filter**: The user can select specific locations using a filter.
+- **Mode Filter**: The user can select specific modes of booking using a filter.
+
+#### 4. Application and Data Transfer
+- **Reset Button**: When the user clicks the "Reset" button, the date range and filters are reset to their default values.
+- **Apply Button**: When the user clicks the "Apply" button, the form data is submitted to the server.
+- **AJAX Request**: The server processes the form data and returns a list of events that match the specified criteria.
+- **Data Transfer**: The server sends the list of events back to the client, which then updates the page with the filtered events.
+
+### Summary
+This section of the student portal is designed to provide a user-friendly interface for managing and viewing their enrolled events. It uses a combination of dropdown menus, date input fields, and filters to allow users to refine their view of events based on specific criteria. The page updates dynamically using AJAX, improving the user experience and reducing page load times.
 
 --•--•--
 
