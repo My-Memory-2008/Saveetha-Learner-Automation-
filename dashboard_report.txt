@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 85
-**Pending Sub-Layer Queue Boundaries:** 258
+**Total Verified Inner Nodes Mapped:** 89
+**Pending Sub-Layer Queue Boundaries:** 259
 
 ## Architectural Breakdown per Sub-System:
 
@@ -4307,6 +4307,204 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ### Conclusion
 The "Subjects Handling" section in the student portal is designed to manage and display the subjects assigned to the student for a specific academic term. It uses a dropdown to select the term, an "Apply" button to refresh the list of subjects, and a "Reset" button to clear the term selection. The page communicates with the server using AJAX to fetch the list of subjects for the selected term, ensuring a dynamic and responsive user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+This section controls the display of the student's enrolled subjects and their respective details. It allows the student to view the subjects they are enrolled in for a specific academic term. The student can also apply for changes in the academic term if needed.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Academic Term**: A dropdown menu that allows the student to select the academic term they are enrolled in.
+- **Subjects**: A list of subjects the student is enrolled in, including the subject name, slot, academic term, mode, and overall attendance.
+- **Overall Attendance**: Displays the overall attendance percentage for each subject.
+- **Present/Absent**: Breaks down the attendance into present and absent counts.
+- **Feedback**: Displays the number of submitted and pending feedback for each subject.
+- **Unread Chat**: Displays the number of unread chats for each subject.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the student clicks the "Apply" button, it triggers a form submission to update the academic term.
+- **API Calls**: The page likely makes API calls to the backend to fetch the student's enrolled subjects and attendance data.
+- **Session Management**: The page uses session management to store and retrieve the student's login information and preferences.
+- **User Authentication**: The page checks the user's authentication status to ensure they are logged in and have the necessary permissions to view this section.
+
+### Detailed Breakdown
+
+#### Form Submission
+When the student clicks the "Apply" button, the form data is submitted to the backend. This data includes the selected academic term. The backend processes this data and updates the student's enrollment information in the database.
+
+#### API Calls
+The page makes API calls to the backend to fetch the student's enrolled subjects and attendance data. This ensures that the page displays the most up-to-date information.
+
+#### Session Management
+The page uses session management to store and retrieve the student's login information and preferences. This ensures that the student's session is maintained across different pages and that they can access their enrolled subjects without having to log in again.
+
+#### User Authentication
+The page checks the user's authentication status to ensure they are logged in and have the necessary permissions to view this section. This prevents unauthorized access and ensures that only authenticated users can view their enrolled subjects.
+
+### Summary
+This section of the student portal is designed to provide a user-friendly interface for students to view and manage their enrolled subjects and attendance details. It leverages various features such as form submission, API calls, session management, and user authentication to ensure a seamless and secure experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/107/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a detailed view of a student's academic record, specifically focusing on a particular subject or study week. The features it controls include:
+
+- **Attendance Tracking**: It tracks the overall attendance and conducted sessions for the student.
+- **Feedback Submission**: It allows the submission of feedback related to the sessions.
+- **Session Timeline**: It displays the scheduled sessions for the subject or study week.
+- **Course Outcome**: It provides information about the course outcome, such as whether a syllabus has been selected.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+
+- **Student Information**: 
+  - **Student Name**: Muhammad Asjad E
+  - **Registration Number**: 212225240091
+  - **Mode**: Class
+
+- **Session Information**:
+  - **Slot**: SW01 - TSCS169
+  - **Academic Term**: 25-26 EVEN T1
+
+- **Session Details**:
+  - **Total Sessions**: 20
+  - **Upcoming Sessions**: 0
+  - **Pending Feedback**: 3
+  - **Session Timeline**: 24 Mar 2026 10:00 - 28 Mar 2026 15:00
+
+- **Feedback Status**:
+  - **Feedback Submitted**: 15
+
+- **Course Outcome**:
+  - **No syllabus selected for this subject slot**
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **Session Timeline**: The session timeline is displayed, which likely triggers an event or API call to update the system's session scheduling and attendance tracking.
+- **Feedback Submission**: The feedback submitted is likely sent to a feedback management system or database, which can be accessed through an API or web service.
+- **Attendance Tracking**: The overall attendance and conducted sessions are updated in the system's database, which can be accessed through an API or web service.
+- **Course Outcome**: The course outcome information is likely stored in the system's database and can be accessed through an API or web service.
+
+### Summary
+This section of the student portal is designed to provide detailed information about a student's academic performance, including attendance, feedback, and session details. It exposes various variables and parameters related to the student's registration, sessions, and course outcomes. The page interacts with the wider web system structure through various mechanisms, such as API calls and database updates, to ensure that the information is accurately tracked and managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/326/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the student's access to their academic records, including attendance, feedback, and course details. It likely manages the student's progress and interaction with the course content.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Overall Attendance**: Displays the percentage of total sessions attended.
+- **Total Sessions**: Shows the total number of sessions scheduled.
+- **Feedback Status**: Indicates the number of pending feedbacks.
+- **Session Timeline**: Displays the scheduled session times.
+- **Student Information**: Contains the student's name, registration number, and mode of attendance.
+- **LMS Links**: Provides a link to the course's Learning Management System (LMS).
+- **Course Outcome**: Indicates the course outcome, which in this case is "No syllabus selected for this subject slot."
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Session Information**: The page likely interacts with a backend system that manages the scheduling and attendance of students. This system would store the session details, student attendance records, and feedback.
+- **Feedback Status**: The page updates the feedback status by interacting with a feedback management system. This system would update the status of pending feedbacks.
+- **LMS Links**: The page provides a link to the LMS, which is likely integrated with the student's academic records system. This link would allow the student to access the course content.
+- **Course Outcome**: The page displays the course outcome, which is likely determined by the backend system based on the student's attendance and feedback.
+
+### Detailed Breakdown
+
+#### Session Information
+- **Slot Information**: The page displays the slot number (25EJ2074) and the academic term (25-26 EVEN T2).
+- **Session Timeline**: The page shows the scheduled session times (17 Apr 2026 15:00 - 06 Jun 2026 16:59).
+
+#### Student Information
+- **Student Name**: Muhammad Asjad E.
+- **Registration Number**: 212225240091.
+- **Mode of Attendance**: Class.
+
+#### LMS Links
+- **Course Name**: 19AI304 - Fundamentals of C Programming.
+- **Link**: The page provides a link to the course's LMS, which is likely integrated with the student's academic records system.
+
+#### Feedback Status
+- **Total Sessions**: 31.
+- **Present**: 60.00 / 60.00.
+- **Upcoming**: 0.
+- **Pending**: 12.
+
+#### Course Outcome
+- **No syllabus selected for this subject slot**: Indicates that the course outcome is not yet determined, as the syllabus has not been selected.
+
+### Conclusion
+This section of the student portal is designed to provide a comprehensive view of the student's academic progress, including attendance, feedback, and course details. It interacts with various backend systems to manage and display this information, ensuring that students have access to their records and can interact with the course content as needed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/420/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a detailed view of a student's academic record, specifically for the subject "19EN101 - Communicative English." This section likely controls various transactional features related to the student's attendance, feedback, and course progress. It allows the student to view their attendance statistics, upcoming sessions, and feedback status, as well as access their course materials and course outcomes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Overall Attendance**: This is a percentage that shows the student's overall attendance for the course. It is calculated based on the number of sessions attended and the total number of sessions scheduled.
+- **Total Sessions**: This indicates the total number of sessions scheduled for the course.
+- **Feedback Status**: This shows the number of pending and upcoming feedback sessions.
+- **Session Timeline**: This provides a timeline of the sessions scheduled from the start date to the end date.
+- **Student Information**: Displays the student's name, registration number, and mode of attendance.
+- **LMS Links**: Provides links to the course materials and learning management system.
+- **Slot Information**: Details the specific slot and academic term for the course.
+- **Course Outcome**: Indicates that no syllabus is selected for this subject slot, suggesting that the course outcome is not yet defined or available.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with the wider web system structure through various means, including:
+- **API Calls**: The page might make API calls to retrieve data such as attendance statistics, feedback status, and session timelines.
+- **Session Management**: It could manage session scheduling and attendance tracking through the system's session management module.
+- **User Authentication**: The page uses user authentication to ensure that only authorized students can access their personal information.
+- **Data Storage**: The page interacts with the system's database to store and retrieve data such as attendance records, feedback, and course outcomes.
+
+### Detailed Breakdown of the Page
+
+#### Overview
+- **Overall Attendance**: 96.43%
+- **Total Sessions**: 29
+- **Feedback Status**: 16 Present, 11 Pending
+- **Session Timeline**: 16 Apr 2026 08:00 - 06 Jun 2026 14:59
+- **Student Information**: 
+  - Name: Muhammad Asjad E
+  - Registration Number: 212225240091
+  - Mode: Class
+- **LMS Links**: 
+  - 19EN101 - Communicative English
+- **Slot Information**: 
+  - Slot: 25EJ2082
+  - Academic Term: 25-26 EVEN T2
+- **Course Outcome**: No syllabus selected for this subject slot
+
+#### Chat
+- **Chat**: 35 messages
+
+#### Attendance
+- **Present**: 54.00 / 56.00
+- **Absent**: 2.00 / 56.00
+- **Calculated**: 2026-07-26 12:25
+
+#### Sessions
+- **Session Timeline**: 16 Apr 2026 08:00 - 06 Jun 2026 14:59
+- **Total sessions scheduled**: 29
+
+#### Feedback
+- **Feedback Status**: 16 Present, 11 Pending
+
+### Conclusion
+This section of the student portal is designed to provide detailed information about a student's attendance, feedback, and course progress. It interacts with the wider web system structure through various means, including API calls, session management, user authentication, and data storage. The page ensures that only authorized students can access their personal information and provides a comprehensive view of their academic record.
 
 --•--•--
 
