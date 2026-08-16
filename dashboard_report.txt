@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 37
-**Pending Sub-Layer Queue Boundaries:** 171
+**Total Verified Inner Nodes Mapped:** 41
+**Pending Sub-Layer Queue Boundaries:** 163
 
 ## Architectural Breakdown per Sub-System:
 
@@ -1936,6 +1936,153 @@ The page likely passes information to the wider web system structure through the
 
 ### Summary
 This section of the student portal is designed to provide detailed and interactive access to a student's academic record, including attendance, feedback, and course materials. It controls various transactional features such as attendance tracking, feedback management, and communication, and exposes variables such as student information, course details, and session data. The page passes information to the wider web system structure through session tracking, communication, and integration with the LMS and feedback management systems.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/people/settings/#
+### Analysis of the Student Portal Settings Page
+
+#### 1. Action or Transactional Feature it Controls
+The settings page in the student portal is designed to manage notifications for various types of events and actions. The user can enable or disable notifications for different types of events, such as academic sessions, circulars, workflow approvals, and workflow requests. This feature allows students to customize their notification preferences, ensuring they receive important updates and reminders without being overwhelmed by irrelevant information.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Notification Types:** The page exposes different types of notifications, such as "Event Session Notification," "Academic Session Notification," "Circular Notification," "Workflow Approved Notification," and "Workflow Request Notification."
+  - **Statuses:** Each notification type has a toggle switch (either "on" or "off") to enable or disable the notification.
+
+- **Parameters:**
+  - **User ID:** The user's unique identifier (e.g., "25013957") is displayed at the top, indicating the logged-in user.
+  - **User Name:** The user's name is displayed below the user ID, which is "MUHAMMAD ASJAD E."
+
+- **Text Grids:**
+  - **Notification Descriptions:** Each toggle switch is accompanied by a brief description of the notification type, such as "Event Session Notification," "Academic Session Notification," etc.
+
+- **Functions:**
+  - **Toggle Function:** The toggle switches allow the user to enable or disable notifications for specific types.
+  - **Save Function:** There is a "Save" button to apply the changes made to the notification preferences.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication:** The page is designed to be accessible only to authenticated users, as indicated by the logged-in user information at the top.
+- **Data Storage:** The user's notification preferences are likely stored in a database or session, allowing the system to remember the user's choices across sessions.
+- **API Integration:** The page may integrate with an API to update the user's notification settings in real-time, ensuring that the user's preferences are always up-to-date.
+- **Security:** The page uses secure communication protocols (e.g., HTTPS) to protect user data and ensure that sensitive information is not exposed.
+
+### Summary
+The settings page in the student portal is a critical feature that allows users to manage their notification preferences. It exposes various notification types and their statuses, enabling users to customize their experience based on their needs. The page is designed to be secure and user-friendly, ensuring that users can easily adjust their notification settings without compromising their privacy.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/people/profile/#
+### Analysis of the Student Portal Profile Section
+
+#### 1. Action or Transactional Feature
+The section in question is a profile management page for a student within a learning management system (LMS). The primary action it controls is the updating and managing of the student's public profile details. This includes the ability to edit the profile photo, update the LinkedIn public profile URL, and modify the GitHub URL. Additionally, it allows the student to provide a brief description about themselves.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Profile Photo:**
+  - **Choose File:** Allows the student to upload a new profile photo.
+  - **No file chosen:** Indicates that no file has been selected yet.
+  - **LinkedIn Public Profile URL:** A text input field where the student can enter or update their LinkedIn URL.
+  - **GitHub URL:** A text input field where the student can enter or update their GitHub URL.
+  - **About Myself:** A text area where the student can write a brief description about themselves.
+
+- **Edit and Remove Photo Buttons:**
+  - **Edit:** Allows the student to modify the current profile photo.
+  - **Remove Photo:** Allows the student to delete the current profile photo.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Profile Photo:**
+  - When the student uploads a new profile photo, the system likely sends the file to a server-side script that processes the image upload. This script would then update the database with the new photo URL.
+  - The updated URL is then displayed back to the user in the "No file chosen" field.
+
+- **LinkedIn and GitHub URLs:**
+  - When the student updates the LinkedIn or GitHub URL, the system likely sends the new URL to a server-side script that updates the database with the new URL.
+  - The updated URLs are then displayed back to the user in the respective text input fields.
+
+- **About Myself:**
+  - When the student updates the "About Myself" text, the system likely sends the new text to a server-side script that updates the database with the new text.
+  - The updated text is then displayed back to the user in the "About Myself" text area.
+
+- **Save Profile Button:**
+  - When the student clicks the "Save Profile" button, the system likely sends a request to a server-side script that processes the updates made to the profile.
+  - The script would then update the database with the new profile information and possibly send a confirmation message back to the user.
+
+### Summary
+This profile management page is a critical component of the student portal, allowing students to manage their public profile details, including their LinkedIn and GitHub URLs, and a brief description about themselves. The page interacts with the wider web system structure by updating the database with the new profile information and sending confirmation messages to the user.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/people/activity-log/#
+### Analysis of the Activity Log Section
+
+#### 1. Action or Transactional Feature
+The Activity Log section is designed to track and display the activities of users within a specific time frame, typically from a start date to an end date. This feature is crucial for maintaining accountability and ensuring that all user interactions are logged and reviewed. It helps in identifying patterns, anomalies, or unauthorized activities that could be indicative of security breaches or misuse.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Date/Time**: The system tracks the exact time and date when the user logged in or logged out.
+- **Activity**: The type of action performed, which is either "Login" or "Logout".
+- **Details**: This column is currently empty, indicating that no additional details are provided for each activity.
+- **IP Address**: The IP address of the device from which the user accessed the system.
+- **User ID**: The unique identifier for the user, which is displayed at the bottom of the page.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The Activity Log page is accessed by users who are already authenticated. This is indicated by the logged-in user ID at the bottom of the page.
+- **User Interaction Tracking**: The system tracks user interactions by recording the date, time, and type of activity (login/logout) along with the IP address. This data is stored in a database or log file.
+- **Security and Compliance**: The Activity Log is a critical component of a security and compliance framework. It helps in monitoring user activities, detecting potential security threats, and ensuring that all user interactions are logged and reviewed.
+- **User Interface**: The page is designed to be user-friendly, with clear headers and a grid layout that makes it easy to read and understand. The use of icons and labels helps in quickly identifying the type of information being displayed.
+
+### Summary
+The Activity Log section is a critical feature of the student portal that tracks and logs user activities over a specified period. It provides a detailed record of user interactions, including login and logout times, IP addresses, and user IDs. This information is crucial for maintaining security, compliance, and accountability within the system. The page is designed to be user-friendly and accessible, ensuring that users can easily access and understand the logged activities.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/attendance/my-college-hours/#
+### Analysis of the "My College Hours" Section
+
+#### 1. Action or Transactional Feature it Controls
+The "My College Hours" section is designed to manage and display the student's college hours schedule. This feature allows students to view and possibly update their recurring college hours pattern, which is typically set to cover a week from Sunday to Saturday. The section also indicates whether an active record exists for the student's clusters.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `Cluster ID`: The unique identifier for the student's cluster.
+  - `Active Record`: Boolean indicating whether an active record exists for the student's clusters.
+  - `College Hours Pattern`: The recurring pattern for college hours (e.g., Sunday to Saturday).
+
+- **Parameters:**
+  - `Cluster ID`: Required to fetch the specific college hours record for the student.
+  - `Active Record`: Determines whether to display the record or not.
+  - `College Hours Pattern`: Used to display the current college hours pattern.
+
+- **Text Grids:**
+  - **Message Box:**
+    - "No active College Hours record is currently available for your clusters."
+    - This message box informs the user if there is no active record for their clusters.
+
+- **Functions:**
+  - `fetchCollegeHours`: Fetches the college hours record for the student based on the provided parameters.
+  - `displayMessage`: Displays the message box based on the `Active Record` parameter.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Information Flow:**
+  - The page communicates with the backend system using RESTful APIs.
+  - Parameters are passed through URL queries or form submissions.
+  - The backend processes the request and returns the appropriate response.
+
+- **Security Measures:**
+  - The page uses HTTPS to ensure secure communication.
+  - Parameters are URL-encoded to prevent injection attacks.
+  - The backend verifies the authenticity of the request using tokens or session management.
+
+- **Data Storage:**
+  - The college hours record is stored in a database.
+  - The database is accessed by the backend for retrieval and updating.
+
+- **User Authentication:**
+  - The page checks the user's authentication status using session tokens.
+  - The backend verifies the session token to ensure the user is authorized to access the page.
+
+### Summary
+The "My College Hours" section is a critical feature that allows students to manage their college hours schedule. It exposes variables and parameters related to the student's clusters and college hours pattern. The page communicates with the backend system using RESTful APIs, ensuring secure and efficient data exchange. The backend processes the request and returns the appropriate response, while the database stores the college hours record for future reference.
 
 --•--•--
 
