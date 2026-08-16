@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 29
-**Pending Sub-Layer Queue Boundaries:** 160
+**Total Verified Inner Nodes Mapped:** 33
+**Pending Sub-Layer Queue Boundaries:** 171
 
 ## Architectural Breakdown per Sub-System:
 
@@ -1570,6 +1570,214 @@ The page is designed to interact with a wider web system structure, likely an ac
 
 ### Summary
 The section in question is a part of a student portal that manages and displays academic schedules for a specific date. It uses URL parameters, JavaScript for navigation and AJAX for data retrieval, session management for user tracking, and server-side processing to fetch and display the schedule data. The page interacts with a wider web system structure to provide a comprehensive view of the student's academic schedule.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=17
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the student's academic schedule for the month of August 2026. It allows students to view their upcoming classes, lessons, and assignments for the specified date. The feature likely involves displaying the student's schedule for the day, including the lesson details, time, and venue.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 17 (Monday)
+  - **Student ID:** 25013957
+  - **Class ID:** 19AI408 (Data Structures)
+  - **Class ID:** 19CS406 (Computer Networks)
+
+- **Parameters:**
+  - **Year:** `year=2026`
+  - **Month:** `month=8`
+  - **Day:** `day=17`
+  - **Student ID:** `refId=21225240091`
+  - **Class ID:** `refId=25013957`
+
+- **Text Grids:**
+  - **Class Name:** 19AI408 - Data Structures
+  - **Class Name:** 19CS406 - Computer Networks
+  - **Lesson Details:** Set Applications & Map Interface, Lesson Plan: Multicasting Basics and IPv6
+  - **Time:** 10:00 AM - 11:59 AM, 01:00 PM - 02:59 PM
+  - **Venue:** 2512, 4651
+
+- **Functions:**
+  - **View Attendance:** Allows students to view their attendance records for the specified class and date.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **URL Parameters:**
+  - The page uses URL parameters to pass the necessary information to the backend system. For example, `year=2026`, `month=8`, `day=17`, `refId=21225240091`, and `refId=25013957` are passed as query parameters.
+
+- **Cookies and Sessions:**
+  - The page uses cookies or sessions to maintain the user's session and track their progress through the system. This ensures that the user's data is not lost when they navigate away from the page.
+
+- **API Calls:**
+  - The page may make API calls to the backend system to fetch the student's schedule and attendance records. These API calls could be made using JavaScript or other web technologies.
+
+- **Server-Side Processing:**
+  - The backend system processes the data passed from the frontend and returns the relevant information to the frontend. This could involve querying a database to retrieve the student's schedule and attendance records.
+
+### Summary
+The section in question is a student portal page that controls the display of the student's academic schedule for the specified date. It exposes variables, parameters, text grids, and functions related to the student's schedule and attendance. The page passes information to the wider web system structure through URL parameters, cookies, sessions, and API calls.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=18
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal, specifically designed to display the schedule for a particular day (August 18, 2026). The primary action it controls is the display of the student's academic schedule for that day. Users can view their classes, lessons, and other related information.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 18
+  - **User ID:** 25013957
+  - **User Name:** Muhammad Asjad E
+  - **Ref1:** 212225240091
+  - **Ref2:** 25013957
+
+- **Parameters:**
+  - **Year:** The year of the academic session (2026).
+  - **Month:** The month (August).
+  - **Day:** The specific day of the month (August 18).
+
+- **Text Grids:**
+  - **Schedule:** Displays the list of classes and lessons for the specified day.
+  - **Slot:** Identifies the specific slot or time slot for each class.
+  - **Lesson:** Describes the content or topic of the lesson.
+  - **Venue:** Specifies the location where the lesson is held.
+  - **View Attendance:** Links to a page where users can view their attendance records for the lesson.
+
+- **Functions:**
+  - **View Attendance:** Allows users to access their attendance records for the lesson.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **URL Parameters:**
+  - The URL includes parameters such as `year`, `month`, and `day`, which are used to filter the schedule based on the user's logged-in session.
+
+- **Session Management:**
+  - The user's ID (25013957) and name (Muhammad Asjad E) are stored in the session, allowing the page to recognize the logged-in user and display their specific schedule.
+
+- **JavaScript and Cookies:**
+  - The page may use JavaScript to dynamically load or update the schedule based on user interactions or changes in the session.
+  - Cookies might be used to store user preferences or session data, ensuring a seamless experience across different sessions.
+
+- **API Calls:**
+  - The page might make API calls to the backend to fetch the user's schedule data, ensuring that the information displayed is up-to-date and accurate.
+
+### Summary
+The section in question is a highly interactive part of a student portal, designed to display the schedule for a specific day. It exposes various variables, parameters, and functions related to the user's schedule, and it passes this information to the wider web system structure through URL parameters, session management, and possibly API calls. This ensures that the user can easily access and manage their academic schedule, view attendance records, and interact with other features of the portal.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=37510&slot_id=1498&year=2026&month=8&day=15
+### Analysis of the Student Portal Attendance Process
+
+#### 1. Action or Transactional Feature it Controls
+The page in question controls the attendance process for students. Specifically, it manages the entry and exit times for students during scheduled classes. This includes generating and managing OTPs (One-Time Passes) for students to enter and exit the classroom.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `slotsession_id`: Unique identifier for the session.
+  - `slot_id`: Specific slot ID for the class.
+  - `year`: Year of the academic session.
+  - `month`: Month of the academic session.
+  - `day`: Day of the academic session.
+  - `student_id`: Unique identifier for the student.
+
+- **Parameters:**
+  - `IN OTP`: OTP for entering the classroom.
+  - `OUT OTP`: OTP for exiting the classroom.
+  - `IN OTP Entry`: Time when the student entered the classroom.
+  - `OUT OTP Entry`: Time when the student exited the classroom.
+
+- **Text Grids:**
+  - `IN OTP`: Information about the IN OTP.
+  - `OUT OTP`: Information about the OUT OTP.
+  - `IN OTP Entry`: Time when the student entered the classroom.
+  - `OUT OTP Entry`: Time when the student exited the classroom.
+
+- **Functions:**
+  - `generateOTP()`: Function to generate the OTP for entering the classroom.
+  - `enableOTP()`: Function to enable the OTP for exiting the classroom.
+  - `updateAttendance()`: Function to update the attendance record.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page interacts with the wider web system structure through the following mechanisms:
+
+- **Cookies and Sessions:**
+  - The page uses cookies and sessions to maintain user authentication and session data.
+  - `student_id` and `slot_id` are stored in cookies or sessions to identify the student and the specific slot.
+
+- **API Calls:**
+  - The page makes API calls to the backend to generate and manage OTPs.
+  - `generateOTP()` and `enableOTP()` functions make API calls to the backend to generate and enable the OTPs.
+
+- **Database Interaction:**
+  - The page interacts with the database to store and retrieve attendance records.
+  - `updateAttendance()` function updates the attendance record in the database.
+
+- **Webhooks:**
+  - The page may use webhooks to notify the backend about the student's attendance status.
+  - Webhooks can be triggered when the student enters or exits the classroom.
+
+### Summary
+The page in question is a critical component of the student portal's attendance management system. It controls the entry and exit times for students, generates and manages OTPs, and updates the attendance records. It interacts with the wider web system structure through cookies, sessions, API calls, database interactions, and webhooks. This ensures that the attendance process is secure, accurate, and efficiently managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/1498/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the student's attendance and feedback for the course "19AI305 - Advanced C Programming." It likely manages the following actions:
+- **Attendance Tracking:** Monitoring and updating the student's attendance percentage.
+- **Feedback Collection:** Collecting and processing student feedback.
+- **Session Scheduling:** Managing the schedule for upcoming sessions.
+- **Course Information:** Providing access to course details and syllabus.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+- **Overall Attendance:** Percentage of the total sessions attended.
+- **Total Sessions:** Number of sessions scheduled.
+- **Present:** Number of sessions attended.
+- **Absent:** Number of sessions missed.
+- **Feedback Status:** Number of pending feedbacks.
+- **Session Timeline:** Dates and times of upcoming sessions.
+- **Student Information:** Name, registration number, and mode of class.
+- **LMS Links:** Links to the Learning Management System (LMS) for the course.
+- **Course Information:** Course name, slot, academic term, and taxonomy level.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through the following mechanisms:
+- **API Calls:** The page might make API calls to update the student's attendance and feedback status.
+- **Database Interaction:** It could interact with a database to store and retrieve attendance and feedback data.
+- **Session Scheduling:** The page might send data to a scheduling system to update the session schedule.
+- **User Authentication:** The page uses user authentication to ensure that only authorized users can access and modify the student's information.
+
+### Detailed Explanation
+
+#### API Calls
+The page likely makes API calls to update the student's attendance and feedback status. For example, it might send a POST request to an endpoint like `/api/attendance` or `/api/feedback` with the student's ID, attendance percentage, and feedback status.
+
+#### Database Interaction
+The page interacts with a database to store and retrieve attendance and feedback data. For instance, it might insert or update records in a table like `attendance` or `feedback` using SQL queries.
+
+#### Session Scheduling
+The page sends data to a scheduling system to update the session schedule. This could involve sending a POST request to an endpoint like `/api/schedule` with the session details, such as date, time, and student information.
+
+#### User Authentication
+The page uses user authentication to ensure that only authorized users can access and modify the student's information. This might involve checking the user's session token or using a login system to authenticate the user.
+
+### Summary
+The section in question is a critical part of the student portal, managing various aspects of the student's experience, such as attendance tracking, feedback collection, and session scheduling. It communicates with the wider web system structure through API calls, database interactions, and user authentication mechanisms.
 
 --•--•--
 
