@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 73
-**Pending Sub-Layer Queue Boundaries:** 252
+**Total Verified Inner Nodes Mapped:** 77
+**Pending Sub-Layer Queue Boundaries:** 248
 
 ## Architectural Breakdown per Sub-System:
 
@@ -3717,6 +3717,125 @@ The chat feature allows real-time communication with the approval team. When a s
 
 ### Summary
 The "Reward Redeem" section is a comprehensive tool for students to manage and track their reward redemption requests. It exposes various fields for drafting, submitting, and tracking the approval process, and integrates with real-time communication for better management. The data is sent to the server via HTTP POST requests, and the approval flow and chat features are triggered through specific interactions with the page.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-approvals/#
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/workflow-approvals/#", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-booking/#
+### Analysis of the Student Portal Event Booking Section
+
+#### 1. Action or Transactional Feature it Controls
+The section controls the booking and scheduling of event sessions for students. Specifically, it allows users to book their seats for upcoming event sessions, such as exams, workshops, or other educational events. The feature is designed to manage and allocate seats in real-time, ensuring that students can secure their preferred times and dates for these events.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Event Term**: A dropdown menu that allows users to select the specific event term or series they are interested in booking for.
+- **From Date**: A date picker that enables users to select the start date of the booking period.
+- **To Date**: A date picker that allows users to select the end date of the booking period.
+- **Event Title**: A search bar where users can type in the name of the event they are interested in booking.
+- **Session Time**: A time picker that allows users to select the specific time slot they want to book.
+- **Venue**: A dropdown menu that lists available venues for the event.
+- **Booking Status**: A status indicator that shows whether the booking is open, closed, or in progress.
+- **Booking Window**: A text grid that displays the available booking window for the event, showing the start and end dates.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When a user clicks the "Apply" button, the form data is submitted to the server. This data includes the selected event term, date range, event title, session time, and venue.
+- **Server-side Processing**: The server processes the form data and interacts with the wider web system to update the booking status and allocate seats. This could involve updating a database, sending notifications to the event organizers, or updating the user's account status.
+- **Database Interaction**: The server interacts with a database to store the booking information. This ensures that the booking is recorded and can be accessed later for verification or reporting purposes.
+- **User Interface Update**: The server updates the user interface to reflect the booking status and any changes in the available seats. This ensures that users can see their booking status and any updates in real-time.
+
+### Summary
+The event booking section is a critical feature of the student portal, managing the scheduling and allocation of seats for various events. It exposes various variables and parameters to allow users to select their preferred events, dates, times, and venues. The page communicates this information to the server, which processes the booking and updates the user interface accordingly. This ensures a seamless and efficient booking process for students.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/services/#
+### Analysis of the Student Portal Services Section
+
+#### 1. Action or Transactional Feature it Controls
+The "Services" section of the student portal is designed to provide various operational tools and features to students. These tools include:
+- **Calculate My Attendance**: Allows students to calculate their current attendance based on session-level counting details.
+- **LeaveRedemption**: Enables students to redeem available leave credits using reward points.
+- **LeaveBalance**: Provides a view of leave credits, debits, and the current balance.
+- **Skill Development**: Offers access to review accessible skills, LMS course links, marks, and earned reward points.
+
+These features are transactional in nature, as they involve specific actions such as calculating attendance, redeeming leave credits, checking balances, and accessing skill development resources.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The "Services" section exposes the following variables, parameters, and functions:
+- **Calculate My Attendance**: Likely involves session-level counting details, which could be parameters passed to a function for calculation.
+- **LeaveRedemption**: Requires available leave credits and reward points, which are parameters passed to a function for redemption.
+- **LeaveBalance**: Requires leave credits, debits, and current balance, which are parameters passed to a function for display.
+- **Skill Development**: Likely involves access to LMS course links, marks, and earned reward points, which are parameters passed to a function for display.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The "Services" section likely passes information to the wider web system structure through the following mechanisms:
+- **Session Management**: The page uses session management to store user-specific data such as leave credits, attendance details, and skill development information.
+- **API Calls**: The page makes API calls to backend systems to retrieve or update data. For example, the "Calculate My Attendance" feature might call an API to fetch session-level counting details.
+- **Cookies and Local Storage**: The page uses cookies and local storage to store user preferences and session data, which can be accessed by the backend system.
+- **Cookies and Local Storage**: The page uses cookies and local storage to store user preferences and session data, which can be accessed by the backend system.
+
+### Detailed Explanation
+
+1. **Session Management**:
+   - The page uses session management to store user-specific data such as leave credits, attendance details, and skill development information. This ensures that the data is persistent across multiple page views and sessions.
+
+2. **API Calls**:
+   - The page makes API calls to backend systems to retrieve or update data. For example, the "Calculate My Attendance" feature might call an API to fetch session-level counting details. This ensures that the data is up-to-date and accurate.
+
+3. **Cookies and Local Storage**:
+   - The page uses cookies and local storage to store user preferences and session data. This allows the page to remember user-specific data and preferences, such as the user's current leave balance or skill development progress.
+
+4. **Cookies and Local Storage**:
+   - The page uses cookies and local storage to store user preferences and session data. This allows the page to remember user-specific data and preferences, such as the user's current leave balance or skill development progress.
+
+### Conclusion
+The "Services" section of the student portal is designed to provide various operational tools and features to students. It exposes variables, parameters, and functions related to specific actions such as calculating attendance, redeeming leave credits, checking balances, and accessing skill development resources. The page passes information to the wider web system structure through session management, API calls, cookies, and local storage.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/calculate-my-attendance/
+### Analysis of the Student Portal Page
+
+#### 1. Action or Transactional Feature it Controls
+The page "Calculate My Attendance" is designed to allow students to calculate their attendance for the enrolled academic subject slots. This feature is a critical part of the student management system, enabling students to verify their attendance records and understand their punctuality in relation to their enrolled courses.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Academic Term**: This dropdown menu allows students to select the academic term they are enrolled in. The options are pre-populated with the available terms, such as "25-26 EVEN T2".
+- **Enrolled Subject Slot**: This dropdown menu allows students to select the specific subject slot they are enrolled in. The options are pre-populated with the available subject slots.
+- **Calculate Button**: This button is used to trigger the calculation of attendance based on the selected academic term and subject slot.
+- **Reset Button**: This button allows students to reset the selection to default values if needed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page "Calculate My Attendance" likely communicates the selected academic term and subject slot to the wider web system structure through the following mechanisms:
+
+1. **Form Submission**: When the "Calculate" button is clicked, the form data (academic term and subject slot) is submitted to the server. This data is typically sent via an HTTP POST request to a backend server endpoint.
+2. **Server Endpoint**: The backend server endpoint receives the form data and processes it. This could involve querying a database to fetch attendance records based on the selected academic term and subject slot.
+3. **Response Handling**: The backend server processes the request and returns a response containing the calculated attendance data. This response is then sent back to the client (the student portal) via an HTTP response.
+4. **Client-Side Rendering**: The client-side JavaScript code on the student portal page updates the display with the calculated attendance data. This could involve updating the page content, such as displaying the attendance percentage or a summary of attendance records.
+
+### Detailed Steps for Information Flow
+1. **User Interaction**: The user selects the academic term and subject slot from the dropdown menus.
+2. **Form Submission**: The user clicks the "Calculate" button, triggering a form submission.
+3. **HTTP Request**: The form data is sent to the server via an HTTP POST request.
+4. **Server Processing**: The server receives the request, processes the data, and retrieves the attendance records from the database.
+5. **Response Generation**: The server generates a response containing the calculated attendance data.
+6. **HTTP Response**: The server sends the response back to the client via an HTTP response.
+7. **Client-Side Rendering**: The client-side JavaScript code updates the page with the calculated attendance data.
+
+### Security Considerations
+- **Data Encryption**: Ensure that sensitive data, such as attendance records, is encrypted during transmission to prevent data interception.
+- **Input Validation**: Validate user inputs to prevent SQL injection and other common web vulnerabilities.
+- **Authentication**: Ensure that the user is authenticated before accessing the attendance calculation feature to prevent unauthorized access.
+
+### Conclusion
+The "Calculate My Attendance" page is a critical feature of the student portal, providing students with a straightforward way to check their attendance records. It leverages form submission, HTTP requests, and server-side processing to deliver the calculated data to the client, ensuring a seamless user experience.
 
 --•--•--
 
