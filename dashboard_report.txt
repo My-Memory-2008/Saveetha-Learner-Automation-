@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 21
-**Pending Sub-Layer Queue Boundaries:** 113
+**Total Verified Inner Nodes Mapped:** 25
+**Pending Sub-Layer Queue Boundaries:** 144
 
 ## Architectural Breakdown per Sub-System:
 
@@ -1125,6 +1125,224 @@ This section controls the display of event sessions that the user is enrolled in
 
 ### Summary
 This section of the student portal is designed to provide a user-friendly interface for managing and viewing their enrolled events. It uses a combination of dropdown menus, date input fields, and filters to allow users to refine their view of events based on specific criteria. The page updates dynamically using AJAX, improving the user experience and reducing page load times.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/attendance/staff-biometric/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "MyBiometricLogs" is designed to display biometric logs for a specified date range. This feature allows users to view attendance records or other biometric data for a particular period. The user can filter the logs by date range and apply the filters to see the relevant logs.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **From Date**: A date input field where the user can specify the start date of the date range.
+- **To Date**: A date input field where the user can specify the end date of the date range.
+- **Apply Button**: A button that applies the selected date range filters.
+- **Reset Button**: A button that resets the date range filters to default values.
+- **Logs Table**: A table that displays the logs for the selected date range. The table includes columns for "S.No," "Date," and "Logs."
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page uses the following mechanisms to pass information to the wider web system structure:
+
+- **JavaScript**: The page uses JavaScript to handle the date range selection and apply the filters. The JavaScript code likely interacts with the server to fetch the biometric logs based on the selected date range.
+- **Server-Side Processing**: The server-side code processes the date range filters and returns the relevant biometric logs to the client. This could involve querying a database or API to retrieve the logs.
+- **Cookies or Local Storage**: The page might use cookies or local storage to store user preferences or session data, which could be used to enhance user experience or for authentication purposes.
+- **API Calls**: The page might make API calls to the backend to fetch the biometric logs. This could involve making HTTP requests to the server to retrieve the data.
+
+### Detailed Explanation
+
+1. **Date Range Selection**:
+   - The user selects the start and end dates for the date range using the date input fields.
+   - The "Apply" button is clicked to apply the selected date range filters.
+
+2. **JavaScript Interaction**:
+   - The JavaScript code listens for the "Apply" button click event.
+   - It sends an AJAX request to the server with the selected date range.
+   - The server processes the request and returns the biometric logs for the specified date range.
+
+3. **Server-Side Processing**:
+   - The server-side code (e.g., PHP, Node.js) receives the request and filters the biometric logs based on the selected date range.
+   - The server returns the filtered logs to the client.
+
+4. **Displaying Logs**:
+   - The server sends the biometric logs to the client.
+   - The JavaScript code parses the JSON response and populates the table with the logs.
+   - The table is displayed on the page, showing the logs for the selected date range.
+
+5. **User Experience Enhancements**:
+   - The page might use cookies or local storage to remember the user's preferences or session data.
+   - This could include remembering the last date range selected or remembering the user's login credentials.
+
+6. **API Calls**:
+   - The page might make API calls to the backend to fetch the biometric logs.
+   - This could involve making HTTP requests to the server to retrieve the data.
+
+### Conclusion
+The "MyBiometricLogs" section is a transactional feature that allows users to view biometric logs for a specified date range. It uses JavaScript for client-side interaction, server-side processing for data retrieval, and possibly API calls for enhanced user experience. The page effectively passes information to the wider web system structure through these mechanisms.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=1
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a part of a student portal that displays a schedule for a specific date in July 2026. The user is logged in and can view their schedule for that day. This section likely controls the following transactional features:
+- **Viewing Schedule**: The user can see their schedule for the specified date.
+- **Circulars**: The user can view any circulars or announcements related to the date.
+- **Reward Points**: The user can check their reward points for the specified date.
+- **Workflow Requests**: The user can view any workflow requests for the specified date.
+- **Workflow Approvals**: The user can see any workflow approvals for the specified date.
+- **Bookings**: The user can view any bookings for the specified date.
+- **Services**: The user can access any services related to the specified date.
+- **Mentees**: The user can view their mentees for the specified date.
+- **Mentorship**: The user can access their mentorship information for the specified date.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+- **Year**: 2026 (fixed)
+- **Month**: 7 (July)
+- **Day**: 1 (the specific date the user is viewing)
+- **User ID**: 25013957 (logged in user)
+- **User Name**: MUHAMMAD ASJAD E
+- **Ref1**: 212225240091
+- **Ref2**: 25013957
+
+The section also uses text grids to display the days of the week and the specific date.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**: The URL parameters `year`, `month`, and `day` are used to specify the date the user is viewing.
+- **Session Variables**: The user ID and user name are stored in session variables, which are typically used to maintain user state across multiple requests.
+- **Cookies**: The user ID and user name might be stored in cookies, which are used to maintain user state across sessions.
+- **Server-Side Variables**: The user ID and user name are passed to the server-side script, which processes the request and returns the appropriate schedule or information based on the user's role and permissions.
+
+### Summary
+The section in question is a part of a student portal that displays a schedule for a specific date in July 2026. It exposes various transactional features and variables, and passes information to the wider web system structure through URL parameters, session variables, cookies, and server-side variables.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=9&day=1
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the scheduling and attendance tracking for students. It allows students to view their scheduled classes, check their attendance records, and manage their academic schedules. This feature is crucial for students to stay organized and ensure they are attending the correct classes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Year:** 2026 (September 2026)
+  - **Month:** September
+  - **Day:** 1 (Tuesday)
+  - **Class ID:** 19AI305, 19CS406, 19CS405
+  - **Slot ID:** 26OD1171, 26OD1001, 26OD1089
+  - **Venue ID:** 2872, 1873, 3682
+
+- **Parameters:**
+  - **Year:** `year`
+  - **Month:** `month`
+  - **Day:** `day`
+  - **Class ID:** `class_id`
+  - **Slot ID:** `slot_id`
+  - **Venue ID:** `venue_id`
+
+- **Text Grids:**
+  - **Class Name:** 19AI305 - Advanced C Programming, 19CS406 - Computer Networks, 19CS405 - Operating System
+  - **Lesson:** Merge Sort and Radix Sort - Algorithm and Program Implementation, SMTP, POP3/IMAP, and MIME - Concepts, Comparison, and Practical Exercise, Deadlock Prevention and Avoidance Session
+  - **Time:** 08:00 AM - 09:59 AM, 10:00 AM - 11:59 AM, 01:00 PM - 02:59 PM
+  - **Venue:** 2872, 1873, 3682
+
+- **Functions:**
+  - **View Attendance:** Allows students to view their attendance records for the scheduled classes.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page appears to be a part of a larger web application that manages student schedules and attendance. Here’s how it likely interacts with the wider system:
+
+1. **User Authentication:**
+   - The user is logged in with the ID `25013957` and has a referral ID `212225240091`.
+
+2. **Page Parameters:**
+   - The page is dynamically generated based on the user's logged-in ID and the selected date (September 1, 2026).
+   - The page parameters are passed through URL queries or session variables.
+
+3. **Database Interaction:**
+   - The page likely interacts with a database to fetch the student's schedule and attendance records.
+   - The database queries are based on the user's ID and the selected date.
+
+4. **Rendering:**
+   - The page uses JavaScript to dynamically load the schedule and attendance data.
+   - The data is rendered on the page using HTML and CSS.
+
+5. **User Interaction:**
+   - Users can click on the "View Attendance" button to see their attendance records.
+   - The page likely uses AJAX to fetch attendance data from the server without reloading the page.
+
+6. **Security:**
+   - The page uses session management to ensure that only authenticated users can access their schedules.
+   - The page may also use CSRF tokens to prevent cross-site request forgery attacks.
+
+### Summary
+This section of the student portal is designed to provide students with a clear view of their academic schedules and attendance records. It uses a combination of user authentication, database interaction, and dynamic rendering to deliver a seamless user experience. The page likely interacts with a wider web system to manage and display the student's academic data.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=14
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the scheduling and attendance tracking for students. It allows users to view their schedule, view event details, and check their attendance records. This feature is crucial for students to manage their academic commitments and ensure they are prepared for upcoming exams and events.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 14
+  - **User ID:** 25013957
+  - **User Name:** MUHAMMAD ASJAD E
+  - **Ref1:** 212225240091
+  - **Ref2:** 25013957
+
+- **Parameters:**
+  - **Event Type:** Examinations
+  - **Purpose:** Skill assessment
+  - **Venue:** Various (e.g., 1611, 26OD1001, 4731)
+  - **Time Slot:** Specific time ranges (e.g., 10:00 AM - 11:29 AM)
+
+- **Text Grids:**
+  - **Event Details:** Type, Purpose, Venue, Time Slot
+  - **Attendance Details:** View Attendance, View Event
+
+- **Functions:**
+  - **View Event:** Allows users to view detailed information about an event.
+  - **View Attendance:** Allows users to check their attendance records for a specific event.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page appears to be part of a larger web system that manages student schedules and attendance. Here’s how it likely interacts with the wider system:
+
+1. **User Authentication:**
+   - The user is logged in with their ID and name, which is stored in the system.
+   - Parameters like `Ref1` and `Ref2` might be used for additional verification or tracking purposes.
+
+2. **Event and Attendance Data:**
+   - The page fetches event and attendance data based on the logged-in user's ID and the specified date.
+   - This data is likely stored in a database or a backend system that manages student schedules and events.
+
+3. **Event Details:**
+   - The page displays detailed information about events, including their type, purpose, venue, and time slot.
+   - This information is likely retrieved from a database or API that provides event details.
+
+4. **Attendance Tracking:**
+   - The page allows users to view their attendance records for specific events.
+   - This data is likely stored in a separate database or system that tracks student attendance.
+
+5. **User Interface:**
+   - The page uses a user-friendly interface to display the schedule and allow users to interact with it.
+   - This interface is likely designed to be accessible and user-friendly, allowing students to easily manage their schedules and check their attendance.
+
+6. **Security and Privacy:**
+   - The page likely includes security measures to protect user data, such as encryption and secure authentication.
+   - The data is likely stored securely and accessed only by authorized personnel.
+
+### Summary
+The section in question is a critical part of a student portal that manages schedules and attendance for students. It exposes various variables, parameters, and functions related to events and attendance, and it interacts with a wider web system to provide a comprehensive view of student schedules and attendance records.
 
 --•--•--
 
