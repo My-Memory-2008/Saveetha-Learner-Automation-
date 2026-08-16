@@ -1,6 +1,6 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 89
+**Total Verified Inner Nodes Mapped:** 93
 **Pending Sub-Layer Queue Boundaries:** 259
 
 ## Architectural Breakdown per Sub-System:
@@ -4505,6 +4505,221 @@ The page likely interacts with the wider web system structure through various me
 
 ### Conclusion
 This section of the student portal is designed to provide detailed information about a student's attendance, feedback, and course progress. It interacts with the wider web system structure through various means, including API calls, session management, user authentication, and data storage. The page ensures that only authorized students can access their personal information and provides a comprehensive view of their academic record.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/1063/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a detailed view of a student's academic record, specifically focusing on their participation in a mentor meet. This section likely controls the following actions and transactions:
+- **Attendance Tracking**: It tracks the student's attendance in the mentor meet, including the number of sessions attended and the overall percentage of attendance.
+- **Session Management**: It manages the sessions scheduled for the mentor meet, including the start and end times of each session.
+- **Feedback Submission**: It allows the submission of feedback related to the mentor meet, which is then processed and stored in the system.
+- **Course Outcome**: It provides information about the course outcome, such as the syllabus selected for the subject slot.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+- **Student Information**: The student's name, registration number, and mode of attendance (e.g., class).
+- **Session Details**: The start and end times of each session, the total number of sessions, and the number of sessions attended.
+- **Feedback Status**: The number of sessions with pending feedback and the total number of sessions scheduled.
+- **Course Outcome**: The course outcome, which is currently not applicable as no syllabus is selected for this subject slot.
+
+The section also includes text grids for displaying the following:
+- **Overall Attendance**: The percentage of the total sessions attended.
+- **Total Sessions**: The total number of sessions scheduled.
+- **Feedback Status**: The number of sessions with pending feedback.
+- **Session Timeline**: The start and end times of each session.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **Session Management**: The session details are likely stored in a database or a similar data storage system. The system uses this data to manage the sessions and their progress.
+- **Feedback Submission**: The feedback submitted by the student is likely sent to a feedback management system or a similar service. This system processes the feedback and stores it in a database.
+- **Course Outcome**: The course outcome information is likely stored in a database or a similar system. This information is used to update the student's academic record and provide feedback to the student.
+
+### Summary
+The section in question is a detailed view of a student's participation in a mentor meet, providing information on attendance, session management, feedback submission, and course outcome. It exposes various variables and parameters related to the student's attendance and feedback, and passes this information to the wider web system structure for further processing and storage.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/1636/
+### Reverse Engineering the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls:
+The section you are referring to is likely a part of a student portal that manages course details, attendance, and feedback for a specific course. This section controls various transactional features such as:
+- **Attendance Tracking**: Monitoring and recording student attendance in different sessions.
+- **Feedback Collection**: Collecting and managing student feedback on course sessions.
+- **Session Scheduling**: Managing and scheduling course sessions.
+- **Course Outcome**: Providing course outcomes and taxonomy levels for different topics.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed:
+The section exposes several key variables and parameters that are crucial for its functionality. These include:
+- **Student Information**: Details such as student name, registration number, and mode of attendance.
+- **Session Information**: Details about the sessions, including start and end times, and the number of sessions scheduled.
+- **Attendance Data**: Current attendance percentages and the number of present and absent students.
+- **Feedback Data**: Number of pending and upcoming feedback sessions.
+- **Course Taxonomy**: Details about the topics covered in the course, including index code, taxonomy level, and description.
+- **Session Timeline**: A timeline of all scheduled sessions, including start and end times.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure:
+The page likely communicates with the wider web system structure through various means, including:
+- **APIs**: The page might use APIs to fetch and update data from the wider system, such as attendance records, feedback, and session schedules.
+- **Webhooks**: It could use webhooks to send real-time updates or notifications to the wider system.
+- **Database Connections**: The page might connect to a database to store and retrieve data, ensuring data consistency and security.
+- **Session Management**: The page might use session management techniques to ensure that data is only accessible to the user who is currently logged in.
+
+### Detailed Explanation of the Section
+
+#### Overview of the Section:
+The section is designed to provide a comprehensive view of the student's course details, including attendance, feedback, and session information. It is structured to be user-friendly, with clear sections for different types of information.
+
+#### Key Components:
+1. **Student Information**:
+   - **Student Name**: Muhammad Asjad E
+   - **Registration Number**: 212225240091
+   - **Mode**: Class
+
+2. **Session Information**:
+   - **Course Title**: 19AI408 - Data Structures
+   - **Slot**: 26OD1309
+   - **Academic Term**: 26-27-ODD-T1
+   - **Session Timeline**: Detailed schedule of sessions, including start and end times.
+
+3. **Attendance Data**:
+   - **Overall Attendance**: 72.22%
+   - **Present**: 26.00 / 36.00
+   - **Absent**: 10.00 / 36.00
+   - **Calculated Date**: 2026-08-16 18:00
+
+4. **Feedback Data**:
+   - **Total Sessions**: 38
+   - **Upcoming Sessions**: 20
+   - **Pending Sessions**: 12
+
+5. **Course Taxonomy**:
+   - **Index Code Title**: CO1
+   - **Taxonomy Level**: K4
+   - **Description**: Analyze recursion, recurrence relations, complexity, searching, and other related topics.
+
+6. **Chat**:
+   - **Chat Count**: 516
+
+7. **Links**:
+   - **LMS Links**: No available links for LMS (Learning Management System).
+
+### Conclusion:
+This section is a critical part of the student portal, providing essential information to students and administrators. It ensures that students can easily access their course details, attendance records, and feedback, while also ensuring that the data is securely managed and updated in real-time. The section's design and functionality are optimized for user experience, making it a valuable tool for both students and educators.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/2049/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a detailed view of a student's academic record, specifically focusing on their enrollment in a course. The primary action it controls is the retrieval and display of the student's academic details, including their registration number, course information, and course outcomes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Registration Number**: The student's registration number is prominently displayed, which is a unique identifier for the student.
+- **Course Name**: The name of the course is listed, providing a clear indication of the subject area.
+- **Course Outcome**: This section likely displays the course outcomes, which could include grades, assessments, and other evaluations.
+- **Index Code Title**: This might refer to the specific index or code used for the course, which could be used for tracking or referencing purposes.
+- **Taxonomy Level**: This could indicate the level of taxonomy used for categorizing the course outcomes, such as K2, K3, etc.
+- **Description**: A brief description of the course outcome, which could provide additional context or information about the assessment.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Registration Number**: This is likely passed through a URL parameter or a hidden field in the form submission.
+- **Course Name**: This is also passed through a URL parameter or a hidden field.
+- **Course Outcome**: This is likely passed through a URL parameter or a hidden field.
+- **Index Code Title**: This is passed through a URL parameter or a hidden field.
+- **Taxonomy Level**: This is passed through a URL parameter or a hidden field.
+- **Description**: This is passed through a URL parameter or a hidden field.
+
+The page uses these parameters to dynamically load the specific details of the student's course record. The information is then displayed on the page, allowing the user to view and interact with the data.
+
+### Detailed Breakdown of the Page
+
+#### Overview
+- **Overview**: This section provides a summary of the student's course enrollment, including the registration number, course name, and course outcome.
+- **Syllabus**: This section likely displays the syllabus or course outline, which could include topics, objectives, and learning outcomes.
+- **Lesson Plan**: This section might display the lesson plan or schedule for the course, including dates, times, and topics covered.
+- **Chat**: This section could allow communication with the student, such as messaging or chat functionality.
+- **Attendance**: This section might display the student's attendance record, including the number of sessions attended and the number of sessions missed.
+- **Sessions**: This section likely displays the schedule of sessions, including the dates, times, and topics covered.
+- **Feedback**: This section might display feedback or evaluations from the student, such as student evaluations or feedback forms.
+
+#### Course Outcome
+- **Index Code Title**: This is likely a unique identifier for the course outcome, used for tracking and referencing purposes.
+- **Taxonomy Level**: This could indicate the level of taxonomy used for categorizing the course outcomes, such as K2, K3, etc.
+- **Description**: A brief description of the course outcome, which could provide additional context or information about the assessment.
+
+### Conclusion
+The page in question is a detailed view of a student's academic record, specifically focusing on their enrollment in a course. It exposes various variables and parameters, such as registration number, course name, course outcome, index code title, taxonomy level, and description. These details are passed through URL parameters or hidden fields to dynamically load and display the information on the page. The page also provides access to various transactional features, such as communication with the student, attendance records, and feedback forms.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-managing/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is part of the "Events Managing" feature within the student portal. This section controls the display of event sessions assigned to the user based on the selected filters. The user can filter events by date ranges and event terms.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Event Term**: A dropdown menu that allows the user to select an event term from a predefined list.
+- **From Date**: A date input field that allows the user to specify the start date of the event session.
+- **To Date**: A date input field that allows the user to specify the end date of the event session.
+- **Apply Button**: A button that applies the selected filters and updates the displayed events.
+- **Reset Button**: A button that resets the filters to their default state.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page uses JavaScript to handle the form submission and update the displayed events. When the user clicks the "Apply" button, the form data is submitted to the server. The server processes the request and updates the database to reflect the selected filters. The updated data is then sent back to the client, and the page is refreshed to display the filtered events.
+
+Here is a simplified representation of the process:
+
+1. **User Selects Filters**: The user selects the event term, date range, and clicks "Apply."
+2. **Form Submission**: The form data is submitted to the server using an AJAX request.
+3. **Server Processing**: The server processes the request, updates the database, and returns the updated data.
+4. **Page Refresh**: The page is refreshed to display the updated events.
+
+### Detailed Steps
+1. **User Interaction**:
+   - The user selects an event term from the dropdown.
+   - The user inputs the start and end dates in the date fields.
+   - The user clicks the "Apply" button.
+
+2. **AJAX Request**:
+   - The form data is sent to the server using an AJAX request.
+   - The request includes the selected event term, start date, and end date.
+
+3. **Server Response**:
+   - The server processes the request and updates the database.
+   - The server returns the updated data to the client.
+
+4. **Page Update**:
+   - The page is refreshed to display the updated events.
+
+### Example AJAX Request
+```javascript
+// Example AJAX request to apply filters
+$.ajax({
+    url: '/events-managing',
+    type: 'POST',
+    data: {
+        event_term: $('#event-term').val(),
+        from_date: $('#from-date').val(),
+        to_date: $('#to-date').val()
+    },
+    success: function(response) {
+        // Update the page with the new events
+        $('#event-list').html(response);
+    },
+    error: function() {
+        // Handle error
+    }
+});
+```
+
+### Conclusion
+This section of the student portal is designed to provide a user-friendly interface for managing and viewing events. It uses JavaScript for client-side processing and AJAX for server-side communication, ensuring a smooth and responsive user experience. The page effectively filters and displays events based on the user's selections, and updates the database in real-time.
 
 --•--•--
 
