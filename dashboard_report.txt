@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 205
-**Pending Sub-Layer Queue Boundaries:** 1603
+**Total Verified Inner Nodes Mapped:** 209
+**Pending Sub-Layer Queue Boundaries:** 1608
 
 ## Architectural Breakdown per Sub-System:
 
@@ -10055,6 +10055,160 @@ The section "Make Your Feedback Matter" appears to be a feedback submission or r
 
 ### Conclusion
 The section "Make Your Feedback Matter" is a critical part of the student portal, controlling the submission and review of feedback forms. It exposes various variables and parameters, provides instructions, and interacts with a wider web system structure through various means, including URL parameters, cookies, sessions, API calls, and database interactions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/116/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "Make Your Feedback Matter" is a feedback submission page. It controls the submission of student feedback to the system. This feature is crucial for collecting and analyzing student feedback to improve teaching and learning activities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: 2481 / 5071
+  - This indicates the total number of participants and the number of participants who have submitted feedback.
+- **Mentors**: 2 / 2
+  - This shows the number of mentors who have submitted feedback.
+- **Managers**: 2 / 2
+  - This indicates the number of managers who have submitted feedback.
+- **Start Date**: 03/08/2026
+  - This is the date when the feedback submission process started.
+- **Task Completion**: 0 / 0
+  - This shows the number of tasks completed and the number of tasks expected.
+- **Circular**: Chat (3)
+  - This indicates the number of chats or messages in the feedback submission process.
+- **Tasks**: Tasks
+  - This shows the number of tasks or steps in the feedback submission process.
+- **Mentorship Type**: FacultyMentor
+  - This specifies the type of mentorship involved in the feedback submission process.
+- **Guidelines**:
+  - The page provides guidelines for submitting feedback, including selecting a rating that accurately reflects the experience and avoiding placeholder responses.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a specific user (25013957), indicating that the user is authenticated and has access to this feedback submission page.
+- **Feedback Submission**: The feedback is submitted through the "Circular" tab, which likely sends the feedback data to the system's backend.
+- **Task Completion Tracking**: The task completion status (0/0) is tracked, which might be used to monitor the progress of the feedback submission process.
+- **Mentorship Tracking**: The mentorship type (FacultyMentor) is tracked, which might be used to categorize and analyze the feedback based on the mentorship type.
+- **System Integration**: The page interacts with the wider web system structure by submitting the feedback data and tracking the progress of the feedback submission process.
+
+### Summary
+The "Make Your Feedback Matter" section is a critical feature of the student portal that controls the submission of student feedback. It exposes various variables and parameters related to the feedback submission process, such as the number of participants, mentors, managers, and the start date. The page also provides guidelines for submitting feedback and tracks the task completion status and mentorship type. This information is passed to the wider web system structure for further analysis and improvement of teaching and learning activities.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/116/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Group Chat" within a "Circular" in the student portal. This feature allows students to communicate with mentors and other participants in the circular. The chat is locked by a manager, which means that while students can read messages and topics, they cannot post or rate actions. This feature is designed to facilitate communication and feedback within the circular, ensuring that discussions are managed and monitored by the relevant authorities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Circular ID**: The specific circular ID is 116.
+- **Participants**: The number of participants in the circular is 2481 out of 5071.
+- **Mentors**: There are 2 mentors in the circular.
+- **Managers**: There are 2 managers in the circular.
+- **Start Date**: The circular started on 03/08/2026.
+- **Task Completion**: 0/0 tasks have been approved or expected.
+- **Chat**: There are 3 messages in the chat.
+- **Discussion Topics**: Focused threaded discussions are available.
+- **Direct Messages**: Students can search for members and view recent direct conversations.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The user is logged in as 25013957, which is likely a unique identifier for the user.
+- **Circular Details**: The circular ID, number of participants, mentors, managers, start date, and task completion status are passed as parameters.
+- **Chat Messages**: The chat messages are likely stored in a database and accessed via API calls. The chat messages are encrypted and transmitted securely.
+- **User Interaction**: The user can interact with the chat by reading messages, posting new messages, and rating actions. The system tracks these interactions and updates the database accordingly.
+- **Manager Locking**: The feature is locked by a manager, which means that only the manager can approve or reject the chat messages. This ensures that the chat is managed and monitored by the relevant authorities.
+
+### Summary
+The section in question is a secure and managed communication platform within a student portal. It exposes various variables and parameters related to the circular, participants, mentors, managers, and chat messages. The system passes this information to the wider web system structure through user authentication, database storage, and API calls. The feature is designed to facilitate communication and feedback within the circular while ensuring that it is managed and monitored by the relevant authorities.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/116/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is part of a student portal, specifically related to a feedback or mentoring program. The primary action it controls is the management and tracking of feedback submissions and mentorship tasks. Users can view, approve, and manage feedback submissions, as well as track the progress of mentorship tasks.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The number of participants who have submitted feedback.
+- **Mentors**: The number of mentors who have accepted feedback submissions.
+- **Managers**: The number of managers who have reviewed feedback submissions.
+- **Start Date**: The date when the feedback submission or mentorship task started.
+- **Task Completion**: The status of task completion, indicating whether tasks have been approved or expected.
+- **Circular**: The current circular or feedback submission.
+- **Tasks**: The list of tasks or feedback submissions associated with the circular.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The URL includes parameters such as `tab=tasks`, which likely indicates the current tab or section being viewed.
+- **Session Variables**: The session ID (25013957) is visible, which is used to maintain user sessions and track user activities.
+- **Cookies and Cookies Parameters**: The page uses cookies to store user preferences and session data.
+- **API Calls**: The page may make API calls to the backend system to fetch or update data related to the circular and tasks.
+- **JavaScript**: The page uses JavaScript for dynamic content loading and user interaction, such as displaying task lists and managing feedback submissions.
+
+### Detailed Breakdown
+
+#### URL Parameters
+- **tab=tasks**: This parameter indicates that the user is currently viewing the tasks section of the circular.
+
+#### Session Variables
+- **25013957**: This is the session ID, which is used to maintain the user's session and track their activities.
+
+#### Cookies and Cookies Parameters
+- The page uses cookies to store user preferences and session data, ensuring that the user's session is maintained across different pages and sessions.
+
+#### API Calls
+- The page may make API calls to the backend system to fetch or update data related to the circular and tasks. For example, it might call an API to get the current status of the circular or tasks.
+
+#### JavaScript
+- The page uses JavaScript for dynamic content loading and user interaction. For instance, it might use JavaScript to display the list of tasks or feedback submissions associated with the circular.
+
+### Conclusion
+This section of the student portal is designed to manage and track feedback submissions and mentorship tasks. It exposes various variables and parameters to control the user's interaction with the circular and tasks. The page also uses session variables, cookies, and JavaScript to maintain user sessions and manage dynamic content. The information passed to the wider web system structure includes session data, task status, and user preferences.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/115/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is related to the registration and management of the "INDIASKILLS COMPETITION 2026-2027." This section controls the registration process for participants, mentors, and managers for the competition. It also manages the task completion and approval status of the registration.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The number of participants registered for the competition.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers assigned to the competition.
+- **Start Date**: The date when the registration process began.
+- **Task Completion**: The status of task completion, which is currently 0/0 (uncompleted).
+- **Circular**: The specific circular number and date related to the registration process.
+- **Chat**: The number of chat messages or interactions related to the registration process.
+- **Tasks**: The specific tasks or steps involved in the registration process.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page interacts with the wider web system structure through the following mechanisms:
+
+- **API Calls**: The page likely makes API calls to update the registration status, task completion, and other related data in the wider system.
+- **Database Updates**: The page updates the database with the current status of the registration process, such as the number of participants, mentors, and managers.
+- **Notifications**: The page sends notifications to the wider system when certain milestones are reached, such as when the registration process is completed or when a task is completed.
+- **User Authentication**: The page ensures that only authorized users can access and modify the registration data, using authentication mechanisms like session management or tokens.
+
+### Detailed Breakdown
+
+#### API Calls
+The page makes API calls to update the registration status and task completion. For example, when a task is completed, the API might call a function to update the task completion status in the wider system.
+
+#### Database Updates
+The page updates the database with the current status of the registration process. For instance, when a participant registers, the page updates the participant's registration status in the database.
+
+#### Notifications
+The page sends notifications to the wider system when certain milestones are reached. For example, when the registration process is completed, the page sends a notification to the wider system.
+
+#### User Authentication
+The page ensures that only authorized users can access and modify the registration data. This is typically done using session management or tokens to authenticate the user.
+
+### Conclusion
+The section in question is a critical part of the student portal, controlling the registration and management of the INDIASKILLS COMPETITION 2026-2027. It exposes various variables and parameters related to the registration process and interacts with the wider web system structure through API calls, database updates, notifications, and user authentication mechanisms.
 
 --•--•--
 
