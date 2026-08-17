@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 189
-**Pending Sub-Layer Queue Boundaries:** 1585
+**Total Verified Inner Nodes Mapped:** 193
+**Pending Sub-Layer Queue Boundaries:** 1590
 
 ## Architectural Breakdown per Sub-System:
 
@@ -9384,6 +9384,163 @@ The page might use session management to ensure that the data is consistent acro
 
 ### Conclusion
 The section in question is a critical component of the student portal, controlling the management and tracking of study weeks, mentorship, and attendance guidelines. It exposes various variables and parameters, communicates with the wider web system structure through API calls, database interactions, webhooks, and session management, and ensures that the data is consistent and up-to-date across different parts of the system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/125/?tab=circular
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/circulars/125/?tab=circular", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/125/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control a group chat feature within a circular or live update system. This feature likely allows students to communicate with each other, their mentors, and managers in real-time. The chat is designed to facilitate discussions, announcements, and other important updates related to the study week plan and attendance guidelines.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the chat, which is 4655.
+- **Mentors**: The number of mentors, which is 161.
+- **Managers**: The number of managers, which is 3.
+- **Start Date**: The date when the chat was initiated, which is 09/08/2026.
+- **Task Completion**: The number of tasks completed, which is 0/25400.
+- **Circular**: The specific circular or live update being accessed, which is 125.
+- **Tasks**: The number of tasks in the chat, which is 5.
+- **Discussion Topics**: Focused threaded discussions are available.
+- **Live Updates**: The chat is connected to live updates.
+- **Message**: The chat is locked by a manager, and posting and rating actions are disabled.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through various methods, including:
+- **API Calls**: The page might make API calls to update the chat status, task completion, and other variables.
+- **Webhooks**: The page could use webhooks to notify other parts of the system about changes in the chat or task completion.
+- **Database Updates**: The page might update a database with the current state of the chat and other variables.
+- **User Authentication**: The page ensures that only authenticated users can access and interact with the chat, using tokens or session management.
+
+### Detailed Explanation
+The section in question is a part of a student portal that manages communication and updates for a study week plan. Here’s a breakdown of how it works:
+
+1. **User Authentication**: The page ensures that only authenticated users can access and interact with the chat. This is typically done using tokens or session management.
+
+2. **Real-Time Updates**: The chat is connected to live updates, which means that any changes in the chat are immediately reflected in the system. This is achieved through webhooks or API calls.
+
+3. **Task Completion Tracking**: The page tracks the number of tasks completed and updates the database accordingly. This helps in managing the progress of the study week plan.
+
+4. **Discussion Topics**: The page allows for focused threaded discussions, which are managed through the chat interface. These discussions are likely tracked and managed through the system's database.
+
+5. **Locked by Manager**: The page indicates that the chat is locked by a manager, which means that posting and rating actions are disabled. This is typically managed through the system's security and access control mechanisms.
+
+6. **User Interface**: The page provides a user-friendly interface for participants to read, post, and rate messages. This is achieved through a combination of HTML, CSS, and JavaScript.
+
+### Conclusion
+The section in question is a critical part of the student portal, managing real-time communication, task tracking, and discussion topics. It ensures that the study week plan is managed efficiently and that all participants are informed about the progress and updates. The page interacts with the wider web system structure through various methods, ensuring that all changes are accurately recorded and managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/125/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the submission and verification of daily planners for students. This is a key part of the study week plan and attendance guidelines, ensuring that students adhere to the required tasks and have their work verified by mentors.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: 4655 / 5080
+  - This likely represents the total number of participants and the number of participants who have completed the task.
+- **Mentors**: 161 / 166
+  - This indicates the total number of mentors and the number of mentors who have completed the task.
+- **Managers**: 3 / 3
+  - This shows the total number of managers and the number of managers who have completed the task.
+- **Start Date**: 09/08/2026
+  - This is the date when the task was initiated.
+- **Task Completion**: 0/25400
+  - This indicates the number of tasks completed out of the total expected number of tasks.
+- **Circular**: 4293
+  - This is the number of circulars submitted.
+- **Verified**: 3988
+  - This is the number of circulars that have been verified.
+- **Approved**: 0
+  - This is the number of circulars that have been approved.
+- **Tasks**: 5
+  - This is the number of tasks currently in progress.
+- **Task 1. Day 1 (Monday): Daily Planner**
+  - This is the specific task being tracked, which involves preparing a daily planner.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system to update the status of tasks, verify submissions, and manage the flow of information between participants, mentors, and managers. Here’s a breakdown of how this might work:
+
+1. **Task Submission**:
+   - When a student submits their daily planner, the system records this action.
+   - The system then forwards this information to the backend for verification.
+
+2. **Verification**:
+   - The backend system verifies the submitted circulars based on predefined criteria.
+   - The verification status is then updated in the system.
+
+3. **Approval**:
+   - The system checks if the verification is successful and approves the task if it is.
+   - The approval status is also updated in the system.
+
+4. **Reporting**:
+   - The system generates reports based on the status of tasks, mentors, and managers.
+   - These reports are then displayed on the front end for the user to view.
+
+5. **User Interface**:
+   - The front end displays the current status of tasks, the number of participants, mentors, and managers, and the number of tasks completed.
+   - Users can interact with this interface to manage their tasks, view their progress, and communicate with mentors and managers.
+
+### Summary
+This section of the student portal is designed to manage and track the submission, verification, and approval of daily planners for students. It exposes various variables and parameters related to the task status, and communicates with a backend system to update and manage the task flow. The front end provides a user interface for tracking progress and interacting with the system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/121/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a "Leadership Announcement" page for the Tech Society. This page likely controls the following transactional features:
+- **Notification and Communication**: It sends out announcements and updates to participants, mentors, and managers.
+- **Task Management**: It manages tasks related to the leadership announcement, such as tracking progress and completion.
+- **User Interaction**: It allows users to interact with the announcement, such as viewing details, participating in discussions, or reporting issues.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes the following variables and parameters:
+- **Participants**: The total number of participants (1119/3473).
+- **Mentors**: The number of mentors (0/0).
+- **Managers**: The number of managers (3/3).
+- **Start Date**: The start date of the announcement (08/08/2026).
+- **Task Completion**: The current task completion status (0/0).
+
+The page also exposes text grids for:
+- **Circular**: Contains the announcement text.
+- **Chat**: Likely for real-time communication or chat functionality.
+- **Tasks**: Contains task-related information or forms.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: It may make API calls to update the system's database with the current status of participants, mentors, and managers.
+- **Webhooks**: It could use webhooks to notify other systems or applications about the announcement's progress.
+- **Session Management**: It uses session management to track user interactions and maintain state across different pages.
+- **Cookies and Local Storage**: It uses cookies and local storage to store user preferences and session data.
+
+### Detailed Explanation
+
+#### API Calls
+The page might make API calls to update the system's database with the current status of participants, mentors, and managers. For example, it could send an update to the database when a new participant is added or when a task is completed.
+
+#### Webhooks
+The page could use webhooks to notify other systems or applications about the announcement's progress. For instance, it might send a webhook to an email service when a new participant is added or when a task is completed.
+
+#### Session Management
+The page uses session management to track user interactions and maintain state across different pages. This ensures that users can see their progress and interact with the announcement in a seamless manner.
+
+#### Cookies and Local Storage
+The page uses cookies and local storage to store user preferences and session data. This allows users to see their progress and interact with the announcement even if they are not logged in.
+
+### Conclusion
+The page in question is a critical component of the student portal, controlling various transactional features and exposing important variables and parameters. It passes information to the wider web system structure through API calls, webhooks, session management, and cookies/local storage. This ensures that the announcement is up-to-date and accessible to all relevant parties.
 
 --•--•--
 
