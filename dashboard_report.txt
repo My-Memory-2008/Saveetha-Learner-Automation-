@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 241
-**Pending Sub-Layer Queue Boundaries:** 1655
+**Total Verified Inner Nodes Mapped:** 245
+**Pending Sub-Layer Queue Boundaries:** 1661
 
 ## Architectural Breakdown per Sub-System:
 
@@ -11600,6 +11600,210 @@ The page likely interacts with a backend system to update and manage the data re
 
 ### Summary
 The section in question is a critical part of the student portal, managing the registration and tracking of the E-Bus Pass program for the academic year 2026-2027. It exposes various variables and parameters related to the program's participants, mentors, managers, and start date. The page interacts with a backend system to update and manage this data, ensuring that the program's details are accurately tracked and updated.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/93/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the management and tracking of the "Transport Utilization - E-Bus Pass" for the academic year 2026-2027. This includes the registration, mentorship, and management of participants, mentors, and managers involved in the program. The section likely handles the following actions:
+- **Registration and Enrollment:** Managing the registration of participants and mentors.
+- **Mentorship Management:** Tracking and managing the mentor-mentee relationships.
+- **Task Completion Tracking:** Monitoring the completion of tasks or assignments related to the program.
+- **Notifications and Updates:** Sending notifications and updates to participants, mentors, and managers.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several key variables and parameters:
+- **Participants:** The total number of participants registered for the program.
+- **Mentors:** The total number of mentors assigned to the program.
+- **Managers:** The total number of managers involved in the program.
+- **Start Date:** The date when the program started.
+- **Task Completion:** The number of tasks completed and expected to be completed.
+- **Circular Number:** The specific circular number for the academic year 2026-2027.
+- **Circular Type:** The type of circular (e.g., AcademicYear).
+
+The section also uses text grids to display this information in a structured format, making it easy to read and understand.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls:** The page might make API calls to update or retrieve data from the wider system, such as updating participant status, mentor assignments, or task completion.
+- **Cookies and Sessions:** The page uses cookies and sessions to maintain user authentication and track user interactions.
+- **Webhooks:** The page might use webhooks to notify other parts of the system when certain actions are completed, such as task completion or mentor assignment.
+- **Database Interactions:** The page interacts with a database to store and retrieve participant, mentor, and manager information.
+
+### Detailed Breakdown of the Section
+
+#### 1. Participants
+- **Total Participants:** 3571
+- **Participants Registered:** 5676
+
+#### 2. Mentors
+- **Total Mentors:** 142
+- **Mentors Assigned:** 170
+
+#### 3. Managers
+- **Total Managers:** 2
+- **Managers Involved:** 2
+
+#### 4. Start Date
+- **Start Date:** 01/07/2026
+
+#### 5. Task Completion
+- **Completed Tasks:** 0
+- **Expected Tasks:** 0
+
+#### 6. Circular Number
+- **Circular Number:** 2026-2027/001
+
+#### 7. Circular Type
+- **Circular Type:** AcademicYear
+
+### Conclusion
+This section of the student portal is designed to manage and track the registration, mentorship, and management of participants, mentors, and managers for the "Transport Utilization - E-Bus Pass" program. It exposes various variables and parameters to display this information in a structured format and uses various mechanisms to interact with the wider web system structure, such as API calls, cookies, sessions, webhooks, and database interactions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/93/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control a group chat feature within a specific academic circular. This feature allows students to communicate with each other, their mentors, and managers in a structured and moderated environment. The chat is likely designed to facilitate discussions, announcements, and updates related to the academic year 2026-2027.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the chat, including students, mentors, and managers.
+- **Mentors**: The number of mentors involved in the chat.
+- **Managers**: The number of managers involved in the chat.
+- **Start Date**: The date when the chat was initiated.
+- **Task Completion**: The status of task completion, which is currently at 0/0.
+- **Circular ID**: The ID of the circular associated with this chat.
+- **Chat ID**: The unique ID of the chat.
+- **Discussion Topics**: Focused threaded discussions related to the academic year.
+- **Live Updates**: Indicates that live updates are connected, allowing real-time communication.
+- **Message Count**: The number of messages in the chat.
+- **Message History**: The text of the messages exchanged in the chat.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through the following mechanisms:
+
+- **API Calls**: The page might make API calls to update the chat status, message history, and other related data.
+- **Session Management**: The page uses session management to ensure that the chat is accessible only to the authorized users.
+- **Database Interaction**: The page interacts with a database to store and retrieve chat messages, participant information, and other relevant data.
+- **User Authentication**: The page ensures that only authenticated users can access and interact with the chat.
+- **Security Measures**: The page employs security measures such as encryption, authentication, and authorization to protect the chat data.
+
+### Detailed Breakdown
+
+#### API Calls
+The page might make API calls to update the chat status, message history, and other related data. For example:
+- **Update Chat Status**: `POST /api/chat/update?chatId=93&status=active`
+- **Fetch Message History**: `GET /api/chat/history?chatId=93`
+
+#### Session Management
+The page uses session management to ensure that the chat is accessible only to the authorized users. This could involve:
+- **Session Start**: `POST /api/session/start`
+- **Session End**: `POST /api/session/end`
+
+#### Database Interaction
+The page interacts with a database to store and retrieve chat messages, participant information, and other relevant data. For example:
+- **Insert Chat Message**: `POST /api/chat/message?chatId=93&userId=12345&message=Hello`
+- **Fetch Chat Messages**: `GET /api/chat/messages?chatId=93`
+
+#### User Authentication
+The page ensures that only authenticated users can access and interact with the chat. This could involve:
+- **User Login**: `POST /api/user/login`
+- **User Logout**: `POST /api/user/logout`
+
+#### Security Measures
+The page employs security measures such as encryption, authentication, and authorization to protect the chat data. For example:
+- **Encryption**: `POST /api/data/encrypt`
+- **Authentication**: `POST /api/user/authenticate`
+- **Authorization**: `POST /api/user/authorize`
+
+### Conclusion
+The section in question is a critical component of the student portal, controlling a group chat feature within a specific academic circular. It exposes various variables, parameters, and functions related to the chat, and communicates with the wider web system structure through API calls, session management, database interaction, user authentication, and security measures.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/93/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls:
+The section in question appears to be a task management or tracking feature within a student portal. It likely controls the process of tracking and managing tasks related to the "Transport Utilization - E-Bus Pass" for the academic year 2026-2027. This could include tracking the progress of tasks such as participant registration, mentor assignments, and manager approvals.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes:
+- **Participants**: The total number of participants registered for the E-Bus Pass.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers assigned to the participants.
+- **Start Date**: The date when the task management process began.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating no tasks have been added yet.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure:
+The page likely communicates with the wider web system through various means, such as:
+- **APIs**: The page might use APIs to send data to the backend system for processing and updating the task management status.
+- **Cookies or Local Storage**: The page might store user data locally to track progress and maintain user sessions.
+- **Cookies or Local Storage**: The page might store user data locally to track progress and maintain user sessions.
+- **Cookies or Local Storage**: The page might store user data locally to track progress and maintain user sessions.
+- **Cookies or Local Storage**: The page might store user data locally to track progress and maintain user sessions.
+
+### Detailed Breakdown of the Page
+
+#### Header:
+- **Title**: "Transport Utilization - E-Bus Pass - Academic Year 2026-2027 - Reg."
+- **User Information**: The user is logged in as "25013957" with the name "MUHAMMAD ASJAD E."
+
+#### Main Content:
+- **Participants**: 3571 / 5676
+- **Mentors**: 142 / 170
+- **Managers**: 2 / 2
+- **Start Date**: 01/07/2026
+- **Task Completion**: 0/0
+
+#### Sidebar:
+- **Menu Options**: 
+  - Schedule
+  - Circulars
+  - My Reward Points
+  - Workflow Requests
+  - Workflow Approvals
+  - Bookings
+  - Services
+  - Mentees
+  - Mentorship
+
+#### Main Content:
+- **Circular**: The current tab is "Tasks."
+- **Tasks**: "No tasks have been added to this circular yet."
+
+### Conclusion
+The page is a task management tool within a student portal, specifically for tracking the progress of the E-Bus Pass registration process. It exposes various variables and parameters related to the task management, such as the number of participants, mentors, managers, and the start date. The page communicates with the wider web system through APIs and local storage mechanisms to manage and update the task completion status.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/92/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a part of a student portal that manages the selection of leaders for a specific academic society, Tech Society, for the years 2026-2027. This section controls the process of selecting and managing mentors, participants, and managers for this society. It involves tracking the progress of the selection process, managing the flow of information, and ensuring that the necessary steps are completed.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants is 2092 out of 3464. This indicates the number of students who have registered or are eligible for participation.
+- **Mentors**: There are 87 mentors available, and 4 managers.
+- **Start Date**: The start date for the selection process is set to 01/07/2026.
+- **Task Completion**: The task completion status is 0/0, meaning no tasks have been completed yet.
+- **Circulars**: This section likely controls the management of circulars, which are announcements or guidelines for the selection process.
+- **Chat**: There are 29 chat messages, indicating communication between participants, mentors, and managers.
+- **Tasks**: This section likely controls the tracking of tasks and responsibilities within the selection process.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as user 25013957, indicating that the user is authenticated and has access to this section.
+- **User Information**: The user's name and ref IDs are displayed, which are likely used for identification and tracking purposes.
+- **Page Navigation**: The page is navigated through the sidebar, which contains various sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Manage, Mentees, and Mentorship.
+- **Data Transmission**: The data related to participants, mentors, managers, and task completion is likely transmitted through the web system's backend, where it is stored and processed. This data is used to manage the selection process and ensure that all necessary steps are completed.
+- **Communication**: The chat section allows for communication between different users, which is essential for coordinating the selection process and addressing any issues that may arise.
+
+### Summary
+This section of the student portal is designed to manage the selection process for the Tech Society for the academic years 2026-2027. It controls various transactional features such as managing participants, mentors, and managers, tracking task completion, and facilitating communication. The page passes information to the wider web system structure through user authentication, data storage, and communication channels.
 
 --•--•--
 
