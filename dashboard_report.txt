@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 201
-**Pending Sub-Layer Queue Boundaries:** 1598
+**Total Verified Inner Nodes Mapped:** 205
+**Pending Sub-Layer Queue Boundaries:** 1603
 
 ## Architectural Breakdown per Sub-System:
 
@@ -9885,6 +9885,176 @@ The page may perform database queries to fetch or update information about the s
 
 ### Summary
 The section in question is a critical part of the student portal that manages and tracks the progress of scholarship schemes for the academic year 2026-2027. It exposes various variables and parameters related to the scholarship schemes, such as participants, mentors, managers, and start date. The page passes this information to the wider web system structure through URL parameters, cookies and sessions, API calls, and database queries.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/117/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the management and tracking of scholarship schemes for the academic year 2026-2027. Specifically, it manages the "Fresh and Renewal Scholarship Schemes" for students. This includes tracking the number of participants, mentors, managers, and the start date of the schemes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants in the scholarship scheme.
+- **Mentors**: The number of mentors assigned to the scheme.
+- **Managers**: The number of managers assigned to the scheme.
+- **Start Date**: The date when the scheme began.
+- **Task Completion**: The status of the task completion, which is currently "Approved / Expected."
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and update the scholarship schemes. Here’s a breakdown of how it might communicate with the wider web system structure:
+
+- **API Calls**: The page might make API calls to update the backend with the current status of the scholarship schemes. For example, it could send an update to the backend when a new participant is added or when a mentor is assigned.
+- **Database Integration**: The page could integrate with a database to store and retrieve information about the scholarship schemes. This database might be used to keep track of all participants, mentors, and managers.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the scholarship schemes. This could involve logging in with a username and password or using a token-based authentication method.
+- **Notifications**: The page could send notifications to the backend when certain events occur, such as when a participant completes a task or when a mentor is assigned to a new participant.
+
+### Detailed Breakdown of the Page
+
+#### Page Structure
+- **Header**: Contains the user's profile and settings.
+- **Main Content Area**:
+  - **Title**: "Fresh and Renewal Scholarship Schemes for the Academic Year 2026-2027."
+  - **Participants**: Displays the total number of participants (2542) and the number of participants per mentor (5570).
+  - **Mentors**: Displays the total number of mentors (131) and the number of mentors per manager (167).
+  - **Managers**: Displays the total number of managers (2) and the number of managers per manager (2).
+  - **Start Date**: Displays the start date of the scheme (04/08/2026).
+  - **Task Completion**: Displays the status of task completion (0/0, Approved / Expected).
+  - **Circular**: Displays the circular number (2026-2027/011) and the date (04.08.2026).
+  - **Chat**: Displays the number of unread messages (2).
+  - **Tasks**: Displays the number of tasks (Tasks).
+
+#### Interaction with Backend
+- **API Calls**: The page might make API calls to update the backend with the current status of the scholarship schemes.
+- **Database Integration**: The page could integrate with a database to store and retrieve information about the scholarship schemes.
+- **User Authentication**: The page could use user authentication to ensure that only authorized users can access and modify the scholarship schemes.
+- **Notifications**: The page could send notifications to the backend when certain events occur, such as when a participant completes a task or when a mentor is assigned to a new participant.
+
+### Conclusion
+The page in question is a critical component of the student portal, managing the tracking and updating of scholarship schemes for the academic year 2026-2027. It interacts with a backend system to manage and update the schemes, ensuring that all participants, mentors, and managers are correctly tracked and managed. The page also provides a user-friendly interface for tracking the status of the schemes and interacting with the backend system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/117/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the interaction and communication within a specific "Group Chat" for the "Fresh and Renewal Scholarship Schemes for the Academic Year 2026-2027." This group chat is likely used for real-time updates, discussions, and possibly for managing tasks related to the scholarship schemes. The chat is locked by a manager, which means it is restricted to certain users and functionalities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the chat, which is 2542.
+- **Mentors**: The number of mentors involved, which is 131.
+- **Managers**: The number of managers involved, which is 2.
+- **Start Date**: The start date of the chat is set to 04/08/2026.
+- **Task Completion**: The task completion status is 0/0, indicating that no tasks have been completed.
+- **Circular**: The chat is part of a circular, which is currently active.
+- **Chat**: There are 2 chats in the circular.
+- **Tasks**: There are no tasks assigned in the circular.
+- **Discussion Topics**: The chat is focused on threaded discussions.
+- **Direct Messages**: There are no direct messages in the circular.
+- **Live Updates**: The chat is connected to live updates.
+- **Message**: The chat is locked by a manager, and posting and rating actions are disabled.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system to manage the chat, its participants, mentors, managers, and tasks. Here’s a breakdown of how it might interact with the system:
+
+1. **User Authentication**: The user is logged in as "25013957" and "MUHAMMAD ASJAD E."
+2. **Circular Interaction**: The page interacts with the backend to check if the chat is locked by a manager and to manage the chat's status.
+3. **Task Management**: The page interacts with the backend to manage tasks assigned to participants and mentors.
+4. **Discussion Topics**: The page interacts with the backend to manage the discussion topics and threaded discussions.
+5. **Live Updates**: The page interacts with the backend to connect and manage live updates.
+6. **Message Management**: The page interacts with the backend to manage direct messages and posting actions.
+
+### Summary
+The section in question is a critical component of the student portal, controlling the interaction and communication within a specific group chat for the scholarship schemes. It exposes various variables and parameters related to the chat's participants, mentors, managers, and tasks. The page communicates with the backend system to manage these interactions and ensures that the chat remains locked by a manager, restricting certain functionalities.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/117/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the management and tracking of scholarship schemes for the academic year 2026-2027. Specifically, it manages the participants, mentors, and managers involved in these schemes. The page likely controls the initiation, tracking, and approval of tasks related to these scholarship schemes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants involved in the scholarship schemes.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers overseeing the schemes.
+- **Start Date**: The date when the scholarship schemes began.
+- **Task Completion**: The status of task completion, which is currently at 0/0 (uncompleted).
+- **Circular**: The specific circular or document associated with the scholarship schemes.
+- **Tasks**: The list of tasks or actions that need to be completed within the scholarship schemes.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and track the scholarship schemes. Here’s a breakdown of how it might pass information:
+
+- **API Calls**: The page might make API calls to the backend to update the status of participants, mentors, and managers. For example, it could send an update to the backend when a new participant is added or when a task is completed.
+- **Database Interaction**: The page might interact with a database to store and retrieve information about participants, mentors, and managers. This could involve inserting new records, updating existing records, or retrieving records based on certain criteria.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the information. This could involve checking the user's session or using a token to verify their identity.
+- **Webhooks**: The page might use webhooks to notify other systems or applications when certain events occur, such as when a new participant is added or when a task is completed.
+
+### Detailed Steps for Information Flow
+1. **User Interaction**: The user interacts with the page by adding new participants, assigning mentors, or managing tasks.
+2. **API Calls**: The page makes an API call to the backend to update the database with the new information.
+3. **Database Update**: The backend updates the database with the new information, such as adding a new participant or updating the status of a task.
+4. **Webhook Notifications**: The backend might send a notification to other systems or applications via a webhook, informing them of the new information.
+5. **User Notification**: The page might display a notification to the user, confirming that the action was successful or providing additional information.
+
+### Conclusion
+This section of the student portal is designed to manage and track the scholarship schemes for the academic year 2026-2027. It exposes various variables and parameters related to participants, mentors, and managers, and interacts with a backend system to update and track these schemes. The page also uses user authentication and webhooks to ensure secure and efficient information flow.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/116/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "Make Your Feedback Matter" appears to be a feedback submission or review system. It likely controls the submission of feedback forms, reviews, or evaluations. This feature is crucial for collecting and processing student feedback, which can then be used to improve teaching, learning activities, and classroom facilities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants (2481/5071) indicates the total number of students who have completed the feedback form.
+- **Mentors and Managers**: The number of mentors and managers (2/2) suggests that the feedback is being reviewed by these individuals.
+- **Start Date**: The date (03/08/2026) indicates when the feedback submission process began.
+- **Task Completion**: The status (0/0) shows that no tasks have been completed yet.
+- **Circular**: This likely refers to the specific feedback form or review process.
+- **Chat and Tasks**: These are probably links to communication channels or task management tools for further interaction or follow-up.
+- **Mentorship Type**: The type of mentorship (FacultyMentor) specifies the nature of the feedback submission.
+- **Guidelines**: The text provides instructions on how to fill out the feedback form correctly.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The URL (https://learner.saveetha.in/academics/circulars/116/#) suggests that this page is part of a larger system where different URLs lead to different pages or sections.
+- **Cookies and Sessions**: The page might use cookies or sessions to track user interactions and maintain state across different pages.
+- **API Calls**: The page might make API calls to a backend system to update the status of the feedback submission or to retrieve additional data.
+- **Database Interaction**: The page likely interacts with a database to store and retrieve feedback data, participant information, and other relevant details.
+
+### Detailed Breakdown
+
+#### URL Structure
+- **https://learner.saveetha.in/academics/circulars/116/#**: 
+  - **116**: This could be a unique identifier for the specific feedback form or review process.
+  - **#**: This indicates that the page is a part of a larger system and might have additional content or links below the visible area.
+
+#### Variables and Parameters
+- **Participants**: 2481/5071: Indicates the total number of participants who have completed the feedback form.
+- **Mentors and Managers**: 2/2: Indicates the number of mentors and managers involved in the feedback process.
+- **Start Date**: 03/08/2026: Indicates when the feedback submission process began.
+- **Task Completion**: 0/0: Indicates that no tasks have been completed yet.
+- **Circular**: Likely refers to the specific feedback form or review process.
+- **Chat and Tasks**: Links to communication channels or task management tools.
+- **Mentorship Type**: FacultyMentor: Specifies the type of mentorship involved.
+
+#### Text Grids and Functions
+- **Guidelines**: Provides instructions on how to fill out the feedback form correctly.
+- **Circular**: Likely a link to the specific feedback form or review process.
+- **Chat and Tasks**: Links to communication channels or task management tools.
+
+#### Information Flow
+- **User Interaction**: The page likely uses user input to update the status of the feedback submission.
+- **Database Interaction**: The page interacts with a database to store and retrieve feedback data, participant information, and other relevant details.
+- **API Calls**: The page might make API calls to a backend system to update the status of the feedback submission or to retrieve additional data.
+
+### Conclusion
+The section "Make Your Feedback Matter" is a critical part of the student portal, controlling the submission and review of feedback forms. It exposes various variables and parameters, provides instructions, and interacts with a wider web system structure through various means, including URL parameters, cookies, sessions, API calls, and database interactions.
 
 --•--•--
 
