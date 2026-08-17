@@ -1,6 +1,6 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 141
+**Total Verified Inner Nodes Mapped:** 145
 **Pending Sub-Layer Queue Boundaries:** 1561
 
 ## Architectural Breakdown per Sub-System:
@@ -7082,6 +7082,239 @@ The page communicates with the wider web system structure through the following 
 
 ### Summary
 The Event Attendance Process page is a critical component of the student portal, managing the attendance and feedback of students during an event. It uses cookies, sessions, API calls, webhooks, and a database to control and manage these transactions, ensuring that the system has accurate records of each student's attendance and feedback.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=13100&year=2026&month=8&day=14
+### Event Attendance Process Page Analysis
+
+#### 1. Action or Transactional Feature
+The Event Attendance Process page is designed to manage and track student attendance for an academic event. It allows students to log in and out of the event, ensuring that their attendance is recorded accurately. The page also provides instructions and reminders for students to follow the process.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - `slotsession_id`: Unique identifier for the event session.
+  - `year`: Year of the academic session.
+  - `month`: Month of the academic session.
+  - `day`: Day of the academic session.
+  - `term`: Term of the academic session.
+  - `study_week`: Specific study week within the term.
+  - `learning_type`: Type of learning event (e.g., lecture, workshop).
+  - `learning_date`: Date of the learning event.
+  - `learning_time`: Time of the learning event.
+  - `venue`: Venue where the event is held.
+  - `in_otp`: OTP for entering the event.
+  - `out_otp`: OTP for exiting the event.
+  - `event_start_time`: Scheduled start time of the event.
+  - `event_end_time`: Scheduled end time of the event.
+  - `in_otp_entry`: OTP for entering the event.
+  - `in_otp_status`: Status of the in-OTP entry.
+  - `out_otp_status`: Status of the out-OTP entry.
+
+- **Parameters:**
+  - `slotsession_id`: Used to identify the specific event session.
+  - `year`, `month`, `day`: Used to filter events by date.
+  - `term`: Used to filter events by term.
+  - `study_week`: Used to filter events by study week.
+  - `learning_type`: Used to filter events by type of learning.
+  - `learning_date`: Used to filter events by date.
+  - `learning_time`: Used to filter events by time.
+  - `venue`: Used to filter events by venue.
+  - `in_otp`: Used to generate and display the in-OTP entry.
+  - `out_otp`: Used to generate and display the out-OTP entry.
+  - `event_start_time`, `event_end_time`: Used to display the scheduled event time.
+  - `in_otp_entry`: Used to display the OTP for entering the event.
+  - `in_otp_status`, `out_otp_status`: Used to display the status of the in-OTP and out-OTP entries.
+
+- **Text Grids:**
+  - The page contains text grids for displaying instructions, reminders, and status updates.
+  - The text grids are dynamically populated based on the user's logged-in status and the specific event session.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Cookies and Sessions:**
+  - The page uses cookies and sessions to maintain user authentication and session data.
+  - When a user logs in, their session is created and stored in a cookie.
+  - The session data includes user information, such as their ID, role, and login status.
+  - The session data is used to populate the page with user-specific information and event details.
+
+- **API Calls:**
+  - The page makes API calls to the wider web system to retrieve event details, user information, and attendance status.
+  - The API calls are made using HTTP requests, typically via JavaScript or a similar technology.
+  - The API endpoints are designed to handle different types of requests, such as retrieving event details, updating attendance status, and displaying instructions.
+
+- **Database Interactions:**
+  - The page interacts with a database to store and retrieve user information, event details, and attendance status.
+  - The database is accessed using SQL queries or similar database operations.
+  - The database is designed to handle large amounts of data and provide fast, reliable access to the required information.
+
+- **JavaScript and Frontend Frameworks:**
+  - The page uses JavaScript and a frontend framework (e.g., React, Angular) to dynamically update the page based on user actions and event details.
+  - The JavaScript code is responsible for handling user input, updating the page, and making API calls.
+  - The frontend framework provides a clean and efficient way to manage the user interface and backend interactions.
+
+In summary, the Event Attendance Process page is a complex system that combines user authentication, event management, and database interactions to provide a seamless experience for students attending academic events. The page uses cookies, sessions, API calls, and database interactions to pass information between the user, the page, and the wider web system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=37217&slot_id=1498&year=2026&month=8&day=14
+### Analysis of the Student Portal Attendance Process Section
+
+#### 1. Action or Transactional Feature
+The section controls the attendance process for students, specifically managing the entry and exit of students in and out of a class. This includes generating and managing OTPs (One-Time Passes) for students to enter and exit the class.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **slotsession_id**: Unique identifier for the session.
+  - **slot_id**: Specific slot ID for the class.
+  - **year**: Academic year (2026).
+  - **month**: Month (August).
+  - **day**: Day (14th August).
+  - **student_id**: Student's unique identifier.
+  - **class_id**: Class ID associated with the session.
+
+- **Parameters:**
+  - **OTP**: One-Time Pass generated for students to enter and exit the class.
+  - **IN OTP**: OTP for entering the class.
+  - **OUT OTP**: OTP for exiting the class.
+  - **IN OTP Entry**: Function to record the entry of a student.
+  - **OUT OTP Entry**: Function to record the exit of a student.
+
+- **Text Grids:**
+  - **IN OTP**: Text indicating the availability of the IN OTP.
+  - **OUT OTP**: Text indicating the availability of the OUT OTP.
+  - **Class Started**: Text indicating the start of the class.
+  - **IN OTP Entry**: Text indicating the entry of a student.
+  - **IN APPROVAL**: Text indicating the approval of the IN OTP entry.
+
+- **Functions:**
+  - **generateOTP**: Function to generate OTPs for students.
+  - **recordEntry**: Function to record the entry of a student.
+  - **recordExit**: Function to record the exit of a student.
+  - **approveEntry**: Function to approve the entry of a student.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Cookies and Sessions:**
+  - The page uses cookies and sessions to maintain user authentication and session data.
+  - **cookies**: Used for storing user session data.
+  - **session**: Used for maintaining user sessions.
+
+- **API Calls:**
+  - The page makes API calls to the backend system to generate OTPs, record entries, and approve entries.
+  - **API endpoints**: `generateOTP`, `recordEntry`, `approveEntry`.
+
+- **Database Interaction:**
+  - The page interacts with a database to store and retrieve student attendance data.
+  - **Tables**: `students`, `classes`, `attendance`.
+
+- **Webhooks:**
+  - The page may use webhooks to notify other systems or applications about attendance changes.
+  - **webhooks**: Used to send notifications to other systems.
+
+- **User Interface:**
+  - The page uses JavaScript to handle user interactions and form submissions.
+  - **JavaScript**: Used for client-side validation and form submissions.
+
+### Summary
+The attendance process section is a critical component of the student portal, managing the entry and exit of students in a class. It uses various variables, parameters, and functions to control the OTP generation, entry recording, and approval processes. The page communicates with the backend system via API calls and database interactions, and uses cookies and sessions for user authentication and session management. It also interacts with other systems via webhooks and uses JavaScript for client-side functionality.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=13101&year=2026&month=8&day=14
+### Analysis of the Student Portal Event Attendance Process
+
+#### 1. Action or Transactional Feature Controlled
+The page in question controls the event attendance process for students. Specifically, it manages the attendance records for events scheduled in the academic calendar. This includes tracking whether a student is in or out of the office for a particular event session.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Slotsession_id**: This is a unique identifier for the specific event session. It is used to track the attendance for that particular session.
+- **Year**: The academic year for which the event is scheduled.
+- **Month**: The month in which the event is scheduled.
+- **Day**: The specific day of the month when the event is scheduled.
+- **IN OTP**: Indicates whether the student is in the office for the event session.
+- **OUT OTP**: Indicates whether the student is out of the office for the event session.
+- **Event Feedback**: This section allows students to provide feedback on the event, which is then submitted to the wider system.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page uses the following mechanisms to pass information to the wider web system structure:
+
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user authentication and track user interactions. This ensures that the user's session is maintained across different pages and events.
+- **API Calls**: The page makes API calls to the backend system to update attendance records and submit event feedback. This ensures that the system is updated in real-time.
+- **Form Submissions**: The page includes forms for submitting event feedback. These forms are submitted to the backend system, which processes the feedback and updates the attendance records.
+- **JavaScript**: The page uses JavaScript to handle form submissions and update the page dynamically. This ensures that the page reflects the latest attendance and feedback information in real-time.
+
+### Detailed Breakdown
+
+#### Cookies and Sessions
+- **Cookies**: Used to store session data, such as user authentication tokens and session IDs.
+- **Sessions**: Used to maintain user sessions across different pages and events. This ensures that the user's session is maintained across different pages and events.
+
+#### API Calls
+- **Event Attendance Update**: When a student logs in or updates their attendance, the page makes an API call to the backend system to update the attendance record.
+- **Event Feedback Submission**: When a student submits feedback, the page makes an API call to the backend system to submit the feedback.
+
+#### Form Submissions
+- **IN OTP and OUT OTP**: These fields are used to update the student's attendance status for the event session.
+- **Event Feedback**: This section allows students to provide feedback on the event. The feedback is submitted to the backend system, which processes it and updates the attendance records.
+
+#### JavaScript
+- **Dynamic Updates**: JavaScript is used to handle form submissions and update the page dynamically. This ensures that the page reflects the latest attendance and feedback information in real-time.
+- **Form Validation**: JavaScript is used to validate form inputs to ensure that the data entered is valid and can be processed by the backend system.
+
+### Conclusion
+The page in question is a critical component of the student portal, controlling the event attendance process and providing a user-friendly interface for students to manage their attendance and provide feedback. It uses a combination of cookies, sessions, API calls, form submissions, and JavaScript to ensure that the system is updated in real-time and that the user experience is smooth and efficient.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=37300&slot_id=1636&year=2026&month=8&day=14
+### Analysis of the Student Attendance Process Page
+
+#### 1. Action or Transactional Feature
+The page controls the student's attendance process, specifically for the session scheduled on August 14, 2026. It manages the student's entry and exit times for the class, ensuring that the student's attendance is recorded accurately.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Session ID (slotsession_id)**: 37300
+- **Slot ID (slot_id)**: 1636
+- **Year (year)**: 2026
+- **Month (month)**: 8
+- **Day (day)**: 14
+- **Time (Scheduled at 03:00 PM – 04:59 PM)**: 03:00 PM – 04:59 PM
+- **Venue (Not Available)**: Not specified
+- **OTP (IN OTP, OUT OTP)**: OTPs are generated and entered by the student.
+- **Status (IN OTP Entry, IN APPROVAL, OUT OTP Entry)**: The student's status in the process is displayed.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page communicates with the wider web system structure through the following mechanisms:
+
+1. **Session ID (slotsession_id)**:
+   - This ID is likely used to identify the specific session or class the student is attending.
+   - It helps in tracking the student's attendance and ensuring that the system knows which session the student is in.
+
+2. **Slot ID (slot_id)**:
+   - This ID is used to specify the exact slot or time slot the student is attending.
+   - It helps in correlating the student's attendance with the specific slot time.
+
+3. **Year, Month, Day, Time**:
+   - These parameters are used to define the exact date and time of the session.
+   - They help in ensuring that the system knows when the student is supposed to attend the session.
+
+4. **OTP Generation**:
+   - The page generates OTPs for the student to enter during the session.
+   - These OTPs are used to authenticate the student's attendance and ensure that the system knows when the student has entered and exited the session.
+
+5. **Status Display**:
+   - The page displays the current status of the student's attendance process.
+   - This helps in tracking the student's progress and ensuring that the system knows when the student has entered and exited the session.
+
+6. **User Authentication**:
+   - The page is logged in as a specific user (25013957).
+   - This ensures that the system knows who is accessing the page and can authenticate the user's identity.
+
+7. **Mentees and Mentorship**:
+   - The page also includes options for managing mentees and mentorship, which might be related to the student's academic progress or support system.
+   - This helps in tracking the student's academic journey and ensuring that the system knows who is providing support to the student.
+
+### Summary
+The page controls the student's attendance process by managing the student's entry and exit times, generating OTPs, and displaying the current status. It communicates with the wider web system structure through session IDs, slot IDs, date and time parameters, and user authentication. This ensures that the system can accurately record and track the student's attendance and academic progress.
 
 --•--•--
 
