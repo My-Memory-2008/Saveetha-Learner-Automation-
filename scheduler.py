@@ -71,7 +71,7 @@ TARGET_BRANCH = os.getenv("TARGET_BRANCH", "main")
 WAIT_SECONDS = 2 * 60
 
 # Retry settings to handle transient GitHub API errors (like HTTP 503)
-MAX_RETRIES = 3
+MAX_RETRIES = 10
 RETRY_DELAY_SECONDS = 15
 
 
