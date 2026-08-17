@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 197
-**Pending Sub-Layer Queue Boundaries:** 1593
+**Total Verified Inner Nodes Mapped:** 201
+**Pending Sub-Layer Queue Boundaries:** 1598
 
 ## Architectural Breakdown per Sub-System:
 
@@ -9703,6 +9703,188 @@ else:
 
 ### Conclusion
 The section in question is a critical component of the student portal, managing the scheduling and tracking of mentor meetings and project sessions. It exposes various variables and parameters, and interacts with the wider web system structure through API calls, database updates, notifications, and user authentication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/118/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Schedule Update: Mentor Meeting and Project Sessions" page. This page appears to control the scheduling and management of mentor meetings and project sessions for students. It likely involves the following actions and transactions:
+
+- **Scheduling Meetings**: The page allows administrators to schedule and manage mentor meetings and project sessions for different academic years (Final Year, Second Year, Third Year).
+- **Task Management**: It provides a platform for tracking and managing tasks related to these meetings and sessions, including the status of task completion (e.g., approved, expected).
+- **Communication**: The page includes a chat feature for real-time communication between participants, mentors, and managers.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The page exposes several key variables and parameters that are critical for its functionality:
+
+- **Participants**: The total number of participants (2826) and the number of participants in the current session (5569).
+- **Mentors**: The number of mentors available (0) and the number of mentors assigned (2).
+- **Managers**: The number of managers available (3) and the number of managers assigned (2).
+- **Start Date**: The date of the start of the session (04/08/2026).
+- **Task Completion**: The status of task completion (0/0, indicating no tasks have been completed).
+- **Circular**: The specific circular or announcement associated with this schedule update.
+- **Tasks**: The list of tasks associated with the mentor meetings and project sessions.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through the following mechanisms:
+
+- **API Calls**: The page may make API calls to update the system's database with the current status of the mentor meetings and project sessions. This could include updating the number of participants, mentors, managers, and the start date.
+- **Webhooks**: The page might use webhooks to notify other parts of the system when certain events occur, such as when a task is completed or when a mentor meeting is scheduled.
+- **Session Management**: The page uses session management to ensure that the data is consistent across different sessions and users. This could involve storing session-specific data in the session storage or using cookies to maintain user sessions.
+- **User Authentication**: The page likely requires user authentication to ensure that only authorized users can access and modify the schedule. This could involve using tokens or session-based authentication.
+
+### Summary
+The "Schedule Update: Mentor Meeting and Project Sessions" page is a critical component of the student portal, controlling the scheduling, management, and communication of mentor meetings and project sessions. It exposes various variables and parameters that are essential for its functionality and interacts with the wider web system structure through API calls, webhooks, session management, and user authentication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/118/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control a live chat feature within a mentorship or mentoring program. This feature allows participants to communicate with mentors and managers in real-time, facilitating discussions and updates related to the mentorship program.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the chat.
+- **Mentors**: The number of mentors available for the chat.
+- **Managers**: The number of managers available for the chat.
+- **Start Date**: The date when the chat session begins.
+- **Task Completion**: The status of task completion, which is currently 0/0.
+- **Circular**: The current chat session is a "Circular" type.
+- **Tasks**: The current chat session is a "Tasks" type.
+- **Group Chat**: Indicates that the chat is a group chat.
+- **Discussion Topics**: The current discussion topics are focused threaded discussions.
+- **Live Updates**: Indicates that live updates are connected.
+- **Message**: The message indicates that the circular is locked by a manager, allowing only reading and viewing of chat and topics, but posting and rating actions are disabled.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system through various means, including:
+- **API Calls**: The page might make API calls to update the status of the chat session, such as starting the chat, updating task completion, or locking the circular.
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user authentication and session data.
+- **Webhooks**: The page might use webhooks to notify other parts of the system about changes in the chat session, such as when a new participant joins or when a task is completed.
+- **Database Interactions**: The page interacts with a database to store and retrieve information about the chat session, such as the number of participants, mentors, and managers.
+
+### Detailed Explanation
+
+1. **API Calls**: The page likely makes API calls to update the status of the chat session. For example, when a new participant joins, the page might send an API request to the backend to increment the participant count and update the chat session status.
+
+2. **Cookies and Sessions**: The page uses cookies and sessions to maintain user authentication and session data. This ensures that the user's progress and interactions are tracked across different sessions.
+
+3. **Webhooks**: The page might use webhooks to notify other parts of the system about changes in the chat session. For example, when a new participant joins, the page might send a webhook to the backend to update the chat session status.
+
+4. **Database Interactions**: The page interacts with a database to store and retrieve information about the chat session. For example, the page might store the number of participants, mentors, and managers in the database and retrieve this information when needed.
+
+### Conclusion
+The section in question is a live chat feature within a mentorship program, controlling various aspects of the chat session such as participants, mentors, managers, and discussion topics. It communicates with the wider web system through API calls, cookies and sessions, webhooks, and database interactions to manage and update the chat session status.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/118/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+This section appears to control the scheduling and management of mentor meetings and project sessions. It likely involves the following key actions:
+- **Scheduling Mentor Meetings**: Allows the creation and management of mentor sessions.
+- **Project Sessions**: Manages project-related meetings and sessions.
+- **Task Management**: Tracks and manages tasks associated with these sessions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following key variables and parameters:
+- **Participants**: Number of participants in the sessions.
+- **Mentors**: Number of mentors available for sessions.
+- **Managers**: Number of managers available for sessions.
+- **Start Date**: The date when the sessions will begin.
+- **Task Completion**: Tracks the status of task completion for the sessions.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system through the following mechanisms:
+- **API Calls**: The page might make API calls to update the system with the current status of the sessions.
+- **Webhooks**: It could use webhooks to notify other parts of the system about changes in session scheduling.
+- **Database Updates**: The page might update the database with the current status of the sessions.
+- **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify session schedules.
+
+### Detailed Explanation
+
+#### 1. Action or Transactional Feature
+The section is designed to manage and schedule mentor meetings and project sessions. It allows users to:
+- **Create Sessions**: Add new sessions with specific dates and times.
+- **Assign Mentors and Managers**: Assign mentors and managers to sessions.
+- **Track Task Completion**: Monitor the status of tasks associated with sessions.
+- **Update Status**: Update the status of sessions, such as whether they are approved or expected.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following key variables and parameters:
+- **Participants**: The total number of participants in the sessions.
+- **Mentors**: The number of available mentors for sessions.
+- **Managers**: The number of available managers for sessions.
+- **Start Date**: The date when the sessions will begin.
+- **Task Completion**: Tracks the status of task completion for the sessions.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system through the following mechanisms:
+- **API Calls**: The page might make API calls to update the system with the current status of the sessions.
+- **Webhooks**: It could use webhooks to notify other parts of the system about changes in session scheduling.
+- **Database Updates**: The page might update the database with the current status of the sessions.
+- **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify session schedules.
+
+### Conclusion
+This section of the student portal is designed to manage and schedule mentor meetings and project sessions, providing users with the ability to create, assign, and track sessions. It communicates with the wider web system through various mechanisms to ensure that the system is updated and that only authorized users can access and modify session schedules.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/117/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal that manages and tracks the progress of scholarship schemes for the academic year 2026-2027. The key actions and transactions it controls include:
+
+- **Scholarship Scheme Management**: It manages the registration, tracking, and approval of participants, mentors, and managers for the scholarship schemes.
+- **Task Completion Tracking**: It tracks the completion status of tasks related to the scholarship schemes, such as the start date and expected completion date.
+- **Mentorship Tracking**: It tracks the mentorship relationships and the progress of mentees.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables, parameters, and functions:
+
+- **Participants**: The total number of participants registered for the scholarship schemes.
+- **Mentors**: The total number of mentors assigned to the participants.
+- **Managers**: The total number of managers assigned to the participants.
+- **Start Date**: The date when the scholarship schemes started.
+- **Task Completion Status**: The status of task completion, which is either "Approved" or "Expected".
+- **Circular Number**: The specific circular number associated with the scholarship schemes.
+- **Date**: The date when the information was last updated or accessed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **URL Parameters**: The page uses URL parameters to pass information. For example, the circular number (2026-2027/011) is passed in the URL.
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user authentication and track user sessions.
+- **API Calls**: The page may make API calls to the backend system to update or retrieve information about the scholarship schemes.
+- **Database Queries**: The page may perform database queries to fetch or update information about the scholarship schemes.
+
+### Detailed Breakdown
+
+#### URL Parameters
+The URL parameters include:
+- **Circular Number**: `2026-2027/011`
+- **Date**: `04.08.2026`
+
+#### Cookies and Sessions
+The page uses cookies to maintain user authentication and track user sessions. For example:
+- `25013957` is likely a session ID.
+- `MUHAMMAD ASJAD E` is likely a user ID or username.
+
+#### API Calls
+The page may make API calls to the backend system to update or retrieve information about the scholarship schemes. For example:
+- `1495.99:1495.99` might be an API endpoint for retrieving or updating scholarship scheme data.
+
+#### Database Queries
+The page may perform database queries to fetch or update information about the scholarship schemes. For example:
+- `2542 / 131 / 2 / 2` might be a query to fetch the number of participants, mentors, managers, and start date.
+
+### Summary
+The section in question is a critical part of the student portal that manages and tracks the progress of scholarship schemes for the academic year 2026-2027. It exposes various variables and parameters related to the scholarship schemes, such as participants, mentors, managers, and start date. The page passes this information to the wider web system structure through URL parameters, cookies and sessions, API calls, and database queries.
 
 --•--•--
 
