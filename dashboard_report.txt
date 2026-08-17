@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 305
-**Pending Sub-Layer Queue Boundaries:** 1791
+**Total Verified Inner Nodes Mapped:** 309
+**Pending Sub-Layer Queue Boundaries:** 1796
 
 ## Architectural Breakdown per Sub-System:
 
@@ -14454,6 +14454,196 @@ The page passes information to the wider web system structure through the follow
 
 ### Summary
 This section of the student portal is designed to provide detailed information about a specific study week, including attendance, session management, feedback submission, and course outcome. It exposes various variables and parameters related to the study week and the student, and passes this information to the wider web system structure for tracking and analysis.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/326/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a student's profile or dashboard within a learning management system (LMS). It controls various transactional features related to the student's academic progress, including attendance, feedback, and course outcomes. Specifically, it manages the following actions:
+- **Attendance Tracking**: Monitoring and recording the student's attendance in classes.
+- **Feedback Collection**: Collecting and managing student feedback.
+- **Course Outcomes**: Providing information about the course's syllabus and outcomes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several key variables and parameters:
+- **Student ID**: The student's unique identifier (e.g., 25013957).
+- **Student Name**: The student's name (e.g., Muhammad Asjad E).
+- **Registration Number**: The student's registration number (e.g., 212225240091).
+- **Class Mode**: Indicates the mode of the class (e.g., Class).
+- **Course ID**: The course ID (e.g., 19AI304).
+- **Course Name**: The course name (e.g., Fundamentals of C Programming).
+- **Slot Information**: Details about the class slot (e.g., 25EJ2074, 25-26 EVEN T2).
+- **Academic Term**: The academic term (e.g., 25-26 EVEN T2).
+- **Session Timeline**: The schedule of sessions (e.g., 17 Apr 2026 15:00 - 06 Jun 2026 16:59).
+- **Feedback Status**: The number of pending and total feedback (e.g., 18 Pending: 12).
+- **Total Sessions**: The total number of sessions scheduled (e.g., 31).
+- **Overall Attendance**: The percentage of overall attendance (e.g., 100.00%).
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means:
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user sessions and track user interactions.
+- **API Calls**: The page makes API calls to the backend system to fetch and update data.
+- **JavaScript**: The page uses JavaScript to dynamically load and update content based on user interactions and data from the backend.
+- **URL Parameters**: The page uses URL parameters to pass data between different pages or to update the page's content.
+- **Webhooks**: The page may use webhooks to communicate with external systems or services.
+
+### Detailed Breakdown
+
+#### Cookies and Sessions
+Cookies and sessions are used to maintain user sessions and track user interactions. For example, the student's session ID is stored in a cookie, which is used to authenticate the user and retrieve their profile data.
+
+#### API Calls
+The page makes API calls to the backend system to fetch and update data. For instance, when the user clicks on a session timeline, the page makes an API call to the backend to get the session details.
+
+#### JavaScript
+The page uses JavaScript to dynamically load and update content based on user interactions and data from the backend. For example, when the user clicks on a session, the page fetches the session details from the backend and updates the page's content.
+
+#### URL Parameters
+The page uses URL parameters to pass data between different pages or to update the page's content. For example, when the user clicks on a course outcome, the page updates the course outcome section with the selected syllabus.
+
+#### Webhooks
+The page may use webhooks to communicate with external systems or services. For example, when the user submits feedback, the page sends the feedback data to an external service via a webhook.
+
+### Conclusion
+The student portal section is a comprehensive tool for managing student attendance, feedback, and course outcomes. It uses various techniques such as cookies, sessions, API calls, JavaScript, URL parameters, and webhooks to interact with the wider web system structure and provide a seamless user experience.
+
+--•--•--
+
+### System Node Endpoint: https://lms2.ai.saveetha.in/course/view.php?id=202
+### Analysis of the Student Portal Login Page
+
+#### 1. What Action or Transactional Feature it Controls:
+The login page controls the user's ability to access the student portal. Specifically, it allows users to log in using their credentials and provides options for guest access if necessary.
+
+#### 2. The Variables, Parameters, Text Grids, or Functions it Exposes:
+- **Username**: A text input field where the user enters their username.
+- **Password**: A text input field where the user enters their password.
+- **Log in**: A button that, when clicked, submits the username and password to log in.
+- **Lost password?**: A link that, when clicked, takes the user to a password reset page.
+- **SEC Workspace**: A text input field that, when clicked, allows the user to log in using their account on the SEC Workspace.
+- **Access as a guest**: A button that, when clicked, allows the user to access the portal as a guest without logging in.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure:
+The login page interacts with the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the user clicks the "Log in" button, the form data (username and password) is submitted to the server. The server processes this data and either logs the user in or returns an error message.
+- **SEC Workspace Login**: When the user clicks the "SEC Workspace" button, the form data is submitted to the SEC Workspace login page. The user is then redirected to the SEC Workspace login page, where they can log in using their credentials.
+- **Guest Access**: When the user clicks the "Access as a guest" button, the user is redirected to the guest access page. The user can then log in using their credentials or be prompted to create a guest account.
+
+### Detailed Breakdown of the Page
+
+#### Form Submission:
+When the user clicks the "Log in" button, the form data (username and password) is submitted to the server. The server processes this data and either logs the user in or returns an error message.
+
+#### SEC Workspace Login:
+When the user clicks the "SEC Workspace" button, the form data is submitted to the SEC Workspace login page. The user is then redirected to the SEC Workspace login page, where they can log in using their credentials.
+
+#### Guest Access:
+When the user clicks the "Access as a guest" button, the user is redirected to the guest access page. The user can then log in using their credentials or be prompted to create a guest account.
+
+### Security Considerations:
+- **Input Validation**: The page should validate the username and password to ensure they are not empty or contain malicious content.
+- **Error Handling**: The server should handle errors gracefully, providing clear error messages to the user.
+- **Security Measures**: The page should use HTTPS to encrypt data in transit and should implement measures to prevent cross-site scripting (XSS) attacks.
+
+### Conclusion:
+The login page is a critical component of the student portal, controlling user access to the system. It exposes various forms of input and provides options for different types of access. The page interacts with the wider web system structure through form submissions and redirects, ensuring that users can log in using their credentials or access the system as a guest.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/420/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a detailed view of a student's academic record, specifically for the subject "Communicative English" (19EN101). This section likely controls the following transactional features:
+- **Attendance Tracking**: It provides detailed attendance data, including the percentage of overall attendance, the number of sessions attended, and the number of sessions pending feedback.
+- **Session Schedule**: It displays the session timeline, including the start and end dates of the sessions.
+- **Feedback Status**: It shows the number of sessions for which feedback is pending.
+- **Course Outcome**: It indicates whether a syllabus has been selected for the subject slot, which is currently not the case.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+- **Overall Attendance**: Percentage of total sessions attended.
+- **Total Sessions**: Number of sessions scheduled.
+- **Present**: Number of sessions attended.
+- **Absent**: Number of sessions missed.
+- **Feedback Status**: Number of sessions for which feedback is pending.
+- **Session Timeline**: Start and end dates of the sessions.
+- **Course Outcome**: Whether a syllabus has been selected for the subject slot.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **Session Information**: The session timeline and feedback status are likely passed through a series of API calls or webhooks to the backend system.
+- **Attendance Data**: The attendance data is likely stored in a database and accessed by the backend system for further processing or reporting.
+- **Course Outcome**: The course outcome information is likely stored in a database and accessed by the backend system for reporting or further analysis.
+
+### Detailed Breakdown of the Section
+
+#### Overview
+- **Overall Attendance**: 96.43%
+- **Total Sessions**: 29
+- **Present**: 54.00 / 56.00
+- **Absent**: 2.00 / 56.00
+- **Feedback Status**: 16 (Pending: 11)
+- **Session Timeline**: 16 Apr 2026 08:00 - 06 Jun 2026 14:59
+- **Total sessions scheduled**: 29
+
+#### Student Information
+- **Student Name**: Muhammad Asjad E
+- **Register Number**: 212225240091
+- **Mode**: Class
+
+#### LMS Links
+- **LMS Link**: 19EN101 - Communicative English
+
+#### Slot Information
+- **Slot**: 25EJ2082
+- **Academic Term**: 25-26 EVEN T2
+
+#### Course Outcome
+- **Course Outcome**: No syllabus selected for this subject slot.
+
+### Conclusion
+This section of the student portal is designed to provide detailed information about a student's attendance, session schedule, feedback status, and course outcome. It likely interacts with the backend system through various API calls and webhooks to retrieve and display this information. The data is stored in a database for further processing and reporting.
+
+--•--•--
+
+### System Node Endpoint: http://lms.saveetha.in/course/view.php?id=235
+### Analysis of the Student Portal Login Page
+
+#### 1. Action or Transactional Feature Controlled
+The login page controls the user's ability to access the student portal. Specifically, it allows users to log in with their credentials and remember their username for future logins. This feature is crucial for maintaining user sessions and ensuring secure access to the system.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Username**: A text input field where users enter their username.
+- **Password**: A text input field where users enter their password.
+- **Remember username**: A checkbox that, when checked, allows the user to be remembered for future logins.
+- **Log in**: A button that submits the login form.
+- **Forgot your username or password**: A link that redirects users to a forgotten password page.
+- **Log in as a guest**: A link that allows users to log in without a username or password.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Cookies**: The page requires cookies to be enabled in the user's browser to function properly. This ensures that the login session is maintained across different pages and sessions.
+- **URL Parameters**: The page does not use URL parameters for login, as it relies on form submission to authenticate the user.
+- **Server-Side Processing**: When the user submits the login form, the server-side script processes the credentials and either redirects the user to the course page or displays an error message if the credentials are incorrect.
+
+### Detailed Breakdown
+
+#### Cookies
+- **Cookie Usage**: The page requires cookies to be enabled in the user's browser. This is crucial for maintaining user sessions and ensuring that the login information is securely stored and accessed by the server.
+- **Cookie Name**: The specific cookie name used is not explicitly mentioned, but it is likely a standard name used for session management.
+
+#### URL Parameters
+- **No URL Parameters**: The login page does not use URL parameters to pass information. Instead, it relies on form submission to authenticate the user.
+
+#### Server-Side Processing
+- **Form Submission**: When the user submits the login form, the server-side script processes the credentials (username and password) and either redirects the user to the course page or displays an error message if the credentials are incorrect.
+- **Session Management**: The server-side script likely sets a session cookie with the user's ID or session ID, which is used to maintain the user's session across different pages and sessions.
+
+### Conclusion
+The login page is a critical component of the student portal, controlling user access to the system. It exposes various variables and parameters, such as the username, password, and a checkbox for remembering the username. The page relies on cookies for session management and does not use URL parameters. The server-side script processes the login credentials and redirects the user based on the outcome of the authentication process.
 
 --•--•--
 
