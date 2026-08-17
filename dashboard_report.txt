@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 281
-**Pending Sub-Layer Queue Boundaries:** 1709
+**Total Verified Inner Nodes Mapped:** 285
+**Pending Sub-Layer Queue Boundaries:** 1710
 
 ## Architectural Breakdown per Sub-System:
 
@@ -13396,6 +13396,155 @@ The page passes information to the wider web system structure through the follow
 
 ### Summary
 The "Manual Academic Attendance" section is a critical feature within the student portal, enabling students to manage their own attendance approvals. It exposes various variables and parameters for drafting, submitting, and tracking these approvals. The page communicates this information to the backend system via form submissions and updates the user's view accordingly. This ensures that the student's attendance approval process is both user-friendly and efficiently managed within the broader system structure.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/present-participants/sample-download/
+Network traversal blocked or timeout: Page.goto: Download is starting
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/present-participants/sample-download/", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Manual Event Attendance" feature. This feature allows users to draft, submit, and track manual event attendance approvals. It is likely integrated into a larger system for managing student attendance and event participation, possibly within an academic or organizational context.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Short Title**: A text input field for the short title of the event.
+- **Subject**: A text input field for the subject of the event.
+- **Attendance Date**: A date input field for selecting the date of attendance.
+- **Event Session**: A dropdown or selection field for choosing the specific event session.
+- **Content**: A text area for entering the content or details related to the event attendance.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system to manage and store the event attendance data. Here’s a breakdown of how this might work:
+
+1. **Form Submission**: When the user submits the form, the data is sent to the backend server. This could be via an HTTP POST request to a specific endpoint.
+2. **Data Validation**: The backend server validates the form data to ensure all required fields are filled and the date is in the correct format.
+3. **Database Interaction**: If the data is valid, it is stored in a database. This could be a relational database like MySQL or a NoSQL database like MongoDB.
+4. **Logging and Notifications**: The system might log the event attendance data and send notifications to relevant parties (e.g., the event organizer, the student, or the academic department).
+5. **User Feedback**: The user is typically redirected back to the main page or a confirmation page to ensure the action was successful.
+
+### Detailed Steps for Data Flow
+
+1. **User Interaction**:
+   - The user fills out the form with the short title, subject, date, and session.
+   - The user clicks the "Submit" button.
+
+2. **Form Submission**:
+   - The form data is sent to the backend server via an HTTP POST request.
+   - The request includes the form fields and any other relevant data.
+
+3. **Backend Validation**:
+   - The backend server receives the request and parses the form data.
+   - It validates the data to ensure all fields are filled and the date is in the correct format.
+   - If the data is invalid, an error message is returned to the user.
+
+4. **Database Interaction**:
+   - If the data is valid, it is stored in the database.
+   - The database might use a model to store the event attendance data, including fields for the short title, subject, date, session, and any other relevant details.
+
+5. **Logging and Notifications**:
+   - The system logs the event attendance data for future reference.
+   - Notifications might be sent to the event organizer, the student, or the academic department via email or another communication channel.
+
+6. **User Feedback**:
+   - The user is typically redirected back to the main page or a confirmation page to ensure the action was successful.
+   - The confirmation page might display a success message or a list of events attended by the user.
+
+### Conclusion
+This section of the student portal is designed to facilitate the manual tracking of event attendance, ensuring that all necessary data is captured and stored securely. The process involves form submission, backend validation, database interaction, logging, and user feedback, all of which contribute to the broader functionality of managing student attendance and event participation within an academic or organizational context.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/?tab=letter
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Manual Event Attendance" feature. This feature allows users to draft, submit, and track manual event attendance approvals. It is designed to facilitate the process of manually documenting and approving attendance for events, which is typically done in a controlled and tracked manner.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Short title**: A text input field where users can enter a short title for the event attendance.
+- **Subject**: A text input field where users can enter a subject for the event attendance.
+- **Attendance date**: A date input field where users can select the date of the event attendance.
+- **Event session**: A dropdown or select box where users can choose the specific session or event they are attending.
+- **Content**: An editor or text area where users can enter the content or details related to the event attendance.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page uses the following methods to pass information to the wider web system structure:
+
+- **Form Submission**: When the user submits the form, the data is sent to the server using an HTTP POST request. The form data is typically sent to a specific endpoint or URL that handles the event attendance approval process.
+- **API Integration**: The form data might be sent to an API endpoint that is responsible for processing the event attendance approval. This API endpoint could be part of a larger system that manages event attendance records, approvals, and notifications.
+- **Session Management**: The page uses session management to track user interactions and ensure that the form data is securely transmitted between the client and server. This is achieved through the use of cookies or session IDs.
+- **User Authentication**: The page checks if the user is logged in before allowing them to access and fill out the form. This is typically done using a login system that verifies the user's credentials.
+
+### Detailed Explanation
+
+1. **Form Submission**:
+   - When the user clicks the "Submit" button, the form data is sent to the server using an HTTP POST request.
+   - The form data includes the short title, subject, attendance date, event session, and content.
+
+2. **API Integration**:
+   - The form data is sent to an API endpoint that is responsible for processing the event attendance approval.
+   - This API endpoint could be part of a larger system that manages event attendance records, approvals, and notifications.
+
+3. **Session Management**:
+   - The page uses session management to track user interactions and ensure that the form data is securely transmitted between the client and server.
+   - This is achieved through the use of cookies or session IDs.
+
+4. **User Authentication**:
+   - The page checks if the user is logged in before allowing them to access and fill out the form.
+   - This is typically done using a login system that verifies the user's credentials.
+
+### Conclusion
+The "Manual Event Attendance" section is a critical feature of the student portal, designed to facilitate the manual documentation and approval of event attendance. It uses various methods, including form submission, API integration, session management, and user authentication, to securely and efficiently manage the event attendance process.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/?tab=workflow
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is designed to manage and approve manual event attendance. This feature allows users to draft, submit, and track the approval process for event attendance. The user can either draft a letter or use a chat interface to communicate with other approvers.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Approval Workflow**: This is a text input field where the user can enter the details of the approval workflow. This could include steps, roles, or any other relevant information.
+- **Save Workflow**: A button to save the entered approval workflow.
+- **Apply**: A button to apply the workflow and proceed with the approval process.
+- **Student Instruction**: A text area where the user can select a workflow to see instructions. This could be a link or a reference to a guide or help document.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the user clicks the "Apply" button, the form data is submitted to the server. This data includes the entered approval workflow.
+- **Server Processing**: The server processes the submitted data. This could involve checking the workflow against predefined rules, sending notifications to approvers, or updating the database.
+- **Database Interaction**: The server interacts with the database to update the status of the event attendance approval. This could involve updating the attendance record, sending notifications, or logging the approval process.
+- **User Notification**: The server sends a notification back to the user, confirming the approval status or providing any necessary updates.
+
+### Detailed Steps
+1. **User Interaction**:
+   - The user enters the approval workflow details in the text input field.
+   - The user clicks the "Apply" button.
+
+2. **Form Submission**:
+   - The form data, including the approval workflow, is sent to the server via an HTTP POST request.
+
+3. **Server Processing**:
+   - The server receives the form data.
+   - The server processes the data, checking the workflow against predefined rules.
+   - The server updates the database with the new approval status.
+
+4. **Database Interaction**:
+   - The server updates the attendance record in the database.
+   - The server sends notifications to approvers and the user.
+
+5. **User Notification**:
+   - The server sends a notification back to the user, confirming the approval status or providing any necessary updates.
+
+### Conclusion
+This section of the student portal is designed to streamline the manual event attendance approval process. It allows users to draft and submit workflows, which are then processed by the server and database. The user receives notifications to confirm the approval status, ensuring a smooth and efficient process for event attendance management.
 
 --•--•--
 
