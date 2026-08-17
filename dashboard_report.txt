@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 265
-**Pending Sub-Layer Queue Boundaries:** 1707
+**Total Verified Inner Nodes Mapped:** 269
+**Pending Sub-Layer Queue Boundaries:** 1700
 
 ## Architectural Breakdown per Sub-System:
 
@@ -12675,6 +12675,169 @@ The page likely communicates with a backend system to update the event registrat
 
 ### Conclusion
 This section of the student portal is designed to manage the registration and organization of the Bakrid Festival event. It exposes various variables and parameters that are essential for tracking and managing the event's registration and participation. The information is passed to the backend system to ensure the smooth operation of the event and maintain accurate records.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/66/
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/circulars/66/", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/?page=1
+### Analysis of the Student Portal's Circulars Section
+
+#### 1. Action or Transactional Feature it Controls
+The "Circulars" section in the student portal is designed to manage and track various circular communications, task progress, mentor verification, and manager approvals. This section allows students to view, search, and manage different circulars based on specific criteria such as title, role, and date range.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Title**: A text input field where users can search for circulars by partial title.
+- **Role**: A dropdown menu that allows users to filter circulars based on their role (e.g., Participant, Mentor, etc.).
+- **From Date**: A date input field that allows users to specify the start date of the circular.
+- **To Date**: A date input field that allows users to specify the end date of the circular.
+- **Info**: A checkbox that, when checked, displays additional information about the circular.
+- **Notification**: A checkbox that, when checked, sends notifications about the circular.
+- **Apply**: A button that applies the selected filters and displays the filtered circulars.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The "Circulars" section interacts with the wider web system structure through the following mechanisms:
+
+- **URL Parameters**: The page URL includes parameters such as `page` and `search`, which are used to filter and display the circulars.
+- **Form Submission**: When the user clicks the "Apply" button, the form data is submitted to the server. The server processes the request and returns the filtered circulars.
+- **AJAX Requests**: The page might use AJAX requests to dynamically load circulars based on user interactions, such as filtering or sorting.
+- **Session Management**: The page uses session management to keep track of user sessions and maintain state across different pages.
+
+### Detailed Breakdown of the Page
+
+#### Title Search
+- **Input Field**: The user can type a partial title in the "Search by partial title" field.
+- **Result**: The server processes the search query and returns a list of circulars that match the partial title.
+
+#### Role Filter
+- **Dropdown Menu**: The user can select their role from a dropdown menu.
+- **Result**: The server filters the circulars based on the selected role and returns the filtered list.
+
+#### Date Range Filter
+- **Date Input Fields**: The user can specify a start and end date using the "From Date" and "To Date" fields.
+- **Result**: The server filters the circulars based on the specified date range and returns the filtered list.
+
+#### Info and Notification Checkboxes
+- **Checkboxes**: The user can check or uncheck the "Info" and "Notification" checkboxes.
+- **Result**: The server processes the checkboxes and returns the filtered list with the specified information and notifications.
+
+#### Apply Button
+- **Button Click**: When the user clicks the "Apply" button, the form data is submitted to the server.
+- **Result**: The server processes the request and returns the filtered circulars.
+
+### Security Considerations
+- **Input Validation**: The page should validate user inputs to prevent SQL injection and other types of attacks.
+- **Session Management**: Proper session management is crucial to prevent unauthorized access and maintain user sessions.
+- **Data Encryption**: Sensitive data, such as user credentials and personal information, should be encrypted to protect user data.
+
+### Conclusion
+The "Circulars" section in the student portal is a powerful tool for managing and tracking various circular communications. It uses a combination of form submissions, AJAX requests, and session management to provide a seamless user experience. The page exposes various variables and parameters to filter and display circulars based on specific criteria, ensuring that users can easily find and manage the information they need.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/rewards/my-reward-points/general-information/8/#
+### Analysis of the Student Portal Reward Points Policy Page
+
+#### 1. What Action or Transactional Feature it Controls
+The page in question is a part of a student portal that manages reward points for students. The primary action it controls is the tracking and management of reward points earned by students. This includes the ability to view, earn, redeem, and manage reward points. The page also allows students to view their reward points and redeem them for various academic benefits and facilities.
+
+#### 2. The Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `Reward Points`: The total number of reward points a student has earned.
+  - `Points Earned`: The specific activities or events that have earned the student reward points.
+  - `Points Redeemed`: The reward points that have been redeemed for academic benefits and facilities.
+  - `Points Remaining`: The total reward points remaining after redeeming some.
+
+- **Parameters:**
+  - `Activity Type`: The type of activity or event that earned the reward points (e.g., attending a technical event, completing a coding module).
+  - `Event ID`: The unique identifier for the event or activity that earned the reward points.
+  - `Event Date`: The date when the event or activity took place.
+  - `Points Earned Amount`: The exact number of reward points earned from the activity.
+
+- **Text Grids:**
+  - `Objective of the Reward Points System`: A list of objectives that the reward points system aims to achieve.
+  - `Ways to Earn Reward Points`: A list of activities and events that can earn reward points.
+  - `Redeemable Benefits`: A list of academic benefits and facilities that can be redeemed for reward points.
+
+- **Functions:**
+  - `Earn Points`: A function that updates the reward points when a student participates in an approved activity or event.
+  - `Redeem Points`: A function that updates the reward points when a student redeems some for academic benefits and facilities.
+  - `View Points`: A function that displays the current reward points and their details.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Data Flow:**
+  - **Input:** The page receives data from the wider web system through various forms and inputs, such as the student's activity participation, event details, and redemption requests.
+  - **Processing:** The page processes this data to update the student's reward points and display the updated information.
+  - **Output:** The page sends updated reward points data back to the wider web system, updating the student's account and any related records.
+
+- **Security Measures:**
+  - **Authentication:** The page ensures that only authenticated users can access and modify their reward points.
+  - **Data Encryption:** The page uses encryption to protect sensitive data, such as reward points and activity details.
+  - **Access Control:** The page restricts access to certain features based on user roles and permissions.
+
+- **Integration with Other Systems:**
+  - **APIs:** The page interacts with other systems through APIs to update records, such as the student's account, event details, and redemption requests.
+  - **Database:** The page updates the student's reward points in the database, ensuring consistency across different systems.
+
+### Summary
+The page in question is a critical component of the student portal, managing the reward points system. It controls the tracking and management of reward points, exposes various variables and parameters, and passes information to the wider web system structure through secure and controlled data flows. The page ensures that the reward points system is aligned with the objectives set out and provides a user-friendly interface for students to manage their rewards.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/create/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "General Letter - Student" feature within the student portal. This feature allows students to draft, submit, and track their approval workflows. The primary actions controlled by this section include:
+- **Drafting a Letter**: Students can create and edit a letter using the provided text editor.
+- **Submitting the Letter**: Once the letter is drafted, it can be submitted for approval.
+- **Tracking the Approval Workflow**: Students can monitor the status of their letter through the approval workflow.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables, parameters, and functions:
+- **Subject Field**: A text input field where students can enter the subject of the letter.
+- **Attachments Field**: A file upload field where students can attach supporting files to their letter.
+- **Content Field**: A text editor where students can type the content of the letter.
+- **Approval Workflow**: A tab that likely contains the approval process steps and statuses.
+- **Chat**: A chat feature for communication with the approval workflow team.
+- **Save Draft**: A button to save the letter as a draft.
+- **Back to Requests**: A button to return to the main request list.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **Form Submission**: When the "Save Draft" button is clicked, the form data (including the subject, attachments, and content) is submitted to the server.
+- **Approval Workflow**: The approval workflow is likely managed through a backend system that processes the submitted letters and updates their status.
+- **Chat Communication**: Chat messages are sent to the approval workflow team via the chat feature, allowing for real-time communication.
+- **User Authentication**: The logged-in user's information is stored in the session, ensuring that the user can access their own submissions and drafts.
+
+### Detailed Breakdown
+
+#### Form Submission
+When the "Save Draft" button is clicked, the form data is submitted to the server. This data includes:
+- **Subject**: The subject entered by the student.
+- **Attachments**: Any files attached to the letter.
+- **Content**: The text content of the letter.
+
+#### Approval Workflow
+The approval workflow is likely managed through a backend system that processes the submitted letters. This system tracks the status of each letter (e.g., Draft, Approved, Rejected) and updates the status accordingly. The approval workflow might involve multiple steps, such as:
+- **Initial Review**: The letter is reviewed by the initial approver.
+- **Second Review**: The letter is reviewed by a second approver.
+- **Final Approval**: The letter is approved by the final approver.
+
+#### Chat Communication
+The chat feature allows real-time communication between the student and the approval workflow team. Students can send messages to the chat, and the messages are sent to the approval workflow system, allowing for immediate feedback and communication.
+
+#### User Authentication
+The page uses session-based authentication to ensure that only the logged-in user can access their submissions and drafts. The user's session data is stored in the server, allowing the page to display the logged-in user's information and access their specific submissions.
+
+### Conclusion
+The "General Letter - Student" section is a comprehensive feature that allows students to manage their approval workflows, draft and submit letters, and communicate with the approval workflow team. The page passes information to the wider web system structure through form submissions, approval workflow management, and real-time chat communication, ensuring a seamless and efficient user experience.
 
 --•--•--
 
