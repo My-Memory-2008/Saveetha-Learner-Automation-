@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 297
-**Pending Sub-Layer Queue Boundaries:** 1704
+**Total Verified Inner Nodes Mapped:** 301
+**Pending Sub-Layer Queue Boundaries:** 1750
 
 ## Architectural Breakdown per Sub-System:
 
@@ -14072,6 +14072,200 @@ The page passes information to the wider web system structure through the follow
 
 ### Conclusion
 This section of the student portal is designed to manage mentorship relationships, provide communication channels, and facilitate workflow management. It exposes various variables, parameters, and functions to control the mentorship process and interacts with the wider web system structure through URL parameters, session variables, API calls, cookies, local storage, and JavaScript.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=overview
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a part of a mentorship platform, specifically designed to manage and monitor the activities of mentors and mentees within an academic setting. The primary action it controls is the tracking and management of mentorship relationships, including the assignment of mentors to mentees, the status of these relationships, and the overall performance metrics related to these interactions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Mentor Role:** Mentee (Active)
+  - **Mentor Count:** 1 (Active: 1)
+  - **Peer Mentees Count:** 53 (Active: 53)
+  - **Total Mentees Count:** 54 (Active: 54)
+  - **Mentor Name:** Jaashika K M
+  - **Mentor ID:** TSCS169
+  - **Mentor Status:** Active
+  - **Peer Mentees Names:** AADITHYAN S, ABINESH A, ADITYA JORIM F S, AIRA DARIO A
+  - **Peer Mentees Status:** Active
+
+- **Parameters:**
+  - **Mentor ID:** TSCS169
+  - **Mentor Role:** Mentee
+  - **Mentor Status:** Active
+  - **Peer Mentees:** 53 (Active: 53)
+
+- **Text Grids:**
+  - **Overview:** Provides an overview of the mentorship status, including the number of mentors, mentees, and their active status.
+  - **Chat:** Likely a chat or messaging feature for real-time communication between mentors and mentees.
+  - **Counselling:** Possibly a counselling or support feature for mentees.
+
+- **Functions:**
+  - **Update Mentor Status:** Allows the status of the mentor to be updated (e.g., from Active to Inactive).
+  - **Update Mentee Status:** Allows the status of the mentee to be updated (e.g., from Active to Inactive).
+  - **Add New Mentee:** Allows adding new mentees to the system.
+  - **Remove Mentee:** Allows removing mentees from the system.
+  - **Chat Messages:** Allows sending and receiving messages between mentors and mentees.
+  - **Counselling Requests:** Allows requesting and managing counselling or support requests from mentees.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Data Flow:**
+  - **Mentor Information:** The mentor's ID, role, and status are passed to the wider system through the URL parameters.
+  - **Mentee Information:** The mentee's ID, role, and status are passed through the URL parameters.
+  - **Chat Messages:** Chat messages are passed through the URL parameters or via a separate messaging system.
+  - **Counselling Requests:** Counselling requests are passed through the URL parameters or via a separate counselling system.
+
+- **API Integration:**
+  - The page likely integrates with an API to update the mentor and mentee statuses, add new mentees, remove mentees, and manage chat messages and counselling requests.
+  - The API endpoints would handle the HTTP requests and responses, updating the system's database with the new information.
+
+- **Security Measures:**
+  - The page uses secure communication protocols (e.g., HTTPS) to ensure data integrity and confidentiality.
+  - The page likely implements authentication and authorization mechanisms to ensure that only authorized users can access and modify the mentorship data.
+
+### Summary
+The section in question is a critical component of a mentorship platform, managing the relationships between mentors and mentees. It exposes various variables, parameters, and functions related to the mentorship status, chat messages, and counselling requests. The page passes this information to the wider web system structure through URL parameters and API integrations, ensuring secure and efficient data management.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=chat&chat=group
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a mentorship platform within a student portal. It controls the interaction and communication between mentors and mentees. The primary action is the initiation and management of mentorship conversations, which involves finding a mentor or mentee, starting a conversation, and managing direct messages.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Mentorship Type**: The mentorship type is specified as "AcademicMentor."
+- **Topic Points**: Mentees can earn topic points, which are likely used for tracking progress or achievements within the mentorship program.
+- **Mentor and Mentee Profiles**: Mentors and mentees have profiles with their names, roles, and contact information.
+- **Discussion Topics**: Mentees can find and discuss specific topics with mentors.
+- **Direct Messages**: Mentees can send and receive messages directly from mentors.
+- **Chat**: The chat feature allows real-time communication between mentors and mentees.
+- **Conversation Start**: Mentees can start a conversation with a mentor by clicking the "Start the conversation" button.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page requires user authentication to access the mentorship section. This is likely handled by a backend system that verifies user credentials.
+- **Mentor and Mentee Matching**: The system uses the mentorship type and user profiles to match mentors and mentees. This could involve a database query to find suitable matches.
+- **Conversation Management**: The system manages the conversation history and messages, storing them in a database. This includes tracking who initiated the conversation and the content of the messages.
+- **Real-Time Updates**: The system ensures real-time updates for messages, which could involve a push notification system or a real-time messaging service.
+- **User Interface**: The page's design is user-friendly, with clear instructions and buttons to facilitate the mentorship process.
+
+### Detailed Breakdown
+
+#### 1. Mentorship Type
+The mentorship type is specified as "AcademicMentor," indicating that the mentorship is focused on academic guidance and support.
+
+#### 2. Topic Points
+Mentees can earn topic points, which are likely used for tracking progress or achievements within the mentorship program. This could be used to reward mentees for participating in discussions or completing tasks.
+
+#### 3. Mentor and Mentee Profiles
+- **Mentors**: Mentors have profiles with their names, roles, and contact information.
+- **Mentees**: Mentees have profiles with their names, roles, and contact information.
+
+#### 4. Discussion Topics
+Mentees can find and discuss specific topics with mentors. This feature likely involves a search functionality to help mentees find relevant topics.
+
+#### 5. Direct Messages
+Mentees can send and receive messages directly from mentors. This feature ensures real-time communication and allows mentees to ask questions or seek advice.
+
+#### 6. Chat
+The chat feature allows real-time communication between mentors and mentees. This feature is likely integrated with a messaging service to ensure smooth and efficient communication.
+
+#### 7. Conversation Start
+Mentees can start a conversation with a mentor by clicking the "Start the conversation" button. This feature is designed to facilitate the initiation of a conversation and ensure that the conversation is initiated by the mentee.
+
+### Conclusion
+The section in question is a comprehensive mentorship platform within a student portal. It controls the interaction and communication between mentors and mentees, manages conversation history, and ensures real-time updates. The system uses user authentication, database queries, and real-time messaging services to manage the mentorship process effectively.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=counselling
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is the "Counselling" tab within the "Mentorship" tab of the student portal. This tab is likely designed to facilitate communication between mentors and mentees, particularly for academic or personal counseling. The feature controls the loading and interaction of a conversation between the mentor and mentee, which is crucial for providing support and guidance.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **User ID:** The logged-in user's ID, which is 25013957.
+  - **Username:** The username associated with the user ID, which is "MUHAMMAD ASJAD E".
+  - **Ref1:** The reference number for the first referral, which is 212225240091.
+  - **Ref2:** The reference number for the second referral, which is 25013957.
+
+- **Parameters:**
+  - **Mentor ID:** The ID of the mentor, which is not explicitly shown but can be inferred from the context.
+  - **Mentee ID:** The ID of the mentee, which is not explicitly shown but can be inferred from the context.
+  - **Session ID:** The session ID for the current conversation, which is 1495.99:1495.99.
+
+- **Text Grids:**
+  - **Conversation:** The text of the conversation between the mentor and mentee, which is currently loading.
+
+- **Functions:**
+  - **Loading Function:** The function responsible for loading the conversation text, which is currently in the process of loading.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Session Management:**
+  - The page uses session management to ensure that the conversation is maintained across different interactions. The session ID (1495.99:1495.99) is used to track the conversation state.
+  
+- **User Authentication:**
+  - The page uses the logged-in user's ID and username to authenticate the user and ensure that they have the necessary permissions to access the counselling section.
+
+- **Data Transmission:**
+  - The page does not explicitly show how data is transmitted to the wider web system. However, it is likely that the session ID and user ID are passed through the URL or session cookies to the backend system for further processing.
+
+### Summary
+The "Counselling" tab in the student portal is designed to facilitate communication between mentors and mentees, particularly for academic or personal counseling. It exposes various variables and parameters related to the user and the current conversation, and it uses session management to maintain the conversation state. The page does not explicitly show how data is transmitted to the wider web system, but it relies on session management and user authentication to ensure secure and effective communication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/378/mentorship/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a part of a mentorship platform, specifically designed to manage and track the activities and interactions between mentors and mentees. The key actions and transactions it controls include:
+
+- **Mentorship Management**: It allows administrators to manage mentorship groups, assign mentors, and track the progress of mentees.
+- **Mentor and Mentee Matching**: It facilitates the matching of mentors and mentees based on specific criteria such as academic performance, interests, and availability.
+- **Communication Channels**: It provides a platform for mentors and mentees to communicate through chat and counselling sessions.
+- **Progress Tracking**: It tracks the progress of mentees, including their performance, engagement, and interactions with mentors.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes various variables and parameters that are crucial for the functionality of the mentorship platform. These include:
+
+- **Mentor and Mentee Information**: Names, roles, and statuses of mentors and mentees.
+- **Mentorship Group Information**: Group ID, name, and other relevant details.
+- **Communication Channels**: Chat and counselling session details.
+- **Progress Tracking**: Performance metrics, engagement levels, and interaction counts.
+- **User Authentication**: User ID, username, and other login credentials.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means, including:
+
+- **API Calls**: The page makes API calls to the backend system to fetch and update data related to mentorship groups, mentors, mentees, and communication channels.
+- **Session Management**: It uses session management to track user sessions and maintain user authentication.
+- **Database Interactions**: It interacts with the database to store and retrieve data related to mentorship activities, user information, and communication logs.
+- **Webhooks**: It may use webhooks to notify other parts of the system about changes in mentorship activities or user interactions.
+
+### Detailed Breakdown
+
+#### API Calls
+The page makes API calls to the backend system to fetch and update data. For example, when a mentor or mentee logs in, the page makes an API call to the backend to authenticate the user and retrieve their session data. Similarly, when a mentor or mentee sends a message, the page makes an API call to the backend to log the message and update the communication history.
+
+#### Session Management
+The page uses session management to track user sessions and maintain user authentication. When a user logs in, the page sets a session cookie with the user's ID and other relevant information. The backend system uses this session cookie to authenticate the user and retrieve their session data.
+
+#### Database Interactions
+The page interacts with the database to store and retrieve data related to mentorship activities, user information, and communication logs. For example, when a mentor or mentee sends a message, the page inserts the message into the database along with the sender's ID, recipient's ID, and other relevant information. Similarly, when a mentor or mentee logs in, the page retrieves their session data from the database.
+
+#### Webhooks
+The page may use webhooks to notify other parts of the system about changes in mentorship activities or user interactions. For example, when a mentor or mentee sends a message, the page triggers a webhook to notify other parts of the system, such as the backend system or other web applications, about the message.
+
+### Conclusion
+The section in question is a critical part of a mentorship platform that manages and tracks the activities and interactions between mentors and mentees. It exposes various variables and parameters, makes API calls to the backend system, uses session management to track user sessions, interacts with the database to store and retrieve data, and uses webhooks to notify other parts of the system.
 
 --•--•--
 
