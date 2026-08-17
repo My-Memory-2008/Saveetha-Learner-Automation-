@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 285
-**Pending Sub-Layer Queue Boundaries:** 1710
+**Total Verified Inner Nodes Mapped:** 289
+**Pending Sub-Layer Queue Boundaries:** 1711
 
 ## Architectural Breakdown per Sub-System:
 
@@ -13545,6 +13545,144 @@ The section in question is designed to manage and approve manual event attendanc
 
 ### Conclusion
 This section of the student portal is designed to streamline the manual event attendance approval process. It allows users to draft and submit workflows, which are then processed by the server and database. The user receives notifications to confirm the approval status, ensuring a smooth and efficient process for event attendance management.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/present-participants/sample-download/
+Network traversal blocked or timeout: Page.goto: Download is starting
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/present-participants/sample-download/", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/#
+### Analysis of the Student Portal Reward Claim Section
+
+#### 1. Action or Transactional Feature
+The section in question is a reward claim form for students. This form allows users to draft, submit, and track their reward claim approvals. The primary action is the submission of a reward claim, which involves filling out the form with necessary details and attaching any relevant documents.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Subject**: A text input field where users can enter a subject for the reward claim.
+- **Attachments**: A file upload field where users can attach up to 2 files (optional).
+- **Content**: A text area where users can enter the main content of the reward claim.
+- **Save Draft**: A button to save the draft of the reward claim.
+- **Back to Requests**: A button to return to the list of reward claims.
+
+#### 3. Information Flow to the Wider Web System Structure
+The form data is likely sent to a backend server when the user submits the form. The form data includes:
+- **Subject**: The subject of the reward claim.
+- **Attachments**: The selected files (if any).
+- **Content**: The text content of the reward claim.
+
+The form data is typically sent using an HTTP POST request to the server. The server would then process the form data, possibly by sending it to a database for storage or further processing. The server might also send a response back to the client, indicating whether the claim was successfully submitted or if there were any issues.
+
+### Detailed Steps for Submission
+1. **User Fills Out the Form**:
+   - The user enters the subject in the "Subject" field.
+   - The user selects files from the "Attachments" field.
+   - The user types the content in the "Content" text area.
+
+2. **User Submits the Form**:
+   - The user clicks the "Save Draft" button to submit the form.
+   - The form data is sent to the server using an HTTP POST request.
+
+3. **Server Processing**:
+   - The server receives the form data.
+   - The server processes the data, possibly storing it in a database.
+   - The server sends a response back to the client, indicating the status of the submission.
+
+4. **Client Response**:
+   - The server's response is displayed to the user, confirming whether the claim was successfully submitted or if there were any issues.
+
+### Security Considerations
+- **Input Validation**: The server should validate the form data to ensure it meets the required format and content.
+- **File Size and Type**: The server should check the file size and type to prevent malicious uploads.
+- **Session Management**: The server should handle session management to ensure that the user is logged in and that the form data is associated with the correct user.
+
+### Conclusion
+The reward claim section is a critical feature of the student portal, allowing users to manage their reward claims efficiently. The form data is sent to the server for processing, and the server responds with a confirmation or error message. The section is designed to be user-friendly and secure, ensuring that users can easily manage their reward claims.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/?tab=claim
+### Analysis of the Student Portal Reward Claim Section
+
+#### 1. Action or Transactional Feature it Controls
+The "Reward Claim - Student" section is designed to allow students to draft, submit, and track their reward claim approvals. This feature enables students to document their achievements, request rewards, and manage the approval process through the portal.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Subject**: A text input field where students can enter a subject or title for their reward claim.
+- **Attachments**: A file upload section where students can attach documents or files related to their reward claim.
+- **Content**: A rich text editor where students can write detailed content about their reward claim.
+- **Approval Flow**: A tab that likely contains the workflow steps for approving the reward claim, including options for different approvers.
+- **Chat**: A chat feature for communication with approvers or other students.
+- **Save Draft**: A button to save the draft of the reward claim before submission.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page communicates information to the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the user submits the form, the data is sent to the server via an HTTP POST request. The form data includes the subject, attachments, and content.
+- **Approval Flow**: The approval flow is likely managed through a backend system that tracks the progress of the reward claim through different stages (e.g., initial review, final approval).
+- **Chat**: Chat messages are typically sent to a chat server or a messaging system that integrates with the portal. The messages are stored in a database or a messaging system.
+- **User Authentication**: The user's authentication information (e.g., username, password) is stored in the session or database, ensuring that only authenticated users can access and modify the reward claim.
+
+### Detailed Breakdown
+
+#### Form Submission
+When the user submits the form, the data is sent to the server using an HTTP POST request. The form data is structured as follows:
+- **Subject**: The subject or title entered by the user.
+- **Attachments**: The selected files are uploaded and stored in the server's file system.
+- **Content**: The rich text editor content is parsed and stored in the server's database.
+
+#### Approval Flow
+The approval flow is likely managed through a backend system that tracks the progress of the reward claim through different stages. Each stage can have specific actions (e.g., review, approve, reject) that are logged and stored in the database.
+
+#### Chat
+The chat messages are sent to a chat server or a messaging system that integrates with the portal. The messages are stored in a database or a messaging system, allowing users to communicate with approvers or other students.
+
+#### User Authentication
+The user's authentication information (e.g., username, password) is stored in the session or database, ensuring that only authenticated users can access and modify the reward claim. This is typically done using a session management system or a database that stores user credentials.
+
+### Conclusion
+The "Reward Claim - Student" section is a comprehensive feature that allows students to manage their reward claims through a user-friendly interface. It leverages various technologies and systems to ensure secure and efficient communication and tracking of reward claims. The data is securely stored and managed, ensuring that the reward claim process is transparent and traceable.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/?tab=workflow
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is designed to manage and track reward claim approvals for students. It allows users to draft, submit, and track reward claim approvals for a specific academic year. The user can also select a reward ledger to view instructions and apply the selected ledger to the reward claim.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Reward Term**: A dropdown menu that allows the user to select the academic year for which the reward claim is being processed. The available options are predefined and include the current academic year and previous years.
+- **Reward Ledger (Revenue)**: A dropdown menu that allows the user to select a specific reward ledger from a list of predefined options. This selection is crucial for applying the correct reward ledger to the claim.
+- **Save Reward Ledger**: A button that allows the user to save the selected reward ledger for future use.
+- **Apply**: A button that applies the selected reward ledger to the reward claim and submits it for approval.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page communicates with the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the user clicks the "Apply" button, the form data is submitted to the server. The form data includes the selected reward term and ledger.
+- **Server-Side Processing**: The server processes the submitted data to determine if the reward claim can be approved. This involves checking the validity of the reward ledger and the academic year.
+- **Database Interaction**: The server may interact with a database to store the approved reward claim or to update the status of the claim.
+- **User Notification**: The server sends a notification back to the user, indicating whether the claim was approved or if there were any issues with the claim.
+
+### Detailed Steps for the Process
+1. **User Selection**: The user selects the academic year and the reward ledger from the dropdown menus.
+2. **Form Submission**: The user clicks the "Apply" button, which triggers the form submission.
+3. **Server Processing**: The server receives the form data and processes it to check the validity of the reward ledger and the academic year.
+4. **Database Interaction**: The server updates the database with the approved reward claim or updates the claim status.
+5. **Notification**: The server sends a notification back to the user, indicating the outcome of the claim approval.
+
+### Security Considerations
+- **Data Encryption**: The form data is likely encrypted to ensure secure transmission.
+- **User Authentication**: The user must be logged in to access and modify reward claims, ensuring that only authorized users can perform these actions.
+- **Access Controls**: The system may have access controls to ensure that only administrators or authorized personnel can modify reward claims.
+
+### Conclusion
+This section of the student portal is designed to streamline the process of managing and approving reward claims for students. It exposes various variables and parameters that control the approval process and communicates with the wider web system structure through form submissions and database interactions. The security measures ensure that the system is protected against unauthorized access and data breaches.
 
 --•--•--
 
