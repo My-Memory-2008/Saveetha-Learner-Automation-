@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 193
-**Pending Sub-Layer Queue Boundaries:** 1590
+**Total Verified Inner Nodes Mapped:** 197
+**Pending Sub-Layer Queue Boundaries:** 1593
 
 ## Architectural Breakdown per Sub-System:
 
@@ -9541,6 +9541,168 @@ The page uses cookies and local storage to store user preferences and session da
 
 ### Conclusion
 The page in question is a critical component of the student portal, controlling various transactional features and exposing important variables and parameters. It passes information to the wider web system structure through API calls, webhooks, session management, and cookies/local storage. This ensures that the announcement is up-to-date and accessible to all relevant parties.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/121/?tab=circular
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/circulars/121/?tab=circular", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/121/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a "Group Chat" feature within a "Live circular" in the Tech Society Leadership Announcement. This feature likely controls the following actions and transactions:
+- **Chat Communication:** Users can communicate with each other in real-time.
+- **Task Completion Tracking:** It tracks the progress of tasks assigned to participants and mentors.
+- **Task Completion Status:** Displays the status of task completion, indicating whether tasks have been approved or expected.
+- **Manager Locking:** The section is locked by a manager, which means only the manager can post messages or rate tasks.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+- **Participants:** The total number of participants in the circular.
+- **Mentors:** The number of mentors assigned to the circular.
+- **Managers:** The number of managers assigned to the circular.
+- **Start Date:** The date when the circular started.
+- **Task Completion Status:** Whether tasks have been approved or expected.
+- **Task Completion Count:** The number of tasks completed.
+- **Total Score:** The total score for the participant in the circular.
+- **Discussion Topics:** Focused threaded discussions.
+- **Direct Messages:** A search bar to find other members.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **API Calls:** The page likely makes API calls to update the status of tasks, track participant progress, and manage chat messages.
+- **Session Management:** The page uses session management to track user sessions and maintain the locked status of the chat.
+- **Database Interaction:** The page interacts with a database to store and retrieve participant data, task completion status, and chat messages.
+- **User Authentication:** The page ensures that only authenticated users can access and interact with the chat and other features.
+
+### Detailed Breakdown of the Section
+
+#### Group Chat Section
+- **Title:** "Group Chat"
+- **Description:** "Everyone in the circular"
+- **Discussion Topics:** "Focused threaded discussions"
+- **Status:** "Live updates connected"
+- **Message Box:** "No messages yet."
+
+#### Chat Section
+- **Title:** "Chat"
+- **Message Box:** "No messages yet."
+- **Message Input Box:** "Search members"
+- **Message Input:** "This circular is locked by a manager. You can read chat and topics, but posting and rating actions are disabled."
+
+### Conclusion
+The section is a critical component of the student portal, providing real-time communication, task tracking, and management features. It ensures that the circular is locked by a manager, preventing unauthorized posting and rating actions. The page interacts with the wider web system through various mechanisms, ensuring that all data is securely stored and managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/121/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Tasks" tab within a "Circular" feature. This tab likely controls the management and tracking of tasks associated with a specific circular or announcement. The user can view, add, or manage tasks related to the circular, which could include assignments, deadlines, or other important information.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Circular ID**: The circular is identified by a unique ID (e.g., 121).
+- **Task Completion Status**: The page shows the status of task completion, indicating whether tasks have been approved, expected, or not yet added.
+- **Task Completion Count**: The page shows the number of tasks that have been approved or expected, which is currently 0/0.
+- **Task List**: The page indicates that no tasks have been added to the circular yet, suggesting that the user can add tasks here.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a user with the ID 25013957, indicating that the user is authenticated and has access to this section.
+- **Circular ID**: The circular ID (121) is passed as a parameter, which is likely used to fetch the specific circular's details and tasks.
+- **Task Management**: The page allows the user to manage tasks, which could involve adding, editing, or deleting tasks. This information is likely passed back to the wider system when the user submits changes.
+- **User Interaction**: The page uses JavaScript to handle user interactions, such as adding or deleting tasks, which are then submitted to the wider system.
+
+### Detailed Explanation
+
+1. **Circular ID**: The circular ID (121) is a unique identifier for the specific circular being viewed. This ID is likely used to fetch the circular's details and tasks from the wider system.
+
+2. **Task Completion Status**: The page shows the status of task completion, which is currently 0/0. This indicates that no tasks have been approved or expected yet. The user can add tasks to this circular, and the status will update accordingly.
+
+3. **Task List**: The page indicates that no tasks have been added to the circular yet. This suggests that the user can add tasks here, and the page will update the status when the user submits changes.
+
+4. **User Authentication**: The page is logged in as a user with the ID 25013957, indicating that the user is authenticated and has access to this section. This is likely done using a session or token-based authentication mechanism.
+
+5. **JavaScript Interaction**: The page uses JavaScript to handle user interactions, such as adding or deleting tasks. This information is likely passed back to the wider system when the user submits changes.
+
+### Conclusion
+This section of the student portal is designed to manage tasks associated with a specific circular. It allows users to view, add, or manage tasks, and the information is passed back to the wider system when changes are submitted. The page is logged in as a user and uses JavaScript for user interaction.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/118/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the scheduling and management of mentor meetings and project sessions for students. It likely involves the following actions:
+- **Scheduling Meetings**: Managing the dates and times for mentor meetings.
+- **Project Sessions**: Organizing and scheduling project sessions.
+- **Task Completion Tracking**: Monitoring and tracking the completion of tasks related to these meetings and sessions.
+- **Approval and Notification**: Ensuring that all participants and mentors are aware of the schedule and can be notified of any changes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+- **Participants**: Number of participants in the sessions.
+- **Mentors**: Number of mentors available.
+- **Managers**: Number of managers involved.
+- **Start Date**: The date when the sessions begin.
+- **Task Completion**: Tracking of completed tasks.
+- **Circular**: The specific circular or announcement related to the schedule.
+- **Chat**: Communication channel for participants and mentors.
+- **Tasks**: Specific tasks or assignments related to the sessions.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the system with the current status of the sessions, such as the number of participants, mentors, and managers.
+- **Database Updates**: The page could update a database with the current status of the sessions, including the number of completed tasks and the start date.
+- **Notifications**: The page might send notifications to participants and mentors via email or messaging systems, informing them of any changes or updates.
+- **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify the schedule.
+
+### Detailed Explanation
+
+1. **API Calls**: The page might use an API to update the system with the current status of the sessions. For example, it could call an API endpoint to update the number of participants, mentors, and managers, and to track task completion.
+
+2. **Database Updates**: The page could update a database with the current status of the sessions. This database might include fields for the number of participants, mentors, managers, start date, and task completion status.
+
+3. **Notifications**: The page might send notifications to participants and mentors via email or messaging systems. This could be done using a notification service or by integrating with a messaging platform.
+
+4. **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify the schedule. This could involve checking the user's session or using a token to verify their identity.
+
+### Example API Call
+Here is an example of how the page might make an API call to update the system with the current status of the sessions:
+```python
+import requests
+
+# API endpoint to update the system
+api_url = "https://api.saveetha.in/update_schedule"
+
+# Data to be sent in the API request
+data = {
+    "participants": 2826,
+    "mentors": 0,
+    "managers": 2,
+    "start_date": "2026-04-08",
+    "task_completion": 0
+}
+
+# Send the API request
+response = requests.post(api_url, json=data)
+
+# Check the response
+if response.status_code == 200:
+    print("Schedule updated successfully.")
+else:
+    print("Failed to update schedule.")
+```
+
+### Conclusion
+The section in question is a critical component of the student portal, managing the scheduling and tracking of mentor meetings and project sessions. It exposes various variables and parameters, and interacts with the wider web system structure through API calls, database updates, notifications, and user authentication.
 
 --•--•--
 
