@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 309
-**Pending Sub-Layer Queue Boundaries:** 1796
+**Total Verified Inner Nodes Mapped:** 313
+**Pending Sub-Layer Queue Boundaries:** 1868
 
 ## Architectural Breakdown per Sub-System:
 
@@ -14644,6 +14644,155 @@ The login page controls the user's ability to access the student portal. Specifi
 
 ### Conclusion
 The login page is a critical component of the student portal, controlling user access to the system. It exposes various variables and parameters, such as the username, password, and a checkbox for remembering the username. The page relies on cookies for session management and does not use URL parameters. The server-side script processes the login credentials and redirects the user based on the outcome of the authentication process.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/1063/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls:
+The section you are analyzing appears to be a detailed view of a student's academic record, specifically focusing on their participation in a mentor meet. This section likely controls the following actions and transactions:
+- **Attendance Tracking:** It tracks the student's attendance in the mentor meet, including the number of sessions attended and the overall percentage.
+- **Session Management:** It manages the sessions scheduled for the mentor meet, including the number of sessions conducted, the number of sessions pending, and the timeline of the sessions.
+- **Feedback Submission:** It allows the submission of feedback related to the mentor meet, which is then processed by the wider web system.
+- **Course Outcome:** It provides information about the course outcome, which might include the syllabus selected for the subject slot.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes:
+The section exposes the following variables, parameters, and functions:
+- **Overall Attendance:** A percentage value indicating the student's attendance in the mentor meet.
+- **Total Sessions:** The total number of sessions scheduled for the mentor meet.
+- **Upcoming Sessions:** The number of sessions scheduled for the future.
+- **Pending Sessions:** The number of sessions that are still pending.
+- **Session Timeline:** The start and end dates of the sessions.
+- **Student Information:** The student's name, registration number, and mode of attendance.
+- **LMS Links:** Information about the Learning Management System links, if available.
+- **Slot Information:** Details about the mentor meet slot, including the slot number and academic term.
+- **Course Outcome:** Information about the course outcome, including the syllabus selected for the subject slot.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure:
+The page passes information to the wider web system structure through the following mechanisms:
+- **Session Management:** The number of sessions conducted, pending, and the timeline are likely sent to the wider system to update the session status and schedule.
+- **Feedback Submission:** The feedback submitted by the student is sent to the wider system for processing and storage.
+- **Course Outcome:** The course outcome information, including the syllabus selected, is sent to the wider system for record-keeping and future reference.
+- **Attendance Tracking:** The overall attendance percentage is sent to the wider system to update the student's attendance record.
+
+### Summary
+This section of the student portal is designed to provide a detailed view of a student's participation in a mentor meet, including attendance tracking, session management, feedback submission, and course outcome information. It exposes various variables and parameters related to the student's participation and sends this information to the wider web system structure for further processing and record-keeping.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/1636/#
+### Reverse Engineering the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section you are referring to is likely a part of a student portal that manages course details, attendance, and feedback for a specific course. This section controls the following actions and transactions:
+
+- **Course Attendance Tracking**: It tracks the overall attendance percentage, the number of sessions attended, and the number of sessions pending.
+- **Feedback Collection**: It collects and displays feedback from students.
+- **Session Scheduling**: It manages the schedule for upcoming sessions.
+- **Student Information**: It provides details about the student, including their registration number, mode of attendance, and course details.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables, parameters, and functions:
+
+- **Overall Attendance**: A percentage value indicating the total attendance.
+- **Total Sessions**: The total number of sessions scheduled.
+- **Present**: The number of sessions attended by the student.
+- **Absent**: The number of sessions missed by the student.
+- **Feedback Status**: The number of pending feedbacks.
+- **Session Timeline**: The schedule for upcoming sessions.
+- **Student Information**: Details about the student, including their registration number and mode of attendance.
+- **Course Details**: Information about the course, including the index code, title, taxonomy level, and description.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **Session Scheduling**: The session schedule is displayed on the page, and clicking on a session link would likely redirect the user to the session details page.
+- **Feedback Collection**: The feedback status and pending feedbacks are displayed on the page. Clicking on a feedback link would likely redirect the user to the feedback submission page.
+- **Student Information**: The student's registration number and mode of attendance are displayed on the page. Clicking on a student link would likely redirect the user to the student profile page.
+- **Course Details**: The course details, including the index code, title, taxonomy level, and description, are displayed on the page. Clicking on a course link would likely redirect the user to the course details page.
+
+### Example of How Information is Passed
+For instance, if a user clicks on a session link, the system might use a URL parameter to pass the session ID or a session link to the session details page. Similarly, if a user clicks on a feedback link, the system might use a URL parameter to pass the feedback ID or a feedback link to the feedback submission page.
+
+### Summary
+This section of the student portal is designed to provide a comprehensive view of course details, student information, and session scheduling. It exposes various variables and parameters related to attendance, feedback, and course details, and passes this information to the wider web system structure through URL parameters or other mechanisms.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/2049/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section you are analyzing appears to be a detailed view of a student's academic record, specifically focusing on their enrollment in a course. This section likely controls the following actions and transactions:
+- **Enrollment Management**: Allows the student to view and manage their enrollment details, including course registration, mode of study, and registration number.
+- **Course Information**: Provides access to course outcomes, taxonomy levels, and descriptions, which are essential for understanding the course's structure and objectives.
+- **Feedback and Support**: Offers a way for students to access feedback and support related to their course, which could include academic performance evaluations and mentorship opportunities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several key variables and parameters that are critical for the student's interaction with the system:
+- **Student ID**: The unique identifier for the student, used to access their personal information.
+- **Registration Number**: The specific registration number for the course, used to verify the student's enrollment.
+- **Mode of Study**: Indicates whether the student is enrolled in a class or online, affecting the type of content and support available.
+- **Course Outcome**: Details about the course's taxonomy levels and descriptions, which are crucial for understanding the course's structure and objectives.
+- **Feedback and Support Links**: Links to feedback forms and support resources, which are essential for addressing any issues or seeking additional help.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means, including:
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user sessions and track user interactions, ensuring that the student's data is securely stored and accessible.
+- **API Calls**: The page may make API calls to retrieve additional data, such as course outcomes and feedback forms, which are then displayed on the page.
+- **Database Queries**: The page may use database queries to fetch specific information about the student's enrollment and course details, ensuring that the displayed data is accurate and up-to-date.
+- **JavaScript and AJAX**: The page uses JavaScript and AJAX to dynamically load content, such as course outcomes and feedback forms, which enhances the user experience by providing real-time updates and reducing page load times.
+
+### Summary
+This section of the student portal is designed to provide a comprehensive view of a student's academic record, including their enrollment details, course outcomes, and feedback resources. It exposes various variables and parameters that are critical for the student's interaction with the system, and it passes information to the wider web system structure through multiple mechanisms, including cookies, sessions, API calls, database queries, and JavaScript/AJAX.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/14732/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a detailed view of an event participation record for a student named Muhammad Asjad E. This section controls the following transactional features:
+- **Event Participation**: Displays the student's participation status in the event.
+- **Feedback Submission**: Allows the student to view and possibly submit feedback related to the event.
+- **Booking Information**: Provides details about the booking of the event, including the date and time of the session.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+- **Student Information**:
+  - **Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+  - **Event ID**: 14732
+  - **Event Type**: 26-27-ODD-EXAMCENTRE
+  - **Session ID**: 4731
+  - **Session Time**: 9 a.m. - 9:59 a.m.
+  - **Location**: 4731
+
+- **Event Details**:
+  - **Event Name**: Module/LeetCode/SA
+  - **Event Date**: August 17, 2026
+  - **Session Date**: August 16, 2026, 19:13
+  - **Feedback Status**: Feedback Posted
+
+- **Attendance Status**:
+  - **Status**: Present
+  - **Attendance Percentage**: 100%
+
+- **Booking Information**:
+  - **Booking Date**: August 16, 2026, 19:13
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **Event ID**: The event ID (14732) is likely used to identify the specific event record in the system.
+- **Student ID**: The student's register number (212225240091) is used to link the student's participation record to their account.
+- **Session ID**: The session ID (4731) is used to identify the specific session record within the event.
+- **Booking Date and Time**: The booking date and time (August 16, 2026, 19:13) are used to track the booking history and ensure that the booking information is accurate.
+- **Feedback Status**: The feedback status (Feedback Posted) is used to track the status of the feedback submission.
+
+### Summary
+This section of the student portal is designed to provide detailed information about a student's participation in a specific event. It exposes various variables and parameters related to the student's participation, the event details, and the booking information. The page passes this information to the wider web system structure through specific identifiers and timestamps, ensuring that the system can accurately track and manage the student's participation and feedback.
 
 --•--•--
 
