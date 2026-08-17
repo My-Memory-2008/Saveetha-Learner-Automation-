@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 313
-**Pending Sub-Layer Queue Boundaries:** 1868
+**Total Verified Inner Nodes Mapped:** 317
+**Pending Sub-Layer Queue Boundaries:** 1871
 
 ## Architectural Breakdown per Sub-System:
 
@@ -14793,6 +14793,184 @@ The page passes information to the wider web system structure through the follow
 
 ### Summary
 This section of the student portal is designed to provide detailed information about a student's participation in a specific event. It exposes various variables and parameters related to the student's participation, the event details, and the booking information. The page passes this information to the wider web system structure through specific identifiers and timestamps, ensuring that the system can accurately track and manage the student's participation and feedback.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12743/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section you are analyzing appears to be a part of a student portal that manages academic events, specifically for a module or exam. The key features controlled by this section include:
+
+- **Event Booking and Attendance Management**: It allows students to book and manage their attendance for specific events.
+- **Feedback Submission**: Students can submit feedback on the events they attend.
+- **Attendance Tracking**: It provides real-time tracking of student attendance for each event.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes several key variables and parameters that are crucial for the functionality of the student portal:
+
+- **Event ID**: The unique identifier for the event, which is `12743`.
+- **Student ID**: The student's unique identifier, which is `25013957`.
+- **Event Name**: The name of the event, which is `Module/LeetCode/SA`.
+- **Event Date**: The date of the event, which is `Aug 3, 2026`.
+- **Session Time**: The time of the session, which is `9 a.m. - 9:59 a.m.`.
+- **Feedback Status**: Whether the feedback has been posted, which is `Feedback Posted`.
+- **Attendance Status**: Whether the student is present, which is `Present`.
+- **Booking Status**: Whether the booking is booked, which is `Booked`.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means:
+
+- **URL Parameters**: The event ID (`12743`) and student ID (`25013957`) are passed as URL parameters.
+- **Session Data**: The session details, such as the event name, date, and time, are embedded within the URL or passed as part of the session data.
+- **Feedback Submission**: Feedback is submitted through a form that is likely integrated with the backend system, where the data is processed and stored.
+- **Booking Information**: Booking information is stored in the backend database, which can be accessed by the system for further processing or reporting.
+
+### Detailed Breakdown of the Page
+
+#### Overview
+- **Event Name**: `Module/LeetCode/SA`
+- **Event Date**: `Aug 3, 2026`
+- **Session Time**: `9 a.m. - 9:59 a.m.`
+- **Booking Status**: `Booked`
+- **Feedback Status**: `Feedback Posted`
+- **Attendance Status**: `Present`
+- **Student ID**: `25013957`
+- **Event ID**: `12743`
+
+#### Student Information
+- **Student Name**: `MUHAMMAD ASJAD E`
+- **Register Number**: `212225240091`
+- **Mode**: `Booked`
+
+#### Session Details
+- **Event Term**: `26-27-ODD-EXAMCENTRE`
+- **Location**: `1731`
+- **Time**: `9 a.m. - 9:59 a.m.`
+
+#### Feedback
+- **Feedback Status**: `Feedback Posted`
+
+### Conclusion
+This section of the student portal is designed to manage and track the attendance and feedback of students for specific academic events. It exposes various variables and parameters that are crucial for the event's management and tracking. The page passes this information to the wider web system structure through URL parameters, session data, and backend database storage.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12743/?chat=group#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a chat or discussion platform within a student portal. The primary action it controls is the interaction between students and staff, likely for communication, feedback, or administrative purposes. This could include:
+
+- **Communication**: Students and staff can send messages to each other.
+- **Feedback**: Students can rate or rate their experiences.
+- **Administrative Tasks**: Staff can manage and approve workflow requests.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes several key variables and functions that control the interaction and functionality:
+
+- **User Profiles**: Each user (student and staff) has a profile with details such as name, role, rating, and rating total.
+- **Message Input**: A text input field for users to type messages.
+- **Message Options**: Buttons for quick emoji selection and file upload.
+- **Message Send Button**: A button to send messages.
+- **Message History**: A text area to display the chat history.
+- **Message Rating**: A field to rate messages.
+- **Message Approval**: A field to approve messages.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **User Authentication**: The user is logged in, and their profile is displayed.
+- **Message History**: The chat history is displayed, allowing users to see previous messages.
+- **Message Sending**: When a user sends a message, it is sent to the server, which then processes the message and updates the chat history.
+- **Message Rating**: When a user rates a message, the rating is sent to the server, which updates the rating total for the message.
+- **Message Approval**: When a user approves a message, the approval status is sent to the server, which updates the approval status for the message.
+- **Workflow Requests**: If a user submits a workflow request, it is sent to the server, which processes the request and updates the workflow status.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **Profile Information**: Each user has a name, role (e.g., student, staff), rating, and rating total.
+- **Profile Display**: The profile information is displayed on the left side of the page.
+
+#### Message Input
+- **Message Field**: A text input field for users to type messages.
+- **Message Options**: Buttons for quick emoji selection and file upload.
+
+#### Message History
+- **Message Display**: A text area to display the chat history.
+- **Message Scroll**: The chat history is scrollable, allowing users to view all messages.
+
+#### Message Sending
+- **Message Send Button**: A button to send messages.
+- **Message Sending Process**: When the send button is clicked, the message is sent to the server.
+- **Server Processing**: The server processes the message and updates the chat history.
+
+#### Message Rating
+- **Message Rating Field**: A field to rate messages.
+- **Message Rating Process**: When a user rates a message, the rating is sent to the server.
+- **Server Processing**: The server updates the rating total for the message.
+
+#### Message Approval
+- **Message Approval Field**: A field to approve messages.
+- **Message Approval Process**: When a user approves a message, the approval status is sent to the server.
+- **Server Processing**: The server updates the approval status for the message.
+
+#### Workflow Requests
+- **Workflow Request Field**: A field to submit workflow requests.
+- **Workflow Request Process**: When a user submits a workflow request, it is sent to the server.
+- **Server Processing**: The server processes the request and updates the workflow status.
+
+### Conclusion
+This section of the student portal is a comprehensive communication and feedback platform that integrates user profiles, message history, message sending, rating, and approval functionalities. It communicates with the wider web system structure through server-side processing, updating user profiles, chat history, and workflow statuses.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12743/?chat=topics#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+This section appears to be a part of a student portal, likely used for managing and participating in academic events. The section is titled "Discussion Topics" and is designed to allow students to create and join discussions related to the event. The feature likely involves creating and managing discussion threads, which can be used for collaborative learning, sharing resources, or addressing questions related to the event.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Discussion Topics**: This is the primary feature exposed. It allows students to create and join discussion threads.
+- **Direct Messages**: This is another feature that allows students to send and receive messages directly with other students or staff.
+- **Mentees**: This section likely allows students to manage their mentees, which could be a feature for pairing students with mentors or facilitators.
+- **Mentorship**: This section likely allows students to manage their mentorship relationships, which could include assigning mentors, tracking progress, or managing communication between mentors and mentees.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a user with the ID 25013957, which suggests that the page uses user authentication to ensure that only authorized users can access this section.
+- **Event Participation**: The section is part of an event, as indicated by the URL `https://learner.saveetha.in/academicevents/event-participating/12743/?chat=topics#event-student-chat`. This suggests that the page is part of a larger system that manages event participation and communication.
+- **Event ID**: The event ID `12743` is passed as a parameter in the URL, which allows the page to reference specific event-related data.
+- **User Interaction**: The page likely uses JavaScript or similar technologies to handle user interactions, such as creating and joining discussion threads, sending messages, and managing mentees.
+
+### Summary
+This section of the student portal is designed to facilitate communication and collaboration among students participating in an academic event. It exposes features for creating and joining discussion threads, sending direct messages, managing mentees, and managing mentorship relationships. The page uses user authentication, event ID parameters, and user interaction technologies to manage and display this information within the wider web system structure.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12743/?peer_id=7291#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal, likely used for communication between students, mentors, and instructors. The primary action it controls is the ability to send and receive messages, which is essential for fostering interaction and collaboration among the participants.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., "Staff - Instructor," "Student"), and ratings. This information is likely used to identify and categorize users for better communication.
+- **Message Input Field**: The text input field allows users to type messages, which is a fundamental function for the chat interface.
+- **Message Sending Button**: The "Send" button is used to send messages to other users.
+- **File Upload Option**: The "Choose File" button allows users to upload files, which could be used for sharing documents, images, or other files relevant to the chat.
+- **Quick Emojis**: The emoji options provide a way for users to add emoticons to their messages, enhancing the communication experience.
+- **Optional Link Field**: The "Optional link" field allows users to include a URL or link in their messages, which could be useful for sharing external resources or directing users to specific information.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The chat interface likely relies on user authentication to ensure that only authorized users can send messages. This is typically handled by the backend system, which verifies user credentials before allowing access to the chat interface.
+- **Message Storage and Retrieval**: The chat messages are likely stored in a database or a messaging service provided by the backend system. This allows for message persistence and retrieval, enabling users to see previous messages and continue the conversation.
+- **User Interaction Tracking**: The chat interface may also track user interactions, such as the number of messages sent or received, which could be used for analytics or reporting purposes.
+- **Integration with Backend Systems**: The chat interface is likely integrated with the backend system to handle user authentication, message storage, and other functionalities. This integration ensures that the chat interface can interact with the broader system to provide a seamless user experience.
+
+### Summary
+The student portal section in question is a chat interface designed for communication among students, mentors, and instructors. It exposes various features such as user profiles, message input, emoji options, and file uploads. The page passes information to the wider web system structure through user authentication, message storage, and integration with backend systems. This setup ensures that the chat interface functions smoothly and efficiently, facilitating collaboration and communication among the participants.
 
 --•--•--
 
