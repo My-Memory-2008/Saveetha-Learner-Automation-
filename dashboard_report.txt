@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 165
-**Pending Sub-Layer Queue Boundaries:** 1577
+**Total Verified Inner Nodes Mapped:** 169
+**Pending Sub-Layer Queue Boundaries:** 1580
 
 ## Architectural Breakdown per Sub-System:
 
@@ -8454,6 +8454,190 @@ The section in question controls the attendance process for a specific course se
 
 ### Summary
 The attendance process section in the student portal is a critical component that manages the attendance records for specific course sessions. It uses various variables, parameters, and functions to control the attendance process, generate One-Time Passwords, and update lesson plan details. The page interacts with the wider web system through cookies, sessions, API calls, database interactions, and webhooks, ensuring that attendance records and lesson plan details are accurately tracked and updated.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=18#
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=18#", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=21
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to control the student's academic schedule for the month of August 2026. It allows students to view their upcoming classes, lessons, and assignments for the specified date. The feature likely involves displaying the student's schedule for the day, including the class name, slot, lesson details, and venue.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 21
+  - **Student ID:** 25013957
+  - **Name:** Muhammad Asjad E
+  - **Ref1:** 212225240091
+  - **Ref2:** 25013957
+
+- **Parameters:**
+  - **Year:** 2026
+  - **Month:** 8
+  - **Day:** 21
+
+- **Text Grids:**
+  - Class Name
+  - Slot
+  - Lesson Details
+  - Start Time
+  - End Time
+  - Venue
+
+- **Functions:**
+  - **View Attendance:** Allows the student to view their attendance for the scheduled classes.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system that manages student schedules and academic data. Here’s a breakdown of how the information is passed:
+
+1. **URL Parameters:**
+   - The URL includes parameters for the year, month, and day, which are used to fetch the correct schedule data.
+   - Example: `https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=21`
+
+2. **Session Management:**
+   - The student's ID (25013957) is stored in the session or cookie, allowing the backend to recognize the user.
+   - This ensures that the student's schedule is personalized and not shared with others.
+
+3. **API Calls:**
+   - The page makes an API call to the backend to fetch the student's schedule for the specified date.
+   - The API might use the student's ID and the date parameters to retrieve the relevant data.
+
+4. **Rendering the Schedule:**
+   - The backend returns the schedule data, which is then rendered on the frontend.
+   - The schedule data is displayed in a grid format, with each row representing a class or lesson.
+
+5. **User Interaction:**
+   - The user can interact with the page by clicking on the "View Attendance" button for each class.
+   - This action likely triggers another API call to the backend to fetch the student's attendance for that class.
+
+6. **Security Measures:**
+   - The page uses HTTPS to ensure that the data transmitted is secure.
+   - The use of session cookies helps in maintaining user authentication and session management.
+
+### Summary
+The section in question is a critical part of the student portal, managing the display and interaction with the student's academic schedule for the specified date. It leverages URL parameters, session management, and API calls to interact with the backend system, ensuring that the student's schedule is personalized and secure.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=38087&slot_id=1498&year=2026&month=8&day=18
+### Analysis of the Student Portal Attendance Process Page
+
+#### 1. Action or Transactional Feature it Controls
+The page controls the attendance process for students, specifically managing their attendance for a particular class session. It allows students to enter and verify their attendance using an OTP (One-Time Password) system.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `slotsession_id`: Unique identifier for the session.
+  - `slot_id`: Specific slot ID for the session.
+  - `year`: Year of the academic session.
+  - `month`: Month of the academic session.
+  - `day`: Day of the academic session.
+  - `student_id`: Unique identifier for the student.
+  - `class_id`: Unique identifier for the class.
+
+- **Parameters:**
+  - `IN OTP`: Text field for entering the OTP.
+  - `OUT OTP`: Text field for entering the OTP.
+  - `Class Started`: Text indicating the start of the class.
+  - `IN OTP Entry`: Text field for entering the OTP.
+  - `Pending`: Text indicating the status of the OTP entry.
+
+- **Text Grids:**
+  - `IN OTP`: Provides instructions for entering the OTP.
+  - `OUT OTP`: Provides instructions for entering the OTP.
+  - `Class Started`: Indicates the start of the class session.
+  - `IN OTP Entry`: Provides instructions for entering the OTP.
+
+- **Functions:**
+  - `generateOTP()`: Function to generate an OTP for the student.
+  - `verifyOTP()`: Function to verify the entered OTP.
+  - `updateAttendance()`: Function to update the student's attendance status.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission:**
+  - When the student enters their OTP and clicks "Submit," the form data is submitted to the server.
+  - The server processes the OTP entry and updates the student's attendance status.
+  - The updated status is then sent back to the client, updating the page with the new status.
+
+- **OTP Generation:**
+  - The server generates an OTP for the student using a secure algorithm.
+  - The OTP is sent to the student's email or SMS, and the student enters it in the form.
+  - The server verifies the OTP and updates the student's attendance status.
+
+- **Status Update:**
+  - The server updates the student's attendance status in the database.
+  - The updated status is then sent back to the client, updating the page with the new status.
+
+### Summary
+The page controls the attendance process for students by allowing them to enter and verify their attendance using an OTP system. It exposes various variables, parameters, and functions related to OTP generation, verification, and attendance status updates. The page communicates with the wider web system structure by submitting form data, generating OTPs, and updating attendance statuses.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=38007&slot_id=1328&year=2026&month=8&day=18
+### Analysis of the Student Portal Attendance Process Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question controls the attendance process for a specific course, "Computer Networks," scheduled for the 19CS406 course. It manages the entry and exit of students into and out of the classroom, ensuring that students can log in and log out using a unique code (OTP) generated by their faculty. This feature is crucial for maintaining attendance records and ensuring that students are present for their scheduled classes.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - `slotsession_id`: Unique identifier for the session.
+  - `slot_id`: Specific slot ID for the class.
+  - `year`: Year of the academic session.
+  - `month`: Month of the academic session.
+  - `day`: Day of the academic session.
+  - `faculty_id`: Faculty ID for generating OTPs.
+  - `student_id`: Student ID for logging in and out.
+
+- **Parameters:**
+  - `IN OTP`: Text grid for entering the OTP.
+  - `OUT OTP`: Text grid for exiting the OTP.
+  - `IN OTP will be available once your faculty generates it`: Instruction for faculty to generate the OTP.
+  - `OUT OTP will be enabled after your IN OTP entry`: Instruction for students to enable the OTP after entering it.
+
+- **Text Grids:**
+  - `IN OTP`: Text grid for entering the OTP.
+  - `OUT OTP`: Text grid for exiting the OTP.
+
+- **Functions:**
+  - `generateOTP(faculty_id)`: Function to generate an OTP for the faculty.
+  - `enableOTP(student_id, OTP)`: Function to enable the OTP for the student.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page interacts with the wider web system structure through the following mechanisms:
+
+- **Session Management:**
+  - The page uses session management to store and retrieve data such as faculty and student IDs.
+  - The `slotsession_id` is used to identify the session and maintain the state of the page.
+
+- **OTP Generation and Verification:**
+  - The page uses the `generateOTP(faculty_id)` function to generate an OTP for the faculty.
+  - The page uses the `enableOTP(student_id, OTP)` function to enable the OTP for the student.
+  - The OTPs are stored in the session or database for verification.
+
+- **Database Interaction:**
+  - The page interacts with a database to store and retrieve attendance records.
+  - The `slotsession_id` is used to link the attendance records to the specific session.
+
+- **Web API Calls:**
+  - The page may make API calls to the wider web system to update attendance records.
+  - The `slotsession_id` is used to identify the session for which the attendance records are being updated.
+
+- **User Authentication:**
+  - The page uses user authentication to ensure that only authorized users can access the attendance process.
+  - The `student_id` and `faculty_id` are used to authenticate the user.
+
+In summary, this section of the student portal controls the attendance process for a specific course, manages the entry and exit of students using OTPs, and interacts with the wider web system structure through session management, database interactions, and API calls to update attendance records.
 
 --•--•--
 
