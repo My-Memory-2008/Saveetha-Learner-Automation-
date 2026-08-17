@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 293
-**Pending Sub-Layer Queue Boundaries:** 1710
+**Total Verified Inner Nodes Mapped:** 297
+**Pending Sub-Layer Queue Boundaries:** 1704
 
 ## Architectural Breakdown per Sub-System:
 
@@ -13857,6 +13857,221 @@ The page "Calculate My Attendance" likely communicates with a backend system tha
 
 ### Conclusion
 The "Calculate My Attendance" page is a critical feature that helps students manage their academic records and understand their attendance percentages. It leverages a backend system to process the data and generate a response, ensuring that the information is both accurate and secure.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/attendance/leave-redemption/#
+### Analysis of the Leave Redemption Section
+
+#### 1. Action or Transactional Feature
+The "LeaveRedemption" section is designed to allow students to redeem their available leave credits for reward points. This feature is likely integrated into a larger system that manages employee or student leave and rewards programs. The primary action is the redemption of leave credits in exchange for reward points.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - `Leave`: Represents the type of leave (e.g., RP-Leave, RP-OD).
+  - `Balance`: Represents the remaining balance of leave credits.
+  - `Rewards`: Represents the reward points that can be redeemed.
+  - `Date Range`: Specifies the period for which the leave is valid.
+  - `Points Available`: The total points available for redemption.
+
+- **Parameters:**
+  - `Leave Type`: Determines which type of leave is being redeemed.
+  - `Date Range`: Defines the validity period of the leave.
+  - `Points Available`: Indicates the total reward points available for redemption.
+
+- **Text Grids:**
+  - The page displays the details of the leave and the available reward points.
+  - The "Redeem" button allows the user to initiate the redemption process.
+
+- **Functions:**
+  - `Redeem`: A function that processes the redemption of leave credits for reward points.
+  - `FetchData`: A function that retrieves the current leave balance and reward points.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Data Retrieval:**
+  - The page likely uses JavaScript to fetch data from the server. This could be done using AJAX requests to the backend API.
+  - The server-side code would handle the request, validate the user's credentials, and retrieve the necessary data (leave balance, reward points, etc.).
+
+- **Data Processing:**
+  - Once the data is retrieved, it is displayed on the page.
+  - The "Redeem" button would trigger a server-side function to process the redemption request, updating the user's balance and reward points accordingly.
+
+- **User Authentication:**
+  - The page checks the user's authentication status using cookies or session variables.
+  - If the user is not logged in, they would be redirected to the login page.
+
+- **Security:**
+  - The system likely implements security measures such as CSRF tokens, input validation, and secure data transmission to prevent unauthorized access and data manipulation.
+
+### Summary
+The "LeaveRedemption" section is a user interface component designed to facilitate the redemption of leave credits for reward points. It exposes variables and parameters related to leave types, balance, and reward points. The page communicates with the backend system to retrieve and update user data, ensuring a secure and functional user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/attendance/leave-balance/#
+### Analysis of the Student Portal Leave Balance Section
+
+#### 1. Action or Transactional Feature it Controls
+The "Leave Balance" section in the student portal is designed to manage and display the leave balance of students. This feature allows students to view their current leave balance, approve or reject leave applications, and manage their leave requests. The primary actions controlled by this section include:
+- **Viewing Leave Balance**: Displaying the current leave balance for the specified period.
+- **Approving Leave Applications**: Approving or rejecting leave applications.
+- **Managing Leave Requests**: Managing and approving leave requests.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several key variables and parameters that control its functionality:
+- **Date From and Date To**: These parameters define the time period for which the leave balance is displayed.
+- **Leave Type**: This dropdown allows students to filter the leave balance by specific types of leave.
+- **Current Leave Balance**: Displays the current leave balance for the specified period.
+- **Period Credit and Period Debit**: These fields show the total credit and debit for the specified period.
+- **Leave Application**: Displays a list of leave applications, including the type, approval status, and details of the leave request.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **Form Submission**: When a student submits a leave application, the form data is sent to the backend system for processing.
+- **API Calls**: The page makes API calls to the backend to fetch leave balance data and manage leave requests.
+- **Session Management**: The page uses session management to track user sessions and maintain state across different requests.
+- **Cookies and Local Storage**: The page may use cookies or local storage to store user preferences and session data.
+- **Webhooks**: The page may trigger webhooks to notify the backend system of important events, such as leave approval or rejection.
+
+### Detailed Explanation of the Page's Functionality
+
+#### Date Parameters
+- **Date From**: The start date of the leave period.
+- **Date To**: The end date of the leave period.
+
+#### Leave Type
+- **All Leave Types**: A dropdown that allows students to filter the leave balance by specific types of leave.
+
+#### Current Leave Balance
+- **OD-OnDuty**: The current leave balance for the specified period.
+
+#### Period Credit and Debit
+- **Period Credit**: The total credit for the specified period.
+- **Period Debit**: The total debit for the specified period.
+- **Period Net**: The net balance after considering credits and debits.
+
+#### Leave Application
+- **Leave Type**: The type of leave requested.
+- **Approved**: Whether the leave application has been approved or not.
+- **Credit**: The amount credited to the leave balance.
+- **Debit**: The amount debited from the leave balance.
+- **Date From**: The start date of the leave period.
+- **Date To**: The end date of the leave period.
+- **Entry Type**: The method of entry for the leave application (e.g., manual, system-generated).
+- **Leave Application**: The details of the leave application, including the reason and any additional notes.
+
+### Conclusion
+The "Leave Balance" section in the student portal is a comprehensive tool for managing and viewing leave balances. It exposes various variables and parameters to control its functionality and interacts with the wider web system structure through form submissions, API calls, and session management. This section provides students with a clear view of their leave balances, approval status, and leave application details, ensuring they can manage their leave requests efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/skill-development/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is part of a student portal that manages skill development and related metrics. The primary action it controls is the retrieval and display of skills, marks, reward windows, and LMS course details associated with a specific skillset. This feature is crucial for students to understand their progress and achievements in their academic and skill development journey.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Skillset Dropdown**: The dropdown menu allows students to select a specific skillset. This dropdown is a key variable that determines which skills, marks, and reward details are displayed.
+- **"Show skills" Button**: This button is a function that triggers the display of the associated skills, marks, and reward details based on the selected skillset.
+- **"Reset" Button**: This button is a function that resets the skillset selection to the default or initial state, allowing the user to start over.
+- **Text Grids**: The page contains text grids that display the associated skills, marks, and reward details for the selected skillset. These grids are dynamic and update based on the user's selection.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The page uses URL parameters to pass information about the selected skillset. For example, the URL might look like this:
+  ```
+  https://learner.saveetha.in/academics/skill-development/#?skillset=Python%20Programming
+  ```
+  This URL parameter is used to pass the selected skillset to the server-side application.
+- **Server-Side Processing**: The server-side application processes the URL parameter to determine which skills, marks, and reward details to display. This involves querying a database or API to fetch the relevant data.
+- **AJAX Requests**: The page might use AJAX requests to dynamically update the content without reloading the page. This ensures a smooth user experience and reduces server load.
+- **Session Management**: The page uses session management to track user sessions and maintain state across multiple page views. This ensures that the user's progress and selections are preserved.
+
+### Detailed Breakdown
+
+1. **Skillset Dropdown Selection**:
+   - **Action**: The user selects a skillset from the dropdown menu.
+   - **Parameters**: The selected skillset is passed as a URL parameter or stored in a session variable.
+   - **Function**: The "Show skills" button is clicked.
+
+2. **Display of Associated Skills, Marks, and Reward Details**:
+   - **Function**: The "Show skills" button triggers a function that fetches the associated skills, marks, and reward details from the server.
+   - **Data Retrieval**: The server-side application queries the database or API to retrieve the relevant data based on the selected skillset.
+   - **Display**: The retrieved data is displayed in the text grids on the page.
+
+3. **Reset Functionality**:
+   - **Action**: The "Reset" button is clicked.
+   - **Function**: The reset function resets the skillset selection to the default or initial state.
+   - **Data Reset**: The server-side application resets the session or database to the initial state.
+
+4. **AJAX Requests**:
+   - **Function**: AJAX requests are used to update the page content without reloading the page.
+   - **Usage**: AJAX requests are used to dynamically update the text grids and other elements based on user interactions.
+
+5. **Session Management**:
+   - **Function**: The page uses session management to track user sessions and maintain state across multiple page views.
+   - **Usage**: The session is used to store user preferences, progress, and other relevant data.
+
+### Conclusion
+This section of the student portal is designed to provide a user-friendly interface for managing and tracking skill development. It leverages various technologies and techniques to ensure a smooth and efficient user experience, while also ensuring data integrity and security through session management and AJAX requests.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/mentormentee/groups/131/mentorship/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a mentorship management page within a student portal. It controls the following transactional features:
+- **Mentorship Management**: Allows users to manage their mentorship relationships, including assigning mentors and mentees, and tracking the status of these relationships.
+- **Chat and Counselling**: Facilitates communication between mentors and mentees, as well as providing a platform for peer mentoring and counselling.
+- **Workflow Requests and Approvals**: Manages the workflow for mentorship requests and approvals, ensuring that the mentorship process is documented and tracked.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes the following variables, parameters, and functions:
+- **Mentor Role**: Mentees can be assigned as Mentors or Mentees.
+- **Mentor Status**: Mentors can be active or inactive.
+- **Peer Mentees**: Mentees can be active or inactive.
+- **Chat and Counselling**: Channels for communication and support.
+- **Workflow Requests and Approvals**: Workflow steps for mentorship requests and approvals.
+- **Total Mentees**: Total number of mentees managed by the system.
+- **Mentors**: List of active mentors.
+- **Peer Mentees**: List of active peer mentees.
+- **Status**: Active or Inactive status for mentors and peer mentees.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**: The URL includes parameters such as `group_id` and `mentorship_id`, which are used to identify the specific mentorship group and its ID.
+- **Session Variables**: The page uses session variables to track user sessions and maintain state across different pages.
+- **API Calls**: The page may make API calls to the backend system to update or retrieve data, such as mentor and mentee status, and to manage workflow requests and approvals.
+- **Cookies and Local Storage**: The page uses cookies and local storage to store user preferences and session data, ensuring a seamless user experience.
+- **JavaScript**: The page uses JavaScript to dynamically update content, such as displaying the number of active mentors and peer mentees, and to handle user interactions.
+
+### Detailed Breakdown
+
+#### URL Parameters
+- **group_id**: Identifies the specific mentorship group.
+- **mentorship_id**: Identifies the specific mentorship ID within the group.
+
+#### Session Variables
+- **user_id**: Tracks the logged-in user.
+- **session_id**: Tracks the current session.
+- **user_role**: Tracks the user's role (e.g., Mentor, Mentee).
+
+#### API Calls
+- **Update Mentor Status**: API call to update the status of a mentor.
+- **Update Peer Mentee Status**: API call to update the status of a peer mentee.
+- **Workflow Requests**: API call to manage workflow requests and approvals.
+
+#### Cookies and Local Storage
+- **User Preferences**: Cookies and local storage store user preferences, such as language settings and notification preferences.
+- **Session Data**: Cookies and local storage store session data, such as user session IDs and user preferences.
+
+#### JavaScript
+- **Dynamic Content Updates**: JavaScript dynamically updates content, such as displaying the number of active mentors and peer mentees.
+- **User Interactions**: JavaScript handles user interactions, such as clicking buttons and dropdowns, and updates the page accordingly.
+
+### Conclusion
+This section of the student portal is designed to manage mentorship relationships, provide communication channels, and facilitate workflow management. It exposes various variables, parameters, and functions to control the mentorship process and interacts with the wider web system structure through URL parameters, session variables, API calls, cookies, local storage, and JavaScript.
 
 --•--•--
 
