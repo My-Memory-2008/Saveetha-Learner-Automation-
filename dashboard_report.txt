@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 277
-**Pending Sub-Layer Queue Boundaries:** 1706
+**Total Verified Inner Nodes Mapped:** 281
+**Pending Sub-Layer Queue Boundaries:** 1709
 
 ## Architectural Breakdown per Sub-System:
 
@@ -13187,6 +13187,215 @@ When the form is submitted, the server-side script processes the form data and p
 
 ### Summary
 The leave application section is a critical feature of the student portal, enabling students to request and manage their leave approvals. It exposes various fields for the student to input details about the leave request, and the form data is sent to the server for processing. The server-side script handles the submission, saving the leave request to the database, and sending notifications as necessary.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/leave-applications/create/?tab=workflow
+### Analysis of the Student Portal Leave Application Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question controls the process of drafting, submitting, and tracking a leave application for a student. This includes the approval workflow for the leave request, which is managed through the system's workflow management system.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Approval Workflow**: This is a text grid where the student can input the details of the leave request, such as the reason for the leave, the duration, and any other relevant information.
+- **Save Workflow**: This button allows the student to save the current workflow details before applying them.
+- **Apply**: This button submits the leave application and triggers the approval workflow.
+- **Student Instruction**: This section provides instructions on how to use the workflow, which can be selected by the student to guide them through the process.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the student clicks the "Apply" button, the form data (including the approval workflow details) is submitted to the wider web system.
+- **Workflow Management System**: The system processes the submitted data and triggers the approval workflow based on the input provided by the student.
+- **Approval Workflow**: The approval workflow is managed by the system, which can be triggered by the student or by administrators.
+- **Approval Workflow Status**: The status of the approval workflow is tracked and displayed on the page, allowing the student to monitor the progress of their leave application.
+
+### Detailed Breakdown
+
+1. **Form Submission**:
+   - The student fills out the leave application form with details such as the reason for the leave, the duration, and any other relevant information.
+   - The student clicks the "Apply" button, which triggers the submission of the form data.
+
+2. **Approval Workflow**:
+   - The system processes the submitted form data and triggers the approval workflow based on the input provided by the student.
+   - The approval workflow can be managed by the system, which can be triggered by the student or by administrators.
+   - The status of the approval workflow is tracked and displayed on the page, allowing the student to monitor the progress of their leave application.
+
+3. **Student Instruction**:
+   - The system provides instructions on how to use the workflow, which can be selected by the student to guide them through the process.
+   - The instructions are displayed on the page, allowing the student to understand the workflow and how to proceed.
+
+4. **Wider Web System Structure**:
+   - The system passes the form data to the wider web system structure, which processes the approval workflow and tracks the status of the leave application.
+   - The system can also communicate with other parts of the web system, such as the database, to store and retrieve information related to the leave application.
+
+### Conclusion
+The section in question is a critical part of the student portal, controlling the process of drafting, submitting, and tracking a leave application. It exposes various variables, parameters, and functions that allow the student to manage their leave application, and it passes information to the wider web system structure to manage the approval workflow and track the status of the leave application.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Manual Academic Attendance" feature. This feature allows users to draft, submit, and track manual academic attendance approvals. It is likely integrated into a larger system for managing academic records and attendance tracking.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Short Title**: A text input field where users can enter a short title for the attendance record.
+- **Subject**: A text input field where users can enter a subject for the attendance record.
+- **Attendance Date**: A date input field where users can select the date of attendance.
+- **Slot Session**: A dropdown or select box where users can choose the slot session for the attendance.
+- **Content**: A text area where users can enter the content or details of the attendance record.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the user submits the form, the data entered in the fields (Short Title, Subject, Attendance Date, Slot Session, Content) is sent to the server as part of a POST request. This request is typically sent to a specific endpoint or URL that handles the form submission.
+  
+- **API Integration**: The form submission might be integrated with an API endpoint that processes the data. This API endpoint could be responsible for validating the data, storing it in a database, or sending notifications to other systems.
+
+- **Session Management**: The page might use session management to keep track of the user's progress and ensure that the form data is not lost if the user navigates away from the page.
+
+- **User Authentication**: The page likely requires user authentication to ensure that only authorized users can access and modify the attendance records. This could involve checking the user's session or using a token-based authentication mechanism.
+
+### Detailed Steps for Form Submission
+1. **User Interaction**: The user fills out the form fields (Short Title, Subject, Attendance Date, Slot Session, Content).
+2. **Form Submission**: The user submits the form by clicking a submit button or pressing the Enter key.
+3. **Form Data Collection**: The form data is collected and formatted into a structured format (e.g., JSON).
+4. **API Request**: The form data is sent as a POST request to the server's API endpoint.
+5. **API Endpoint Processing**: The server's API endpoint processes the request, validates the data, and performs any necessary actions (e.g., storing the data in a database, sending notifications).
+6. **Response Handling**: The server returns a response to the client, which could be a confirmation message, a redirect to a different page, or a loading indicator.
+7. **Session Management**: The server might update the user's session or token to reflect the successful submission of the form.
+
+### Security Considerations
+- **Input Validation**: The form should be validated to ensure that only valid data is submitted, preventing potential security vulnerabilities such as SQL injection or cross-site scripting (XSS).
+- **Data Encryption**: Sensitive data (e.g., attendance dates) should be encrypted before being sent to the server.
+- **Authentication**: The system should enforce proper authentication to ensure that only authorized users can access and modify the attendance records.
+
+By understanding these mechanisms, administrators can ensure that the system is secure, functional, and user-friendly.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/?tab=letter
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Manual Academic Attendance" feature. This feature allows users to draft, submit, and track manual academic attendance approvals. It is likely integrated into a larger system for managing student attendance records and academic tracking.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Short Title**: A text input field where users can enter a brief title for the attendance record.
+- **Subject**: A text input field where users can enter a subject or topic related to the attendance.
+- **Attendance Date**: A date input field where users can select the date of the attendance.
+- **Slot Session**: A dropdown or select box where users can choose the specific slot or session for the attendance.
+- **Content**: A text area where users can enter the content or details of the attendance.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely uses form submission to send data to the backend system. Here’s a breakdown of how the information might be passed:
+
+1. **Form Submission**: When the user submits the form, the data is sent to the server using HTTP POST or GET methods.
+2. **Form Data**: The form data, including the short title, subject, attendance date, slot session, and content, is sent to the server.
+3. **Server Processing**: The server processes the form data and performs necessary actions, such as inserting the attendance record into the database, updating attendance records, or sending notifications.
+4. **Database Interaction**: The server interacts with a database to store the attendance record. This could involve inserting a new record into a table, updating an existing record, or performing other database operations.
+5. **Response Handling**: The server returns a response to the client, which could be a confirmation message, a redirect to a different page, or a form to re-submit if there are errors.
+
+### Detailed Steps for Information Flow
+1. **User Interaction**: The user fills out the form with the required information.
+2. **Form Submission**: The user submits the form by clicking the "Submit" button.
+3. **Form Data Capture**: The form data is captured and sent to the server.
+4. **Server Side Processing**:
+   - **Validation**: The server validates the form data to ensure all fields are filled and meet the required criteria.
+   - **Database Interaction**: The server interacts with the database to insert or update the attendance record.
+   - **Response Generation**: The server generates a response, which could be a confirmation message or a redirect to a different page.
+5. **Client-Side Response**: The server's response is sent back to the client, updating the page or displaying a confirmation message.
+6. **User Interaction**: The user can then proceed with other actions, such as viewing the attendance record or submitting another form.
+
+### Example of Form Submission and Response
+```html
+<form action="/submitAttendance" method="post">
+    <label for="shortTitle">Short Title:</label>
+    <input type="text" id="shortTitle" name="shortTitle" required>
+    
+    <label for="subject">Subject:</label>
+    <input type="text" id="subject" name="subject" required>
+    
+    <label for="attendanceDate">Attendance Date:</label>
+    <input type="date" id="attendanceDate" name="attendanceDate" required>
+    
+    <label for="slotSession">Slot Session:</label>
+    <select id="slotSession" name="slotSession" required>
+        <option value="">Select slot session</option>
+        <option value="Session 1">Session 1</option>
+        <option value="Session 2">Session 2</option>
+    </select>
+    
+    <label for="content">Content:</label>
+    <textarea id="content" name="content" required></textarea>
+    
+    <button type="submit">Submit</button>
+</form>
+```
+
+```javascript
+document.getElementById('submitAttendance').addEventListener('submit', function(event) {
+    event.preventDefault();
+    
+    const shortTitle = document.getElementById('shortTitle').value;
+    const subject = document.getElementById('subject').value;
+    const attendanceDate = document.getElementById('attendanceDate').value;
+    const slotSession = document.getElementById('slotSession').value;
+    const content = document.getElementById('content').value;
+    
+    // Send form data to server
+    fetch('/submitAttendance', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            shortTitle,
+            subject,
+            attendanceDate,
+            slotSession,
+            content
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            alert('Attendance record submitted successfully!');
+        } else {
+            alert('Failed to submit attendance record.');
+        }
+    });
+});
+```
+
+This example demonstrates how the form data is captured, validated, and sent to the server, and how the server processes the data and returns a response to the client.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/?tab=workflow
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature Controlled
+The section in question is part of the "Manual Academic Attendance" feature within the student portal. This feature allows students to draft, submit, and track their own academic attendance approvals. The primary actions controlled by this section include:
+- **Drafting an Attendance Approval**: Students can create and save their attendance approval requests.
+- **Submitting an Attendance Approval**: Once approved, the attendance approval can be submitted for further processing.
+- **Tracking Attendance Approvals**: Students can monitor the status of their attendance approval requests.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes several key variables and parameters that are essential for the functionality of the feature:
+- **Approval Workflow**: This is a text grid where students can input the details of their attendance approval request. It likely includes fields for student ID, course, semester, and the reason for the attendance approval.
+- **Save Workflow**: This button allows students to save their draft attendance approval request.
+- **Apply**: This button processes the attendance approval request and sends it for further review.
+- **Student Instruction**: This section provides instructions on how to use the approval workflow, which might include guidance on filling out the form and submitting it.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **Form Submission**: When the "Apply" button is clicked, the form data (including the approval workflow details) is submitted to the backend system. This data is likely sent via an HTTP POST request to a specific endpoint.
+- **Workflow Tracking**: The backend system processes the submitted data and updates the student's attendance approval status. This update is communicated back to the frontend, which then updates the student's view with the new status.
+- **User Authentication**: The page is logged in as a specific user (e.g., "25013957"), indicating that the user's session is maintained across the page and the backend system.
+
+### Summary
+The "Manual Academic Attendance" section is a critical feature within the student portal, enabling students to manage their own attendance approvals. It exposes various variables and parameters for drafting, submitting, and tracking these approvals. The page communicates this information to the backend system via form submissions and updates the user's view accordingly. This ensures that the student's attendance approval process is both user-friendly and efficiently managed within the broader system structure.
 
 --•--•--
 
