@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 229
-**Pending Sub-Layer Queue Boundaries:** 1638
+**Total Verified Inner Nodes Mapped:** 233
+**Pending Sub-Layer Queue Boundaries:** 1643
 
 ## Architectural Breakdown per Sub-System:
 
@@ -11077,6 +11077,139 @@ The page likely passes information to the wider web system structure through the
 
 ### Conclusion
 The section in question is a transactional feature that controls the participation and pledge-taking process for the "Finite Earth Movement." It exposes various variables and parameters related to the movement's progress and user activity. The page passes information to the wider web system structure through API calls, session management, cookies/local storage, and webhooks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/102/?tab=circular
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/circulars/102/?tab=circular", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/102/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the interaction and management of a group chat within a specific circular. This includes allowing participants to read and interact with chat messages and discussion topics, as well as providing a platform for managing and monitoring the progress of the circular.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the circular.
+- **Mentors**: The number of mentors assigned to the circular.
+- **Managers**: The number of managers assigned to the circular.
+- **Start Date**: The date when the circular started.
+- **Task Completion**: The percentage of tasks completed out of the total expected tasks.
+- **Circular**: The current circular being viewed.
+- **Chat**: The number of chat messages in the circular.
+- **Tasks**: The number of tasks assigned in the circular.
+- **Group Chat**: The title of the group chat.
+- **Discussion Topics**: The list of discussion topics available in the circular.
+- **Live Updates**: Indicates that live updates are connected and can be refreshed.
+- **Message**: A message indicating that the circular is locked by a manager and that posting and rating actions are disabled.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through various means, such as:
+- **API Calls**: The page might make API calls to update the status of the circular, such as task completion, mentor and manager assignments, and chat messages.
+- **Cookies and Sessions**: The page uses cookies and sessions to track user interactions and maintain state across different pages.
+- **Server-Side Scripts**: The page might use server-side scripts to handle complex interactions, such as updating the chat messages or managing the circular's progress.
+- **Webhooks**: The page might use webhooks to notify other parts of the system about important events, such as task completions or mentor assignments.
+
+### Detailed Explanation of the Page's Functionality
+
+#### Group Chat Interaction
+- **Read Chat Messages**: Participants can read the chat messages sent in the circular.
+- **Add New Messages**: Participants can send new messages to the group chat.
+- **Update Live Updates**: The live updates feature allows participants to refresh the chat messages in real-time.
+
+#### Discussion Topics
+- **List of Topics**: The page displays a list of discussion topics available in the circular.
+- **Focus on Threading**: The topics are likely designed to be threaded, meaning participants can only reply to the last message in a thread.
+
+#### Locking by a Manager
+- **Message Notification**: The page displays a message indicating that the circular is locked by a manager.
+- **Disabling Actions**: The page informs participants that posting and rating actions are disabled, which means they cannot post new messages or rate other participants.
+
+#### Progress Tracking
+- **Task Completion**: The page displays the percentage of tasks completed out of the total expected tasks.
+- **Start Date**: The start date of the circular is displayed, indicating when the circular began.
+
+#### User Authentication
+- **Logged In**: The page shows the user who is currently logged in, along with their referrer information.
+- **User Profile**: The user's profile picture and name are displayed, along with their referrer information.
+
+### Conclusion
+This section of the student portal is designed to facilitate group communication and task management within a circular. It exposes various variables and parameters to track the progress of the circular and manage its interactions. The page communicates with the wider web system structure through various means, ensuring that the circular's progress and interactions are accurately tracked and managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/102/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a task management page within a student portal. The primary action it controls is the submission and tracking of a pledge, specifically the "FEM'Us Pledge." This task involves taking the pledge, submitting it, and then verifying and approving it.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Task ID**: 1
+- **Task Title**: "Take the FEM'Us Pledge & Submit Your Certificate"
+- **Status**: "Not Started"
+- **Submitted**: 218
+- **Verified**: 99
+- **Approved**: 80
+- **Link to Pledge**: "https://thefiniteearth.org/pledge?ref=SAVEEF168"
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page uses a combination of HTML, JavaScript, and possibly some backend logic to manage the task. Here’s a breakdown of how it works:
+
+1. **HTML Structure**:
+   - The page is structured using HTML, with a main content area and a sidebar.
+   - The sidebar contains navigation links for different sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+   - The main content area contains the task details and a link to the pledge.
+
+2. **JavaScript and Backend Integration**:
+   - The page likely uses JavaScript to handle user interactions and form submissions.
+   - The task status (e.g., "Not Started") might be updated via AJAX calls to a backend API.
+   - The link to the pledge is dynamically generated and linked to the pledge page.
+
+3. **Backend Logic**:
+   - The backend system would handle the task submission, verification, and approval processes.
+   - When the user clicks the "Submit" button, the form data (e.g., pledge details) would be sent to the backend.
+   - The backend would then process the data, update the task status, and return a response to the frontend.
+   - The frontend would then update the page with the new status and any additional information.
+
+4. **Security and Authentication**:
+   - The page is logged in as a specific user (25013957), indicating that it uses session-based authentication.
+   - The user's ref ID (21225240091) and ref number (25013957) are displayed, suggesting that the user is authenticated and has a unique identifier.
+
+### Summary
+This section of the student portal is designed to manage and track the pledge submission process. It uses a combination of HTML, JavaScript, and backend logic to handle user interactions, form submissions, and task status updates. The page provides a clear view of the task details and a link to the pledge page, ensuring that users can easily follow the pledge submission process.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/100/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section titled "Notice on Mentor Selection and Change" is a notification or announcement page. It controls the process of mentor selection and change for students. This feature is crucial for managing the mentorship relationships within the academic community, ensuring that students have the right mentors for their academic and personal development.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The number of participants (3046 out of 3464) indicates the total number of students who can participate in the mentor selection process.
+- **Mentors**: The number of mentors (0 out of 0) suggests that no mentors have been assigned yet.
+- **Managers**: The number of managers (1 out of 1) indicates that there is one manager overseeing the process.
+- **Start Date**: The date (14/07/2026) marks the beginning of the mentor selection period.
+- **Task Completion**: The status (0/0) shows that no tasks have been completed, indicating that the process is in its initial phase.
+- **Circular**: The circular number (Circular 43) is a unique identifier for this specific announcement.
+- **Chat**: The number of chats (43) indicates the number of discussions or interactions related to this announcement.
+- **Tasks**: The number of tasks (Tasks) is not specified, but it likely refers to the specific actions or steps involved in the mentor selection process.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Structure**: The URL structure (`https://learner.saveetha.in/academics/circulars/100/#`) suggests that this page is part of a larger system, likely an academic portal. The `100` might refer to a specific circular or announcement ID.
+- **Embedded Links**: The embedded link (`https://learner.saveetha.in/academics/services/`) provides a direct link to the services section of the learner portal, where students can access more information or complete tasks related to the mentor selection process.
+- **API Integration**: The page likely integrates with an internal API or database to fetch and display the necessary information. This could include fetching data on participants, mentors, managers, and the current status of the process.
+- **User Authentication**: The logged-in user (25013957) indicates that the page requires authentication to access certain features, ensuring that only authorized users can view or interact with the information.
+
+### Summary
+The "Notice on Mentor Selection and Change" page is a critical feature of the student portal, controlling the mentor selection and change process. It exposes various variables and parameters related to the process, such as the number of participants, mentors, managers, and the start date. The page also provides a direct link to the services section for more information and a unique identifier for the circular. It integrates with the wider web system structure through embedded links and API integration, ensuring that the information is accessible and up-to-date.
 
 --•--•--
 
