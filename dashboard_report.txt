@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 273
-**Pending Sub-Layer Queue Boundaries:** 1703
+**Total Verified Inner Nodes Mapped:** 277
+**Pending Sub-Layer Queue Boundaries:** 1706
 
 ## Architectural Breakdown per Sub-System:
 
@@ -13031,6 +13031,162 @@ The section in question is a part of the "New Event - Organizer" feature within 
 
 ### Conclusion
 This section of the student portal is designed to facilitate the creation, management, and approval of events. It exposes various variables and parameters, such as event details, approval status, and communication channels, and passes this information to the wider web system structure for processing and storage.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/new-events/create/?tab=workflow
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is designed to manage and control the approval workflow for new events. This includes drafting, submitting, and tracking the approval process for event applications. The user can define and save their approval workflow, which is then applied to the event application.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Approval Workflow**: This is a text input field where the user can define the approval steps for the event application. The user can type the steps in the format they prefer, such as "Approve by Dean, Approve by Dean, Approve by Dean."
+- **Save Workflow**: This button allows the user to save the defined approval workflow.
+- **Apply**: This button applies the saved approval workflow to the event application.
+- **Student Instruction**: This section provides instructions on how to use the approval workflow. It is currently empty and can be populated with specific instructions.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the user clicks the "Apply" button, the form data is submitted to the server. The form data includes the defined approval workflow.
+- **Server Response**: The server processes the form data and applies the approval workflow to the event application. The server might also update the database with the new approval workflow.
+- **Database Update**: The approval workflow is stored in the database, and the event application is updated with the new approval steps.
+- **User Notification**: The user is notified of the approval workflow being applied to the event application.
+
+### Detailed Steps
+1. **User Interaction**: The user defines the approval workflow in the text input field.
+2. **Form Submission**: The user clicks the "Apply" button, which triggers the form submission.
+3. **Server Processing**: The server receives the form data, including the defined approval workflow.
+4. **Workflow Application**: The server applies the approval workflow to the event application.
+5. **Database Update**: The approval workflow is stored in the database, and the event application is updated.
+6. **User Notification**: The user is informed that the approval workflow has been applied.
+
+### Security Considerations
+- **Input Validation**: The server should validate the input to ensure it does not contain malicious code or data that could be exploited.
+- **Access Control**: Ensure that only authorized users can access and modify the approval workflow.
+- **Data Encryption**: Sensitive data, such as the approval workflow, should be encrypted to protect it from unauthorized access.
+
+### Conclusion
+This section of the student portal is designed to streamline the event approval process by allowing users to define and apply approval workflows. It ensures that the event application is managed efficiently and securely, providing a clear and user-friendly interface for managing the approval process.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/new-events/create/?tab=location_schedule
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is part of the "New Event - Organizer" feature within the student portal. This section controls the process of creating and managing event schedules. Specifically, it allows users to draft, submit, and track the event approval workflow, including selecting a location and date for the event.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Location**: A text input field where users can search for a location.
+- **Date**: A date picker where users can select a date for the event.
+- **Apply Button**: A button that, when clicked, applies the selected location and date to the event schedule.
+- **Select a location and date to view schedule details**: A text area that displays the selected location and date, allowing users to view the schedule details.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the user clicks the "Apply" button, the selected location and date are submitted as part of the form data. This data is sent to the server via an HTTP POST request.
+- **Server-Side Processing**: The server processes the submitted data to update the event schedule. This could involve updating a database with the new event details.
+- **Database Interaction**: The server interacts with a database to store the new event details, including the location and date.
+- **Response Handling**: The server returns a response to the client, which could be a confirmation message or a redirect to the event schedule page.
+
+### Detailed Steps
+1. **User Interaction**: The user selects a location and date using the text input field and date picker.
+2. **Form Submission**: The user clicks the "Apply" button, triggering a form submission.
+3. **Data Transmission**: The form data, including the selected location and date, is sent to the server via an HTTP POST request.
+4. **Server Processing**: The server receives the form data and processes it. This could involve validating the data, updating the database, and generating a response.
+5. **Response Handling**: The server sends a response back to the client, which could be a confirmation message or a redirect to the event schedule page.
+6. **Client-Side Update**: The client-side page updates to reflect the new event details, such as displaying the selected location and date in the text area.
+
+### Security Considerations
+- **Input Validation**: The server should validate the input data to ensure it meets the required criteria (e.g., valid location, valid date).
+- **Data Encryption**: Sensitive data (e.g., location and date) should be encrypted before being sent to the server.
+- **Access Controls**: Access to the event scheduling system should be restricted to authorized users to prevent unauthorized modifications.
+
+### Conclusion
+This section of the student portal is designed to facilitate the creation and management of event schedules. It exposes various variables and parameters for user interaction and data submission, and it passes this information to the server for processing and response handling. Security measures are crucial to protect sensitive data and prevent unauthorized access.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/leave-applications/create/#
+### Analysis of the Student Portal Leave Application Section
+
+#### 1. Action or Transactional Feature it Controls
+The Leave Application section is designed to control the process of drafting, submitting, and tracking leave requests for students. This includes the ability to select the type of leave, specify the duration, and attach any necessary documents. The system likely uses this form to manage and approve leave requests, ensuring that all necessary information is captured and reviewed before approval.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Short Title**: A text input field where the student can provide a brief title or description for the leave request.
+- **Leave Type**: A dropdown menu or select box where the student can choose the type of leave (e.g., sick leave, personal leave, etc.).
+- **Leave From**: A date picker or date input field where the student can specify the start date of the leave.
+- **Leave To**: A date picker or date input field where the student can specify the end date of the leave.
+- **Subject**: A text input field where the student can provide a subject or reason for the leave.
+- **Attachment**: A file upload field where the student can attach any supporting documents (e.g., medical certificates, proof of leave, etc.).
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The form data is likely submitted via an HTTP POST request to a backend server. The form data is sent to the server using the `X-HTTP-Method-Override` header set to `POST` to simulate a GET request. The server-side script processes the form data and performs the necessary actions, such as saving the leave request to a database, sending notifications to relevant parties, and updating the leave status in the system.
+
+The server-side script would typically handle the following steps:
+1. **Form Data Parsing**: The server parses the form data to extract the relevant information.
+2. **Validation**: The server validates the form data to ensure that all required fields are filled and that the dates are in the correct format.
+3. **Database Interaction**: The server interacts with the database to save the leave request details.
+4. **Notification**: The server sends notifications to the student, their supervisor, and other relevant parties.
+5. **Status Update**: The server updates the leave status in the system to reflect the new leave request.
+
+### Example of a POST Request to the Server
+```http
+POST /api/leave-applications/create HTTP/1.1
+Host: learner.saveetha.in
+X-HTTP-Method-Override: POST
+Content-Type: application/x-www-form-urlencoded
+Content-Length: 1024
+
+short_title=Short%20Title&leave_type=Sick%20Leave&leave_from=2026-08-19T08:00:00Z&leave_to=2026-08-19T16:00:00Z&subject=Reason%20for%20Leave&attachment=example.pdf
+```
+
+### Summary
+The Leave Application section is a critical feature of the student portal, controlling the process of managing and approving leave requests. It exposes various fields for inputting leave details, validates the data, and interacts with the wider system to ensure that all necessary actions are taken. The form data is sent to the server using a simulated POST request, which processes the data and updates the system accordingly.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/leave-applications/create/?tab=leave
+### Analysis of the Student Portal Leave Application Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a leave application form for students. This form is used to draft, submit, and track leave approval workflows. The primary action it controls is the submission and tracking of leave requests, ensuring that the leave is approved by the appropriate authorities within the institution.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Short Title**: A text input field where the student can enter a brief title or description for the leave request.
+- **Leave Type**: A dropdown menu where the student can select the type of leave they are applying for (e.g., sick leave, personal leave, etc.).
+- **Leave From**: A date input field where the student can specify the start date of the leave.
+- **Leave To**: A date input field where the student can specify the end date of the leave.
+- **Subject**: A text input field where the student can enter a subject or reason for the leave request.
+- **Attachment**: A file upload field where the student can attach supporting documents or files to the leave request.
+- **Content**: A text area where the student can provide additional details or comments about the leave request.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The form data is submitted via an HTTP POST request to the server. The form data is sent to the server using the `action` attribute of the form tag, which is set to the URL of the server-side script handling the form submission. The server-side script processes the form data and performs the necessary actions, such as saving the leave request to the database, sending notifications to the relevant authorities, and updating the leave approval workflow.
+
+Here is a simplified representation of the form submission process:
+
+```html
+<form action="/academics/workflow-requests/leave-applications/create" method="POST">
+    <input type="text" name="short_title" placeholder="Short Title">
+    <select name="leave_type">
+        <!-- Options for leave types -->
+    </select>
+    <input type="date" name="leave_from" placeholder="Leave From">
+    <input type="date" name="leave_to" placeholder="Leave To">
+    <input type="text" name="subject" placeholder="Subject">
+    <input type="file" name="attachment" accept="application/pdf, application/vnd.openxmlformats-officedocument.wordprocessingml.document">
+    <textarea name="content" placeholder="Content"></textarea>
+    <button type="submit">Submit</button>
+</form>
+```
+
+When the form is submitted, the server-side script processes the form data and performs the necessary actions. For example, if the form data is valid, the server might save the leave request to the database and send an email notification to the relevant authorities. If the form data is invalid, the server might display an error message to the user.
+
+### Summary
+The leave application section is a critical feature of the student portal, enabling students to request and manage their leave approvals. It exposes various fields for the student to input details about the leave request, and the form data is sent to the server for processing. The server-side script handles the submission, saving the leave request to the database, and sending notifications as necessary.
 
 --•--•--
 
