@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 233
-**Pending Sub-Layer Queue Boundaries:** 1643
+**Total Verified Inner Nodes Mapped:** 237
+**Pending Sub-Layer Queue Boundaries:** 1649
 
 ## Architectural Breakdown per Sub-System:
 
@@ -11210,6 +11210,204 @@ The section titled "Notice on Mentor Selection and Change" is a notification or 
 
 ### Summary
 The "Notice on Mentor Selection and Change" page is a critical feature of the student portal, controlling the mentor selection and change process. It exposes various variables and parameters related to the process, such as the number of participants, mentors, managers, and the start date. The page also provides a direct link to the services section for more information and a unique identifier for the circular. It integrates with the wider web system structure through embedded links and API integration, ensuring that the information is accessible and up-to-date.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/100/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Notice on Mentor Selection and Change" page. This page controls the process for selecting and changing mentors for students. It is a critical feature for academic and professional development, ensuring that students have the right mentors to guide them through their academic journey.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of students who have not yet been assigned a mentor.
+- **Mentors**: The number of mentors available to assign to students.
+- **Managers**: The number of managers overseeing the mentor selection process.
+- **Start Date**: The date when the mentor selection process begins.
+- **Task Completion**: The status of the mentor selection process, indicating whether it is approved or expected.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the mentor selection process. Here’s a breakdown of how it might pass information:
+
+- **User Authentication**: The page is logged in as a specific user (e.g., 25013957), indicating that the user has authenticated with the system.
+- **Circular ID**: The circular ID (100) is passed, which likely corresponds to a specific academic policy or guideline.
+- **Tab**: The page is currently in the "Circulars" tab, which might be a part of a larger navigation menu.
+- **URL Parameters**: The URL includes parameters such as `1495.99:1495.99`, which might be used for tracking or debugging purposes.
+- **JavaScript and API Calls**: The page might use JavaScript to make API calls to the backend to update the mentor selection status or to retrieve more detailed information about the mentors and participants.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title**: "Notice on Mentor Selection and Change"
+- **Circular ID**: 100
+- **User Information**: The user is logged in as 25013957.
+- **Navigation Menu**: Links to other sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Manage, Mentees, and Mentorship.
+
+#### Main Content
+- **Participants**: 3046 / 3464
+- **Mentors**: 0 / 0
+- **Managers**: 1 / 1
+- **Start Date**: 14/07/2026
+- **Task Completion**: 0 / 0 (Approved / Expected)
+
+#### Sidebar
+- **Circular**: Indicates there are 43 circulars.
+- **Chat**: Indicates there are 43 chats.
+- **Tasks**: Indicates there are 43 tasks.
+
+#### Body
+- **Notice on Mentor Selection and Change**
+  - **Mentorship Type**: NoMentor
+  - **SCOFT FACULTY**: Indicates the mentorship type is for faculty.
+  - **SCOFT III YEAR**: Indicates the mentorship is for third-year students.
+  - **SCOFT II YEAR**: Indicates the mentorship is for second-year students.
+  - **SCOFT IV YEAR**: Indicates the mentorship is for fourth-year students.
+  - **Message**: "Dear Learners, The Mentor Selection and Change Process will be open from 7:00 PM on 14 July 2026 to 7:00 PM on 16 July 2026. During this period, a new option titled 'Mentor Selection' will be available under the Services section of the Learner Portal."
+
+#### Footer
+- **URL**: The page is hosted at `https://learner.saveetha.in/academics/circulars/100/?tab=circular`.
+
+### Conclusion
+This page is a critical component of the student portal, managing the mentor selection process for students. It exposes various variables and parameters to control the mentor selection process and interacts with the backend system to update the status and manage the process. The page is designed to provide clear information to users and manage the mentor selection process efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/100/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Group Chat" within a mentor selection and change circular. The primary action it controls is the communication and interaction among participants, mentors, and managers involved in the mentor selection process. This includes discussing, rating, and approving participants for mentorship roles.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The number of participants in the circular.
+- **Mentors**: The number of mentors available for selection.
+- **Managers**: The number of managers overseeing the circular.
+- **Start Date**: The date when the circular began.
+- **Task Completion**: The status of task completion, which is currently 0/0.
+- **Circular ID**: The unique identifier for the circular.
+- **Chat**: The number of messages in the chat.
+- **Discussion Topics**: Focused threaded discussions related to the circular.
+- **Direct Messages**: Searchable members for direct messaging.
+- **Rating**: The ability to rate participants, with a current rating of 0.0/5.0.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The user is logged in as a participant with the ID 25013957.
+- **Circular ID**: The circular ID is 100.
+- **Circular Type**: The circular type is "Mentor Selection and Change."
+- **Circular Status**: The circular status is "Live."
+- **Circular URL**: The URL of the circular is https://learner.saveetha.in/academics/circulars/100/?tab=chat.
+- **User Roles**: The user is a participant and has access to the chat and discussion topics.
+- **Manager Lock**: The circular is locked by a manager, which affects the ability to post and rate actions.
+
+### Detailed Breakdown
+
+#### 1. User Authentication
+- **Logged in as**: The user is logged in as participant with the ID 25013957.
+- **Referral IDs**: The user has two referral IDs: 21222540091 and 25013957.
+
+#### 2. Circular Information
+- **Circular ID**: 100.
+- **Circular Type**: "Mentor Selection and Change."
+- **Circular Status**: "Live."
+- **Circular URL**: https://learner.saveetha.in/academics/circulars/100/?tab=chat.
+
+#### 3. Chat and Discussion Topics
+- **Chat**: 43 messages in the chat.
+- **Discussion Topics**: Focused threaded discussions related to the circular.
+- **Direct Messages**: Searchable members for direct messaging.
+
+#### 4. Rating System
+- **Rating**: 0.0/5.0, indicating no ratings have been given yet.
+
+#### 5. Manager Lock
+- **Message**: "This circular is locked by a manager. You can read chat and topics, but posting and rating actions are disabled."
+- **Message Time**: 25/07/2026 11:48 AM.
+
+### Conclusion
+This section of the student portal is designed to facilitate communication and interaction among participants, mentors, and managers involved in the mentor selection process. It exposes various variables and parameters such as the number of participants, mentors, and managers, the start date of the circular, and the current status of task completion. The page also provides access to chat, discussion topics, and direct messaging, and it is locked by a manager, limiting posting and rating actions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/100/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a "Circular" page within a student portal. It appears to be related to the mentor selection and change process. The primary action it controls is the management and tracking of mentor assignments for students. This includes the assignment of mentors to participants, the tracking of mentor and manager assignments, and the monitoring of task completion.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The total number of participants (3046 / 3464) and the number of participants assigned mentors (0 / 0).
+- **Mentors**: The total number of mentors (1 / 1) and the number of mentors assigned to participants (0 / 0).
+- **Managers**: The total number of managers (1 / 1) and the number of managers assigned to mentors (1 / 1).
+- **Start Date**: The date when the mentor selection and change process started (14/07/2026).
+- **Task Completion**: The number of tasks approved or expected (0 / 0).
+- **Circular**: The current circular being viewed.
+- **Chat**: A chat feature for communication.
+- **Tasks**: A section for managing tasks related to the mentor selection and change process.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The URL includes parameters such as `tab=tasks`, which likely indicates the current tab or section being viewed.
+- **Cookies and Sessions**: The page uses cookies and sessions to track user sessions and logged-in status.
+- **API Calls**: The page may make API calls to the backend system to update or retrieve data related to mentor assignments, task completions, and other processes.
+- **JavaScript**: The page uses JavaScript for dynamic content loading and user interactions, such as displaying the chat feature and managing tasks.
+
+### Detailed Breakdown
+
+#### URL Parameters
+- **tab=tasks**: This parameter indicates that the current tab being viewed is related to tasks. This could be a link to a specific task or a section for managing tasks.
+
+#### Cookies and Sessions
+- **Logged in as**: The user is logged in with the ID `25013957` and associated with the reference numbers `Ref1: 21225240091` and `Ref2: 25013957`.
+- **Session ID**: The session ID is likely stored in a cookie or session variable to maintain the user's logged-in status across page reloads.
+
+#### API Calls
+- **Update Mentor Assignments**: The page may make API calls to update the mentor assignments and task completions.
+- **Retrieve Task Data**: The page may retrieve task data from the backend system to display the current status of tasks.
+
+#### JavaScript
+- **Dynamic Content Loading**: JavaScript is used to load and display the chat feature and manage tasks.
+- **User Interactions**: JavaScript handles user interactions such as clicking on buttons or links to update task statuses or view more details.
+
+### Conclusion
+This section of the student portal is designed to manage and track the mentor selection and change process. It exposes various variables and parameters related to participants, mentors, managers, and task completions. The page interacts with the wider web system structure through cookies, sessions, API calls, and JavaScript for dynamic content loading and user interactions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/96/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the scheduling and management of mandatory training sessions for students in the Programming Module Course and EY Module Course. This includes tracking participant numbers, mentor assignments, and managing the start date of the training sessions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants in the training sessions.
+- **Mentors**: The number of mentors assigned to the training sessions.
+- **Managers**: The number of managers overseeing the training sessions.
+- **Start Date**: The date when the training sessions began.
+- **Task Completion**: Indicates whether the task (training sessions) has been approved or expected.
+- **Circular**: The specific circular or document associated with this training session.
+- **Chat**: The number of chat messages or interactions related to this training session.
+- **Tasks**: The number of tasks or actions related to this training session.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system that manages the training sessions. Here’s a breakdown of how it communicates with the wider system:
+
+- **API Calls**: The page might make API calls to update the training session status, participant numbers, mentor assignments, and other details.
+- **Database Integration**: The page could update a database with the current status of the training sessions, such as the number of participants, mentors, and managers.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the training session details.
+- **Notification System**: The page could trigger notifications or alerts to other relevant systems or users when the training session status changes.
+
+### Detailed Explanation
+
+1. **API Calls**: The page might call an API to update the training session status, such as updating the number of participants, mentors, and managers. This API could be triggered by a button click or a form submission.
+
+2. **Database Integration**: The page could update a database with the current status of the training sessions. For example, it might update the number of participants, mentors, and managers. This database could be accessed by the backend system to retrieve the current status of the training sessions.
+
+3. **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the training session details. This could involve checking the user's session or using a token to verify their identity.
+
+4. **Notification System**: The page could trigger notifications or alerts to other relevant systems or users when the training session status changes. For example, it might send an email or a message to the managers or mentors when the training session starts or ends.
+
+### Conclusion
+The section in question is a critical component of the student portal, managing the scheduling and tracking of mandatory training sessions for students in the Programming Module Course and EY Module Course. It interacts with a backend system to update the status of the training sessions and communicates with other systems or users as needed.
 
 --•--•--
 
