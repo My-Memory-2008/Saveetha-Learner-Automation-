@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 185
-**Pending Sub-Layer Queue Boundaries:** 1583
+**Total Verified Inner Nodes Mapped:** 189
+**Pending Sub-Layer Queue Boundaries:** 1585
 
 ## Architectural Breakdown per Sub-System:
 
@@ -9236,6 +9236,154 @@ Model processing fault: 404
 
 ### System Node Endpoint: https://learner.saveetha.in/academics/circulars/131/#
 Model processing fault: 404
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/131/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a registration or participation page for the "80th Independence Day Celebration." This page likely controls the registration and management of participants for the event. It allows users to view their participation status, manage their mentorship, and possibly interact with other users through chat or task functionalities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The page displays the total number of participants (2432 out of 5742) and the number of mentors (0 out of 0).
+- **Mentors**: Mentors are listed as 2 out of 2.
+- **Start Date**: The event starts on 12/08/2026.
+- **Task Completion**: The task completion status is 0/0, indicating no tasks have been completed.
+- **Circular**: The circular number is 2026-2027/018, and the date is 12.08.2026.
+- **Mentorship Type**: The mentorship type is "NoMentor."
+- **Faculties**: The page lists the faculties available for participation.
+- **Year Levels**: The year levels available are "Final Year," "Second Year," and "Third Year."
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a user with the ID 25013957, likely using a session-based authentication system.
+- **User Interaction**: Users can interact with the page through the "Circular," "Chat," and "Tasks" tabs, which might be linked to a backend system for real-time communication and task management.
+- **Data Storage**: The page likely stores user data in a database, including their participation status, mentorship details, and task completion status.
+- **API Integration**: The page might integrate with an API for real-time updates, notifications, and data synchronization with the wider web system.
+
+### Detailed Breakdown
+
+#### User Authentication
+- **Logged In As**: The user is logged in as Muhammad Asjad E with the ID 25013957.
+- **Ref1**: The reference number for the user is 212225240091.
+- **Ref2**: The reference number for the user is 25013957.
+
+#### User Interaction
+- **Circular**: The user can view the circular details, including the number and date.
+- **Chat**: The user can interact with other users through chat, which might be linked to a messaging system.
+- **Tasks**: The user can manage tasks related to the event, which might be linked to a task management system.
+
+#### Data Storage
+- **Participants**: The page displays the total number of participants and the number of mentors.
+- **Mentors**: The page lists the number of mentors available.
+- **Start Date**: The event start date is displayed.
+- **Task Completion**: The task completion status is shown.
+- **Circular**: The circular number and date are displayed.
+- **Mentorship Type**: The mentorship type is listed.
+- **Faculties**: The page lists the faculties available for participation.
+- **Year Levels**: The year levels available are listed.
+
+#### API Integration
+- **Real-Time Updates**: The page might integrate with an API for real-time updates, notifications, and data synchronization with the wider web system.
+- **Task Management**: The page might integrate with a task management system for real-time updates and notifications.
+
+### Conclusion
+This section of the student portal is designed to manage and control the registration and participation of students for the "80th Independence Day Celebration." It exposes various variables, parameters, and functions related to user participation, mentorship, and task management. The page interacts with the wider web system through user authentication, real-time updates, and task management systems.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/131/?tab=chat
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/circulars/131/?tab=chat", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/131/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a task management or task assignment feature within the student portal. It controls the process of assigning tasks to participants, mentors, and managers for the 80th Independence Day Celebration. This feature is crucial for organizing and executing the celebration activities, ensuring that all necessary tasks are completed by the specified deadlines.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants is displayed as 2432 out of 5742. This indicates the total number of participants and the current number of participants involved.
+- **Mentors**: The number of mentors is displayed as 0 out of 0, indicating that no mentors have been assigned yet.
+- **Managers**: The number of managers is displayed as 2 out of 2, indicating that two managers have been assigned.
+- **Start Date**: The start date for the celebration is set to 12/08/2026.
+- **Task Completion**: The task completion status is currently 0/0, indicating that no tasks have been approved or expected yet.
+- **Circular**: This is likely a tab or section where the circular or task details can be accessed.
+- **Chat**: This is likely a chat or communication section where participants, mentors, and managers can communicate.
+- **Tasks**: This is the main section where tasks can be added, assigned, and managed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as user 25013957, indicating that the user is authenticated and has access to this section.
+- **Circular ID**: The circular ID is 131, which is likely used to identify this specific task or event.
+- **Task Management**: The page allows users to add, assign, and manage tasks, which are likely stored in a database or system.
+- **Communication**: The chat section allows for real-time communication, which can be used to coordinate tasks and provide updates.
+- **Approval Process**: The task completion status (0/0) suggests that the approval process is in place, where tasks can be approved or expected.
+
+### Detailed Explanation
+The section in question is a task management page within a student portal, specifically for the 80th Independence Day Celebration. It provides a structured way for participants, mentors, and managers to manage tasks related to the celebration. The page is designed to be user-friendly, with clear sections for managing tasks, communicating with others, and tracking progress.
+
+#### Key Features:
+1. **Task Management**: Users can add, assign, and manage tasks related to the celebration.
+2. **Communication**: A chat section allows for real-time communication among participants, mentors, and managers.
+3. **Approval Process**: The task completion status indicates whether tasks have been approved or expected, ensuring that all tasks are completed by the specified deadlines.
+4. **User Authentication**: The page is logged in as user 25013957, indicating that the user is authenticated and has access to this section.
+
+#### How Information is Passed to the Wider Web System Structure:
+- **Circular ID**: The circular ID (131) is used to identify this specific task or event.
+- **Task Management**: The tasks added, assigned, and managed on this page are likely stored in a database or system.
+- **Approval Process**: The task completion status (0/0) indicates whether tasks have been approved or expected, which can be used to track progress and ensure that all tasks are completed by the specified deadlines.
+
+This section is an integral part of the student portal, ensuring that all tasks related to the celebration are organized, managed, and completed efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/125/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the management and tracking of study weeks, mentorship, and attendance guidelines for students. It likely involves the following key actions and transactions:
+- **Study Week Management**: Tracking the number of participants, mentors, and managers for a specific study week.
+- **Mentorship Tracking**: Managing mentor-mentee relationships and tracking mentorship activities.
+- **Attendance Tracking**: Monitoring student attendance and task completion for the study week.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following key variables and parameters:
+- **Participants**: Number of students participating in the study week.
+- **Mentors**: Number of mentors assigned to the study week.
+- **Managers**: Number of managers overseeing the study week.
+- **Start Date**: Date when the study week began.
+- **Task Completion**: Number of tasks completed by students.
+- **Circular**: The specific circular or document associated with the study week.
+- **Tasks**: Number of tasks assigned to students.
+- **Mentorship Type**: Type of mentorship (e.g., Academic Mentor).
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update or retrieve data from the wider system, such as updating the number of participants, mentors, and managers.
+- **Database Interactions**: It could interact with a database to store and retrieve the study week data.
+- **Webhooks**: The page might use webhooks to notify other parts of the system about changes in the study week data.
+- **Session Management**: The page might use session management to ensure that the data is consistent across different sessions and users.
+
+### Detailed Explanation
+
+#### API Calls
+The page likely makes API calls to update or retrieve data from the wider system. For example, it might call an API to update the number of participants, mentors, and managers for the study week. This ensures that the data is synchronized across different parts of the system.
+
+#### Database Interactions
+The page might interact with a database to store and retrieve the study week data. This ensures that the data is persistent and can be accessed by other parts of the system.
+
+#### Webhooks
+The page might use webhooks to notify other parts of the system about changes in the study week data. This ensures that other systems can be notified in real-time about any updates.
+
+#### Session Management
+The page might use session management to ensure that the data is consistent across different sessions and users. This ensures that the data is not lost or corrupted when users switch between sessions.
+
+### Conclusion
+The section in question is a critical component of the student portal, controlling the management and tracking of study weeks, mentorship, and attendance guidelines. It exposes various variables and parameters, communicates with the wider web system structure through API calls, database interactions, webhooks, and session management, and ensures that the data is consistent and up-to-date across different parts of the system.
 
 --•--•--
 
