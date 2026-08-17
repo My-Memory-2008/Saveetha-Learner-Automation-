@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 253
-**Pending Sub-Layer Queue Boundaries:** 1677
+**Total Verified Inner Nodes Mapped:** 257
+**Pending Sub-Layer Queue Boundaries:** 1690
 
 ## Architectural Breakdown per Sub-System:
 
@@ -12157,6 +12157,221 @@ The page likely communicates with a backend system that manages the NPTEL local 
 
 ### Conclusion
 This section of the student portal is designed to manage and track the progress of the NPTEL local chapter affiliation and profile verification process. It exposes various variables and parameters related to the participants, mentors, managers, and tasks, and interacts with a backend system to ensure data accuracy and user authentication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/?page=2#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Circulars" page within a student portal. It controls the management and tracking of circular communications, task progress, mentor verification, and manager approvals. This page allows users to view, search, and filter circulars based on specific criteria such as title, role, and date range.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Title**: A text input field where users can search for circulars by partial title.
+- **Role**: A dropdown menu that allows users to filter circulars by role (e.g., All, Mentor, Manager).
+- **From Date**: A date input field that users can specify the start date of the circular.
+- **To Date**: A date input field that users can specify the end date of the circular.
+- **Info**: A checkbox that, when checked, displays additional information about the circular.
+- **Notification**: A checkbox that, when checked, sends notifications about the circular.
+- **Apply**: A button that applies the selected filters and displays the filtered circulars.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **URL Parameters**: The page uses URL parameters to pass information to the wider web system. For example, the `page` parameter is used to navigate between pages, and the `from_date` and `to_date` parameters are used to filter circulars.
+- **Form Submission**: When the user clicks the "Apply" button, the page sends a form submission to the server. The form data includes the selected filters and the current page number.
+- **Server Response**: The server processes the form data and returns a response with the filtered circulars. This response is then displayed on the page.
+- **AJAX Requests**: The page might use AJAX requests to fetch data dynamically, especially if the number of circulars is large, to improve performance.
+
+### Detailed Breakdown
+
+#### URL Parameters
+- **page**: This parameter is used to navigate between pages. For example, if the user is on page 2, the URL might look like this: `https://learner.saveetha.in/academics/circulars/?page=2`.
+- **from_date**: This parameter is used to filter circulars by date. For example, if the user specifies a date range from 20/05/2026 to 18/08/2026, the URL might look like this: `https://learner.saveetha.in/academics/circulars/?from_date=20/05/2026&to_date=18/08/2026`.
+
+#### Form Submission
+When the user clicks the "Apply" button, the form data is submitted to the server. The form data includes:
+- **Title**: The partial title entered by the user.
+- **Role**: The selected role from the dropdown menu.
+- **From Date**: The selected start date.
+- **To Date**: The selected end date.
+- **Info**: Whether the user wants to display additional information.
+- **Notification**: Whether the user wants to receive notifications.
+
+#### Server Response
+The server processes the form data and returns a response with the filtered circulars. This response is then displayed on the page using JavaScript or AJAX.
+
+### Example of AJAX Request
+```javascript
+// Example of an AJAX request to fetch circulars
+fetch('/academics/circulars', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': 'Bearer ' + localStorage.getItem('token')
+  },
+  params: {
+    title: 'Search query',
+    role: 'All',
+    from_date: '20/05/2026',
+    to_date: '18/08/2026'
+  }
+})
+.then(response => response.json())
+.then(data => {
+  // Display the fetched circulars
+  displayCirculars(data);
+})
+.catch(error => console.error('Error:', error));
+```
+
+### Conclusion
+The "Circulars" page in the student portal is a powerful tool for managing and tracking circular communications. It uses URL parameters, form submissions, and AJAX requests to interact with the wider web system, providing a seamless and efficient way for users to manage their academic and administrative tasks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/89/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a part of a student portal that manages foreign language enrollment. It controls the registration and tracking of students for specific language courses. The key actions it manages include:
+- Enrolling students in Japanese N5 Advanced and German A1 Advanced courses.
+- Tracking the completion of Basic and Advanced courses.
+- Managing mentorship and mentor-mentee relationships.
+- Providing notifications and updates to students and mentors.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several variables and parameters that are critical for its functionality:
+- **Participants**: The total number of students registered for the course.
+- **Mentors**: The number of mentors assigned to the course.
+- **Managers**: The number of managers assigned to the course.
+- **Start Date**: The date when the course registration began.
+- **Task Completion**: The status of task completion, which is currently at 0/0.
+- **Circular**: The specific circular or announcement related to the course.
+- **Chat**: The number of unread messages or notifications.
+- **Tasks**: The list of tasks or actions that need to be completed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through various means:
+- **API Calls**: The page likely makes API calls to update the system's database with the registration status, task completion, and mentor-mentee relationships.
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user authentication and track user interactions.
+- **Webhooks**: The page might use webhooks to notify other systems or applications about the registration status or task completion.
+- **Database Updates**: The page updates the database with the latest information about the course registration, mentor-mentee relationships, and task completion status.
+
+### Detailed Explanation
+
+#### API Calls
+The page makes API calls to update the system's database with the registration status, task completion, and mentor-mentee relationships. This ensures that the system's core functionalities are updated in real-time.
+
+#### Cookies and Sessions
+Cookies and sessions are used to maintain user authentication and track user interactions. This helps in keeping track of who has registered for the course, who is a mentor, and who is a manager.
+
+#### Webhooks
+The page uses webhooks to notify other systems or applications about the registration status or task completion. This ensures that other systems can be alerted in real-time about the course registration status or task completion status.
+
+#### Database Updates
+The page updates the database with the latest information about the course registration, mentor-mentee relationships, and task completion status. This ensures that the system's core functionalities are kept up-to-date with the latest information.
+
+### Conclusion
+The section in question is a critical part of the student portal that manages foreign language enrollment. It controls various actions and transactions, exposes critical variables and parameters, and passes information to the wider web system structure through various means. This ensures that the system's core functionalities are kept up-to-date and that all users are informed about the course registration status and task completion status.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/87/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal that manages project-based learning (PBL) initiatives. The primary action it controls is the management and tracking of PBL projects, including the assignment of mentors, the tracking of task completion, and the overall progress of the program. This section likely involves the following key transactional features:
+
+- **Project Assignment and Tracking**: Assigning mentors to students and tracking the progress of their projects.
+- **Task Completion Tracking**: Monitoring and updating the status of tasks assigned to students.
+- **Mentor and Manager Management**: Managing the mentors and managers involved in the program.
+- **Circulars and Notifications**: Managing and viewing circulars related to the PBL program.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes several variables and parameters that are crucial for the operation of the PBL program. These include:
+
+- **Participants**: The number of students participating in the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers overseeing the program.
+- **Start Date**: The date when the program began.
+- **Task Completion**: The status of task completion, which is currently at 0/0.
+- **Circulars**: The number of circulars available for the program.
+- **Chat**: The number of chat messages available.
+- **Tasks**: The number of tasks assigned to students.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through various means, including:
+
+- **API Calls**: The page might make API calls to update the status of the program, assign mentors, and track task completion.
+- **Database Updates**: The page could update the database with the current status of the program, such as the number of participants, mentors, and managers.
+- **Notifications**: The page might send notifications to the wider system when certain milestones are reached, such as the start date of the program or when task completion reaches a certain threshold.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the program's status.
+
+### Detailed Breakdown of the Page
+
+#### 1. **Participants and Mentors**
+- **Participants**: 3464 students are participating in the program.
+- **Mentors**: 80 mentors are assigned to the program.
+- **Managers**: 4 managers are overseeing the program.
+
+#### 2. **Start Date**
+- **Start Date**: The program began on 20/06/2026.
+
+#### 3. **Task Completion**
+- **Task Completion**: Currently, 0 tasks have been completed out of 0 tasks assigned.
+
+#### 4. **Circulars and Chat**
+- **Circulars**: 4 circulars are available.
+- **Chat**: 20 chat messages are available.
+
+#### 5. **Tasks**
+- **Tasks**: The page lists the tasks assigned to students, although the specific tasks are not detailed in the provided text.
+
+### Conclusion
+This section of the student portal is designed to manage and track the progress of a project-based learning program. It exposes various variables and parameters related to the program's participants, mentors, managers, and task completion. The page likely interacts with the wider web system through API calls, database updates, and notifications to ensure the program's status is accurately maintained and communicated.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/85/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a "Remainder - Payment of Tuition Fees and Other Associated Fees for the Academic Year 2026-2027 - Reg." This section likely controls the process for students to make payments for their tuition fees and other associated fees for the academic year 2026-2027. The specific action it controls is the payment process, which is a critical financial transaction for students.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: This variable represents the total number of participants (students) involved in the payment process.
+- **Mentors**: This variable represents the number of mentors assigned to the participants.
+- **Managers**: This variable represents the number of managers involved in the process.
+- **Start Date**: This is a date parameter that specifies when the payment process began.
+- **Task Completion**: This is a status indicator that shows the progress of the task, which in this case is the approval status of the payment process.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through various methods, including:
+- **APIs**: The page might use APIs to communicate with the backend system for processing the payment transactions.
+- **Cookies and Sessions**: The page uses cookies and sessions to maintain user sessions and track progress.
+- **Webhooks**: The page might use webhooks to notify the backend system of changes or updates in the payment process.
+- **Database**: The page interacts with a database to store and retrieve information about the participants, mentors, managers, and payment status.
+
+### Detailed Breakdown of the Page
+
+#### UI Elements
+- **Header**: Contains the title of the page and possibly some navigation links.
+- **Main Content Area**: Displays the details of the payment process, including the number of participants, mentors, managers, start date, and task completion status.
+- **Sidebar**: Contains additional navigation links and possibly some user information.
+
+#### Variables and Parameters
+- **Participants**: 3157 / 5048
+- **Mentors**: 139 / 170
+- **Managers**: 2 / 2
+- **Start Date**: 18/06/2026
+- **Task Completion**: 0/0 (Approved / Expected)
+
+#### Functions and Actions
+- **Clicking "Back to Circulars"**: This likely redirects the user back to the main circulars page.
+- **Clicking "Circular"**: This might open a new window or tab to view the circular details.
+- **Clicking "Tasks"**: This might open a new window or tab to view the task details.
+
+### Conclusion
+The page is designed to facilitate the payment process for students during the academic year 2026-2027. It exposes various variables and parameters related to the participants, mentors, managers, and the start date of the process. The page communicates with the wider web system structure through APIs, cookies, sessions, webhooks, and a database to manage the payment process efficiently.
 
 --•--•--
 
