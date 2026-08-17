@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 289
-**Pending Sub-Layer Queue Boundaries:** 1711
+**Total Verified Inner Nodes Mapped:** 293
+**Pending Sub-Layer Queue Boundaries:** 1710
 
 ## Architectural Breakdown per Sub-System:
 
@@ -13683,6 +13683,180 @@ The page communicates with the wider web system structure through the following 
 
 ### Conclusion
 This section of the student portal is designed to streamline the process of managing and approving reward claims for students. It exposes various variables and parameters that control the approval process and communicates with the wider web system structure through form submissions and database interactions. The security measures ensure that the system is protected against unauthorized access and data breaches.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/#
+### Analysis of the Student Portal Reward Redeem Section
+
+#### 1. Action or Transactional Feature it Controls
+The "Reward Redeem" section is designed to manage and track the approval process for redeeming reward points. This feature allows students to draft, submit, and track the approval status of their reward redemption requests. The system likely integrates with a wider web system to manage and process these requests, ensuring they are handled efficiently and securely.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Subject**: A text input field where the student can enter a subject for the email or message.
+- **Attachments**: A file upload field where the student can attach files to their request.
+- **Content**: A text area where the student can write the main content of their message or email.
+- **Approval Flow**: A tab that likely contains the approval process steps or flowchart for the reward redemption request.
+- **Chat**: A chat feature that allows real-time communication with the approval team or other students.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When the student submits the form, the system likely processes the form data and sends it to the wider web system structure. This could involve sending an email to the approval team or storing the request in a database.
+- **Approval Flow**: The approval flow tab might contain a step-by-step guide or checklist for the approval process, which could be accessed by the approval team to review and approve the request.
+- **Chat**: The chat feature could be used for real-time communication, allowing the student to ask questions or provide additional information during the approval process.
+
+### Detailed Breakdown
+
+#### Form Submission
+When the student submits the form, the system processes the data and sends it to the approval team. This could involve sending an email to the approval team with the request details, or storing the request in a database for later review.
+
+#### Approval Flow
+The approval flow tab likely contains a step-by-step guide or checklist for the approval process. This could include sections for each step of the approval process, such as initial review, second review, and final approval. The approval team can access this tab to review the request and provide feedback.
+
+#### Chat
+The chat feature allows real-time communication between the student and the approval team. This could be used for questions, clarifications, or additional information that needs to be provided during the approval process.
+
+### Conclusion
+The "Reward Redeem" section is a critical feature of the student portal, managing and tracking the approval process for reward redemption requests. It exposes various forms of interaction, including text input, file uploads, and real-time communication, and passes this information to the wider web system structure for processing and approval.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=redeem
+### Analysis of the Student Portal Reward Redeem Section
+
+#### 1. Action or Transactional Feature
+The "Reward Redeem" section is designed to manage and track the approval process for redeeming reward points. Users can draft, submit, and track the approval status of their reward redemption requests. This feature is crucial for maintaining transparency and accountability in reward distribution.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Subject**: A text input field where users can specify the subject of the email or message.
+- **Attachments**: A file upload field where users can attach files to their request.
+- **Content**: A text area where users can write the main content of their message.
+- **Approval Flow**: A tab that likely contains the approval process steps or statuses.
+- **Chat**: A chat feature that allows real-time communication with approvers.
+- **Manage Mentees**: A section that might allow users to manage their mentees' reward points.
+- **Mentorship**: A section that might allow users to manage their mentorship-related rewards.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Form Submission**: When a user submits the form, the data is sent to the server via an HTTP POST request. The form data is typically sent to a specific endpoint or URL.
+- **Approval Flow**: The approval flow might be managed through a backend system that tracks the status of each request. This could involve a database where each request is stored with its status (e.g., pending, approved, rejected).
+- **Chat**: The chat feature might use a messaging API or a chatbot to handle real-time communication. The messages are likely sent to a specific chat endpoint or a messaging service.
+- **Manage Mentees**: The manage mentees section might interact with a backend system that manages user profiles and their associated reward points.
+- **Mentorship**: The mentorship section might interact with a backend system that manages mentor-mentee relationships and rewards.
+
+### Detailed Breakdown of the Form Fields
+- **Subject**: This field allows users to specify the subject of their message. It is crucial for organizing and identifying the request.
+- **Attachments**: This field allows users to attach files to their request. Users can upload up to 2 files, which might be important for supporting their request with additional documentation.
+- **Content**: This field allows users to write the main content of their message. It is where users can explain their request in detail, providing context and justification.
+- **Approval Flow**: This tab likely contains the approval process steps or statuses. Users can view the status of their request and the progress of the approval process.
+- **Chat**: This feature allows real-time communication with approvers. Users can send messages to the approvers and receive responses in real-time.
+- **Manage Mentees**: This section might allow users to manage their mentees' reward points. Users can view and manage the reward points of their mentees.
+- **Mentorship**: This section might allow users to manage their mentorship-related rewards. Users can view and manage their mentorship rewards.
+
+### Conclusion
+The "Reward Redeem" section is a comprehensive feature that manages the approval process for redeeming reward points. It includes various fields for drafting and submitting messages, real-time communication with approvers, and managing mentees' reward points. The data submitted through this form is likely processed by a backend system that tracks the status of each request and manages the approval process.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=workflow
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section "Reward Redeem - Student" is designed to manage and approve reward redemption requests for students. This feature allows users to draft, submit, and track reward redemption approvals. The primary actions include:
+- **Drafting a Reward Redemption Request**: Users can create a draft of a reward redemption request.
+- **Submitting a Reward Redemption Request**: Once approved, the request can be submitted for further processing.
+- **Tracking Reward Redemption Approvals**: Users can monitor the status of their reward redemption requests.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes several key variables and parameters that are essential for the functionality:
+- **Reward Term**: The dropdown menu allows users to select the academic term for which the reward redemption is applicable.
+- **Reward Ledger (Expense)**: Users can choose from predefined reward ledger options to specify the type of reward they are redeeming.
+- **Student Instruction**: This section provides instructions for the reward ledger, which users can select to understand the specific requirements or guidelines for the reward redemption.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page communicates information to the wider web system structure through the following mechanisms:
+- **Form Submission**: When a user submits a reward redemption request, the form data is sent to the server for processing. This data includes the selected reward term, ledger type, and any other relevant details.
+- **API Calls**: The page may make API calls to the backend system to update the reward redemption status or to retrieve additional information.
+- **Session Management**: The page uses session management to track user interactions and maintain state across different pages and sessions.
+
+### Detailed Breakdown
+
+#### Reward Term Dropdown
+- **Action**: Dropdown selection
+- **Parameters**: None
+- **Text Grid**: "2026-2027"
+- **Functionality**: Allows users to choose the academic term for which the reward redemption is applicable.
+
+#### Reward Ledger (Expense) Dropdown
+- **Action**: Dropdown selection
+- **Parameters**: None
+- **Text Grid**: "---------"
+- **Functionality**: Allows users to select a predefined reward ledger type for the redemption.
+
+#### Student Instruction Section
+- **Action**: Text selection
+- **Parameters**: None
+- **Text Grid**: "Select a reward ledger to see instructions."
+- **Functionality**: Provides instructions for the selected reward ledger, helping users understand the specific requirements or guidelines for the reward redemption.
+
+#### Submit Button
+- **Action**: Submit form
+- **Parameters**: Form data (reward term, ledger type)
+- **Functionality**: Sends the form data to the server for processing and approval.
+
+### Summary
+The "Reward Redeem - Student" section is a critical part of the student portal, managing the process of drafting, submitting, and tracking reward redemption requests. It exposes key variables and parameters for user interaction and leverages session management and API calls to communicate with the wider web system structure.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/calculate-my-attendance/#
+### Analysis of the Student Portal Attendance Calculation Page
+
+#### 1. Action or Transactional Feature it Controls
+The page "Calculate My Attendance" is designed to allow students to calculate their attendance for the enrolled academic subject slots. This feature is a critical part of the student management system, enabling students to verify their attendance records and understand their punctuality in relation to their enrolled courses.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Academic Term**: This is a dropdown menu that allows students to select the academic term they are enrolled in. The options are pre-populated with the available terms, such as "25-26 EVEN T2".
+- **Enrolled Subject Slot**: This is another dropdown menu that allows students to select the specific subject slot they are enrolled in. The options are pre-populated with the available subject slots.
+- **Calculate Button**: This button is used to trigger the calculation of attendance based on the selected academic term and subject slot.
+- **Reset Button**: This button allows students to clear the selections and start over if needed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page "Calculate My Attendance" likely communicates with a backend system that stores the student's attendance records and academic details. Here’s how the information is passed:
+
+1. **Form Submission**: When the "Calculate" button is clicked, the form data (academic term and subject slot) is submitted to the backend.
+2. **Backend Processing**: The backend receives the form data and queries the database to fetch the student's attendance records for the selected academic term and subject slot.
+3. **Result Calculation**: The backend processes the data to calculate the attendance percentage based on the records.
+4. **Response Generation**: The backend generates a response with the calculated attendance percentage.
+5. **Page Rendering**: The response is sent back to the frontend, which then displays the calculated attendance percentage to the student.
+
+### Detailed Steps for Information Flow
+1. **User Interaction**:
+   - The student selects the academic term from the dropdown menu.
+   - The student selects the subject slot from the dropdown menu.
+   - The student clicks the "Calculate" button.
+
+2. **Form Submission**:
+   - The form data (academic term and subject slot) is sent to the backend via an HTTP POST request.
+
+3. **Backend Processing**:
+   - The backend receives the form data.
+   - It queries the database to fetch the student's attendance records for the selected academic term and subject slot.
+   - It calculates the attendance percentage based on the records.
+
+4. **Response Generation**:
+   - The backend generates a response with the calculated attendance percentage.
+   - The response includes the calculated attendance percentage and any other relevant information.
+
+5. **Page Rendering**:
+   - The frontend receives the response from the backend.
+   - The frontend displays the calculated attendance percentage to the student.
+
+### Security Considerations
+- **Data Privacy**: Ensure that the student's personal and academic data is securely stored and transmitted.
+- **Data Integrity**: Implement measures to prevent unauthorized access and ensure the integrity of the data.
+- **User Authentication**: Ensure that only authenticated users can access the page and that the login credentials are secure.
+
+### Conclusion
+The "Calculate My Attendance" page is a critical feature that helps students manage their academic records and understand their attendance percentages. It leverages a backend system to process the data and generate a response, ensuring that the information is both accurate and secure.
 
 --•--•--
 
