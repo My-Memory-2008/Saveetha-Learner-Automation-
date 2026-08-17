@@ -1,0 +1,30 @@
+name: Restart
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: write
+
+jobs:
+  trigger-automate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Wait 1 minute before triggering automate.yml
+        run: |
+          echo "Waiting 60 seconds before triggering automate.yml..."
+          sleep 60
+
+      - name: Trigger automate.yml
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          echo "Triggering automate.yml on branch/tag: ${{ github.ref_name }}"
+          gh workflow run automate.yml --ref "${{ github.ref_name }}"
+          echo "automate.yml triggered successfully."
+          echo "restart.yml will now finish and terminate."
