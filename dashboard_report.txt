@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 177
-**Pending Sub-Layer Queue Boundaries:** 1580
+**Total Verified Inner Nodes Mapped:** 181
+**Pending Sub-Layer Queue Boundaries:** 1578
 
 ## Architectural Breakdown per Sub-System:
 
@@ -8998,6 +8998,224 @@ API server link offline:
 
 ### System Node Endpoint: https://learner.saveetha.in/academics/studentsubjects/1328/#
 API server link offline: 
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=19#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal, likely used for managing academic schedules and attendance. The specific page displayed is for a particular course, "19CS405 - Operating System," scheduled for August 19, 2026. The page allows students to view their attendance for the course.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Course Information:**
+  - **Course Code:** 19CS405
+  - **Course Name:** Operating System
+  - **Slot:** 26OD1089
+  - **Lesson:** Process Synchronization, Message Queues, Client-Server IPC, Semaphores & Shared Memory
+  - **Start Time:** 08:00 AM
+  - **End Time:** 09:59 AM
+  - **Venue:** 3483
+
+- **Attendance Information:**
+  - **View Attendance Button:** This button likely redirects the user to a page where they can view their attendance for the course.
+
+- **Date and Time:**
+  - **Date:** August 19, 2026
+  - **Time:** 08:00 AM to 09:59 AM
+
+- **User Information:**
+  - **Logged In As:** 25013957
+  - **Name:** Muhammad Asjad E
+  - **Ref1:** 212225240091
+  - **Ref2:** 25013957
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters:**
+  - The page is accessed via a URL with parameters:
+    - `year=2026`
+    - `month=8`
+    - `day=19`
+  - These parameters likely correspond to the year, month, and day of the course schedule.
+
+- **Session Variables:**
+  - The user's session ID (25013957) is stored in a cookie or session variable, which is used to track the user's session and ensure their actions are logged.
+
+- **JavaScript and Cookies:**
+  - The page uses JavaScript to handle user interactions and possibly to update the attendance information dynamically.
+  - Cookies are used to store user session data, such as the user's ID and name.
+
+- **API Calls:**
+  - The page may make API calls to a backend system to retrieve or update attendance data. This could be done via a RESTful API endpoint.
+
+- **Database Interaction:**
+  - The page interacts with a database to fetch the course schedule and attendance data. This could be done via SQL queries or other database operations.
+
+### Summary
+The section in question is a part of a student portal that manages academic schedules and attendance. It exposes variables such as course information, user session data, and date/time parameters. The page passes information to the wider web system structure through URL parameters, session variables, and potentially API calls to a backend database.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=22
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+This section controls the display of the student's academic schedule for the specified month and day. It allows the student to view their upcoming classes, lessons, and other academic activities for the specified month and day.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 22
+  - **Slot ID:** 26OD1171, 26OD1089, 26OD1001
+  - **Lesson Titles:** "Advanced C Programming," "Operating System," "Computer Networks"
+  - **Start Time:** 08:00 AM, 10:00 AM, 01:00 PM
+  - **End Time:** 09:59 AM, 11:59 AM, 02:59 PM
+  - **Venue IDs:** 2872, 5453, 3681
+
+- **Parameters:**
+  - **Year:** `2026`
+  - **Month:** `August`
+  - **Day:** `22`
+
+- **Text Grids:**
+  - **Title:** "AUGUST 2026"
+  - **Dates:** 19, 20, 21, 22, 23, 24, 25
+  - **Class Titles:** "19AI305 - Advanced C Programming," "19CS405 - Operating System," "19CS406 - Computer Networks"
+  - **Slot IDs:** "26OD1171," "26OD1089," "26OD1001"
+  - **Start Times:** "08:00 AM," "10:00 AM," "01:00 PM"
+  - **End Times:** "09:59 AM," "11:59 AM," "02:59 PM"
+  - **Venue IDs:** "2872," "5453," "3681"
+
+- **Functions:**
+  - **View Attendance:** Allows the student to view their attendance records for the specified class.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters:**
+  - The page is accessed via a URL that includes the year, month, and day parameters:
+    ```
+    https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=22
+    ```
+  - These parameters are passed to the server-side script to fetch the student's schedule for the specified date.
+
+- **Server-Side Script:**
+  - The server-side script processes the parameters and retrieves the student's schedule data from the database.
+  - The data is then rendered on the client-side using JavaScript and HTML.
+
+- **Database Interaction:**
+  - The server-side script queries the database to fetch the student's schedule for the specified date.
+  - The database stores the schedule data in a structured format, such as JSON, which is then passed back to the client.
+
+- **Client-Side Rendering:**
+  - The client-side JavaScript dynamically populates the HTML page with the fetched schedule data.
+  - The page is rendered with the student's name, class titles, start and end times, and venue IDs.
+
+### Summary
+This section of the student portal is designed to provide a user-friendly interface for viewing the student's academic schedule. It exposes various variables, parameters, and functions related to the student's schedule, and it passes this information to the wider web system structure through URL parameters and database queries. The page is rendered on the client-side using JavaScript and HTML, ensuring a seamless and interactive user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=38310&slot_id=1416&year=2026&month=8&day=19
+### Analysis of the Student Portal Page
+
+#### 1. What Action or Transactional Feature it Controls
+The page in question is part of a student portal, specifically designed to manage and display attendance and lesson information for a course. The page controls the following transactional features:
+- **Attendance Management**: It allows students to manage their attendance records.
+- **Lesson Scheduling**: It displays the schedule for lessons and their associated topics.
+- **Lecture Details**: It provides detailed information about lectures, including the teaching methods and topics covered.
+
+#### 2. The Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes several variables and parameters that are critical for its functionality:
+- **Session ID**: `slotsession_id=38310`
+- **Slot ID**: `slot_id=1416`
+- **Year**: `year=2026`
+- **Month**: `month=8`
+- **Day**: `day=19`
+- **Course ID**: `19CS405`
+- **Course Name**: `Operating System`
+- **Slot Details**: `26OD1089`, `Wed, 19 Aug 2026`, `08:00 AM - 09:59 AM`, `Venue: 3483`
+- **Lesson Details**: `Lesson: Process Synchronization: Message Queues, Client-Server IPC, Semaphores & Shared Memory`
+- **Teaching Methods**: `Lecture`, `Interactive Lecture`, `Hands-on Practice`
+- **Topics**: `U3 T9: Linux Message Queues and Client-Server IPC`, `U3 T10: Linux Semaphores and Shared Memory APIs`
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+- **URL Parameters**: The page uses URL parameters to pass the necessary information to the server. For example, `slotsession_id`, `slot_id`, `year`, `month`, `day`, `course_id`, and `course_name` are passed in the URL.
+- **Session ID**: The session ID (`slotsession_id=38310`) is used to maintain state across multiple requests.
+- **Cookie**: The page may use cookies to store user information and session data, although this is not explicitly shown in the URL parameters.
+- **Server-Side Variables**: The page uses server-side variables to store and retrieve data, such as the course details and lesson information.
+
+### Detailed Breakdown of the Page
+
+#### Course Information
+- **Course ID**: `19CS405`
+- **Course Name**: `Operating System`
+- **Slot Details**: 
+  - `Slot ID`: `26OD1089`
+  - `Date`: `Wed, 19 Aug 2026`
+  - `Time`: `08:00 AM - 09:59 AM`
+  - `Venue`: `3483`
+
+#### Lesson Information
+- **Lesson Title**: `Process Synchronization: Message Queues, Client-Server IPC, Semaphores & Shared Memory`
+- **Teaching Methods**:
+  1. **Lecture**: 30 minutes
+  2. **Interactive Lecture**: 30 minutes
+  3. **Hands-on Practice**: 59 minutes
+- **Topics**:
+  - `U3 T9: Linux Message Queues and Client-Server IPC`
+  - `U3 T10: Linux Semaphores and Shared Memory APIs`
+
+### Conclusion
+This page is a critical component of the student portal, managing and displaying essential information related to attendance and lesson schedules. It uses URL parameters, session IDs, and possibly cookies to pass data to the server, which then processes and displays the information to the user. The page's functionality is designed to provide students with the necessary details to manage their attendance and understand the structure of their lessons.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/132/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section "MY Bharat Registration Drive" appears to be a registration or participation form for a program or initiative related to youth empowerment and community engagement. The form likely controls the following actions:
+- **Registration**: Allows students to sign up for the program.
+- **Participation**: Tracks the number of participants and mentors.
+- **Task Completion**: Monitors the progress of tasks or activities related to the program.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+- **Participants**: Number of registered participants.
+- **Mentors**: Number of mentors assigned.
+- **Managers**: Number of managers overseeing the program.
+- **Start Date**: Date when the program began.
+- **Task Completion**: Status of task completion (e.g., approved, expected).
+
+The text grids display these variables and parameters in a tabular format, making it easy for users to view and understand the current status of the program.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the status of the program, such as tracking task completion or managing participant data.
+- **Cookies and Sessions**: The page could use cookies or sessions to maintain user sessions and track user interactions.
+- **Server-Side Scripts**: The page might use server-side scripts to update the database with the latest participant and mentor information.
+- **Webhooks**: The page could use webhooks to notify other systems or services about changes in the program status.
+
+### Detailed Explanation
+
+#### Registration and Participation
+The registration and participation section allows students to sign up for the program. This section likely includes fields for personal information, contact details, and any other relevant information required to participate in the program. The form might also include checkboxes or dropdowns for selecting specific roles or activities within the program.
+
+#### Task Completion
+The task completion section tracks the progress of tasks or activities related to the program. This section might display the status of completed tasks, such as "approved" or "expected," and provide a way for users to update or review their task status.
+
+#### Variables and Parameters
+The variables and parameters displayed in the text grids are essential for tracking the program's progress. For example, the number of participants and mentors helps in understanding the scale and scope of the program. The start date indicates when the program began, which is crucial for tracking its timeline.
+
+#### Information Flow
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the status of the program, such as tracking task completion or managing participant data. For example, an API call could be made to update the participant count or mentor count.
+- **Cookies and Sessions**: The page could use cookies or sessions to maintain user sessions and track user interactions. This ensures that the user's progress and status are maintained across different sessions.
+- **Server-Side Scripts**: The page might use server-side scripts to update the database with the latest participant and mentor information. This ensures that the database is always up-to-date with the latest program status.
+- **Webhooks**: The page could use webhooks to notify other systems or services about changes in the program status. For example, a webhook could be triggered when a task is completed, allowing other systems to receive notifications.
+
+By understanding these mechanisms, one can better understand how the student portal section works and how it interacts with the wider web system structure.
 
 --•--•--
 
