@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 257
-**Pending Sub-Layer Queue Boundaries:** 1690
+**Total Verified Inner Nodes Mapped:** 261
+**Pending Sub-Layer Queue Boundaries:** 1698
 
 ## Architectural Breakdown per Sub-System:
 
@@ -12372,6 +12372,181 @@ The page likely communicates with the wider web system structure through various
 
 ### Conclusion
 The page is designed to facilitate the payment process for students during the academic year 2026-2027. It exposes various variables and parameters related to the participants, mentors, managers, and the start date of the process. The page communicates with the wider web system structure through APIs, cookies, sessions, webhooks, and a database to manage the payment process efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/82/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the registration and management of programming courses and EY courses for 1st and 2nd year learners. This includes tracking participants, mentors, managers, and managing the start date of the courses. The section likely controls the registration process, tracking of course progress, and managing the mentorship relationships.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants registered for the courses.
+- **Mentors**: The number of mentors assigned to the courses.
+- **Managers**: The number of managers assigned to the courses.
+- **Start Date**: The date when the courses started.
+- **Task Completion**: Indicates whether the tasks have been approved or expected.
+- **Circular**: The specific circular number for the course.
+- **Tasks**: The number of tasks or activities related to the course.
+- **Mentorship Type**: Indicates whether the mentorship is "NoMentor" or "AcademicMentor".
+- **Logged in as**: The user who is currently logged in, including their ID, name, and ref IDs.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the registration, tracking, and approval of courses. Here’s a breakdown of how it might pass information:
+
+1. **User Authentication**: The page checks if the user is logged in and displays their information.
+2. **Course Registration**: When a user registers for a course, the page sends the participant's information to the backend system.
+3. **Mentor and Manager Assignments**: The page sends the mentor and manager assignments to the backend system.
+4. **Start Date**: The start date is sent to the backend system.
+5. **Task Completion**: The task completion status is sent to the backend system.
+6. **Circular and Tasks**: The specific circular number and the number of tasks are sent to the backend system.
+7. **Mentorship Type**: The mentorship type is sent to the backend system.
+8. **Logging in**: The logged-in user's information is sent to the backend system.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title**: "Programming Courses (Module Course) and EY Courses for I Year and II Year Learners - Reg"
+- **User Information**: Displays the user's ID, name, and ref IDs.
+
+#### Main Content
+- **Participants**: Displays the number of participants registered for the courses.
+- **Mentors**: Displays the number of mentors assigned to the courses.
+- **Managers**: Displays the number of managers assigned to the courses.
+- **Start Date**: Displays the start date of the courses.
+- **Task Completion**: Displays whether the tasks have been approved or expected.
+- **Circular**: Displays the specific circular number for the course.
+- **Tasks**: Displays the number of tasks or activities related to the course.
+- **Mentorship Type**: Displays whether the mentorship is "NoMentor" or "AcademicMentor".
+
+#### Sidebar
+- **Menu**: Contains options like "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," and "Services."
+- **Manage**: Contains options like "Mentees" and "Mentorship."
+
+#### Footer
+- **Circular**: Displays the number of chats and tasks related to the course.
+- **Programming Courses (Module Course) and EY Courses for I Year and II Year Learners - Reg**: Displays the title of the course.
+- **Mentorship Type**: Displays whether the mentorship is "NoMentor" or "AcademicMentor".
+- **Logged in as**: Displays the user's information, including their ID, name, and ref IDs.
+
+### Conclusion
+This section of the student portal is designed to manage the registration, tracking, and approval of programming courses and EY courses for 1st and 2nd year learners. It exposes various variables and parameters, such as participants, mentors, managers, start dates, task completion, circular numbers, and mentorship types. The page interacts with a backend system to manage these details and passes information to the wider web system structure through user authentication, course registration, mentor and manager assignments, start date, task completion, circular numbers, and mentorship types.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/81/
+Network traversal blocked or timeout: Page.goto: Timeout 60000ms exceeded.
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/circulars/81/", waiting until "load"
+
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/80/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the commencement of classes for the Academic Year 2026-2027 for Higher Semester UG & PG Programs. This section likely manages the registration, mentorship, and tracking of participants, mentors, and managers involved in the commencement process.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants registered for the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers overseeing the program.
+- **Start Date**: The date when the commencement process began.
+- **Task Completion**: The number of tasks completed or expected to be completed.
+- **Circular**: The specific circular or document related to the commencement process.
+- **Chat**: The number of chat messages or interactions.
+- **Tasks**: The number of tasks or activities assigned to participants, mentors, and managers.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the commencement process. Here’s a breakdown of how it might pass information:
+
+- **API Calls**: The page might make API calls to the backend to update the status of participants, mentors, and managers.
+- **Database Updates**: The page could update a database with the current status of participants, mentors, and managers.
+- **Notifications**: The page might send notifications to participants, mentors, and managers via email or messaging systems.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the commencement process.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title**: "Commencement of Classes - Academic Year 2026-2027 - Higher Semester UG & PG Programmes - Reg."
+- **Participants**: 3321 / 5649
+- **Mentors**: 145 / 170
+- **Managers**: 2 / 2
+- **Start Date**: 17/06/2026
+- **Task Completion**: 0 / 0
+- **Circular**: "Commencement of Classes - Academic Year 2026-2027 - Higher Semester UG & PG Programmes - Reg."
+- **Chat**: 50
+- **Tasks**: 0
+
+#### Sidebar
+- **Menu**: Contains links to different sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, Mentorship, etc.
+- **Logged in as**: Displays the user's ID and other details.
+
+#### Main Content
+- **Circular**: Displays the specific circular or document related to the commencement process.
+- **Chat**: Displays the number of chat messages or interactions.
+- **Tasks**: Displays the number of tasks or activities assigned to participants, mentors, and managers.
+
+### Conclusion
+This section of the student portal is designed to manage the commencement of classes for the Academic Year 2026-2027 for Higher Semester UG & PG Programs. It exposes various variables and parameters related to participants, mentors, managers, and the commencement process. The page interacts with a backend system to update the status of participants, mentors, and managers, and sends notifications to authorized users.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/78/
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a live circular or announcement page for the Academic Year 2026-2027, specifically targeting parents and learners. This page likely controls the following actions and transactions:
+- **Information Distribution**: It provides information and updates to parents and learners regarding the academic year.
+- **Mentorship and Management**: It manages mentorship and management roles, including the number of participants, mentors, and managers.
+- **Task Completion Tracking**: It tracks the completion of tasks related to the academic year, such as registration or other administrative tasks.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes several key variables and parameters:
+- **Participants**: The total number of participants (3276) and the number of learners (5048).
+- **Mentors**: The number of mentors (145) and the number of learners who are mentors (172).
+- **Managers**: The number of managers (2) and the number of learners who are managers (2).
+- **Start Date**: The start date of the academic year (09/06/2026).
+- **Task Completion**: The number of tasks completed (0/0), indicating that no tasks have been completed yet.
+- **Circular**: The number of chats (33) and tasks (Tasks) related to the circular.
+- **Mentorship Type**: The type of mentorship (AcademicMentor).
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update or retrieve data from the backend system, such as updating the number of participants, mentors, and managers.
+- **Database Updates**: The page could update the database with the current status of the academic year, such as the number of participants and mentors.
+- **Notifications**: The page might trigger notifications or alerts to other parts of the system when certain conditions are met, such as when a task is completed or when a new participant is added.
+- **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify the information.
+
+### Detailed Breakdown of the Page
+
+#### Page Structure
+- **Header**: Contains the user's profile and settings.
+- **Main Content Area**:
+  - **Title**: "Academic Year 2026-2027 - Information to Parents and Learners-Reg."
+  - **Participants and Mentors**: Displays the number of participants and mentors.
+  - **Managers**: Displays the number of managers.
+  - **Start Date**: Displays the start date of the academic year.
+  - **Task Completion**: Displays the number of tasks completed.
+  - **Circular**: Displays the number of chats and tasks related to the circular.
+  - **Mentorship Type**: Displays the type of mentorship.
+  - **User Information**: Displays the user's ID, name, and other relevant details.
+
+#### API Calls
+- **Update Participant Count**: The page might call an API to update the participant count in the backend system.
+- **Update Mentor Count**: The page might call an API to update the mentor count in the backend system.
+- **Update Manager Count**: The page might call an API to update the manager count in the backend system.
+- **Update Task Completion**: The page might call an API to update the task completion status in the backend system.
+- **Update Mentorship Type**: The page might call an API to update the mentorship type in the backend system.
+
+#### Notifications
+- **Task Completion Notification**: The page might trigger a notification when a task is completed, informing other parts of the system.
+- **New Participant Notification**: The page might trigger a notification when a new participant is added, informing other parts of the system.
+
+### Conclusion
+The page in question is a critical component of the student portal, controlling various actions and transactions related to the academic year. It exposes key variables and parameters, and passes information to the wider web system structure through API calls and notifications. This ensures that the information is up-to-date and accessible to all relevant parties.
 
 --•--•--
 
