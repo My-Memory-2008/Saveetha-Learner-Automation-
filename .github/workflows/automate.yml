@@ -331,12 +331,93 @@
 
 
 
+# name: Run Web Agent Automation
+
+# on:
+#   workflow_dispatch: # Manual trigger
+#   schedule:
+#     # Triggers the workflow every 20 minutes
+#     - cron: '*/15 * * * *'
+
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+
+#     services:
+#       ollama-service:
+#         image: ollama/ollama:latest
+#         ports:
+#           - 11434:11434
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         persist-credentials: true 
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx
+#         playwright install chromium
+
+#     - name: Verify Ollama Service and Pull Qwen Vision Model
+#       run: |
+#         curl -s http://localhost:11434
+#         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
+
+#     - name: Run Web AI Automation Agent Execution Script
+#       run: python run_agent.py
+
+#     # ✅ REFRESSED STEP: Now tracks and commits your self-learning data AND the fresh cookies.json
+#     - name: Commit AI Self Learning Data and Refreshed Cookies to Repository Root
+#       if: always()
+#       run: |
+#         git config --global user.name "github-actions[bot]"
+#         git config --global user.email "41898282+github-actions[bot]@://github.com"
+        
+#         # Check if code files exist
+#         if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ] || [ -f cookies.json ]; then
+#           # Add the refreshed authentication matrix alongside knowledge layers
+#           git add ai_self_learning_data.json dashboard_report.txt cookies.json
+          
+#           if ! git diff-index --quiet HEAD; then
+#             git commit -m "🤖 AI Loop Update: Extended Session Cookie Lifespans & Site Structure Knowledge Base"
+#             git push origin HEAD:${{ github.ref }}
+#             echo "✅ Refreshed cookies and learning database committed straight back to your GitHub repository!"
+#           else
+#             echo "ℹ️ No changes detected in token lifecycles or layout. Skipping push loop."
+#           fi
+#         fi
+
+#     - name: Securely Store Scraped Artifact Summaries
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: execution-results-bundle
+#         path: |
+#           dashboard_report.txt
+#           ai_self_learning_data.json
+#           cookies.json
+
+
+
+
+
+
+
+
 name: Run Web Agent Automation
 
 on:
   workflow_dispatch: # Manual trigger
   schedule:
-    # Triggers the workflow every 20 minutes
+    # Triggers the workflow every 15 minutes
     - cron: '*/15 * * * *'
 
 jobs:
@@ -374,12 +455,12 @@ jobs:
     - name: Run Web AI Automation Agent Execution Script
       run: python run_agent.py
 
-    # ✅ REFRESSED STEP: Now tracks and commits your self-learning data AND the fresh cookies.json
+    # ✅ REFRESHED STEP: Now tracks and commits your self-learning data AND the fresh cookies.json
     - name: Commit AI Self Learning Data and Refreshed Cookies to Repository Root
       if: always()
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@://github.com"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         
         # Check if code files exist
         if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ] || [ -f cookies.json ]; then
@@ -404,3 +485,7 @@ jobs:
           dashboard_report.txt
           ai_self_learning_data.json
           cookies.json
+
+    # ✅ NEW STEP: Executes the scheduler at the very end and naturally terminates the workflow
+    - name: Execute Final Scheduler Script
+      run: python scheduler.py
