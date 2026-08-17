@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 217
-**Pending Sub-Layer Queue Boundaries:** 1618
+**Total Verified Inner Nodes Mapped:** 221
+**Pending Sub-Layer Queue Boundaries:** 1623
 
 ## Architectural Breakdown per Sub-System:
 
@@ -10529,6 +10529,202 @@ The page likely passes information to the wider web system structure through the
    - **Text Grids**: It uses text grids to display the current status of webhooks, making it easy for users to see and manage them.
 
 By managing these various aspects, the page ensures that the exam booking process is well-coordinated, and users have easy access to the necessary information and tools to manage their tasks and interactions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/108/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the booking and management of exam slots for the SCOTF (Save Etha Foundation) during regular class hours. This includes managing participants, mentors, and managers, and tracking the status of task completions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants who have booked exam slots.
+- **Mentors**: The number of mentors assigned to manage the exam slots.
+- **Managers**: The number of managers assigned to oversee the exam slots.
+- **Start Date**: The date when the exam slots were booked.
+- **Task Completion**: The status of task completions, which is currently at 0/0, indicating that no tasks have been completed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the booking and tracking of exam slots. Here’s a breakdown of how it might pass information:
+
+- **API Calls**: The page might make API calls to update the status of exam slots, manage participants, mentors, and managers, and track task completions.
+- **Session Management**: The page uses session management to keep track of user sessions and logged-in users.
+- **Database Interaction**: The page interacts with a database to store and retrieve information about exam slots, participants, mentors, and managers.
+- **User Authentication**: The page ensures that only authorized users can access and modify the information, using authentication mechanisms like tokens or session variables.
+
+### Detailed Explanation
+
+1. **API Calls**:
+   - The page might send an API request to update the status of exam slots, manage participants, mentors, and managers, and track task completions. For example, it could send a POST request to an endpoint like `/api/examSlots/update` to update the status of exam slots.
+
+2. **Session Management**:
+   - The page uses session management to keep track of user sessions and logged-in users. This ensures that only authorized users can access and modify the information. For example, it might use a session variable to store the user's ID or token.
+
+3. **Database Interaction**:
+   - The page interacts with a database to store and retrieve information about exam slots, participants, mentors, and managers. For example, it might use SQL queries to insert, update, or retrieve data from the database.
+
+4. **User Authentication**:
+   - The page ensures that only authorized users can access and modify the information. This is typically done using authentication mechanisms like tokens or session variables. For example, it might use a token to verify the user's identity before allowing them to access the page.
+
+### Example API Call
+```json
+{
+  "action": "updateSlotStatus",
+  "slotId": "123456",
+  "status": "completed",
+  "userId": "123456789"
+}
+```
+
+### Example Database Query
+```sql
+INSERT INTO exam_slots (slot_id, status, created_at)
+VALUES (123456, 'completed', NOW());
+```
+
+### Example Token Verification
+```javascript
+const token = localStorage.getItem('token');
+if (token) {
+  // Token is valid, allow access to the page
+} else {
+  // Token is invalid, redirect to login page
+}
+```
+
+By understanding these mechanisms, one can reverse engineer how this section works and how it interacts with the wider web system structure.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/108/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control a group chat feature within a student portal. This feature likely allows students to communicate with each other, their mentors, and managers in real-time. The chat is managed by a manager, which restricts posting and rating actions, indicating a controlled environment for discussion and collaboration.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the chat, which is 2835.
+- **Mentors**: The number of mentors, which is 134.
+- **Managers**: The number of managers, which is 3.
+- **Start Date**: The date when the chat started, which is 25/07/2026.
+- **Task Completion**: The task completion status, which is 0/0 (uncompleted).
+- **Circular**: The current circular being accessed, which is 108.
+- **Chat**: The number of chats, which is 2.
+- **Tasks**: The number of tasks, which is 0.
+- **Discussion Topics**: The focused threaded discussions, which are not specified in detail.
+- **Live Updates**: Indicates that live updates are connected, suggesting real-time communication.
+- **Refresh Button**: Allows the user to refresh the chat or page.
+- **Message**: Indicates that the chat is locked by a manager, and posting and rating actions are disabled.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The user is logged in as "25013957 MUHAMMAD ASJAD E."
+- **Circular ID**: The circular ID is 108, which is used to identify the specific chat.
+- **Manager Locking**: The chat is locked by a manager, which is a security measure to control access and prevent unauthorized posting.
+- **Task Completion Status**: The task completion status is 0/0, indicating that no tasks have been completed.
+- **Live Updates**: The live updates are connected, which means real-time updates are available.
+- **Refresh Button**: The refresh button allows the user to update the page, which could be used to refresh the chat or page content.
+
+### Summary
+This section of the student portal controls a group chat feature that allows students to communicate with mentors and managers. It exposes various variables such as the number of participants, mentors, managers, start date, task completion status, and live updates. The page passes information to the wider web system structure through user authentication, circular ID, and task completion status. The lock by a manager and the refresh button are key features that control the interaction and security of the chat.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/108/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a task management or task tracking feature within the student portal. It controls the process of adding, managing, and tracking tasks related to the SCOTT Exam Centre Slot Booking during regular class hours. This feature helps in organizing and tracking the progress of tasks assigned to mentors, managers, and participants.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants involved in the event.
+- **Mentors**: The number of mentors assigned to the event.
+- **Managers**: The number of managers assigned to the event.
+- **Start Date**: The date when the event starts.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating no tasks have been added yet.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and track the tasks assigned to mentors and managers. Here’s a breakdown of how this might work:
+
+1. **User Authentication**: The user logs in using their credentials, which are likely stored in a database.
+2. **Task Management**: The user can add tasks to the circular, which are then stored in a database.
+3. **Task Status Tracking**: The system tracks the status of each task, indicating whether it is approved, expected, or in progress.
+4. **Data Transfer**: The system uses HTTP requests to send data to the backend, which could be JSON or XML formatted data.
+5. **Backend Processing**: The backend processes the data, updates the database, and sends a response back to the frontend.
+6. **Frontend Display**: The frontend displays the updated information, including the number of participants, mentors, managers, and the start date.
+
+### Detailed Steps and Processes
+
+1. **User Authentication**:
+   - The user logs in using their credentials.
+   - The credentials are verified against the database.
+
+2. **Task Management**:
+   - The user navigates to the task management section.
+   - The user adds tasks to the circular, specifying the mentor, manager, and task details.
+
+3. **Task Status Tracking**:
+   - The system tracks the status of each task, updating the database accordingly.
+   - The status could be "Approved," "Expected," or "In Progress."
+
+4. **Data Transfer**:
+   - The frontend sends an HTTP request to the backend with the task details.
+   - The backend processes the request and updates the database.
+
+5. **Backend Processing**:
+   - The backend receives the request, processes the data, and updates the database.
+   - The backend sends a response back to the frontend.
+
+6. **Frontend Display**:
+   - The frontend receives the response from the backend.
+   - The frontend updates the display with the latest information, including the number of participants, mentors, managers, and the start date.
+
+### Conclusion
+This section of the student portal is designed to manage and track tasks related to the SCOTT Exam Centre Slot Booking during regular class hours. It uses a combination of frontend and backend processes to ensure that tasks are organized, tracked, and updated in real-time. The system ensures that the information is accessible to all relevant parties, facilitating better management and coordination.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/107/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the registration and management of the "Design Horizon Experience - II Year Learners" program. This includes tracking participants, mentors, managers, and the overall progress of the program. The section likely manages the registration process, tracking of participants, and the distribution of tasks or responsibilities among mentors and managers.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants registered for the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers assigned to the program.
+- **Start Date**: The date when the program started.
+- **Task Completion**: The status of task completion, indicating whether tasks have been approved or expected.
+- **Circular**: The specific circular number and date associated with the program.
+- **Tasks**: The number of tasks or responsibilities assigned to mentors and managers.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the registration and tracking of participants, mentors, and managers. Here’s a breakdown of how this might work:
+
+1. **Registration and Tracking**:
+   - **Participants**: When a participant registers, their information is likely stored in a database.
+   - **Mentors and Managers**: Similarly, mentors and managers are assigned and their details are stored.
+   - **Task Completion**: The status of task completion is tracked and updated in the database.
+
+2. **Circular and Tasks**:
+   - The circular number and date are stored in the database.
+   - The number of tasks assigned to mentors and managers is tracked and updated.
+
+3. **Web Interface**:
+   - The web interface displays this information to the user, allowing them to view the status of the program.
+   - The interface likely communicates with the backend system to fetch this information and update it as needed.
+
+4. **User Authentication**:
+   - The user is logged in, and their ID (e.g., 25013957) is displayed.
+   - This ID is likely used to authenticate the user and ensure they have the necessary permissions to view and manage the program.
+
+5. **Communication with Backend**:
+   - The page likely uses AJAX or similar technologies to update the display without reloading the page.
+   - The backend system is updated with any changes made by the user, such as task completions or mentor assignments.
+
+### Summary
+The section in question is a critical component of the student portal, managing the registration and tracking of the "Design Horizon Experience - II Year Learners" program. It exposes various variables and parameters related to the program's participants, mentors, managers, and tasks. The page communicates with the backend system to update and display this information, ensuring that the program's progress is accurately tracked and managed.
 
 --•--•--
 
