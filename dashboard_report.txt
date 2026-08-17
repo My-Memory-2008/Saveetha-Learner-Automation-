@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 237
-**Pending Sub-Layer Queue Boundaries:** 1649
+**Total Verified Inner Nodes Mapped:** 241
+**Pending Sub-Layer Queue Boundaries:** 1655
 
 ## Architectural Breakdown per Sub-System:
 
@@ -11408,6 +11408,198 @@ The page likely interacts with a backend system that manages the training sessio
 
 ### Conclusion
 The section in question is a critical component of the student portal, managing the scheduling and tracking of mandatory training sessions for students in the Programming Module Course and EY Module Course. It interacts with a backend system to update the status of the training sessions and communicates with other systems or users as needed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/96/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a mandatory training sessions page for the Programming Module Course and EY Module Course. It controls the scheduling, tracking, and management of mandatory training sessions for students. This includes:
+- **Scheduling**: Managing the dates and times for training sessions.
+- **Attendance Tracking**: Monitoring how many students have attended the sessions.
+- **Mentorship**: Assigning mentors to students and tracking their progress.
+- **Approval Status**: Tracking whether the training sessions have been approved or not.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes several key variables and parameters:
+- **Participants**: Number of students participating in the training sessions.
+- **Mentors**: Number of mentors assigned to the participants.
+- **Managers**: Number of managers overseeing the training sessions.
+- **Start Date**: The date when the training sessions began.
+- **Task Completion**: Status of the training sessions (e.g., approved, expected).
+
+The page also includes text grids for displaying this information clearly and concisely.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system to update its data. This could involve:
+- **API Calls**: Making HTTP requests to an API endpoint to update the training session status, attendance, and other metrics.
+- **Database Updates**: Updating a database with the latest information about the training sessions.
+- **Notifications**: Sending notifications to managers, mentors, and participants about the status of the training sessions.
+
+### Detailed Breakdown
+
+#### API Calls
+The page might use an API to:
+- **Update Training Session Status**: When a session is approved or expected, the page could make an API call to update the status in the backend system.
+- **Track Attendance**: When a student attends a session, the page could make an API call to update the attendance count in the backend.
+
+#### Database Updates
+The page could update a database with the latest information about the training sessions, such as:
+- **Session Dates**: The start date of the training sessions.
+- **Status**: Whether the sessions are approved or expected.
+- **Participants and Mentors**: The number of participants and mentors assigned.
+
+#### Notifications
+The page might send notifications to:
+- **Managers**: To inform them about the status of the training sessions.
+- **Mentors**: To inform them about the progress of their assigned students.
+- **Participants**: To inform them about the upcoming training sessions and their status.
+
+### Example API Call
+Here is a hypothetical example of an API call that might be made by the page to update the training session status:
+```json
+{
+  "action": "update_status",
+  "session_id": "123456",
+  "status": "approved",
+  "message": "Training session for Programming Module Course has been approved."
+}
+```
+
+This call would update the backend system with the new status of the training session and send a notification to the managers and mentors.
+
+### Conclusion
+The page is a critical component of the student portal, managing the scheduling, tracking, and approval of mandatory training sessions for students. It exposes various variables and parameters, communicates with a backend system via API calls, and sends notifications to relevant parties. This ensures that the training sessions are efficiently managed and communicated to all stakeholders involved.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/96/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control a group chat feature within a mandatory training session. This feature likely allows participants to communicate with each other, their mentors, and managers in real-time. The chat is locked by a manager, which means it can only be accessed and used by the participants and their designated mentors.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the training session.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers overseeing the training session.
+- **Start Date**: The date when the training session began.
+- **Task Completion**: The status of task completion, which is currently at 0/0 (uncompleted).
+- **Circular ID**: The specific circular ID associated with the training session.
+- **Chat**: The number of messages in the chat.
+- **Discussion Topics**: Focused threaded discussions related to the training session.
+- **Live Updates**: Indicates that live updates are connected to the chat.
+- **Message Visibility**: The message visibility is restricted to participants and their mentors.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a specific user (Muhammad Asjad E, Ref1: 212225240091, Ref2: 25013957).
+- **Circular ID**: The circular ID (96) is passed through the URL.
+- **Tab Selection**: The user is currently in the "Chat" tab.
+- **User Interaction**: The user can refresh the page to update the chat and view the latest updates.
+- **Manager Locking**: The chat is locked by a manager, indicating that the page communicates with the wider system to manage access and permissions.
+
+### Detailed Breakdown
+
+#### User Authentication
+- **Logged in as**: The user is logged in as Muhammad Asjad E, with specific reference numbers (Ref1 and Ref2).
+
+#### Circular ID
+- **Circular ID**: The specific circular ID (96) is passed through the URL, indicating the context of the training session.
+
+#### Tab Selection
+- **Tab**: The user is currently in the "Chat" tab, which is highlighted in red.
+
+#### Live Updates
+- **Live Updates**: Indicates that live updates are connected to the chat, allowing real-time communication.
+
+#### Message Visibility
+- **Participants and Mentors**: The chat is restricted to participants and their mentors, indicating a controlled access system.
+
+#### Manager Locking
+- **Manager Locking**: The chat is locked by a manager, which means the page communicates with the wider system to manage access and permissions.
+
+### Conclusion
+This section of the student portal controls a group chat feature within a mandatory training session, exposing various variables and parameters related to the training session. It communicates with the wider web system to manage access and permissions, ensuring that the chat is only accessible to participants and their mentors. The page is logged in as a specific user and passes the circular ID through the URL, allowing for context-specific access to the chat.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/96/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal that manages mandatory training sessions for programming and EY (likely referring to Engineering Year) modules. The section controls the management and tracking of participants, mentors, managers, and the start date of these sessions. It also manages tasks related to these sessions, ensuring that all participants, mentors, and managers are aware of their responsibilities and deadlines.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants registered for the sessions.
+- **Mentors**: The number of mentors assigned to the sessions.
+- **Managers**: The number of managers assigned to the sessions.
+- **Start Date**: The date when the sessions begin.
+- **Task Completion**: A status indicator showing how many tasks have been completed and how many are expected to be completed.
+- **Circular**: A section for managing circulars related to the sessions.
+- **Chat**: A chat feature for communication.
+- **Tasks**: A section for managing tasks related to the sessions.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system that manages the registration, scheduling, and tracking of participants, mentors, and managers. Here’s a breakdown of how it might communicate with the wider system:
+
+- **User Authentication**: The page is logged in as a user with the ID `25013957` and a name `MUHAMMAD ASJAD E`. This information is likely used to authenticate the user and ensure they have the necessary permissions to access and modify the data.
+  
+- **Session Management**: The start date `02/07/2026` is likely used to schedule the sessions and ensure that the data is synchronized with the system's calendar and scheduling tools.
+  
+- **Task Completion Tracking**: The task completion status is likely used to update the system's database with the progress of the tasks, such as the number of tasks completed and the number of tasks expected to be completed.
+  
+- **Circular Management**: The circular section likely interacts with a database or API that manages circulars, allowing the user to view, edit, or delete circulars related to the sessions.
+  
+- **Chat Communication**: The chat feature likely interacts with a messaging system or API that allows real-time communication between users, mentors, and managers.
+
+### Summary
+The section in question is a critical component of a student portal that manages mandatory training sessions for programming and EY modules. It controls the registration, scheduling, and tracking of participants, mentors, and managers, and communicates with a wider web system structure to manage user authentication, session scheduling, task completion tracking, and circular management.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/93/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be related to the "Transport Utilization - E-Bus Pass - Academic Year 2026-2027 - Reg." This section likely controls the registration and management of students for the academic year 2026-2027. It involves tracking the number of participants, mentors, and managers involved in the program, as well as managing the start date and task completion status.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants registered for the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers overseeing the program.
+- **Start Date**: The date when the program officially began.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating that no tasks have been completed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to update and manage the data related to the E-Bus Pass program. Here’s a breakdown of how this might work:
+
+1. **Data Collection**:
+   - The page collects data such as the number of participants, mentors, and managers.
+   - It also captures the start date of the program.
+
+2. **Data Submission**:
+   - The collected data is submitted to the backend system.
+   - This submission could be done through a form submission or an API call.
+
+3. **Backend Processing**:
+   - The backend system processes the data and updates the database.
+   - This might involve creating or updating records in a database table that tracks the program's details.
+
+4. **Task Completion Tracking**:
+   - The page also tracks task completion, which could be done through a form or a task management system.
+   - This might involve submitting a form or an API call to update the task completion status.
+
+5. **User Interface**:
+   - The page displays the current status of the program, including the number of participants, mentors, managers, and the start date.
+   - It also shows the task completion status, which is currently at 0/0.
+
+6. **Security and Authentication**:
+   - The page likely requires authentication to ensure that only authorized users can access and modify the program details.
+   - This could be done through a login system or an API call that requires a valid token or authentication token.
+
+### Summary
+The section in question is a critical part of the student portal, managing the registration and tracking of the E-Bus Pass program for the academic year 2026-2027. It exposes various variables and parameters related to the program's participants, mentors, managers, and start date. The page interacts with a backend system to update and manage this data, ensuring that the program's details are accurately tracked and updated.
 
 --•--•--
 
