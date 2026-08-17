@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 221
-**Pending Sub-Layer Queue Boundaries:** 1623
+**Total Verified Inner Nodes Mapped:** 225
+**Pending Sub-Layer Queue Boundaries:** 1632
 
 ## Architectural Breakdown per Sub-System:
 
@@ -10725,6 +10725,181 @@ The page likely interacts with a backend system to manage the registration and t
 
 ### Summary
 The section in question is a critical component of the student portal, managing the registration and tracking of the "Design Horizon Experience - II Year Learners" program. It exposes various variables and parameters related to the program's participants, mentors, managers, and tasks. The page communicates with the backend system to update and display this information, ensuring that the program's progress is accurately tracked and managed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/107/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the registration and management of participants for a Design Horizon Experience program for second-year learners. This includes tracking the number of participants, mentors, managers, and the start date of the program. It also manages the task completion status and provides access to chat and task functionalities.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants registered for the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers overseeing the program.
+- **Start Date**: The date when the program officially starts.
+- **Task Completion**: The status of task completion, which is currently 0/0 (uncompleted).
+- **Circular**: The specific circular number associated with the program.
+- **Circular No.**: The official circular number for the program.
+- **Ref1**: A reference number for the program.
+- **Ref2**: Another reference number for the program.
+- **Logged in as**: The user who is currently logged in, which is "25013957 MUHAMMAD ASJAD E".
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the registration and tracking of participants, mentors, and managers. The information is passed through the following mechanisms:
+
+- **API Calls**: The page might make API calls to the backend to update the participant count, mentor count, and task completion status.
+- **Database Updates**: The page could update a database with the current status of the program, such as the number of participants, mentors, and managers.
+- **Notifications**: The page might send notifications to the backend system when certain milestones are reached, such as when the program starts or when task completion is achieved.
+- **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify the program's status.
+
+### Detailed Breakdown
+
+1. **API Calls**:
+   - The page might call an API endpoint to update the participant count, mentor count, and task completion status.
+   - Example API call: `POST /api/update-program-status?participantCount=1382&mentorCount=87&managerCount=2&taskCompletion=0`
+
+2. **Database Updates**:
+   - The page could update a database table with the current status of the program.
+   - Example SQL query: `UPDATE program_status SET participants=1382, mentors=87, managers=2, task_completion=0 WHERE circular_number='2026-2027/005'`
+
+3. **Notifications**:
+   - The page might send notifications to the backend system when certain milestones are reached.
+   - Example notification: "Program starts on 21/07/2026"
+
+4. **User Authentication**:
+   - The page uses user authentication to ensure that only authorized users can access and modify the program's status.
+   - Example authentication check: `if (user_id == '25013957') { update_program_status(); }`
+
+### Conclusion
+This section of the student portal is designed to manage and track the registration and progress of participants in a Design Horizon Experience program. It uses various mechanisms, including API calls, database updates, notifications, and user authentication, to interact with the wider web system structure and ensure the program's smooth operation.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/107/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the interaction and communication within a specific "Circular" or group chat. This feature likely facilitates communication among participants, mentors, and managers involved in the "Design Horizon Experience - II Year Learners-Reg." It allows users to read, post, and rate content within the group chat, which is restricted by a manager.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Circular ID**: The specific circular ID (107) is exposed, which is used to identify the group chat.
+- **Participants**: The number of participants (1382) and mentors (87) is displayed.
+- **Task Completion**: The task completion status (0/0) is shown, indicating that no tasks have been completed.
+- **Start Date**: The start date of the circular (21/07/2026) is provided.
+- **Chat**: The number of messages in the chat (45) is displayed.
+- **Discussion Topics**: The topics discussed in the chat are listed, such as "Focused threaded discussions."
+- **Manager Lock**: A note indicating that the circular is locked by a manager, with a message that users can read chat and topics but cannot post or rate.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Circular ID**: The circular ID is likely used to fetch specific data related to the circular, such as participants, mentors, and task completion status.
+- **User Authentication**: The user is logged in, as indicated by the username and ref IDs.
+- **Manager Lock Notification**: The page displays a message indicating that the circular is locked by a manager, which could be used to inform other parts of the system or the user about the current status of the circular.
+- **Task Completion Status**: The task completion status (0/0) might be used to update the broader system with the current status of the tasks assigned to participants.
+
+### Detailed Breakdown
+
+#### 1. Circular ID
+The circular ID (107) is a unique identifier for the group chat. This ID is used to fetch specific data related to the circular, such as participants, mentors, and task completion status.
+
+#### 2. User Authentication
+The user is logged in, as indicated by the username (MUHAMMAD ASJAD E) and ref IDs (25013957, 212225240091, 25013957). This information is used to authenticate the user and ensure they have the necessary permissions to access the group chat.
+
+#### 3. Manager Lock Notification
+The page displays a message indicating that the circular is locked by a manager. This message is likely used to inform other parts of the system or the user about the current status of the circular. It could be used to update the broader system with the current status of the circular, such as whether it is locked or unlocked.
+
+#### 4. Task Completion Status
+The task completion status (0/0) is displayed, indicating that no tasks have been completed. This information is likely used to update the broader system with the current status of the tasks assigned to participants. It could also be used to inform the user about the progress of the tasks.
+
+### Conclusion
+This section of the student portal controls the interaction and communication within a specific group chat, exposing variables such as the circular ID, task completion status, and manager lock status. It passes this information to the wider web system structure to ensure that the system can accurately reflect the current status of the circular and its participants.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/107/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a registration or task management page for the "Design Horizon Experience - II Year Learners." This page likely controls the registration process for participants, mentors, and managers involved in this program. It also manages the task completion status and provides a platform for communication and task tracking.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants registered for the program.
+- **Mentors**: The number of mentors assigned to the program.
+- **Managers**: The number of managers involved in the program.
+- **Start Date**: The date when the program started.
+- **Task Completion**: The status of task completion, which is currently at 0/0 (uncompleted).
+- **Circular**: The current circular or task list for the program.
+- **Chat**: A chat feature for communication.
+- **Tasks**: A section for managing tasks and adding new tasks to the circular.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the registration, task assignments, and communication. Here’s a breakdown of how it might pass information:
+
+- **Registration Data**: The number of participants, mentors, and managers is likely passed through a form or API call to the backend system.
+- **Task Management**: The task completion status and the list of tasks are likely stored in a database and accessed through an API or database query.
+- **Communication**: The chat feature might use a messaging API or a database to store and retrieve chat messages.
+- **User Authentication**: The logged-in user's information is likely stored in a database and accessed through an API or database query.
+
+### Detailed Breakdown of the Page
+
+#### 1. Registration Data
+- **Participants**: The number of participants is displayed as 1382.
+- **Mentors**: The number of mentors is displayed as 87.
+- **Managers**: The number of managers is displayed as 101.
+- **Start Date**: The start date is displayed as 21/07/2026.
+
+#### 2. Task Management
+- **Circular**: The current circular or task list is displayed as "No tasks have been added to this circular yet."
+- **Tasks**: This section is currently empty, indicating no tasks have been added yet.
+
+#### 3. Communication
+- **Chat**: This section is currently empty, indicating no chat messages have been added yet.
+
+### Conclusion
+This page is a critical component of the student portal, managing the registration, task assignment, and communication for the "Design Horizon Experience - II Year Learners." It interacts with a backend system to store and retrieve data, ensuring that all participants, mentors, and managers are up-to-date with their roles and responsibilities. The page also provides a platform for communication, allowing participants to stay connected and manage their tasks.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/104/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Lesson Plan and Class Feedback for Effective Learning" circular. This feature is likely designed to manage and track the implementation of a lesson plan across various courses. It involves tracking the progress of participants, mentors, and managers, and ensuring that the lesson plan is effectively implemented and evaluated.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants who have been assigned to the lesson plan.
+- **Mentors**: The number of mentors assigned to the lesson plan.
+- **Managers**: The number of managers assigned to the lesson plan.
+- **Start Date**: The date when the lesson plan was initiated.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating that no tasks have been completed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and track the lesson plan implementation. Here’s a breakdown of how it might pass information:
+
+- **API Calls**: The page might make API calls to the backend to update the status of participants, mentors, and managers. For example, it could send an update to the backend when a participant completes a task or when a mentor or manager is assigned.
+- **Database Integration**: The page might use a database to store and retrieve information about participants, mentors, and managers. This database could be accessed via a RESTful API or a similar mechanism.
+- **User Authentication**: The page might require user authentication to ensure that only authorized users can access and modify the lesson plan details. This could involve using a login system that verifies user credentials.
+- **Notifications**: The page could send notifications to participants, mentors, and managers via email or other communication channels when tasks are assigned or completed.
+
+### Detailed Breakdown of the Page
+
+#### Page Structure
+- **Header**: Contains the title "Lesson Plan and Class Feedback for Effective Learning" and a navigation bar.
+- **Left Sidebar**: Contains various menu options such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," and "Services."
+- **Main Content Area**: Displays the lesson plan details, including the number of participants, mentors, and managers, the start date, and the task completion status.
+- **Footer**: Contains the user's name and ref IDs, indicating their logged-in status.
+
+#### API Integration
+- **API Calls**: The page might make API calls to update the status of participants, mentors, and managers. For example, it could send an update to the backend when a participant completes a task or when a mentor or manager is assigned.
+- **Database Integration**: The page might use a database to store and retrieve information about participants, mentors, and managers. This database could be accessed via a RESTful API or a similar mechanism.
+- **User Authentication**: The page might require user authentication to ensure that only authorized users can access and modify the lesson plan details. This could involve using a login system that verifies user credentials.
+
+#### Notifications
+- **Email Notifications**: The page could send notifications to participants, mentors, and managers via email or other communication channels when tasks are assigned or completed.
+
+### Conclusion
+The section in question is a comprehensive tool for managing and tracking the implementation of a lesson plan across various courses. It exposes various variables and parameters, such as the number of participants, mentors, and managers, and the start date. The page interacts with a backend system via API calls and database integration to manage and track the lesson plan implementation. It also sends notifications to participants, mentors, and managers via email or other communication channels.
 
 --•--•--
 
