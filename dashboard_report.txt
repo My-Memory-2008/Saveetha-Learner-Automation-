@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 249
-**Pending Sub-Layer Queue Boundaries:** 1671
+**Total Verified Inner Nodes Mapped:** 253
+**Pending Sub-Layer Queue Boundaries:** 1677
 
 ## Architectural Breakdown per Sub-System:
 
@@ -11955,6 +11955,208 @@ The login page interacts with the wider web system structure through the followi
 
 ### Conclusion
 The login page is a critical component of the student portal, controlling user access and providing necessary functionality for both authenticated and guest users. It interacts with the wider web system structure through form submissions and session management, ensuring that user data is securely transmitted and processed.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/91/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the mandatory NPTEL Local Chapter Affiliation and Profile Verification process. This involves the following key actions:
+- **Affiliation Verification**: Ensures that students are affiliated with the correct local chapter.
+- **Profile Verification**: Validates the student's profile to ensure it meets the required standards.
+- **Task Completion**: Tracks the progress and completion of these verification tasks.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following key variables and parameters:
+- **Participants**: Number of students participating in the verification process.
+- **Mentors**: Number of mentors assigned to assist with the verification.
+- **Managers**: Number of managers overseeing the verification process.
+- **Start Date**: The date when the verification process began.
+- **Task Completion**: The number of tasks completed and expected to be completed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the status of the verification process, such as updating the task completion status.
+- **Database Updates**: The page could update a database with the current status of the verification process, including the number of participants, mentors, managers, and the start date.
+- **Notifications**: The page might send notifications to other parts of the system, such as email notifications to mentors and managers, or updates to the student portal dashboard.
+- **User Authentication**: The page might use user authentication tokens to ensure that only authorized users can access and update the verification status.
+
+### Detailed Explanation
+
+#### API Calls
+The page might use an API to update the status of the verification process. For example, it could call an endpoint to update the task completion status, such as:
+```json
+{
+  "status": "approved",
+  "taskCompletion": 0,
+  "expectedTaskCompletion": 0,
+  "date": "2026-06-30"
+}
+```
+
+#### Database Updates
+The page could update a database table to reflect the current status of the verification process. For example:
+```sql
+INSERT INTO verification_status (status, task_completion, expected_task_completion, date)
+VALUES ('approved', 0, 0, '2026-06-30');
+```
+
+#### Notifications
+The page might send notifications to other parts of the system, such as email notifications to mentors and managers. For example:
+```plaintext
+Subject: NPTEL Verification Status Update
+From: [System Email]
+To: [Mentor's Email]
+Body: The NPTEL verification process is currently in progress. The status is 'approved' with 0 tasks completed and 0 tasks expected to be completed. The start date is 2026-06-30.
+```
+
+#### User Authentication
+The page might use user authentication tokens to ensure that only authorized users can access and update the verification status. For example:
+```json
+{
+  "token": "abc123",
+  "user_id": 123456,
+  "role": "participant"
+}
+```
+
+### Conclusion
+The section in question controls the mandatory NPTEL Local Chapter Affiliation and Profile Verification process, exposes various variables and parameters, and communicates information to the wider web system structure through API calls, database updates, notifications, and user authentication. This ensures that the verification process is tracked, managed, and communicated effectively across the system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/91/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a mandatory registration or verification process for NPTEL (National Programme on Technology Enhanced Learning) local chapters. This section likely controls the following actions:
+- **Affiliation Verification**: Ensures that participants are affiliated with the correct local chapter.
+- **Profile Verification**: Validates the participant's profile to ensure it meets the required standards.
+- **Mentor and Manager Allocation**: Assigns mentors and managers to participants based on their affiliation and profile status.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables and parameters:
+- **Participants**: Number of participants who have registered.
+- **Mentors**: Number of mentors assigned to participants.
+- **Managers**: Number of managers assigned to participants.
+- **Start Date**: The date when the registration or verification process began.
+- **Task Completion**: The status of the task completion, which is currently 0/0 (uncompleted).
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the status of the registration or verification process.
+- **Database Updates**: The page could update a database with the status of the task completion.
+- **Notifications**: The page might send notifications to participants and mentors via email or messaging systems.
+- **User Authentication**: The page might use user authentication tokens to ensure that only authorized users can access and update the information.
+
+### Detailed Explanation
+
+#### API Calls
+The page might make API calls to update the status of the registration or verification process. For example, it could call an API endpoint to mark the task as completed or to update the status of the participants, mentors, and managers.
+
+#### Database Updates
+The page could update a database with the status of the task completion. This database might contain records of all participants, mentors, and managers, along with their respective statuses.
+
+#### Notifications
+The page might send notifications to participants and mentors via email or messaging systems. This could be done using a notification service or by integrating with a messaging platform.
+
+#### User Authentication
+The page might use user authentication tokens to ensure that only authorized users can access and update the information. This could be done by verifying the user's credentials against a database of authorized users.
+
+### Conclusion
+The section in question is a critical part of the NPTEL student portal, controlling the mandatory registration and verification process for local chapters. It exposes various variables and parameters, and passes information to the wider web system structure through API calls, database updates, notifications, and user authentication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/91/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the management and communication within a specific "Circular" or group chat. This feature likely involves managing discussions, posting updates, and possibly rating or voting on certain topics within the group. The presence of "Discussion Topics" and "Direct Messages" suggests that this section is designed for collaborative and interactive communication among participants.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the group.
+- **Mentors**: The number of mentors associated with the group.
+- **Managers**: The number of managers overseeing the group.
+- **Start Date**: The date when the group was created or last updated.
+- **Task Completion**: Indicates whether the task associated with the group is completed or not.
+- **Circular**: The specific circular or group chat being managed.
+- **Chat**: The number of messages or interactions in the chat.
+- **Tasks**: The number of tasks or actions associated with the group.
+- **Discussion Topics**: Specific topics or subjects for discussion within the group.
+- **Direct Messages**: Direct communication channels between participants.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system to manage and update the state of the group. This could include:
+- **User Authentication**: Ensuring that only authorized users can access and manage the group.
+- **Task Management**: Tracking and updating the status of tasks assigned to the group.
+- **Communication Updates**: Sending and receiving messages and updates to the group.
+- **Data Storage**: Storing and retrieving data related to the group's participants, mentors, managers, and tasks.
+
+### Detailed Breakdown
+
+#### User Authentication
+- **Logged in as**: Displays the user's ID and name.
+- **Ref1 and Ref2**: Likely unique identifiers for the user, possibly used for tracking or verification purposes.
+
+#### Group Management
+- **Participants**: Displays the total number of participants in the group.
+- **Mentors**: Shows the number of mentors associated with the group.
+- **Managers**: Indicates the number of managers overseeing the group.
+- **Start Date**: Shows the date when the group was created or last updated.
+
+#### Communication and Interaction
+- **Circular**: The specific circular or group chat being managed.
+- **Chat**: Displays the number of messages or interactions in the chat.
+- **Tasks**: Shows the number of tasks or actions associated with the group.
+- **Discussion Topics**: Lists specific topics or subjects for discussion within the group.
+- **Direct Messages**: Provides a direct communication channel between participants.
+
+#### Data Storage and Updates
+- **Backend System**: The page likely communicates with a backend system to manage and update the state of the group.
+- **Task Completion**: Indicates whether the task associated with the group is completed or not.
+- **Communication Updates**: Sends and receives messages and updates to the group.
+
+### Conclusion
+This section of the student portal is designed to manage and facilitate communication within a specific group or circular. It exposes various variables and parameters related to the group's participants, mentors, managers, and tasks. The page communicates with a backend system to manage and update the group's state, ensuring that all interactions and updates are tracked and managed efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/91/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal that manages various academic and administrative tasks related to NPTEL (National Programme on Technology Enhanced Learning) local chapter affiliation and profile verification. The primary action it controls is the management and tracking of tasks and their completion status for students, mentors, and managers involved in this process.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The total number of participants involved in the process.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers overseeing the process.
+- **Start Date**: The date when the process started.
+- **Task Completion**: The number of tasks completed and expected to be completed.
+- **Circular**: The specific circular or document related to the process.
+- **Tasks**: The list of tasks that need to be completed, currently empty in this view.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with a backend system that manages the NPTEL local chapter affiliation and profile verification process. Here’s a breakdown of how it might interact:
+
+- **API Calls**: The page might use an API to fetch or update data related to the participants, mentors, managers, and tasks. This could involve GET requests to retrieve current data and POST requests to update task completion status.
+- **Cookies or Session Management**: The page might use cookies or session management to track user sessions and ensure that the data displayed is relevant to the logged-in user.
+- **Database Integration**: The page could interact with a database to store and retrieve information about the participants, mentors, managers, and tasks. This might involve SQL queries for data retrieval and insertion.
+- **User Authentication**: The page ensures that only authenticated users can access this section, possibly through a login system that verifies user credentials.
+
+### Detailed Steps for Interaction
+1. **User Authentication**: The user logs in using their credentials.
+2. **Data Retrieval**: The page makes an API call to the backend to retrieve the current status of the process, including the number of participants, mentors, managers, and the start date.
+3. **Task Management**: The page displays the current status of the tasks, which are currently empty in this view.
+4. **User Interaction**: The user can interact with the page to manage tasks, such as adding new tasks or updating task completion status.
+5. **API Updates**: The page sends updates to the backend when tasks are completed or new tasks are added.
+6. **Database Updates**: The backend updates the database with the new task status or any changes made by the user.
+7. **Page Refresh**: The page refreshes to display the updated information, ensuring that the user always sees the most current data.
+
+### Conclusion
+This section of the student portal is designed to manage and track the progress of the NPTEL local chapter affiliation and profile verification process. It exposes various variables and parameters related to the participants, mentors, managers, and tasks, and interacts with a backend system to ensure data accuracy and user authentication.
 
 --•--•--
 
