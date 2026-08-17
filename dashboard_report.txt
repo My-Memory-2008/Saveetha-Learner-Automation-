@@ -1,6 +1,6 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 157
+**Total Verified Inner Nodes Mapped:** 161
 **Pending Sub-Layer Queue Boundaries:** 1571
 
 ## Architectural Breakdown per Sub-System:
@@ -8009,6 +8009,210 @@ The page communicates with the wider web system structure through the following 
 
 ### Conclusion
 This page is a critical component of the student portal's event attendance process, managing user interactions, data collection, and feedback submission. It ensures that students can easily manage their attendance and provide feedback, contributing to the overall functionality and user experience of the portal.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/attendance_process/?slotsession_id=36888&slot_id=1416&year=2026&month=8&day=13
+### Analysis of the Student Attendance Process Page
+
+#### 1. Action or Transactional Feature it Controls
+The page controls the student's attendance process, specifically for the class session on August 13, 2026. It manages the student's entry and exit times, ensuring that the student logs in and out of the class session using OTP (One-Time Password) mechanisms.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Variables:**
+  - **Slotsession_id**: 36888
+  - **Slot_id**: 1416
+  - **Year**: 2026
+  - **Month**: 8
+  - **Day**: 13
+
+- **Parameters:**
+  - **Slot**: 260D1089
+  - **Time**: 01:00 PM to 02:59 PM
+  - **Venue**: Not specified
+
+- **Text Grids:**
+  - **IN OTP**: The student needs to enter the OTP provided by their faculty to log in.
+  - **OUT OTP**: The student needs to enter the OTP provided by their faculty to log out.
+  - **Class Started**: The class session has started at 01:00 PM.
+  - **IN OTP Entry**: The student needs to enter the OTP to log in.
+  - **IN APPROVAL**: The student's entry is pending faculty approval.
+  - **OUT OTP Entry**: The student needs to enter the OTP to log out.
+
+- **Functions:**
+  - **OTP Generation**: The faculty generates the OTP for the student.
+  - **OTP Entry**: The student enters the OTP to log in or out.
+  - **Approval**: The faculty approves the student's entry or exit.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **Cookies and Sessions**: The page uses cookies and sessions to track the student's progress through the attendance process. This ensures that the student's actions are logged and can be reviewed by the faculty.
+- **API Calls**: The page makes API calls to the wider web system to update the student's attendance status. This ensures that the system is updated in real-time.
+- **Webhooks**: The page may use webhooks to notify the wider system when the student logs in or out, ensuring that the system is updated accordingly.
+- **Database**: The page interacts with a database to store and retrieve the student's attendance data. This ensures that the system has a record of the student's attendance history.
+
+### Summary
+The page controls the student's attendance process by managing the student's entry and exit times using OTP mechanisms. It exposes variables, parameters, text grids, and functions related to the student's attendance status. The page passes information to the wider web system structure through cookies, sessions, API calls, webhooks, and database interactions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=13099&year=2026&month=8&day=13
+### Analysis of the Student Portal Event Attendance Process
+
+#### 1. Action or Transactional Feature it Controls
+The page in question controls the event attendance process for students. Specifically, it manages the attendance for a particular event session, allowing students to submit their attendance status (IN or OUT) and provide feedback on the event.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Event Session ID**: `slotsession_id=13099`
+- **Year**: `year=2026`
+- **Month**: `month=8`
+- **Day**: `day=13`
+- **Student ID**: `Logged in as: 25013957`
+- **Event Feedback**: Allows students to rate the event with a star rating system.
+- **IN OTP**: Indicates that the student's IN attendance has been approved.
+- **OUT OTP**: Indicates that the student's OUT attendance will be generated once the organizer generates it.
+- **Venue**: `2331`
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page communicates with the wider web system structure through the following mechanisms:
+
+- **Session ID**: The `slotsession_id` parameter is used to identify the specific event session. This session ID is likely used to track the student's attendance and feedback across different sessions.
+- **User Authentication**: The `Logged in as` section indicates that the student is authenticated and logged in, which is essential for tracking their attendance and feedback.
+- **Event Feedback**: The feedback is submitted through a form, which is likely processed by a backend system to store the rating and attendance status.
+- **OTP Generation**: The IN and OUT OTPs are generated and sent to the student's email or mobile for verification. This information is also likely stored in the backend system for future reference.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title**: "Event Attendance Process"
+- **Session ID**: `slotsession_id=13099`
+- **Year**: `year=2026`
+- **Month**: `month=8`
+- **Day**: `day=13`
+
+#### Main Content
+- **IN OTP**: 
+  - Text: "Your IN attendance has been approved for this event session."
+  - Likely a confirmation message for the student.
+- **OUT OTP**: 
+  - Text: "OUT OTP entry will be available once your organizer generates it."
+  - Indicates that the student needs to wait for the organizer to generate the OUT OTP.
+
+#### Event Details
+- **Term**: `26-27`
+- **Learning Type**: `Learning`
+- **Date**: `Thu, 13 Aug 2026`
+- **Time**: `01:15 PM`
+- **Venue**: `2331`
+
+#### Event Feedback
+- **Event Feedback**: Allows students to rate the event with a star rating system.
+  - Form to submit feedback.
+  - Likely processed by a backend system to store the rating.
+
+#### Footer
+- **Logged in as**: `25013957`
+  - Indicates the student's ID and authentication status.
+
+### Conclusion
+This page is a critical component of the student portal, managing the attendance and feedback for a specific event session. It uses session IDs, user authentication, and feedback forms to interact with the wider web system structure, ensuring that the event's attendance and feedback are tracked and processed efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=15#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a part of a student portal that displays the schedule for a specific day, August 15, 2026. The primary action it controls is the display of the student's academic schedule for that day. Users can view their classes, lessons, and other related information.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Variables:**
+  - **Year:** 2026
+  - **Month:** August
+  - **Day:** 15
+  - **User ID:** 25013957 (logged in as)
+  - **Student Name:** Muhammad Asjad E
+  - **Ref1:** 212225240091
+  - **Ref2:** 25013957
+
+- **Parameters:**
+  - **Year:** 2026
+  - **Month:** 8
+  - **Day:** 15
+
+- **Text Grids:**
+  - **Schedule:** Displays the student's schedule for the day.
+  - **Circulars:** Indicates there is one circular for the day.
+  - **My Reward Points:** Indicates there is one reward point for the day.
+  - **Workflow Requests:** Indicates there is one workflow request for the day.
+  - **Workflow Approvals:** Indicates there is one workflow approval for the day.
+  - **Bookings:** Indicates there is one booking for the day.
+  - **Services:** Indicates there is one service for the day.
+  - **Mentees:** Indicates there is one mentee for the day.
+  - **Mentorship:** Indicates there is one mentorship for the day.
+
+- **Functions:**
+  - **View Attendance:** Allows users to view their attendance for the day.
+  - **Settings:** Provides options to customize or manage the schedule.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **URL Parameters:**
+  - The page is accessed via a URL that includes parameters for the year, month, and day. For example:
+    ```
+    https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=15
+    ```
+  - These parameters are used to filter the schedule data displayed on the page.
+
+- **Cookies and Sessions:**
+  - The page uses cookies to store user information, such as the logged-in user ID and name.
+  - Sessions are used to maintain user sessions and track user activities.
+
+- **API Calls:**
+  - The page likely makes API calls to the backend system to fetch the student's schedule data.
+  - The API might use the logged-in user ID and other parameters to retrieve the correct schedule data.
+
+- **JavaScript and Cookies:**
+  - JavaScript is used to dynamically load and display the schedule data.
+  - Cookies are used to store user preferences and session data.
+
+### Summary
+The section in question is a user interface component of a student portal that displays the schedule for a specific day. It exposes various variables, parameters, text grids, and functions related to the student's schedule. The page passes information to the wider web system structure through URL parameters, cookies, sessions, and API calls.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/people_schedule/?year=2026&month=8&day=16#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal, likely used for managing schedules, notifications, and other academic-related activities. The specific date displayed is August 16, 2026. This section likely controls the following actions and transactions:
+
+- **Viewing and Managing Schedules**: Users can view their schedule for the specified date and manage any existing or upcoming events.
+- **Notifications**: Users can check for any notifications or alerts related to the date.
+- **Workflows**: Users can manage workflows or requests related to the date.
+- **Bookings**: Users can manage bookings or appointments for the date.
+- **Services**: Users can access services or resources related to the date.
+- **Mentees and Mentorship**: Users can manage their mentees and mentorship activities for the date.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes the following variables and parameters:
+
+- **Date**: The specific date (August 16, 2026) is hardcoded in the URL.
+- **Year**: The year (2026) is hardcoded in the URL.
+- **Month**: The month (August) is hardcoded in the URL.
+- **Day**: The day (16) is hardcoded in the URL.
+- **User ID**: The logged-in user's ID (25013957) is displayed.
+- **User Name**: The logged-in user's name (MUHAMMAD ASJAD E) is displayed.
+- **Ref1**: The reference number for the user (212225240091) is displayed.
+- **Ref2**: The reference number for the user (25013957) is displayed.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **URL Parameters**: The specific date, year, and month are hardcoded in the URL, which allows the server to identify the date and year being viewed.
+- **Session Variables**: The logged-in user's ID, name, and reference numbers are stored in session variables, which can be accessed by the server-side scripts to manage user-specific data.
+- **Server-Side Scripts**: The server-side scripts handle the logic behind the page, such as displaying the schedule, notifications, and other activities for the specified date. These scripts interact with the database to retrieve the necessary data.
+
+### Summary
+The section in question is a part of a student portal that manages various activities related to a specific date. It exposes hardcoded date, year, and month parameters, as well as session variables for user-specific data. The page passes this information to the wider web system structure through hardcoded URL parameters and session variables, which are then accessed by server-side scripts to manage the page's functionality.
 
 --•--•--
 
