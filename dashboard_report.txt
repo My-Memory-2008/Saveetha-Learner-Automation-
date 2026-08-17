@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 209
-**Pending Sub-Layer Queue Boundaries:** 1608
+**Total Verified Inner Nodes Mapped:** 213
+**Pending Sub-Layer Queue Boundaries:** 1613
 
 ## Architectural Breakdown per Sub-System:
 
@@ -10209,6 +10209,169 @@ The page ensures that only authorized users can access and modify the registrati
 
 ### Conclusion
 The section in question is a critical part of the student portal, controlling the registration and management of the INDIASKILLS COMPETITION 2026-2027. It exposes various variables and parameters related to the registration process and interacts with the wider web system structure through API calls, database updates, notifications, and user authentication mechanisms.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/115/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a registration page for the "INDIASKILLS COMPETITION 2026-2027." This page likely controls the registration process for participants, mentors, and managers for the competition. It manages the flow of participants, mentors, and managers, and tracks their progress and completion status.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants registered for the competition.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers assigned to the participants.
+- **Start Date**: The date when the registration process began.
+- **Task Completion**: The status of task completion for participants, mentors, and managers.
+- **Circular**: The specific circular or document associated with this registration process.
+- **Tasks**: The number of tasks or steps in the registration process.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage the registration process. Here’s a breakdown of how it might pass information:
+
+- **Registration Data**: The page collects data from the user (e.g., participant information, mentor information) and passes it to the backend system.
+- **Task Completion Status**: The page updates the task completion status in the backend system, indicating whether a task has been completed or not.
+- **Circular Information**: The page retrieves and displays the specific circular or document associated with the registration process.
+- **User Authentication**: The page checks the user's authentication status and displays the logged-in user's information.
+
+### Detailed Breakdown of the Page
+
+#### Header
+- **Title**: "INDIASKILLS COMPETITION 2026-2027 - REGISTRATION OPEN-Reg."
+- **Navigation Bar**: Contains options for "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," and "Services."
+
+#### Main Content
+- **Participants**: Displays the number of participants registered (2984) and the total number of participants (5557).
+- **Mentors**: Displays the number of mentors assigned (148) and the total number of mentors (168).
+- **Managers**: Displays the number of managers assigned (3) and the total number of managers (3).
+- **Start Date**: Displays the start date of the registration process (28/07/2026).
+- **Task Completion**: Displays the status of task completion (0/0, indicating no tasks have been completed).
+- **Circular**: Displays the specific circular or document associated with the registration process (Circular No.: 2026-2027/007, Date: 28.07.2026).
+
+#### Sidebar
+- **Manage**: Contains options for "Mentees" and "Mentorship."
+- **Logged in as**: Displays the logged-in user's information (e.g., ID, name, ref numbers).
+
+### Conclusion
+This page is a critical component of the student portal, managing the registration process for the INDIASKILLS COMPETITION 2026-2027. It exposes various variables and parameters related to participants, mentors, managers, and task completion, and interacts with a backend system to manage the registration process. The page also provides information about the specific circular or document associated with the registration process and checks the user's authentication status.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/115/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control the interaction and communication within a specific "Circular" or group chat related to the "INDIASKILLS COMPETITION 2026-2027." This section likely manages the chat functionality, allowing participants to communicate, discuss topics, and manage their interactions within the specified group chat.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Circular ID**: The specific ID of the circular is 115.
+- **Tab**: The tab currently being viewed is "Chat."
+- **Participants**: The number of participants in the chat is 16.
+- **Discussion Topics**: The current discussion topics are listed, including "Focused threaded discussions."
+- **Direct Messages**: There is a section for direct messages.
+- **Manager Lock**: The circular is locked by a manager, and the user is informed that posting and rating actions are disabled.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Circular ID**: The circular ID is passed as a parameter in the URL, which is `https://learner.saveetha.in/academics/circulars/115/?tab=chat`.
+- **User ID**: The user ID is likely passed through session variables or cookies, which are then used to authenticate the user and ensure they have the necessary permissions to access the chat.
+- **Manager Lock**: The lock status is likely communicated through a backend API call, which checks the permissions of the current user and updates the chat interface accordingly.
+- **Task Completion**: The task completion status is likely tracked through a backend system that updates the user's progress and status in the competition.
+
+### Detailed Breakdown
+
+#### URL Structure
+- **Base URL**: `https://learner.saveetha.in/academics/circulars/115/`
+  - The circular ID is embedded in the URL.
+- **Query Parameters**: 
+  - `tab=chat`: Indicates the current tab being viewed is "Chat."
+
+#### User Authentication
+- **Session Variables**: The user's session ID or token is likely stored in a session cookie or database.
+- **Permissions Check**: When the user accesses the chat, the system checks their permissions against the circular's lock status. If the circular is locked by a manager, the user is informed that posting and rating actions are disabled.
+
+#### Task Completion Tracking
+- **Backend API**: The system likely uses a backend API to track task completion. This API would update the user's progress and status in the competition.
+- **Progress Tracking**: The system keeps track of the user's progress in the competition, updating the task completion status accordingly.
+
+### Conclusion
+This section of the student portal is designed to manage and control the communication within a specific circular related to the INDIASKILLS COMPETITION 2026-2027. It exposes various variables and parameters, such as the circular ID, user ID, and permissions status, and communicates this information to the wider web system structure through backend APIs and session variables.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/115/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a task management interface for the IndiSkills Competition 2026-2027 registration. It likely controls the process of adding, managing, and tracking tasks related to the competition. This could include tasks such as participant registration, mentor assignment, and other administrative tasks necessary for the competition's smooth operation.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Participants**: The number of participants registered for the competition.
+- **Mentors**: The number of mentors assigned to the participants.
+- **Managers**: The number of managers overseeing the competition.
+- **Start Date**: The date when the registration process began.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating no tasks have been added yet.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **Circular**: This likely refers to the specific circular or document related to the competition. The page is currently showing the "Circular" tab, which suggests that this page is part of a larger system where different tabs or sections can be accessed to view different aspects of the competition.
+- **Tasks**: The page indicates that no tasks have been added yet, suggesting that this section is meant for adding and managing tasks related to the competition. This information is likely passed to the wider system through the use of APIs or webhooks, where the system can update its database or notify other parts of the system when new tasks are added or completed.
+- **Logged in as**: The user is logged in as "25013957 MUHAMMAD ASJAD E", indicating that this page is part of a user's personal account or dashboard where they can manage their tasks and access their profile information.
+
+### Reverse Engineering and Integration
+To reverse engineer this section and integrate it into a wider web system, the following steps could be taken:
+
+1. **Identify the API Endpoints**: Determine the endpoints that this page interacts with. This could be done by inspecting the network requests or by looking at the structure of the page itself.
+2. **Create the API Endpoints**: Set up the necessary API endpoints to handle the addition and management of tasks. This would involve creating functions that can handle POST requests to add tasks, GET requests to retrieve task information, and possibly DELETE requests to remove tasks.
+3. **Update the Database**: Ensure that the database is updated with the new task information. This could involve creating a database schema that can handle the addition of new tasks and their associated details.
+4. **Notify Other Parts of the System**: Set up notifications or webhooks to notify other parts of the system when new tasks are added or completed. This could involve setting up email notifications, SMS notifications, or even integrating with other systems like email marketing platforms or SMS gateways.
+5. **User Interface**: Design the user interface to allow users to add, manage, and view tasks. This could involve creating a form for adding tasks, a dashboard for viewing task information, and possibly a search function to find specific tasks.
+
+By following these steps, the section can be integrated into a wider web system, allowing for the management of tasks related to the IndiSkills Competition 2026-2027 registration.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/114/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a call for innovative ideas registration page for the Smart India Hackathon (SIH) 2026. This page likely controls the following transactional features:
+- **Registration and Participation**: It allows students to register and participate in the hackathon.
+- **Mentorship and Management**: It facilitates the assignment of mentors and managers to participants.
+- **Task Completion Tracking**: It tracks the progress and completion of tasks assigned to participants.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The page exposes the following variables and parameters:
+- **Participants**: The number of participants registered.
+- **Mentors**: The number of mentors assigned.
+- **Managers**: The number of managers assigned.
+- **Start Date**: The date when the hackathon starts.
+- **Task Completion**: The status of task completion, which is currently 0/0 (uncompleted).
+- **Circular Number**: The specific circular number for the hackathon.
+- **Circular Date**: The date the circular was issued.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+- **API Calls**: The page might make API calls to update the participant, mentor, and manager assignments in the wider system.
+- **Database Updates**: The page could update the participant, mentor, and manager assignments in a database.
+- **Webhooks**: The page might trigger webhooks to notify other systems or services about the registration and assignment updates.
+- **Session Management**: The page might use session management to track user interactions and updates.
+
+### Detailed Explanation
+
+#### API Calls
+The page might make API calls to update the participant, mentor, and manager assignments in the wider system. For example, it could call an API endpoint to update the participant count, mentor count, and manager count in the system.
+
+#### Database Updates
+The page could update the participant, mentor, and manager assignments in a database. This would involve inserting or updating records in tables that track participant, mentor, and manager assignments.
+
+#### Webhooks
+The page might trigger webhooks to notify other systems or services about the registration and assignment updates. For example, it could send a webhook to an email service to notify participants about their assignments.
+
+#### Session Management
+The page might use session management to track user interactions and updates. This would involve storing session data in the user's browser to track which tasks have been completed and which tasks are pending.
+
+### Conclusion
+The page in question is a call for innovative ideas registration page for the Smart India Hackathon 2026. It controls various transactional features, exposes variables and parameters, and passes information to the wider web system structure through API calls, database updates, webhooks, and session management.
 
 --•--•--
 
