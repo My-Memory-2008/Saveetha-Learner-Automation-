@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 245
-**Pending Sub-Layer Queue Boundaries:** 1661
+**Total Verified Inner Nodes Mapped:** 249
+**Pending Sub-Layer Queue Boundaries:** 1671
 
 ## Architectural Breakdown per Sub-System:
 
@@ -11804,6 +11804,157 @@ The section in question is likely a part of a student portal that manages the se
 
 ### Summary
 This section of the student portal is designed to manage the selection process for the Tech Society for the academic years 2026-2027. It controls various transactional features such as managing participants, mentors, and managers, tracking task completion, and facilitating communication. The page passes information to the wider web system structure through user authentication, data storage, and communication channels.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/92/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a part of a student portal that manages academic activities, specifically the selection of leaders for the Tech Society for the academic year 2026-2027. This section controls the following transactional features:
+
+- **Leader Selection Process**: It manages the process of selecting leaders for the Tech Society.
+- **Mentorship Management**: It tracks and manages mentorship relationships between participants and mentors.
+- **Task Completion Tracking**: It monitors the progress of tasks related to the leader selection process.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+The section exposes the following variables, parameters, and functions:
+
+- **Participants**: The total number of participants in the selection process.
+- **Mentors**: The total number of mentors available for the selection.
+- **Managers**: The number of managers assigned to the selection process.
+- **Start Date**: The date when the selection process began.
+- **Task Completion**: The status of task completion, which is currently at 0/0, indicating no tasks have been completed.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **API Calls**: The page likely makes API calls to update the status of tasks and manage the mentorship relationships.
+- **Database Integration**: The page interacts with a database to store and retrieve information about participants, mentors, and managers.
+- **User Authentication**: The page uses user authentication to ensure that only authorized users can access and modify the information.
+- **Notifications and Alerts**: The page may send notifications and alerts to participants and mentors via email or messaging systems.
+
+### Detailed Explanation
+
+#### API Calls
+The page makes API calls to update the status of tasks and manage the mentorship relationships. For example, when a participant is selected as a leader, the API might be called to update the status in the database and send a notification to the participant and their mentor.
+
+#### Database Integration
+The page interacts with a database to store and retrieve information about participants, mentors, and managers. This ensures that the data is persistent and can be accessed by other parts of the system.
+
+#### User Authentication
+The page uses user authentication to ensure that only authorized users can access and modify the information. This is crucial for maintaining the security and integrity of the system.
+
+#### Notifications and Alerts
+The page may send notifications and alerts to participants and mentors via email or messaging systems. This helps keep everyone informed about the progress of the selection process and any important updates.
+
+### Conclusion
+The section in question is a critical part of the student portal, managing the leader selection process for the Tech Society. It exposes various variables and parameters, interacts with the wider web system structure through API calls and database integration, and ensures user authentication and notifications to maintain the system's functionality and security.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/92/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Group Chat" within a "Live circular" for the "Leaders selection for Tech Society 2026-2027." This feature allows students to communicate with mentors and other participants in the selection process. The primary action it controls is the interaction and communication among participants, mentors, and managers involved in the selection process.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants:** The number of participants in the selection process.
+- **Mentors:** The number of mentors involved in the selection.
+- **Managers:** The number of managers overseeing the selection.
+- **Start Date:** The date when the selection process began.
+- **Task Completion:** The status of task completion, which is currently at 0/0, indicating no tasks have been completed.
+- **Circular:** The specific circular or event being managed.
+- **Chat:** The chat functionality, allowing participants to communicate with mentors and other participants.
+- **Discussion Topics:** Focused threaded discussions related to the selection process.
+- **Direct Messages:** A messaging system for direct communication between participants and mentors.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication:** The page is logged in as a specific user (25013957), indicating that the user is authenticated and has access to this section.
+- **User Profile:** The user's profile is displayed, showing their name (MUHAMMAD ASJAD E) and their reference numbers (Ref1: 21222540091, Ref2: 25013957).
+- **Circular Details:** The specific circular ID (92) and the tab being viewed (chat) are displayed.
+- **Communication Channels:** The page uses a chat interface to facilitate communication, which likely integrates with the broader communication and task management system of the platform.
+- **Task Completion Status:** The status of task completion is displayed, which could be updated through API calls or notifications sent to the wider system.
+- **Manager Locking:** The page indicates that the circular is locked by a manager, which could be a security measure to prevent unauthorized access or modifications.
+
+### Summary
+This section of the student portal is designed to facilitate communication and collaboration among participants, mentors, and managers involved in the selection process. It exposes various variables and parameters related to the selection process and provides a chat interface for real-time communication. The page also indicates the status of task completion and the locking status of the circular, which is likely integrated with the broader system for task management and security.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/92/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is likely a part of a student portal that manages various academic activities, such as mentorship, task assignments, and communication. The specific page shown is related to the "Leaders selection for Tech Society 2026-2027," which involves participants, mentors, managers, and task assignments.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants is 2092 out of 3464.
+- **Mentors**: There are 87 mentors and 4 managers.
+- **Start Date**: The start date is set to 01/07/2026.
+- **Task Completion**: Currently, there are 0 tasks approved and expected.
+- **Circular**: This section allows users to view and manage circulars.
+- **Chat**: This section allows users to communicate with mentors and managers.
+- **Tasks**: This section shows that no tasks have been added to this circular yet.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as user 25013957, indicating that the user is authenticated and has access to this section.
+- **Circular and Chat**: The page uses the "Circular" and "Chat" tabs to manage and communicate with mentors and managers.
+- **Task Management**: The page uses the "Tasks" tab to manage and track task assignments and approvals.
+- **Web API Integration**: The page likely integrates with a backend system that manages the mentorship and task assignment processes. This could involve sending data to a server for processing and updating the system's database.
+- **User Interface**: The page uses HTML, CSS, and JavaScript to create a user-friendly interface for managing the mentorship and task assignment processes.
+
+### Detailed Breakdown
+
+#### User Authentication
+- **Logged in as**: The user is logged in as user 25013957, which is a unique identifier for the user.
+- **Ref1 and Ref2**: These fields likely represent reference numbers for the user, possibly for tracking purposes.
+
+#### Circular and Chat
+- **Circular**: This tab allows users to view and manage circulars, which are likely announcements or guidelines related to the mentorship and task assignment processes.
+- **Chat**: This tab allows users to communicate with mentors and managers, facilitating real-time communication and support.
+
+#### Task Management
+- **Tasks**: This tab shows that no tasks have been added to this circular yet, indicating that the user is in the process of adding tasks.
+- **Task Completion**: This section shows the number of tasks approved and expected, which is currently 0/0.
+
+#### Web API Integration
+- **Data Transfer**: The page likely sends data to a backend system for processing and updating the system's database. This could involve sending data to a server for task assignment, approval, and communication.
+- **Data Structure**: The data sent to the backend system could include user information, task details, mentor information, and communication details.
+
+### Conclusion
+This section of the student portal is designed to manage and track the mentorship and task assignment processes for the Tech Society 2026-2027. It uses a combination of user authentication, web API integration, and real-time communication to facilitate the management of these processes. The page provides a user-friendly interface for managing circulars, tasks, and communication, ensuring that all activities are tracked and managed efficiently.
+
+--•--•--
+
+### System Node Endpoint: https://lms2.ai.saveetha.in/mod/data/view.php?id=47394
+### Analysis of the Student Portal Login Page
+
+#### 1. Action or Transactional Feature Controlled
+The login page is designed to control the user's access to the student portal. Specifically, it allows students to log in using their credentials and provides options for guest access if necessary. This page is crucial for maintaining the security and functionality of the student portal.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Username and Password Fields**: These are the primary input fields where students enter their credentials.
+- **"Log in" Button**: This is the action button that triggers the login process.
+- **"Lost password?" Link**: This link provides a way for students to reset their forgotten password.
+- **"SEC Workspace" Text Grid**: This is a placeholder text that might be used to indicate the specific workspace or area where the student's account is located.
+- **"Access as a guest" Button**: This button allows students to access the portal without logging in, which might be useful for guest users or those who do not have an account.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The login page interacts with the wider web system structure through the following mechanisms:
+
+- **Form Submission**: When the "Log in" button is clicked, the form data (username and password) is submitted to the server. This data is typically sent via an HTTP POST request to the server's login endpoint.
+- **Session Management**: Upon successful login, the server generates a session token and redirects the user to the main dashboard or the specific workspace. This session token is used to maintain the user's session and track their activity within the system.
+- **Guest Access**: If the user clicks the "Access as a guest" button, the server might handle this request differently, possibly by redirecting the user to a guest dashboard or allowing them to access certain restricted areas without logging in.
+
+### Security Considerations
+- **Input Validation**: The login page should validate user input to prevent common security vulnerabilities such as SQL injection and XSS attacks.
+- **Session Management**: Proper session management is crucial to prevent session hijacking and ensure that only authenticated users can access the system.
+- **Password Handling**: The page should handle password resets securely, using mechanisms like one-time passwords (OTPs) or two-factor authentication (2FA) to enhance security.
+
+### Conclusion
+The login page is a critical component of the student portal, controlling user access and providing necessary functionality for both authenticated and guest users. It interacts with the wider web system structure through form submissions and session management, ensuring that user data is securely transmitted and processed.
 
 --•--•--
 
