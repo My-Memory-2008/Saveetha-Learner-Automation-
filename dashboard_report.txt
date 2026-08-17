@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 225
-**Pending Sub-Layer Queue Boundaries:** 1632
+**Total Verified Inner Nodes Mapped:** 229
+**Pending Sub-Layer Queue Boundaries:** 1638
 
 ## Architectural Breakdown per Sub-System:
 
@@ -10900,6 +10900,183 @@ The page likely interacts with a backend system to manage and track the lesson p
 
 ### Conclusion
 The section in question is a comprehensive tool for managing and tracking the implementation of a lesson plan across various courses. It exposes various variables and parameters, such as the number of participants, mentors, and managers, and the start date. The page interacts with a backend system via API calls and database integration to manage and track the lesson plan implementation. It also sends notifications to participants, mentors, and managers via email or other communication channels.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/104/?tab=circular
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question is a "Lesson Plan and Class Feedback for Effective Learning" page. This page is likely designed to manage and provide feedback on lesson plans and class activities. It appears to be part of a larger system for tracking and managing educational activities, possibly within an academic institution.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the lesson plan or class activity.
+- **Mentors**: The number of mentors involved in the activity.
+- **Managers**: The number of managers overseeing the activity.
+- **Start Date**: The date when the activity began.
+- **Task Completion**: The status of task completion, which is currently at 0/0 (uncompleted).
+- **Circular**: Indicates that this is a circular or announcement related to the lesson plan.
+- **Chat**: Number of chat messages related to this circular.
+- **Tasks**: Number of tasks associated with this circular.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and track the lesson plans and class activities. Here’s a breakdown of how it might communicate with the wider system:
+
+- **API Calls**: The page might make API calls to the backend to update the status of the lesson plan, track participant and mentor involvement, and update task completion status.
+- **Database Integration**: The page could integrate with a database to store and retrieve information about the lesson plan, participants, mentors, and managers.
+- **User Authentication**: The page might use user authentication to ensure that only authorized users can access and modify the lesson plan details.
+- **Notifications**: The page could send notifications to participants, mentors, and managers via email or messaging systems when new updates are made to the lesson plan.
+
+### Detailed Breakdown of the Page
+
+#### Participants
+- **2550 / 3464**: This indicates the total number of participants and the number of participants who have completed the lesson plan.
+
+#### Mentors
+- **0 / 0**: This shows that there are currently no mentors involved in the lesson plan.
+
+#### Managers
+- **1 / 1**: This indicates that there is one manager overseeing the activity.
+
+#### Start Date
+- **18/07/2026**: This is the date when the lesson plan or class activity began.
+
+#### Task Completion
+- **0/0**: This shows that no tasks have been completed.
+
+#### Circular
+- **Circular**: Indicates that this is a circular or announcement related to the lesson plan.
+
+#### Chat
+- **66**: This shows the number of chat messages related to this circular.
+
+#### Tasks
+- **Tasks**: This shows the number of tasks associated with this circular.
+
+#### Lesson Plan and Class Feedback for Effective Learning
+- **Mentorship Type**: This indicates that the mentorship type is "NoMentor".
+
+#### SCOFT Faculty, SCOFT III Year, SCOFT II Year, SCOFT IV Year
+- These are likely categories or divisions within the institution where the lesson plan is being managed.
+
+#### Chat
+- **Dear Learners**: This is the subject of the chat message.
+- **We have introduced the Lesson Plan for all courses offered during this academic term. The primary purpose of the lesson plan is to provide a structured approach to learning and teaching. We encourage you to take advantage of this opportunity to enhance your learning experience.**
+
+### Conclusion
+This page is a critical component of an educational management system, designed to track and manage lesson plans and class activities. It exposes various variables and parameters related to the lesson plan, participants, mentors, and managers, and communicates with a backend system to update and manage these details. The page also provides a platform for communication and feedback, ensuring that all stakeholders are informed and engaged in the educational process.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/104/?tab=chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to control a live chat feature within a circular or group chat environment. This feature likely allows students to communicate with each other, their mentors, and managers in real-time. The chat is locked by a manager, which means that while users can read messages and topics, they cannot post or rate actions.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants in the chat, which is currently 2550 out of 3464.
+- **Mentors**: The number of mentors, which is 0 out of 0.
+- **Managers**: The number of managers, which is 1 out of 1.
+- **Start Date**: The date when the chat started, which is 18/07/2026.
+- **Task Completion**: The task completion status, which is 0/0 (Approved/Expected).
+- **Circular**: The chat is currently in the "Circular" tab.
+- **Chat**: The number of messages in the chat, which is 68.
+- **Tasks**: The chat is currently in the "Tasks" tab.
+- **Group Chat**: The chat is a group chat with everyone in the circular.
+- **Discussion Topics**: The chat has focused threaded discussions.
+- **Direct Messages**: The chat allows direct messages between participants.
+- **Live Updates**: The chat is connected to live updates.
+- **Message Visibility**: The chat is locked by a manager, meaning users can read messages but cannot post or rate actions.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely communicates with the wider web system structure through various means, such as:
+- **API Calls**: The page might make API calls to update the chat status, participant counts, and other metrics.
+- **Cookies and Sessions**: The page uses cookies and sessions to track user activity and maintain state.
+- **Webhooks**: The page might use webhooks to notify other parts of the system when certain events occur, such as when a new message is posted or a task is completed.
+- **Database Interactions**: The page interacts with a database to store and retrieve participant counts, chat messages, and other data.
+
+### Summary
+This section of the student portal controls a live chat feature within a circular or group chat environment. It exposes various variables and parameters related to the chat, such as the number of participants, mentors, managers, and the current chat status. The page communicates with the wider web system structure through API calls, cookies, sessions, webhooks, and database interactions.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/104/?tab=tasks
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal, specifically related to lesson plans, class feedback, and effective learning. It seems to control the management and tracking of tasks and circulars related to these activities. The section likely manages the workflow for lesson planning, class feedback, and mentorship, ensuring that all necessary steps are completed and tracked.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants involved in the lesson plan or class feedback.
+- **Mentors**: The number of mentors assigned to the task.
+- **Managers**: The number of managers assigned to the task.
+- **Start Date**: The date when the task was initiated.
+- **Task Completion**: The status of the task completion, indicating whether it is approved or expected.
+- **Circular**: The specific circular or task being managed.
+- **Tasks**: The list of tasks or steps that need to be completed for the circular.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely interacts with a backend system to manage and track the tasks and circulars. Here’s a breakdown of how it might pass information:
+
+- **API Calls**: The page might make API calls to the backend to update the status of the task, add new tasks, or retrieve information about the task.
+- **Session Management**: The page uses session management to keep track of the logged-in user and their permissions.
+- **Database Interaction**: The page interacts with a database to store and retrieve information about the participants, mentors, managers, and the task itself.
+- **User Authentication**: The page ensures that only authorized users can access and manage the task, using authentication mechanisms like tokens or session variables.
+
+### Detailed Breakdown of the Page
+
+#### UI Elements
+- **Header**: Contains the title "Lesson Plan and Class Feedback for Effective Learning" and a user profile icon.
+- **Main Content Area**: Displays the task details such as participants, mentors, managers, start date, and task completion status.
+- **Navigation Menu**: Contains links to different sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+- **Footer**: Contains the logged-in user information and a copyright notice.
+
+#### Functionality
+- **Circular Management**: The page allows users to manage circulars, add tasks, and track the status of the tasks.
+- **Task Completion Tracking**: The page tracks whether the task is approved or expected and updates the status accordingly.
+- **User Authentication**: Ensures that only authorized users can access and manage the task.
+
+### Conclusion
+This section of the student portal is designed to manage and track the workflow for lesson planning, class feedback, and mentorship. It exposes various variables and parameters related to the task, such as participants, mentors, managers, and the start date. The page interacts with a backend system to manage and track these tasks, ensuring that all necessary steps are completed and tracked.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academics/circulars/102/#
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a part of a student portal that encourages students to join the "Finite Earth Movement" and take the "FEM'Us Pledge." This section likely controls a transactional feature that allows students to sign up for the movement and pledge their commitment to reducing their environmental impact. The feature might also include a tracking system to monitor the progress of the pledge.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **Participants**: The number of participants who have joined the movement.
+- **Mentors**: The number of mentors available to guide participants.
+- **Managers**: The number of managers overseeing the movement.
+- **Start Date**: The date when the movement began.
+- **Task Completion**: The percentage of tasks completed by participants.
+- **Circular**: A chat or discussion section where participants can interact with mentors and managers.
+- **Tasks**: A section where participants can view and complete tasks related to the pledge.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+The page likely passes information to the wider web system structure through the following mechanisms:
+
+- **API Calls**: The page might make API calls to update the participant count, mentor count, manager count, and task completion percentage. This could be done using a backend service that tracks user interactions and updates the database.
+- **Session Management**: The page might use session management to track user activity and ensure that the data is consistent across different sessions.
+- **Cookies or Local Storage**: The page might use cookies or local storage to store user preferences and settings, such as the type of faculty or year level.
+- **Webhooks**: The page might use webhooks to notify other parts of the system when a new participant joins or when a task is completed.
+
+### Detailed Explanation
+
+1. **API Calls**: The page might call an API endpoint to update the participant count, mentor count, manager count, and task completion percentage. This would involve sending a POST request to the backend with the updated data and receiving a response to confirm the update.
+
+2. **Session Management**: The page might use session management to track user activity and ensure that the data is consistent across different sessions. This could involve setting and retrieving session variables to store user preferences and settings.
+
+3. **Cookies or Local Storage**: The page might use cookies or local storage to store user preferences and settings, such as the type of faculty or year level. This would allow the page to remember user preferences and settings across different sessions.
+
+4. **Webhooks**: The page might use webhooks to notify other parts of the system when a new participant joins or when a task is completed. This would involve sending a POST request to a webhook endpoint and receiving a response to confirm the action.
+
+### Conclusion
+The section in question is a transactional feature that controls the participation and pledge-taking process for the "Finite Earth Movement." It exposes various variables and parameters related to the movement's progress and user activity. The page passes information to the wider web system structure through API calls, session management, cookies/local storage, and webhooks.
 
 --•--•--
 
