@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 469
-**Pending Sub-Layer Queue Boundaries:** 2016
+**Total Verified Inner Nodes Mapped:** 473
+**Pending Sub-Layer Queue Boundaries:** 2020
 
 ## Architectural Breakdown per Sub-System:
 
@@ -21295,6 +21295,153 @@ The section in question is a chat interface within a student portal, likely used
 
 ### Conclusion
 The chat interface in the student portal is a critical feature that facilitates communication and collaboration among users. It controls message sending and receiving, integrates with user authentication and permissions, and is integrated with the wider web system for additional functionality and data storage.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?peer_id=3945#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal. It allows students to communicate with instructors, other students, and staff members. The primary action it controls is the interaction and communication between students and the academic staff. This includes scheduling, rating, and rating feedback.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Authentication**: The system requires users to log in to access the chat interface. This is controlled by the "Logged in as:" section, which displays the user's ID and name.
+- **User Roles**: The chat interface distinguishes between different user roles (e.g., students, instructors, staff) through the names and roles listed under "Ajith J," "Jeevitha S," "AATHI SAKTHI S," "ABDUL RAHIM M," and "AJAY KARTHICK M."
+- **Message Input**: The chat interface allows users to type messages, which is controlled by the "Type your message" text box.
+- **Message Sending**: The "Send" button is used to send messages.
+- **File Sharing**: The chat interface supports file sharing, as indicated by the "Choose File" and "No file...hosen" options.
+- **Rating System**: The chat interface includes a rating system, as indicated by the "Your rating total:" text box and the rating points displayed next to each user's name.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: When a user logs in, their credentials are sent to the server for authentication. This is typically done via a POST request to a login endpoint.
+- **Message Sending**: When a user sends a message, the message is sent to the server via a POST request to a message endpoint. The message includes the user's ID, the message content, and the recipient's ID.
+- **Rating System**: When a user rates another user, the rating is sent to the server via a POST request to a rating endpoint. The rating includes the user's ID, the recipient's ID, and the rating value.
+- **File Sharing**: When a user shares a file, the file is sent to the server via a POST request to a file endpoint. The file includes the user's ID, the file content, and the recipient's ID.
+- **User Roles**: The user's role is determined based on the user's ID and role information stored in the database. This is typically done via a GET request to a user role endpoint.
+
+### Summary
+The student portal section is a comprehensive communication and rating system that allows students to interact with instructors, other students, and staff members. It uses various HTTP requests to communicate with the wider web system structure, passing user credentials, message content, rating values, and file information. The system ensures that all interactions are secure and authenticated, providing a robust and user-friendly interface for academic communication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?peer_id=3049#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal, likely used for communication between students, instructors, and possibly other staff members. The primary function of this section is to facilitate real-time messaging and interaction, enabling students to ask questions, seek help, or communicate with instructors or other students.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: 
+  - **Ajith J**: Staff - Instructor
+  - **Jeevitha S**: Staff - Instructor
+  - **AATHI SAKTHI S**: Student
+  - **ABDUL RAHIM M**: Student
+  - **AJAY KARTHICK M**: Student
+
+- **Message Input Field**: 
+  - **Quick Emojis**: Various emojis for quick reactions or emphasis.
+  - **Text Input Field**: For typing messages.
+  - **Optional Link**: A field to include a link in the message.
+  - **File Upload**: An option to attach files to the message.
+
+- **Message Sending Button**: 
+  - **Send**: A button to send the message.
+
+- **Rating System**: 
+  - Each user has a rating system, indicating the number of messages sent or interactions.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: 
+  - The user is logged in as **25013957**. This ID likely corresponds to a user account within the system.
+  
+- **User Interaction**: 
+  - The chat interface allows users to interact with each other, which can be logged and tracked within the system.
+  
+- **Message Tracking**: 
+  - Each message sent is tracked and stored within the system, allowing for analytics and reporting.
+  
+- **User Roles**: 
+  - The roles of users (Staff, Instructor, Student) are clearly defined, which helps in organizing and managing the interactions.
+  
+- **System Integration**: 
+  - The chat interface is likely integrated with other parts of the system, such as the user profile pages, event schedules, and reward points, allowing for a seamless user experience.
+
+### Summary
+This section of the student portal is designed to facilitate real-time communication and interaction among students, instructors, and staff. It exposes user profiles, message input fields, and a system for tracking user interactions. The information passed to the wider web system structure includes user authentication, user roles, and message tracking, which helps in managing and analyzing user interactions within the system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?peer_id=3062#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal, likely used for communication between students, instructors, and possibly other staff members. The primary action it controls is the ability to send and receive messages within the chat system.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., Staff, Student), and ratings. This information is likely used to identify and authenticate users.
+- **Message Input Field**: The text input field allows users to type messages.
+- **Message Send Button**: The "Send" button is used to send messages.
+- **File Upload Option**: The "Choose File" button allows users to upload files, which might be used for sharing documents or images.
+- **Quick Emojis**: The emoji options provide a way for users to add emoticons to their messages.
+- **Optional Link Input Field**: The "Optional link" field allows users to include links in their messages, which could be used for sharing external resources or directing users to specific pages.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The chat interface likely relies on user authentication to ensure that only authorized users can send messages. This could be handled through a backend system that verifies user credentials.
+- **Message Storage**: The messages sent through this interface are likely stored in a database or a messaging service provided by the portal. This data could be used for analytics, user engagement tracking, or other purposes.
+- **User Interaction Tracking**: The chat interface might also track user interactions, such as the number of messages sent, the frequency of messages, or the types of messages sent. This data could be used for improving the user experience or for reporting purposes.
+- **Integration with Backend Systems**: The chat interface is likely integrated with the backend systems of the student portal, which could include systems for managing user profiles, booking events, or handling other administrative tasks.
+
+### Summary
+The chat interface in the student portal is designed to facilitate communication between users, including students, instructors, and staff. It exposes various features such as message input, emoji selection, file upload, and link inclusion. The interface is integrated with the wider web system structure to manage user interactions, track user activity, and provide a seamless communication experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?peer_id=3074#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal. It allows students to communicate with instructors, other students, and staff members. The primary action it controls is the interaction and communication between students and the broader community within the portal.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., "Staff - Instructor," "Student"), and ratings (e.g., "Rating: 0 pts").
+- **Message Input Field**: A text input field for typing messages.
+- **Message Emojis**: A set of emojis for adding reactions to messages.
+- **File Upload**: An option to upload files, though it currently shows "No file...hosen."
+- **Send Button**: A button to send messages.
+- **Optional Link Input**: A field for adding a link to the message.
+- **File Upload Button**: A button to choose and upload files.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The user is logged in, as indicated by the username "25013957" and the name "MUHAMMAD ASJAD E."
+- **Session ID**: The session ID "1495.99:1495.99" is displayed, which is likely used for session management and tracking user activity.
+- **Message Content**: The message content is sent to the server when the "Send" button is clicked.
+- **File Upload**: If a file is uploaded, the file data is sent to the server along with the message content.
+- **User Roles and Permissions**: The roles and permissions of the users are determined by their profiles, which are displayed on the page.
+- **User Interaction Tracking**: The chat interface tracks user interactions, such as typing messages and uploading files, which can be used for analytics and further analysis.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **AJITH J**: Staff - Instructor
+- **Jeevitha S**: Staff - Instructor
+- **AATHI SAKTHI S**: Student
+- **ABDUL RAHIM M**: Student
+
+#### Message Input Field
+- **Quick Emojis**: Icons for reactions (e.g., thumbs up, question mark, etc.).
+- **Text Input Field**: For typing messages.
+- **Optional Link Input**: For adding a link to the message.
+- **File Upload Button**: For uploading files.
+
+#### Message Sending
+- **Send Button**: Clicking this button sends the message to the server.
+- **Message Content**: The message content is sent along with the user's session ID and other metadata.
+
+#### Session Management
+- **Session ID**: "1495.99:1495.99" is displayed, which is likely used for session tracking and authentication.
+
+### Conclusion
+This section of the student portal is designed to facilitate communication and interaction among students, staff, and instructors. It uses various elements such as user profiles, message input fields, emojis, and file upload options to enable users to send messages and react to them. The page also tracks user interactions and sends this information to the wider web system structure for further analysis and management.
 
 --•--•--
 
