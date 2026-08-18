@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 437
-**Pending Sub-Layer Queue Boundaries:** 1986
+**Total Verified Inner Nodes Mapped:** 441
+**Pending Sub-Layer Queue Boundaries:** 1990
 
 ## Architectural Breakdown per Sub-System:
 
@@ -20091,6 +20091,165 @@ The page likely interacts with a backend system to retrieve and display the stud
 
 ### Summary
 This section of the student portal is designed to provide a detailed view of a student's participation in an event, including attendance, feedback, and booking information. It interacts with a backend system to retrieve and display this information, ensuring user authentication and security. The page allows users to manage their participation and feedback, providing a comprehensive view of their event experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?chat=group#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a group chat interface within a student portal. The primary action it controls is the communication and interaction among students, staff, and instructors. This includes messaging, rating, and potentially other forms of interaction such as file sharing and file uploads.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The page displays user profiles for students and staff/instructors, including their names, roles, and ratings.
+- **Message Input Field**: A text input field for typing messages.
+- **Message Emojis**: A set of emojis for adding reactions to messages.
+- **File Upload**: An option to upload files, with a file selection button and a "Choose File" button.
+- **Send Button**: A button to send messages.
+- **Optional Link Input**: An input field for adding a link to the message.
+- **Rating System**: A rating system for users, indicating their current rating and the total points they have accumulated.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a user with a specific ID (25013957), indicating that the user is authenticated and has access to this section.
+- **User Interaction**: The page captures user interactions such as typing messages, uploading files, and rating others.
+- **Message Transmission**: When a user sends a message, the message is sent to the wider system, which could be a central messaging system or a database.
+- **Rating Transmission**: When a user rates another user, the rating is sent to the system, which could update the user's rating and possibly trigger notifications or further actions.
+- **File Transmission**: When a user uploads a file, the file is sent to the system, which could store the file and possibly trigger notifications or further actions.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **AJITH J**: Staff - Instructor
+- **Jeevitha S**: Staff - Instructor
+- **AATHI SAKTHI S**: Student
+- **ABDUL RAHIM M**: Student
+- **AJAY KARTHICK M**: Student
+
+#### Message Input Field
+- **Quick Emojis**: Icons for reactions (thumbs up, checkmark, light bulb, etc.)
+- **Message Text Field**: Where users can type their messages.
+- **Send Button**: To send the message.
+
+#### File Upload
+- **Optional Link Input**: Where users can add a link to the message.
+- **Choose File Button**: To select and upload a file.
+
+#### Rating System
+- **Rating Points**: Indicates the current rating and total points accumulated by the user.
+- **Rating System**: Allows users to rate others, which could trigger notifications or further actions.
+
+### Conclusion
+This section of the student portal is designed to facilitate communication, interaction, and rating among students, staff, and instructors. It captures user interactions, sends messages and ratings to the wider system, and allows file uploads. The page is logged in as a user, indicating that the user is authenticated and has access to this section. The page passes information to the wider web system structure through user interactions, message transmission, rating transmission, and file transmission.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?chat=topics#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal, likely associated with an academic event or session. The primary action it controls is the creation and management of discussion topics within the session. Users can browse, join, and create focused discussions related to the event.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Discussion Topics**: This is a key feature that allows users to create and manage discussion topics. It is currently empty, indicating that no topics have been created yet.
+- **Direct Messages**: This section allows users to send and receive direct messages with other participants or staff.
+- **User Profiles**: Users can view and interact with other participants and staff members, including their roles (e.g., Staff - Instructor, Student).
+- **Bookings**: This section likely allows users to manage their bookings or reservations for the event.
+- **Services**: This section may provide access to various services or resources related to the event.
+- **Mentees**: This section could be related to mentoring or guidance for students.
+- **Mentorship**: This section might be related to mentor-mentee interactions or guidance.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a specific user (25013957), indicating that user authentication is in place.
+- **Session Management**: The session ID (1495.99:1495.99) is displayed, suggesting that the session is being tracked and managed.
+- **Event Participation**: The user is participating in an event (event-participating/12827), which is likely linked to the broader web system structure.
+- **Chat Integration**: The chat feature (chat=topics) suggests that this section integrates with a chat system, possibly for real-time communication during the event.
+
+### Detailed Breakdown
+
+#### Discussion Topics
+- **Action**: Create and manage discussion topics.
+- **Parameters**: None explicitly listed, but users can create new topics and join existing ones.
+- **Text Grids**: None visible in the current screenshot.
+- **Functions**: Create, join, and manage discussion topics.
+
+#### Direct Messages
+- **Action**: Send and receive direct messages.
+- **Parameters**: None explicitly listed, but users can send and receive messages.
+- **Text Grids**: None visible in the current screenshot.
+- **Functions**: Send and receive direct messages.
+
+#### User Profiles
+- **Action**: View and interact with other participants and staff.
+- **Parameters**: User roles (e.g., Staff - Instructor, Student).
+- **Text Grids**: User profiles, including roles and ratings.
+- **Functions**: View and interact with user profiles.
+
+#### Bookings
+- **Action**: Manage bookings or reservations.
+- **Parameters**: None explicitly listed, but users can manage bookings.
+- **Text Grids**: None visible in the current screenshot.
+- **Functions**: Manage bookings.
+
+#### Services
+- **Action**: Access services or resources.
+- **Parameters**: None explicitly listed, but users can access services.
+- **Text Grids**: None visible in the current screenshot.
+- **Functions**: Access services.
+
+#### Mentees
+- **Action**: Manage mentees.
+- **Parameters**: None explicitly listed, but users can manage mentees.
+- **Text Grids**: None visible in the current screenshot.
+- **Functions**: Manage mentees.
+
+#### Mentorship
+- **Action**: Manage mentor-mentee interactions.
+- **Parameters**: None explicitly listed, but users can manage mentor-mentee interactions.
+- **Text Grids**: None visible in the current screenshot.
+- **Functions**: Manage mentor-mentee interactions.
+
+### Conclusion
+The section in question is a part of a student portal that manages discussions, messages, user profiles, bookings, services, mentees, and mentorship. It integrates with a broader web system structure, likely for event management and real-time communication. The page is logged in as a specific user and is part of an event, with chat functionality for real-time communication.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?peer_id=7296#event-student-chat
+API server link offline: 
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12827/?peer_id=7295#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section you are referring to is a chat interface within a student portal. The primary action it controls is the interaction between students and instructors, as well as among students. This includes:
+
+- **Communication with Instructors:** Students can send messages to instructors for guidance, feedback, or to ask questions.
+- **Student-to-Student Communication:** Students can communicate with each other, which might include discussion topics, collaboration on projects, or informal chats.
+- **Instructor-to-Student Communication:** Instructors can send messages to students, providing updates, instructions, or support.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+The section exposes several key variables and functions that control the interaction and functionality:
+
+- **User Profiles:** Each user (student or instructor) has a profile with their name, role, and rating. This information is used to identify the user and determine their permissions.
+- **Message Input Field:** The text input field allows users to type messages.
+- **Message Send Button:** The "Send" button is used to send messages.
+- **Message Emojis:** The emoji options allow users to add emoticons to their messages.
+- **File Upload Option:** The "Choose File" button allows users to attach files to their messages.
+- **Optional Link Input Field:** The "Optional link" field allows users to include links in their messages.
+- **Rating System:** The rating system allows users to rate each other, which might be used for feedback or community building.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+The page passes information to the wider web system structure through the following mechanisms:
+
+- **User Authentication:** The user's ID (e.g., 25013957) is likely stored in a session or cookie, allowing the system to identify the user and their permissions.
+- **Message Storage:** The messages sent by users are likely stored in a database or a message queue. This allows the system to keep track of all messages and their history.
+- **User Roles:** The roles of users (e.g., instructor, student) are stored in the system, which determines the permissions and actions available to each user.
+- **System Notifications:** If messages are important or require action, the system might send notifications to the user's email or mobile device.
+- **User Profiles:** The user profiles are stored in a database, which can be accessed by other parts of the system for further analysis or reporting.
+
+### Summary
+This section of the student portal is a critical component for facilitating communication and interaction among students and instructors. It uses user profiles, message input fields, and various other elements to control and manage the flow of information within the system. The system uses these elements to authenticate users, store messages, and determine permissions, ensuring that the interaction is secure, organized, and functional.
 
 --•--•--
 
