@@ -445,148 +445,6 @@
 
 
 
-# import asyncio
-# import os
-# import json
-# import httpx
-# import base64
-# from playwright.async_api import async_playwright
-
-# COOKIE_FILE = "cookies.json"
-# BASE_URL = "https://learner.saveetha.in"
-# OLLAMA_URL = "http://localhost:11434/api/generate"
-# MODEL_NAME = "qwen2.5vl:3b"
-# KNOWLEDGE_FILE = "ai_self_learning_data.json"
-
-# def load_previous_knowledge():
-#     if os.path.exists(KNOWLEDGE_FILE):
-#         try:
-#             with open(KNOWLEDGE_FILE, 'r') as f:
-#                 print("📚 Old self-learning memory found! Injecting previous data...")
-#                 return json.load(f)
-#         except Exception:
-#             pass
-#     print("🆕 No previous memory found. Starting a fresh discovery map.")
-#     return {"visited_sections": {}, "site_structure": []}
-
-# def save_current_knowledge(knowledge):
-#     with open(KNOWLEDGE_FILE, 'w') as f:
-#         json.dump(knowledge, f, indent=2)
-#     print(f"💾 Updated learning data successfully committed locally to '{KNOWLEDGE_FILE}'")
-
-# def image_to_base64(image_path):
-#     with open(image_path, "rb") as img:
-#         return base64.b64encode(img.read()).decode('utf-8')
-
-# async def ask_qwen_vision(prompt, image_path):
-#     image_base64 = image_to_base64(image_path)
-#     payload = {
-#         "model": MODEL_NAME,
-#         "prompt": prompt,
-#         "images": [image_base64],
-#         "stream": False
-#     }
-#     async with httpx.AsyncClient(timeout=300.0) as client:
-#         try:
-#             response = await client.post(OLLAMA_URL, json=payload)
-#             if response.status_code == 200:
-#                 return response.json().get("response", "")
-#             return f"Error: {response.status_code}"
-#         except Exception as e:
-#             return f"Failed connecting to model server: {str(e)}"
-
-# async def run_ai_automation():
-#     knowledge = load_previous_knowledge()
-    
-#     if not os.path.exists(COOKIE_FILE):
-#         print("❌ Error: Missing credentials mapping context.")
-#         return
-
-#     print("🚀 Initializing deep crawler browser context...")
-#     async with async_playwright() as p:
-#         browser = await p.chromium.launch(
-#             headless=True,
-#             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
-#         )
-#         context = await browser.new_context(storage_state=COOKIE_FILE)
-#         page = await context.new_page()
-        
-#         print(f"🌐 Accessing secure root layer: {BASE_URL}")
-#         await page.goto(BASE_URL, timeout=90000, wait_until="load")
-#         await asyncio.sleep(8) 
-        
-#         # --- PHASE 1: DISCOVER NAVIGATION CHANNELS ---
-#         print("🔍 Mapping navigation layout matrices...")
-#         links = await page.evaluate("""() => {
-#             return Array.from(document.querySelectorAll('a'))
-#                 .map(a => ({ text: a.innerText.trim(), href: a.href }))
-#                 .filter(link => link.href.includes('saveetha.in') && link.text.length > 1);
-#         }""")
-        
-#         print(f"🎯 Found {len(links)} navigation links across the current layout viewport.")
-        
-#         # --- PHASE 2: ROAM FREELY AND LEARN ---
-#         crawl_count = 0
-#         for link in links:
-#             url = link['href']
-#             name = link['text']
-            
-#             if url in knowledge["visited_sections"] or crawl_count >= 5:
-#                 continue 
-                
-#             print(f"🗺️ Roaming to new section: [{name}] -> {url}")
-#             try:
-#                 await page.goto(url, timeout=45000, wait_until="load")
-#                 await asyncio.sleep(5)
-                
-#                 snap_path = f"section_{crawl_count}.png"
-#                 await page.screenshot(path=snap_path)
-                
-#                 ai_prompt = (
-#                     f"You are exploring the student portal section named '{name}'. Study this screenshot carefully. "
-#                     "Explain exactly what feature this section handles, list the data visible, and details "
-#                     "on how this portion of the portal works."
-#                 )
-#                 analysis = await ask_qwen_vision(ai_prompt, snap_path)
-                
-#                 knowledge["visited_sections"][url] = {
-#                     "section_name": name,
-#                     "functional_analysis": analysis,
-#                     "status_checked": "verified"
-#                 }
-#                 crawl_count += 1
-                
-#             except Exception as e:
-#                 print(f"⚠️ Could not access section '{name}': {e}")
-                
-#         # --- PHASE 3: COMPILING SYSTEM MAP ---
-#         summary_text = "# Saveetha Learner Portal Master Knowledge Base\n\n"
-#         for url, data in knowledge["visited_sections"].items():
-#             summary_text += f"## Section: {data['section_name']}\n- **URL:** {url}\n### Functional Analysis:\n{data['functional_analysis']}\n\n---\n"
-            
-#         with open("dashboard_report.txt", "w") as f:
-#             f.write(summary_text)
-            
-#         save_current_knowledge(knowledge)
-        
-#         # ✅ NEW STEP: Capture the live, extended session authentication cookies before exiting!
-#         print("🔄 Extracting live refreshed session tokens...")
-#         await context.storage_state(path=COOKIE_FILE)
-#         print(f"✅ Refreshed token lifecycle written cleanly back to '{COOKIE_FILE}'")
-        
-#         await context.close()
-#         await browser.close()
-
-# if __name__ == "__main__":
-#     asyncio.run(run_ai_automation())
-
-
-
-
-
-
-
-
 import asyncio
 import os
 import json
@@ -600,31 +458,21 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 KNOWLEDGE_FILE = "ai_self_learning_data.json"
 
-# ⚡ CONTROLLER SETTINGS: Optimizes speed thresholds inside GitHub runner boundaries
-MAX_CONCURRENT_TABS = 5  # Opens 5 parallel webpage processes simultaneously
-BATCH_CRAWL_SIZE = 30    # Increases mapped nodes from 4 to 30 elements per workflow action
-
-def load_deep_memory():
-    """Loads long-term memory containing the deep crawl queue and mapped features."""
+def load_previous_knowledge():
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
-                data = json.load(f)
-                if "queue" not in data: data["queue"] = []
-                if "visited" not in data: data["visited"] = {}
-                return data
+                print("📚 Old self-learning memory found! Injecting previous data...")
+                return json.load(f)
         except Exception:
             pass
-    print("🆕 Initiating master structural learning matrix...")
-    return {
-        "queue": [BASE_URL], 
-        "visited": {}
-    }
+    print("🆕 No previous memory found. Starting a fresh discovery map.")
+    return {"visited_sections": {}, "site_structure": []}
 
-def save_deep_memory(memory):
+def save_current_knowledge(knowledge):
     with open(KNOWLEDGE_FILE, 'w') as f:
-        json.dump(memory, f, indent=2)
-    print(f"💾 Structural architecture logs committed locally to '{KNOWLEDGE_FILE}'")
+        json.dump(knowledge, f, indent=2)
+    print(f"💾 Updated learning data successfully committed locally to '{KNOWLEDGE_FILE}'")
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as img:
@@ -643,137 +491,95 @@ async def ask_qwen_vision(prompt, image_path):
             response = await client.post(OLLAMA_URL, json=payload)
             if response.status_code == 200:
                 return response.json().get("response", "")
-            return f"Model processing fault: {response.status_code}"
+            return f"Error: {response.status_code}"
         except Exception as e:
-            return f"API server link offline: {str(e)}"
-
-# ⚡ CONCURRENT WORKER: Dispatches an individual isolated browser context page tracker
-async def crawl_single_node(context, current_url, memory, tab_id, semaphore):
-    async with semaphore:
-        print(f"🕸️ [Tab {tab_id}] Descending into node: {current_url}")
-        page = await context.new_page()
-        
-        # ⚡ SPEED OPTIMIZATION: Instantly block heavy static network files
-        await page.route("**/*", lambda route: route.abort() if route.request.resource_type in ["image", "media", "font"] else route.continue_())
-        
-        try:
-            # Fast commit tracking strategy
-            await page.goto(current_url, timeout=45000, wait_until="commit")
-            await asyncio.sleep(3) # Let JavaScript frameworks initialize minimal markup
-            
-            # --- RECURSIVE DISCOVERY: Surface nested inner endpoint nodes ---
-            new_sub_links = await page.evaluate("""() => {
-                return Array.from(document.querySelectorAll('a'))
-                    .map(a => a.href)
-                    .filter(href => href.includes('saveetha.in') && !href.includes('logout'));
-            }""")
-            
-            # Safely merge discovered urls back into the unified global state queue tracking array
-            added_nodes = 0
-            for sub_url in new_sub_links:
-                if sub_url not in memory["visited"] and sub_url not in memory["queue"]:
-                    memory["queue"].append(sub_url)
-                    added_nodes += 1
-            print(f"📡 [Tab {tab_id}] Scanned {len(new_sub_links)} endpoints. Appended {added_nodes} unvisited paths to memory queue.")
-
-            # Capture confirmation matrix frame
-            snap_path = f"nested_view_{tab_id}.png"
-            await page.screenshot(path=snap_path)
-            
-            ai_prompt = (
-                f"Analyze this hidden inner view layer of the student portal found at: {current_url}. "
-                "Reverse engineer how this section works. Explain: 1. What action or transactional feature it controls. "
-                "2. The variables, parameters, text grids, or functions it exposes. "
-                "3. How this page passes information to the wider web system structure."
-            )
-            system_analysis = await ask_qwen_vision(ai_prompt, snap_path)
-            
-            memory["visited"][current_url] = {
-                "node_url": current_url,
-                "reverse_engineering_notes": system_analysis
-            }
-            print(f"✅ [Tab {tab_id}] Fully processed extraction mapping profile for: {current_url}")
-            
-            # Clean up picture file layout space immediately to conserve disk room
-            if os.path.exists(snap_path):
-                os.remove(snap_path)
-                
-        except Exception as e:
-            print(f"⚠️ [Tab {tab_id}] Target navigation stalled or disconnected: {current_url} | {e}")
-            memory["visited"][current_url] = {
-                "node_url": current_url,
-                "reverse_engineering_notes": f"Network traversal blocked or timeout validation fault: {str(e)}"
-            }
-        finally:
-            await page.close()
+            return f"Failed connecting to model server: {str(e)}"
 
 async def run_ai_automation():
-    memory = load_deep_memory()
+    knowledge = load_previous_knowledge()
     
     if not os.path.exists(COOKIE_FILE):
-        print("❌ Error: Session state credentials missing.")
+        print("❌ Error: Missing credentials mapping context.")
         return
 
-    print("🚀 Booting parallel sandbox-compliant cloud crawler matrix...")
+    print("🚀 Initializing deep crawler browser context...")
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
         )
         context = await browser.new_context(storage_state=COOKIE_FILE)
+        page = await context.new_page()
         
-        # Pull high-speed target batch size tracking points out of array variables
-        links_to_crawl = []
-        while memory["queue"] and len(links_to_crawl) < BATCH_CRAWL_SIZE:
-            next_url = memory["queue"].pop(0)
-            if next_url not in memory["visited"]:
-                links_to_crawl.append(next_url)
-
-        if not links_to_crawl:
-            print("🔄 All queued links mapped! Re-seeding root matrix to evaluate layout drifts...")
-            links_to_crawl = [BASE_URL]
-
-        # Initialize the parallel process throttler semaphore lock
-        semaphore = asyncio.Semaphore(MAX_CONCURRENT_TABS)
+        print(f"🌐 Accessing secure root layer: {BASE_URL}")
+        await page.goto(BASE_URL, timeout=90000, wait_until="load")
+        await asyncio.sleep(8) 
         
-        # Assemble concurrent task mappings
-        tasks = []
-        for index, url in enumerate(links_to_crawl):
-            tasks.append(crawl_single_node(context, url, memory, index, semaphore))
+        # --- PHASE 1: DISCOVER NAVIGATION CHANNELS ---
+        print("🔍 Mapping navigation layout matrices...")
+        links = await page.evaluate("""() => {
+            return Array.from(document.querySelectorAll('a'))
+                .map(a => ({ text: a.innerText.trim(), href: a.href }))
+                .filter(link => link.href.includes('saveetha.in') && link.text.length > 1);
+        }""")
+        
+        print(f"🎯 Found {len(links)} navigation links across the current layout viewport.")
+        
+        # --- PHASE 2: ROAM FREELY AND LEARN ---
+        crawl_count = 0
+        for link in links:
+            url = link['href']
+            name = link['text']
             
-        # ⚡ FIRE MULTI-THREAD ENGINE: Executes up to 5 processes at once asynchronously
-        await asyncio.gather(*tasks)
-
-        # --- COMPILING DEEP METRIC KNOWLEDGE SUMMARY ---
-        master_report = (
-            "# Saveetha Learner Portal Deep Reverse-Engineered System Specification\n\n"
-            f"**Total Verified Inner Nodes Mapped:** {len(memory['visited'])}\n"
-            f"**Pending Sub-Layer Queue Boundaries:** {len(memory['queue'])}\n\n"
-            "## Architectural Breakdown per Sub-System:\n\n"
-        )
-        for url, data in memory["visited"].items():
-            master_report += f"### System Node Endpoint: {url}\n{data['reverse_engineering_notes']}\n\n--•--•--\n\n"
-
+            if url in knowledge["visited_sections"] or crawl_count >= 5:
+                continue 
+                
+            print(f"🗺️ Roaming to new section: [{name}] -> {url}")
+            try:
+                await page.goto(url, timeout=45000, wait_until="load")
+                await asyncio.sleep(5)
+                
+                snap_path = f"section_{crawl_count}.png"
+                await page.screenshot(path=snap_path)
+                
+                ai_prompt = (
+                    f"You are exploring the student portal section named '{name}'. Study this screenshot carefully. "
+                    "Explain exactly what feature this section handles, list the data visible, and details "
+                    "on how this portion of the portal works."
+                )
+                analysis = await ask_qwen_vision(ai_prompt, snap_path)
+                
+                knowledge["visited_sections"][url] = {
+                    "section_name": name,
+                    "functional_analysis": analysis,
+                    "status_checked": "verified"
+                }
+                crawl_count += 1
+                
+            except Exception as e:
+                print(f"⚠️ Could not access section '{name}': {e}")
+                
+        # --- PHASE 3: COMPILING SYSTEM MAP ---
+        summary_text = "# Saveetha Learner Portal Master Knowledge Base\n\n"
+        for url, data in knowledge["visited_sections"].items():
+            summary_text += f"## Section: {data['section_name']}\n- **URL:** {url}\n### Functional Analysis:\n{data['functional_analysis']}\n\n---\n"
+            
         with open("dashboard_report.txt", "w") as f:
-            f.write(master_report)
-
-        print("🔄 Running token lifecycle refresh capture sequence...")
-        # Take an updated session cookie configuration state update right at the final step 
-        # to pass down to future workflow iterations seamlessly
-        try:
-            # We open a clean page to capture a secure updated token layer state profile
-            refresh_page = await context.new_page()
-            await refresh_page.goto(BASE_URL, wait_until="commit")
-            await context.storage_state(path=COOKIE_FILE)
-            await refresh_page.close()
-            print("✅ Revitalized state credentials token configuration written down.")
-        except Exception as e:
-            print(f"⚠️ Session refresh warning (non-fatal): {e}")
+            f.write(summary_text)
+            
+        save_current_knowledge(knowledge)
         
-        save_deep_memory(memory)
+        # ✅ NEW STEP: Capture the live, extended session authentication cookies before exiting!
+        print("🔄 Extracting live refreshed session tokens...")
+        await context.storage_state(path=COOKIE_FILE)
+        print(f"✅ Refreshed token lifecycle written cleanly back to '{COOKIE_FILE}'")
+        
         await context.close()
         await browser.close()
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
+
+
 
