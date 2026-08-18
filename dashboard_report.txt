@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 661
-**Pending Sub-Layer Queue Boundaries:** 2195
+**Total Verified Inner Nodes Mapped:** 665
+**Pending Sub-Layer Queue Boundaries:** 2199
 
 ## Architectural Breakdown per Sub-System:
 
@@ -28648,6 +28648,164 @@ The section in question appears to control the booking and management of exam at
 
 ### Summary
 This section of the student portal is designed to manage the booking, attendance, and feedback for exams. It exposes various variables and parameters related to the exam, tracks attendance, and posts feedback. The system passes this information to the wider web system structure through data flow, API integration, and security measures.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12887/?chat=group#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a group chat interface within a student portal. The primary action it controls is the communication and interaction between students and staff. Specifically, it allows students to communicate with each other and with staff members, facilitating discussions, announcements, and other forms of interaction.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Chat Interface**: The chat interface is the central feature, allowing students to send messages to each other and to staff members.
+- **Message Input Field**: The text input field where students can type their messages.
+- **Message Send Button**: The button to send messages.
+- **Quick Emojis**: Icons for quick reactions or emojis.
+- **File Upload**: An option to upload files.
+- **Optional Link**: A field to add a link to the message.
+- **File Upload Button**: An option to upload files.
+- **Staff Members**: Lists of staff members who can be contacted in the chat.
+- **Student Members**: Lists of students who can be contacted in the chat.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page likely requires user authentication to ensure that only authorized users can access the chat.
+- **User Identification**: The user's ID or username is displayed, indicating their identity within the system.
+- **Message History**: The chat history is displayed, showing previous messages exchanged between users.
+- **Staff and Student Lists**: The lists of staff and students are likely populated from the system's database, which contains user information.
+- **Message Sending**: When a user sends a message, the message is sent to the server, which then processes the request and updates the chat history accordingly.
+- **File Upload**: If a file is uploaded, it is sent to the server for storage and processing.
+- **Link Integration**: If a link is included in a message, it is passed to the server for further processing or display.
+
+### Detailed Breakdown
+
+1. **User Authentication**:
+   - The user is logged in with their ID or username.
+   - The system checks the user's credentials to ensure they are authorized to access the chat.
+
+2. **Message Input and Sending**:
+   - The user types a message in the input field.
+   - The message is sent to the server using a POST request.
+   - The server processes the message and updates the chat history.
+
+3. **File Upload**:
+   - The user selects a file to upload.
+   - The file is sent to the server using a POST request.
+   - The server processes the file and stores it in the system's file storage.
+
+4. **Link Integration**:
+   - The user includes a link in the message.
+   - The link is sent to the server using a POST request.
+   - The server processes the link and displays it in the chat.
+
+5. **Staff and Student Lists**:
+   - The lists of staff and students are populated from the system's database.
+   - These lists are displayed to the user for communication purposes.
+
+6. **Message History**:
+   - The chat history is displayed, showing previous messages exchanged between users.
+   - This history is stored in the system's database for future reference.
+
+### Conclusion
+This section of the student portal is designed to facilitate communication between students and staff, allowing for real-time messaging, file sharing, and link integration. The system ensures user authentication and authorization to maintain security and privacy. The page interacts with the wider web system structure by sending messages and file uploads to the server, which processes and stores the data.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12887/?chat=topics#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a part of a student portal, likely for an academic event or course. The primary action it controls is the creation and management of discussion topics within the event. This is evident from the text "Create focused discussions for this session" and the presence of a "Discussion Topics" section.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **Discussion Topics**: This is a text grid where users can create and manage discussion topics. It likely allows users to input and manage discussion threads.
+- **Direct Messages**: This is a text grid where users can send and receive messages directly. It is likely used for communication between users and instructors.
+- **Staff Members**: This section lists staff members who are instructors. It likely allows users to interact with these staff members, possibly for questions or support.
+- **Mentees**: This section lists mentees, likely for students who are participating in the event. It may allow users to interact with these mentees, possibly for guidance or support.
+- **Mentorship**: This section likely provides information about the mentorship program, which could include details about the mentors and mentees.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The page is logged in as a user with the ID 25013957. This indicates that the user is authenticated and has access to the system.
+- **Event ID**: The event ID is 12887. This ID is likely used to identify the specific event the user is participating in.
+- **Chat Topic**: The chat topic is "topics". This suggests that the page is part of a chat or discussion system where users can interact with each other and the event organizers.
+- **User Interaction**: The page allows users to create and manage discussion topics, send messages, and interact with staff and mentees. This interaction likely sends data back to the wider web system, which could be used to update the user's profile, send notifications, or update the event's discussion board.
+
+### Summary
+The section in question is a part of a student portal for an academic event, controlling the creation and management of discussion topics, direct messages, and interactions with staff and mentees. It exposes variables such as user authentication, event ID, chat topic, and user interaction. The page passes information back to the wider web system structure, which could be used to update the user's profile, send notifications, or update the event's discussion board.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12887/?peer_id=11060#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal, likely used for communication between students, mentors, and instructors. The primary action it controls is the ability to send and receive messages, which is essential for fostering interaction and collaboration within the academic community.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., Staff - Instructor, Student), and ratings. This information is likely used to identify and match users for communication.
+- **Message Input Field**: The text input field allows users to type messages, which is a fundamental function for the chat interface.
+- **Message Buttons**: The "Send" button is used to send messages, and there are additional buttons for file attachments and other actions.
+- **Quick Emojis**: The emoji options allow users to add emoticons to their messages, enhancing the communication experience.
+- **File Upload**: The "Choose File" button allows users to attach files to their messages, which could include documents, images, or other files relevant to the discussion.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The chat interface likely integrates with the wider system to authenticate users, ensuring that only authorized individuals can access and send messages.
+- **User Profiles and Roles**: The profiles and roles displayed are likely used to determine the permissions and access levels of users within the system.
+- **Message History**: The chat interface may store message history, which could be accessed by the wider system for analytics, moderation, or other purposes.
+- **System Integration**: The chat interface is part of a larger system that likely integrates with other functionalities such as scheduling, notifications, and user management.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **Dr. Manish Kumar Dwivedi**: Staff - Instructor
+- **Dr. P. Srinivasan**: Staff - Instructor
+- **Mr. Aravindan R**: Staff - Instructor
+- **AADHITH S**: Student
+- **ABDUL KALAAM M**: Student
+
+These profiles are likely used to identify the users and their roles within the system.
+
+#### Message Input Field
+- **Quick Emojis**: The emoji options allow users to add emoticons to their messages, enhancing the communication experience.
+- **File Upload**: The "Choose File" button allows users to attach files to their messages, which could include documents, images, or other files relevant to the discussion.
+
+#### Message Buttons
+- **Send**: The "Send" button is used to send messages.
+- **Choose File**: The "Choose File" button allows users to attach files to their messages.
+
+#### Message History
+- The chat interface likely stores message history, which could be accessed by the wider system for analytics, moderation, or other purposes.
+
+### Conclusion
+The chat interface in the student portal is a critical component that facilitates communication between students, mentors, and instructors. It uses user profiles, message input fields, and various buttons to control the interaction and communication within the system. The interface is designed to integrate with the wider system for additional functionalities such as message history, user authentication, and file attachments.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12887/?peer_id=11055#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature it Controls
+The section in question appears to be a chat interface within a student portal, likely used for communication between students, instructors, and possibly other staff members. The primary action it controls is the ability for users to send and receive messages, which can include text, emojis, and potentially files. This feature is crucial for facilitating communication and collaboration within the academic environment.
+
+#### 2. Variables, Parameters, Text Grids, or Functions it Exposes
+- **User Authentication**: The user is logged in, as indicated by the username and rating displayed.
+- **Message Composition**: Users can type messages in a text input field.
+- **Message Delivery**: The message can be sent using a "Send" button.
+- **File Upload**: Users can upload files, as indicated by the "Choose File" button.
+- **Emojis and Icons**: Users can use a variety of emojis and icons to enhance their messages.
+- **Optional Link**: Users can include a link in their message, which might be used for additional resources or information.
+- **User Roles**: The roles of users are displayed, indicating their status as either a student, instructor, or staff member.
+
+#### 3. How this Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The user's ID and rating are passed through the URL, which can be used to identify the user within the wider system.
+- **Message Content**: The message content is sent via a POST request to the server, where it is processed and stored.
+- **File Upload**: The file is uploaded to a designated directory on the server, where it is stored and can be accessed later.
+- **Emojis and Icons**: These are typically processed by the server and displayed in the chat interface.
+- **Optional Link**: The link is stored on the server and can be accessed by the user or other authorized parties.
+- **User Roles**: These are stored in the database and can be used to determine the user's permissions and access levels within the system.
+
+### Summary
+This section of the student portal is designed to facilitate real-time communication and collaboration among students, instructors, and staff. It exposes various variables and parameters such as user authentication, message composition, file upload, and emoji usage. The information is passed to the wider web system structure through various methods, including URL parameters, POST requests, and file uploads, which are then processed and stored on the server. This setup ensures that the communication and collaboration features are secure, efficient, and scalable within the academic environment.
 
 --•--•--
 
