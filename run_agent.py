@@ -587,8 +587,6 @@
 
 
 
-
-
 import asyncio
 import os
 import json
@@ -602,13 +600,16 @@ OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 KNOWLEDGE_FILE = "ai_self_learning_data.json"
 
+# ⚡ CONTROLLER SETTINGS: Optimizes speed thresholds inside GitHub runner boundaries
+MAX_CONCURRENT_TABS = 5  # Opens 5 parallel webpage processes simultaneously
+BATCH_CRAWL_SIZE = 30    # Increases mapped nodes from 4 to 30 elements per workflow action
+
 def load_deep_memory():
     """Loads long-term memory containing the deep crawl queue and mapped features."""
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
                 data = json.load(f)
-                # Ensure structure integrity for recursive paths
                 if "queue" not in data: data["queue"] = []
                 if "visited" not in data: data["visited"] = {}
                 return data
@@ -616,7 +617,7 @@ def load_deep_memory():
             pass
     print("🆕 Initiating master structural learning matrix...")
     return {
-        "queue": [BASE_URL], # Seed queue with the initial dashboard layer
+        "queue": [BASE_URL], 
         "visited": {}
     }
 
@@ -646,6 +647,66 @@ async def ask_qwen_vision(prompt, image_path):
         except Exception as e:
             return f"API server link offline: {str(e)}"
 
+# ⚡ CONCURRENT WORKER: Dispatches an individual isolated browser context page tracker
+async def crawl_single_node(context, current_url, memory, tab_id, semaphore):
+    async with semaphore:
+        print(f"🕸️ [Tab {tab_id}] Descending into node: {current_url}")
+        page = await context.new_page()
+        
+        # ⚡ SPEED OPTIMIZATION: Instantly block heavy static network files
+        await page.route("**/*", lambda route: route.abort() if route.request.resource_type in ["image", "media", "font"] else route.continue_())
+        
+        try:
+            # Fast commit tracking strategy
+            await page.goto(current_url, timeout=45000, wait_until="commit")
+            await asyncio.sleep(3) # Let JavaScript frameworks initialize minimal markup
+            
+            # --- RECURSIVE DISCOVERY: Surface nested inner endpoint nodes ---
+            new_sub_links = await page.evaluate("""() => {
+                return Array.from(document.querySelectorAll('a'))
+                    .map(a => a.href)
+                    .filter(href => href.includes('saveetha.in') && !href.includes('logout'));
+            }""")
+            
+            # Safely merge discovered urls back into the unified global state queue tracking array
+            added_nodes = 0
+            for sub_url in new_sub_links:
+                if sub_url not in memory["visited"] and sub_url not in memory["queue"]:
+                    memory["queue"].append(sub_url)
+                    added_nodes += 1
+            print(f"📡 [Tab {tab_id}] Scanned {len(new_sub_links)} endpoints. Appended {added_nodes} unvisited paths to memory queue.")
+
+            # Capture confirmation matrix frame
+            snap_path = f"nested_view_{tab_id}.png"
+            await page.screenshot(path=snap_path)
+            
+            ai_prompt = (
+                f"Analyze this hidden inner view layer of the student portal found at: {current_url}. "
+                "Reverse engineer how this section works. Explain: 1. What action or transactional feature it controls. "
+                "2. The variables, parameters, text grids, or functions it exposes. "
+                "3. How this page passes information to the wider web system structure."
+            )
+            system_analysis = await ask_qwen_vision(ai_prompt, snap_path)
+            
+            memory["visited"][current_url] = {
+                "node_url": current_url,
+                "reverse_engineering_notes": system_analysis
+            }
+            print(f"✅ [Tab {tab_id}] Fully processed extraction mapping profile for: {current_url}")
+            
+            # Clean up picture file layout space immediately to conserve disk room
+            if os.path.exists(snap_path):
+                os.remove(snap_path)
+                
+        except Exception as e:
+            print(f"⚠️ [Tab {tab_id}] Target navigation stalled or disconnected: {current_url} | {e}")
+            memory["visited"][current_url] = {
+                "node_url": current_url,
+                "reverse_engineering_notes": f"Network traversal blocked or timeout validation fault: {str(e)}"
+            }
+        finally:
+            await page.close()
+
 async def run_ai_automation():
     memory = load_deep_memory()
     
@@ -653,74 +714,35 @@ async def run_ai_automation():
         print("❌ Error: Session state credentials missing.")
         return
 
-    print("🚀 Booting recursive automation crawler layer...")
+    print("🚀 Booting parallel sandbox-compliant cloud crawler matrix...")
     async with async_playwright() as p:
         browser = await p.chromium.launch(
             headless=True,
             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
         )
         context = await browser.new_context(storage_state=COOKIE_FILE)
-        page = await context.new_page()
         
-        # Pull the next target elements out of our persistent repository queue
-        # Crawls up to 4 deep links per run to fit within GitHub execution runtime boundaries safely
+        # Pull high-speed target batch size tracking points out of array variables
         links_to_crawl = []
-        while memory["queue"] and len(links_to_crawl) < 4:
+        while memory["queue"] and len(links_to_crawl) < BATCH_CRAWL_SIZE:
             next_url = memory["queue"].pop(0)
             if next_url not in memory["visited"]:
                 links_to_crawl.append(next_url)
 
-        # If the queue is empty, restart validation at the base dashboard node to look for updates
         if not links_to_crawl:
             print("🔄 All queued links mapped! Re-seeding root matrix to evaluate layout drifts...")
             links_to_crawl = [BASE_URL]
 
-        for current_url in links_to_crawl:
-            print(f"\n🕸️ Descending into structural node target: {current_url}")
-            try:
-                await page.goto(current_url, timeout=60000, wait_until="load")
-                await asyncio.sleep(6) # Allow structural script rendering to conclude
-                
-                # --- RECURSIVE DISCOVERY: Find sub-links inside this inner page ---
-                new_sub_links = await page.evaluate("""() => {
-                    return Array.from(document.querySelectorAll('a'))
-                        .map(a => a.href)
-                        .filter(href => href.includes('saveetha.in') && !href.includes('logout'));
-                }""")
-                
-                # Append undiscovered nested paths deeper into the queue
-                added_nodes = 0
-                for sub_url in new_sub_links:
-                    if sub_url not in memory["visited"] and sub_url not in memory["queue"]:
-                        memory["queue"].append(sub_url)
-                        added_nodes += 1
-                        
-                print(f"📡 Page analysis extracted {len(new_sub_links)} sub-links. Appended {added_nodes} new targets down into the queue stack.")
-
-                # Capture frame for deep vision reverse engineering
-                snap_path = "nested_layer_view.png"
-                await page.screenshot(path=snap_path)
-                
-                ai_prompt = (
-                    f"Analyze this hidden inner view layer of the student portal found at: {current_url}. "
-                    "Reverse engineer how this section works. Explain: 1. What action or transactional feature it controls. "
-                    "2. The variables, parameters, text grids, or functions it exposes. "
-                    "3. How this page passes information to the wider web system structure."
-                )
-                system_analysis = await ask_qwen_vision(ai_prompt, snap_path)
-                
-                # Save data mappings directly to memory
-                memory["visited"][current_url] = {
-                    "node_url": current_url,
-                    "reverse_engineering_notes": system_analysis
-                }
-                
-            except Exception as e:
-                print(f"⚠️ Segment extraction skipped for {current_url} due to node timeout: {e}")
-                memory["visited"][current_url] = {
-                    "node_url": current_url,
-                    "reverse_engineering_notes": f"Network traversal blocked or timeout: {str(e)}"
-                }
+        # Initialize the parallel process throttler semaphore lock
+        semaphore = asyncio.Semaphore(MAX_CONCURRENT_TABS)
+        
+        # Assemble concurrent task mappings
+        tasks = []
+        for index, url in enumerate(links_to_crawl):
+            tasks.append(crawl_single_node(context, url, memory, index, semaphore))
+            
+        # ⚡ FIRE MULTI-THREAD ENGINE: Executes up to 5 processes at once asynchronously
+        await asyncio.gather(*tasks)
 
         # --- COMPILING DEEP METRIC KNOWLEDGE SUMMARY ---
         master_report = (
@@ -735,9 +757,18 @@ async def run_ai_automation():
         with open("dashboard_report.txt", "w") as f:
             f.write(master_report)
 
-        # Refresh login session parameters natively to sustain our 100% manual-free automation loop
         print("🔄 Running token lifecycle refresh capture sequence...")
-        await context.storage_state(path=COOKIE_FILE)
+        # Take an updated session cookie configuration state update right at the final step 
+        # to pass down to future workflow iterations seamlessly
+        try:
+            # We open a clean page to capture a secure updated token layer state profile
+            refresh_page = await context.new_page()
+            await refresh_page.goto(BASE_URL, wait_until="commit")
+            await context.storage_state(path=COOKIE_FILE)
+            await refresh_page.close()
+            print("✅ Revitalized state credentials token configuration written down.")
+        except Exception as e:
+            print(f"⚠️ Session refresh warning (non-fatal): {e}")
         
         save_deep_memory(memory)
         await context.close()
@@ -745,3 +776,4 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
