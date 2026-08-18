@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered System Specification
 
-**Total Verified Inner Nodes Mapped:** 541
-**Pending Sub-Layer Queue Boundaries:** 2087
+**Total Verified Inner Nodes Mapped:** 545
+**Pending Sub-Layer Queue Boundaries:** 2091
 
 ## Architectural Breakdown per Sub-System:
 
@@ -24176,6 +24176,171 @@ The section in question is a chat interface within a student portal. It allows s
 
 ### Conclusion
 This section of the student portal is designed to facilitate communication and interaction between students, staff members, and instructors. It uses a combination of user authentication, message input, file attachment, and rating submission to manage and display messages and ratings in a structured and user-friendly manner. The information is passed to the wider web system structure through HTTP POST requests and server responses, ensuring that the system can process and update the chat interface accordingly.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12849/?peer_id=2647#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal, likely used for communication between students, instructors, and possibly other staff members. The primary action it controls is the ability to send and receive messages within the chat. This feature is crucial for facilitating communication, feedback, and support within the academic environment.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., Staff, Student), and ratings. This information is likely used to identify and authenticate users.
+- **Message Input Field**: The text input field allows users to type messages. This field is essential for the user to input and send messages.
+- **Message Emojis**: The emoji options provide a way for users to add emoticons to their messages, enhancing the communication experience.
+- **File Upload**: The "Choose File" button allows users to upload files, which could be useful for sharing documents, images, or other files relevant to the chat.
+- **Send Button**: The "Send" button is used to submit the message to the chat server, allowing the message to be processed and delivered to the intended recipients.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The chat interface likely relies on user authentication to ensure that only authorized users can access and send messages. This is typically handled by the backend system, which verifies user credentials before allowing access to the chat interface.
+- **Message Processing**: When a user sends a message, the chat interface sends the message to the backend system. The backend system processes the message, possibly storing it in a database or sending it to other users based on predefined rules (e.g., sending messages to all participants in a discussion).
+- **User Interaction**: The chat interface also interacts with the backend system to update user profiles and ratings, ensuring that the system maintains accurate and up-to-date information about users.
+- **File Handling**: If a user uploads a file, the chat interface sends the file to the backend system, which then processes the file and stores it in the appropriate location, possibly for sharing or archiving purposes.
+
+### Summary
+The chat interface in the student portal is a critical component that facilitates communication and interaction among users. It exposes various features such as user profiles, message input, emoji options, and file upload capabilities. The interface communicates with the backend system to process messages, update user profiles, and handle file uploads, ensuring a seamless and functional user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12849/?peer_id=5459#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal, likely used for communication between students, instructors, and possibly other staff members. The primary action it controls is the ability for users to send and receive messages, which can include text, emojis, and potentially files. This feature is crucial for fostering communication and collaboration within the academic community.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., Staff, Student), and ratings (e.g., 0 pts). This information is likely used to identify and authenticate users.
+- **Message Input**: The text input field allows users to type messages, which is a fundamental function for communication.
+- **Emojis and Icons**: The emoji and icon options provide additional ways to express messages, enhancing the user experience.
+- **File Upload**: The "Choose File" button allows users to upload files, which could include documents, images, or other media.
+- **Send Button**: The "Send" button is used to submit the message to the chat server.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The chat interface likely integrates with the wider system to authenticate users. This could involve checking user credentials against a database or API.
+- **Message Routing**: The messages sent through this interface are routed to the appropriate recipients based on their roles and profiles. This could involve a central messaging server or a database that maps user roles to specific chat channels.
+- **System Integration**: The chat interface is part of a larger system that manages user interactions, notifications, and potentially other functionalities like booking, workflow approvals, and mentorship. This integration ensures that the chat interface is part of a cohesive system that handles various user interactions and data flows.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **Display**: Profiles are displayed in a grid format, showing user names, roles, and ratings.
+- **Authentication**: The system likely uses these profiles to authenticate users, ensuring that only authorized users can send messages.
+
+#### Message Input
+- **Text Field**: The text input field is where users type their messages.
+- **Emojis and Icons**: The available emojis and icons provide additional ways to express messages, enhancing the user experience.
+- **File Upload**: The "Choose File" button allows users to upload files, which could include documents, images, or other media.
+
+#### Send Button
+- **Submit Message**: When the "Send" button is clicked, the message is submitted to the chat server.
+- **Message Routing**: The message is then routed to the appropriate recipients based on their roles and profiles.
+
+#### System Integration
+- **Authentication**: The system likely integrates with a central authentication system to ensure that only authorized users can send messages.
+- **Message Routing**: The messages are routed to the appropriate recipients based on their roles and profiles.
+- **System Functions**: The chat interface is part of a larger system that manages user interactions, notifications, and other functionalities like booking, workflow approvals, and mentorship.
+
+### Conclusion
+The student portal section in question is a critical component of the wider system, facilitating communication and collaboration among students, instructors, and staff. It integrates various features to enhance user experience and ensures that messages are routed correctly to the appropriate recipients. The system's ability to authenticate users and route messages efficiently underscores its importance in maintaining the integrity and functionality of the broader system.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12849/?peer_id=5592#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question appears to be a chat interface within a student portal, likely used for communication between students, instructors, and possibly other staff members. The primary action it controls is the ability to send and receive messages within this chat system.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., Staff, Student), and ratings. This suggests that the system tracks user interactions and statuses.
+- **Message Input**: There is a text input field where users can type their messages. This field is crucial for the functionality of the chat.
+- **Message Options**: The interface includes options for sending different types of messages, such as emojis, which are likely used for emoticon-based communication.
+- **File Upload**: There is a file upload option, which might be used for sending files like documents or images.
+- **File Selection**: The "Choose File" button allows users to select files from their device to send them in the chat.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The chat interface is likely integrated with a backend system that manages user authentication and permissions. This ensures that only authorized users can access and interact with the chat.
+- **Message Storage**: The chat messages are likely stored in a database or a messaging service provided by the system. This ensures that messages are not lost and can be accessed by other users.
+- **User Interaction Tracking**: The system tracks user interactions, such as the number of messages sent and received, which can be used for analytics or to manage user access.
+- **System Integration**: The chat interface is part of a larger system that manages various aspects of the student portal, including scheduling, rewards, and other functionalities. This integration ensures that the chat system is part of a cohesive user experience.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **AJITH J**: Staff - Instructor
+- **JEEVITHA S**: Staff - Instructor
+- **ABDUL RAHIM M**: Student
+- **ABIJIT S B**: Student
+- **AGILAN J**: Student
+- **AJAY M**: Student
+
+#### Message Input
+- **Quick Emojis**: Users can select from a set of emojis to add to their messages.
+- **Text Input Field**: Users can type their messages here.
+- **Optional Link**: Users can include a link in their message.
+- **File Upload**: Users can upload files to send in the chat.
+
+#### Message Sending
+- **Send Button**: Users can click this button to send their messages.
+- **File Upload Button**: Users can click this button to select and upload files.
+
+### Conclusion
+The chat interface in the student portal is designed to facilitate communication among students, instructors, and staff. It exposes various features for user interaction, such as message typing, emoji selection, file upload, and message sending. The system likely integrates with a broader web system to manage user authentication, message storage, and user interaction tracking, ensuring a seamless and functional user experience.
+
+--•--•--
+
+### System Node Endpoint: https://learner.saveetha.in/academicevents/event-participating/12849/?peer_id=759#event-student-chat
+### Analysis of the Student Portal Section
+
+#### 1. Action or Transactional Feature
+The section in question is a chat interface within a student portal. It allows students to communicate with instructors, other students, and staff members. The primary action it controls is the interaction and communication between students and the broader community within the portal.
+
+#### 2. Variables, Parameters, Text Grids, or Functions Exposed
+- **User Profiles**: The chat interface displays user profiles, including names, roles (e.g., "Staff - Instructor," "Student"), and ratings (e.g., "Rating: 0 pts").
+- **Message Input**: There is a text input field where students can type their messages.
+- **Message Options**: The interface includes options for quick emojis and file attachments.
+- **File Upload**: There is a file upload button labeled "Choose File" and "No file...hosen."
+- **Send Button**: A blue "Send" button to submit the message.
+
+#### 3. How This Page Passes Information to the Wider Web System Structure
+- **User Authentication**: The user is logged in, as indicated by the logged-in user ID and name.
+- **User Roles**: The roles of users (e.g., "Staff - Instructor," "Student") are displayed.
+- **Message Submission**: When a user sends a message, the message is sent to the server, which then processes the request and sends a response back to the client.
+- **File Upload**: If a file is uploaded, it is sent to the server for processing.
+- **User Interaction**: The chat interface is designed to handle real-time communication, allowing users to see messages as they are sent and received.
+
+### Detailed Breakdown
+
+#### User Profiles
+- **AJITH J**: Staff - Instructor
+- **JEEVITHA S**: Staff - Instructor
+- **ABDUL RAHIM M**: Student
+- **ABIJIT S B**: Student
+- **AGILAN J**: Student
+- **AJAY M**: Student
+
+#### Message Input
+- **Quick Emojis**: Icons for various emojis (e.g., thumbs up, question mark, etc.).
+- **Text Input Field**: Where users can type their messages.
+- **File Upload**: Allows users to attach files to their messages.
+
+#### Message Submission
+- **Send Button**: When the user clicks the "Send" button, the message is sent to the server.
+- **Optional Link**: An input field for an optional link, which can be used to direct users to external resources.
+
+### Server-Side Processing
+- **Message Handling**: The server processes incoming messages and sends a response back to the client.
+- **File Handling**: If a file is uploaded, it is processed and stored on the server.
+- **User Authentication**: The server verifies the user's login status and role.
+
+### Security Considerations
+- **User Authentication**: Ensures only authenticated users can send messages.
+- **File Upload Security**: Prevents malicious files from being uploaded.
+- **Message Encryption**: Ensures that messages are not intercepted during transmission.
+
+### Conclusion
+This section of the student portal is designed to facilitate real-time communication among students, staff, and instructors. It leverages user profiles, message input fields, and file upload capabilities to enable seamless interaction. The server-side processing ensures that messages are handled securely and efficiently, maintaining the integrity of the communication system.
 
 --•--•--
 
