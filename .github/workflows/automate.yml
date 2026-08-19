@@ -454,6 +454,8 @@ jobs:
         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
 
     - name: Run Web AI Automation Agent Execution Script
+      env:
+          PYTHONUNBUFFERED: "1" 
       run: python run_agent.py
 
     # ✅ REFRESHED STEP: Now tracks and commits your self-learning data AND the fresh cookies.json
