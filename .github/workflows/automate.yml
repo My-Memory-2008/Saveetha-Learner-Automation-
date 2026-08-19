@@ -599,7 +599,6 @@
 
 
 
-
 name: Run Web Agent Automation
 
 on:
@@ -649,9 +648,10 @@ jobs:
     - name: Commit and Push Run 1 Results
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@://github.com"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         git add ai_self_learning_data.json dashboard_report.txt cookies.json
-        git diff-index --quiet HEAD || (git commit -m "🤖 Run 1 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+        # ✅ FIXED: Uses force-with-lease to safely push state files sequentially without history rejection locks
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 1 Update" && git push origin HEAD:main --force-with-lease)
 
     # ==================== TRAINING RUN 2 ====================
     - name: Execute Training Run 2
@@ -660,7 +660,7 @@ jobs:
     - name: Commit and Push Run 2 Results
       run: |
         git add ai_self_learning_data.json dashboard_report.txt cookies.json
-        git diff-index --quiet HEAD || (git commit -m "🤖 Run 2 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 2 Update" && git push origin HEAD:main --force-with-lease)
 
     # ==================== TRAINING RUN 3 ====================
     - name: Execute Training Run 3
@@ -669,7 +669,7 @@ jobs:
     - name: Commit and Push Run 3 Results
       run: |
         git add ai_self_learning_data.json dashboard_report.txt cookies.json
-        git diff-index --quiet HEAD || (git commit -m "🤖 Run 3 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 3 Update" && git push origin HEAD:main --force-with-lease)
 
     # ==================== TRAINING RUN 4 ====================
     - name: Execute Training Run 4
@@ -678,9 +678,9 @@ jobs:
     - name: Commit and Push Run 4 Results
       run: |
         git add ai_self_learning_data.json dashboard_report.txt cookies.json
-        git diff-index --quiet HEAD || (git commit -m "🤖 Run 4 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 4 Update" && git push origin HEAD:main --force-with-lease)
 
-    # Final backup capture save
+    # Final backup archive save
     - name: Securely Store Scraped Artifact Summaries
       if: always()
       uses: actions/upload-artifact@v4
