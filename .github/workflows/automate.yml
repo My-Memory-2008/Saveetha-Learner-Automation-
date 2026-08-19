@@ -502,12 +502,109 @@
 
 
 
+# name: Run Web Agent Automation
+
+# on:
+#   workflow_dispatch: # Manual trigger
+
+# # Grant permissions to push code and trigger tracking streams safely
+# permissions:
+#   contents: write
+#   actions: write
+
+# jobs:
+#   run-agent:
+#     runs-on: ubuntu-latest
+
+#     services:
+#       ollama-service:
+#         image: ollama/ollama:latest
+#         ports:
+#           - 11434:11434
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         persist-credentials: true
+#         # ✅ FIX 1: Fetch entire version trees so Git can align and merge branches natively
+#         fetch-depth: 0 
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx pytz
+#         playwright install chromium
+
+#     - name: Verify Ollama Service and Pull Qwen Vision Model
+#       run: |
+#         curl -s http://localhost:11434
+#         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
+
+#     - name: Run Web AI Automation Agent Execution Script
+#       env:
+#           PYTHONUNBUFFERED: "1" 
+#       run: python run_agent.py
+
+#     # ✅ FIXED STEP: Synchronizes overlapping file changes automatically via pulling rebase rules
+#     - name: Commit AI Self Learning Data and Refreshed Cookies to Repository Root
+#       if: always()
+#       run: |
+#         git config --global user.name "github-actions[bot]"
+#         git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        
+#         # Check if code target items exist
+#         if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ] || [ -f cookies.json ]; then
+#           git add ai_self_learning_data.json dashboard_report.txt cookies.json
+          
+#           if ! git diff-index --quiet HEAD; then
+#             git commit -m "🤖 AI Loop Update: Extended Session Cookie Lifespans & Site Structure Knowledge Base"
+            
+#             # ✅ FIX 2: Fetch and align manual interface updates ahead of our data payload push
+#             echo "Pulling down web interface edits and aligning commit trees..."
+#             git pull origin HEAD:${{ github.ref }} --rebase
+            
+#             # Dispatch structural update payload package
+#             git push origin HEAD:${{ github.ref }}
+#             echo "✅ Refreshed cookies and learning database committed straight back to your GitHub repository!"
+#           else
+#             echo "ℹ️ No changes detected in token lifecycles or layout. Skipping push loop."
+#           fi
+#         fi
+
+#     - name: Securely Store Scraped Artifact Summaries
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: execution-results-bundle
+#         path: |
+#           dashboard_report.txt
+#           ai_self_learning_data.json
+#           cookies.json
+
+#     - name: Execute Scheduler to Trigger Restart Loop
+#       if: always()
+#       env:
+#         # Provide the GitHub token so scheduler.py can trigger restart.yml via the 'gh' CLI
+#         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+#       run: |
+#         echo "Starting scheduler.py to pause for 2 minutes and trigger restart.yml..."
+#         python scheduler.py
+
+
+
+
+
 name: Run Web Agent Automation
 
 on:
-  workflow_dispatch: # Manual trigger
+  workflow_dispatch: # Manual play button trigger
 
-# Grant permissions to push code and trigger tracking streams safely
 permissions:
   contents: write
   actions: write
@@ -528,7 +625,6 @@ jobs:
       with:
         token: ${{ secrets.GITHUB_TOKEN }}
         persist-credentials: true
-        # ✅ FIX 1: Fetch entire version trees so Git can align and merge branches natively
         fetch-depth: 0 
 
     - name: Configure Python Machine Environment
@@ -546,37 +642,45 @@ jobs:
         curl -s http://localhost:11434
         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
 
-    - name: Run Web AI Automation Agent Execution Script
-      env:
-          PYTHONUNBUFFERED: "1" 
+    # ==================== TRAINING RUN 1 ====================
+    - name: Execute Training Run 1
       run: python run_agent.py
 
-    # ✅ FIXED STEP: Synchronizes overlapping file changes automatically via pulling rebase rules
-    - name: Commit AI Self Learning Data and Refreshed Cookies to Repository Root
-      if: always()
+    - name: Commit and Push Run 1 Results
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
-        
-        # Check if code target items exist
-        if [ -f ai_self_learning_data.json ] || [ -f dashboard_report.txt ] || [ -f cookies.json ]; then
-          git add ai_self_learning_data.json dashboard_report.txt cookies.json
-          
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "🤖 AI Loop Update: Extended Session Cookie Lifespans & Site Structure Knowledge Base"
-            
-            # ✅ FIX 2: Fetch and align manual interface updates ahead of our data payload push
-            echo "Pulling down web interface edits and aligning commit trees..."
-            git pull origin HEAD:${{ github.ref }} --rebase
-            
-            # Dispatch structural update payload package
-            git push origin HEAD:${{ github.ref }}
-            echo "✅ Refreshed cookies and learning database committed straight back to your GitHub repository!"
-          else
-            echo "ℹ️ No changes detected in token lifecycles or layout. Skipping push loop."
-          fi
-        fi
+        git config --global user.email "41898282+github-actions[bot]@://github.com"
+        git add ai_self_learning_data.json dashboard_report.txt cookies.json
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 1 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
 
+    # ==================== TRAINING RUN 2 ====================
+    - name: Execute Training Run 2
+      run: python run_agent.py
+
+    - name: Commit and Push Run 2 Results
+      run: |
+        git add ai_self_learning_data.json dashboard_report.txt cookies.json
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 2 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+
+    # ==================== TRAINING RUN 3 ====================
+    - name: Execute Training Run 3
+      run: python run_agent.py
+
+    - name: Commit and Push Run 3 Results
+      run: |
+        git add ai_self_learning_data.json dashboard_report.txt cookies.json
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 3 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+
+    # ==================== TRAINING RUN 4 ====================
+    - name: Execute Training Run 4
+      run: python run_agent.py
+
+    - name: Commit and Push Run 4 Results
+      run: |
+        git add ai_self_learning_data.json dashboard_report.txt cookies.json
+        git diff-index --quiet HEAD || (git commit -m "🤖 Run 4 Update" && git pull origin HEAD:${{ github.ref }} --rebase && git push origin HEAD:${{ github.ref }})
+
+    # Final backup capture save
     - name: Securely Store Scraped Artifact Summaries
       if: always()
       uses: actions/upload-artifact@v4
@@ -586,15 +690,14 @@ jobs:
           dashboard_report.txt
           ai_self_learning_data.json
           cookies.json
-
     - name: Execute Scheduler to Trigger Restart Loop
-      if: always()
       env:
         # Provide the GitHub token so scheduler.py can trigger restart.yml via the 'gh' CLI
         GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         echo "Starting scheduler.py to pause for 2 minutes and trigger restart.yml..."
         python scheduler.py
+
 
 
 
