@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1328
-**Pending Unexplored Queue Scope:** 2411
+**Total Unique Sub-System Paths Mapped:** 1344
+**Pending Unexplored Queue Scope:** 2398
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -22966,6 +22966,268 @@ API server link offline:
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/?tab=workflow#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Reward Redeem
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=redeem
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=workflow
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and approve reward redemption requests for students. The specific transactional parameters include:
+- **Reward Term**: Selecting the academic year for which the rewards are applicable.
+- **Reward Ledger (Expense)**: Choosing the specific ledger under which the reward is recorded.
+- **Approval Flow**: This tab allows the user to draft, submit, and track the approval status of the reward redemption requests.
+- **Chat**: A feature for real-time communication with other users or administrators.
+
+#### 2. Data Element Blocks and Table Structure
+The page is divided into several sections:
+- **Header**: Displays the page title and navigation options.
+- **Main Content Area**:
+  - **Left Panel**: Contains navigation links for different sections such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+  - **Right Panel**: Contains the main content area for reward redemption.
+    - **Reward Term**: Dropdown menu for selecting the academic year.
+    - **Reward Ledger (Expense)**: Dropdown menu for selecting the specific ledger.
+    - **Student Instruction**: Instructions for the student to follow.
+    - **Approval Flow**: Contains buttons for saving the reward ledger and applying the approval.
+- **Footer**: Contains the copyright information and loading profile status.
+
+#### 3. Structural Functionality
+This layout serves the wider system functions by:
+- **Navigation**: Facilitating easy access to different sections of the system.
+- **Data Entry**: Allowing users to input specific details related to reward redemption.
+- **Approval Tracking**: Providing a system for tracking and managing the approval status of reward redemption requests.
+- **Communication**: Enabling real-time communication for any issues or questions related to the reward redemption process.
+- **User Interface**: Ensuring a user-friendly interface for both students and administrators to manage their reward redemption requests efficiently.
+
+### Detailed Breakdown
+
+#### Header
+- **Page Title**: "Reward Redeem - Student"
+- **Navigation Links**: 
+  - "Schedule" (4)
+  - "Circulars" (5)
+  - "My Reward Points"
+  - "Workflow Requests"
+  - "Workflow Approvals"
+  - "Bookings"
+  - "Services"
+  - "Mentees"
+  - "Mentorship"
+  - "Back to Requests"
+
+#### Main Content Area
+- **Left Panel**:
+  - **Schedule**: Displays the number of schedule items.
+  - **Circulars**: Displays the number of circulars.
+  - **My Reward Points**: Displays the number of reward points.
+  - **Workflow Requests**: Displays the number of workflow requests.
+  - **Workflow Approvals**: Displays the number of workflow approvals.
+  - **Bookings**: Displays the number of bookings.
+  - **Services**: Displays the number of services.
+  - **Mentees**: Displays the number of mentees.
+  - **Mentorship**: Displays the number of mentorship opportunities.
+  
+- **Right Panel**:
+  - **Reward Term**: Dropdown menu for selecting the academic year.
+  - **Reward Ledger (Expense)**: Dropdown menu for selecting the specific ledger.
+  - **Student Instruction**: Instructions for the student to follow.
+  - **Approval Flow**: Contains buttons for saving the reward ledger and applying the approval.
+
+#### Footer
+- **Copyright Information**: "Copyright © Saveetha Engineering College 2026"
+- **Loading Profile**: Displays the status of the loading profile.
+
+This layout ensures that all necessary information and functionalities are easily accessible and manageable, enhancing the user experience for both students and administrators.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=redeem#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=workflow#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage reward redemption requests for students. The specific actions and transactional parameters controlled by this page include:
+- **Reward Redemption**: Allows users to draft, submit, and track reward redemption approvals.
+- **Approval Flow**: Provides a flow for approving reward redemption requests.
+- **Chat**: Facilitates communication between users and administrators.
+- **Reward Term**: Selects the academic term for which the reward is valid.
+- **Reward Ledger (Expense)**: Specifies the ledger under which the reward is recorded.
+- **Save Reward Ledger**: Saves the selected ledger for future reference.
+- **Apply**: Submits the reward redemption request.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several key sections:
+- **Header**: Displays the page title "Reward Redeem - Student" and a navigation bar.
+- **Main Content Area**:
+  - **Left Sidebar**: Contains navigation links for different sections such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+  - **Right Sidebar**: Contains the main content area with fields for reward redemption and approval flow.
+    - **Reward Term**: Dropdown menu for selecting the academic term.
+    - **Reward Ledger (Expense)**: Dropdown menu for selecting the ledger under which the reward is recorded.
+    - **Student Instruction**: Instructions for selecting a reward ledger.
+    - **Actions**: Buttons for "Save Reward Ledger" and "Apply".
+
+#### 3. Structural Role in the Wider System Functions
+This page serves as a critical component of the student portal, facilitating the management of reward redemption processes. It ensures that students can draft, submit, and track their reward redemption requests efficiently. The approval flow and chat functionalities help in managing the approval process and facilitating communication between students and administrators. The structured layout ensures that all necessary fields are easily accessible, enhancing user experience and system efficiency.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/calculate-my-attendance/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/attendance/leave-redemption/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/attendance/leave-balance/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/skill-development/#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+This page is part of the "Skill Development" section within the "Academics" module of the student portal. The specific transactional parameters controlled by this page include:
+- **Skillset Selection**: Users can choose from a list of skillsets to view associated skills, marks, reward windows, and LMS course details.
+- **Skill Display**: Users can view the selected skillset's details, including skills, marks, reward windows, and LMS course information.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page layout is structured as follows:
+
+1. **Header Section**:
+   - **Top Bar**: Contains the user's profile icon and settings.
+   - **Main Title**: "Skill Development" with a subtitle "Review accessible skills, marks, reward windows, and LMS course details."
+
+2. **Main Content Area**:
+   - **Skillset Dropdown**: Displays a list of skillsets, currently set to "Python Programming - Python Programming."
+   - **Action Buttons**: 
+     - **Reset**: To clear the current skillset selection.
+     - **Show skills**: To display the selected skillset's details.
+
+3. **Skill Details Section**:
+   - **Placeholder Text**: "Choose a skillset to view the associated skills, marks, and reward details."
+
+4. **Footer Section**:
+   - **Logged in as**: Displays the user's ID, name, and ref IDs.
+
+#### 3. Structural Functionality and System Integration
+This page serves the following broader system functions:
+- **User Interface (UI) Integration**: Facilitates the user interface for skill development tracking and management.
+- **Data Retrieval and Display**: Retrieves and displays the relevant skillset details based on user selection.
+- **User Authentication**: Ensures the user is logged in and authenticated.
+- **System Integration**: Links to the broader system for managing skills, marks, reward windows, and LMS course details.
+
+### Detailed Breakdown of the Page Layout
+
+#### Header Section
+- **Top Bar**: Contains the user's profile icon and settings.
+  - **Profile Icon**: Likely a user avatar or profile picture.
+  - **Settings Icon**: Likely a menu or settings icon for additional options.
+
+#### Main Content Area
+- **Skillset Dropdown**:
+  - **List of Skillsets**: Displays a list of available skillsets.
+  - **Current Skillset**: Currently set to "Python Programming - Python Programming."
+  - **Action Buttons**:
+    - **Reset**: To clear the current skillset selection.
+    - **Show skills**: To display the selected skillset's details.
+
+#### Skill Details Section
+- **Placeholder Text**: "Choose a skillset to view the associated skills, marks, and reward details."
+  - This section is a placeholder for the actual details that would be displayed when a skillset is selected.
+
+#### Footer Section
+- **Logged in as**: Displays the user's ID, name, and ref IDs.
+  - **User ID**: 25013957
+  - **Name**: MUHAMMAD ASJAD E
+  - **Ref IDs**: 21225240091, 25013957
+
+### Conclusion
+This page is designed to facilitate the management and tracking of skill development for students within the academic system. It allows users to select a skillset, view associated details, and manage their skill development progress. The layout is structured to ensure a seamless user experience while integrating with the broader system for data retrieval and display.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/#
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=overview#
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Overview
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=overview
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Chat
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=chat&chat=group
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Counselling
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=counselling
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=chat&chat=group#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Mentorship conversation Everyone in this mentorship group
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/chat/panel/?chat=group
 ### Structural Analysis Breakdown:
 API server link offline: 
 
