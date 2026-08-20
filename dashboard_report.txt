@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1248
-**Pending Unexplored Queue Scope:** 2403
+**Total Unique Sub-System Paths Mapped:** 1264
+**Pending Unexplored Queue Scope:** 2414
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -22073,6 +22073,231 @@ API server link offline:
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/circulars/91/?tab=chat#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+Everyone in the circular
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/91/?tab=chat&chat=group
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Discussion Topics
+Focused threaded discussions
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/91/?tab=chat&chat=topics
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Refresh
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/91/?tab=chat&chat=group&message_page=2
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/91/?tab=tasks#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Transactional Parameters
+This page is designed to manage and monitor the status of a mandatory NPTEL Local Chapter Affiliation and Profile Verification registration. The page controls specific transactional parameters related to the registration process, including the number of participants, mentors, managers, and the start date of the registration.
+
+- **Participants**: 3275
+- **Mentors**: 144
+- **Managers**: 2
+- **Start Date**: 30/06/2026
+- **Task Completion**: 0/0 (Approved / Expected)
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data elements and tables to display and manage the registration status:
+
+1. **Participants Table**:
+   - **Participants**: 3275
+   - **Mentors**: 144
+   - **Managers**: 2
+
+2. **Circular Details**:
+   - **Circular ID**: 91
+   - **Tab**: Tasks
+   - **Status**: Approved / Expected
+   - **Tasks**: No tasks have been added to this circular yet.
+
+3. **Start Date**:
+   - **Date**: 30/06/2026
+
+4. **Task Completion**:
+   - **Completed Tasks**: 0
+   - **Expected Tasks**: 0
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by providing a clear and organized view of the registration status. It helps administrators and participants monitor the progress of the registration process, ensuring that all necessary steps are completed by the specified date.
+
+- **Navigation Bar**: The top of the page includes a navigation bar with options like "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," and "Services." This allows users to navigate to different sections of the system efficiently.
+
+- **Main Content Area**: The main content area displays the registration status in a tabular format, making it easy to read and understand. The table structure helps in quickly identifying the number of participants, mentors, and managers involved in the registration.
+
+- **Circular Details**: The circular details section provides specific information about the registration, including the ID, status, and any pending tasks. This helps in tracking the progress of the registration process.
+
+- **Start Date**: The start date of the registration is prominently displayed, ensuring that all participants are aware of the deadline.
+
+- **Task Completion**: The task completion section shows the number of completed and expected tasks, helping in monitoring the progress of the registration process. The absence of any tasks in the current circular indicates that the registration is still in progress.
+
+Overall, this layout segment serves the wider system functions by providing a comprehensive view of the registration status, ensuring that all necessary steps are completed by the specified date, and facilitating easy navigation and tracking of the registration process.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/?page=2#
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/89/
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage foreign language enrollment for students. It controls the following specific transactional parameters:
+- **Enrollment Status**: Tracks the progress of mentors and managers in the enrollment process.
+- **Task Completion**: Monitors the status of tasks related to the enrollment process.
+- **Start Date**: Sets the date for the start of the enrollment period.
+- **Task Completion**: Tracks the completion status of tasks.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data elements and tables:
+- **Top Section**:
+  - **Mentors**: Displays the number of mentors enrolled (124/151).
+  - **Managers**: Shows the number of managers enrolled (1/3).
+  - **Start Date**: Indicates the start date of the enrollment period (27/06/2026).
+  - **Task Completion**: Shows the current status of task completion (0/0).
+
+- **Main Content Area**:
+  - **Tasks**: Lists the tasks associated with the enrollment process.
+  - **Enrollment Details**: Provides information about the language courses and their requirements.
+  - **Manage Mentees**: Allows managing mentees and their language courses.
+  - **Mentorship**: Manages mentorship relationships and language courses.
+
+- **Side Menu**:
+  - **Schedule**: Displays the schedule for the enrollment period.
+  - **Circulars**: Shows circulars related to the enrollment process.
+  - **Reward Points**: Tracks the reward points earned by the user.
+  - **Workflow Requests**: Manages workflow requests.
+  - **Bookings**: Manages bookings for language courses.
+  - **Services**: Provides access to various services related to language courses.
+  - **Manage Mentees**: Manages mentees and their language courses.
+  - **Mentorship**: Manages mentorship relationships and language courses.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Tracking Progress**: Ensures that the enrollment process is tracked and monitored, allowing for timely interventions if needed.
+- **Task Management**: Manages the tasks associated with the enrollment process, ensuring that all tasks are completed as per the schedule.
+- **User Interface**: Provides a user-friendly interface for mentors, managers, and other stakeholders to manage their language enrollment.
+- **Information Display**: Displays important information about the language courses, their requirements, and the status of the enrollment process.
+- **User Authentication**: Ensures that only authorized users can access and manage their enrollment details.
+
+### Detailed Breakdown
+
+#### Top Section
+- **Mentors**: Shows the number of mentors enrolled (124/151).
+- **Managers**: Shows the number of managers enrolled (1/3).
+- **Start Date**: Indicates the start date of the enrollment period (27/06/2026).
+- **Task Completion**: Shows the current status of task completion (0/0).
+
+#### Main Content Area
+- **Tasks**: Lists the tasks associated with the enrollment process.
+- **Enrollment Details**: Provides information about the language courses and their requirements.
+- **Manage Mentees**: Allows managing mentees and their language courses.
+- **Mentorship**: Manages mentorship relationships and language courses.
+
+#### Side Menu
+- **Schedule**: Displays the schedule for the enrollment period.
+- **Circulars**: Shows circulars related to the enrollment process.
+- **Reward Points**: Tracks the reward points earned by the user.
+- **Workflow Requests**: Manages workflow requests.
+- **Bookings**: Manages bookings for language courses.
+- **Services**: Provides access to various services related to language courses.
+- **Manage Mentees**: Manages mentees and their language courses.
+- **Mentorship**: Manages mentorship relationships and language courses.
+
+### Conclusion
+This page is a critical component of the student portal, ensuring that the enrollment process is tracked, monitored, and managed efficiently. It provides a comprehensive view of the enrollment status, task completion, and detailed information about the language courses, making it a vital tool for both mentors and managers.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/87/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/85/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/89/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Circular
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/89/?tab=circular
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Chat 16
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/89/?tab=chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Tasks
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/89/?tab=tasks
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/87/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Circular
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/87/?tab=circular
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Chat 20
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/87/?tab=chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Tasks
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/87/?tab=tasks
 ### Structural Analysis Breakdown:
 API server link offline: 
 
