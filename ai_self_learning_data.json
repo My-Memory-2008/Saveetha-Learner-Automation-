@@ -18719,26 +18719,90 @@
       "section_name": "Skip to main content",
       "functional_analysis": "### Page Layout and Functionality Analysis\n\n#### 1. Page Structure and Functionality\nThe page is a login page for the student portal of Saveetha Engineering College. It is designed to handle user authentication and session management. The page includes the following key elements:\n\n1. **Header Section**:\n   - **Login Status**: \"You are not logged in. (Log in)\" is displayed at the top right corner, indicating that the user is not currently logged in.\n   - **Login Link**: A \"Log in\" link is provided for users who want to log in.\n\n2. **Main Content Area**:\n   - **Page Title**: \"Saveetha Engineering College\" is prominently displayed at the top.\n   - **Navigation Menu**: A \"Home\" link is present, likely leading to the main page or homepage of the portal.\n   - **Error Message**: \"Your session has most likely timed out. Please log in again.\" is displayed, indicating that the user's session has expired and they need to log in again.\n   - **Continue Button**: A \"Continue\" button is provided, allowing users to bypass the login process and proceed with their session.\n\n3. **Footer Section**:\n   - **Footer Links**: Links to \"Home\", \"Data retention summary\", and \"Get the mobile app\" are provided, likely for navigation and additional information.\n\n#### 2. Data Elements and Variables\n- **Session Management**: The page uses session management to handle user authentication. When a user logs in, their session is established, and they are redirected to the main content area. If the session times out, the user is prompted to log in again.\n- **URL Parameters**: The URL includes query parameters such as `id`, `wantsurl`, and `sesskey`, which are used to manage the user's session and redirect them to the appropriate page.\n- **Session Timeout**: The session timeout is managed by the server, and the user is prompted to log in again if their session expires.\n\n#### 3. Structural Functionality\n- **User Authentication**: The page serves as a gateway for user authentication. When a user logs in, their session is established, and they are redirected to the main content area. If the session times out, the user is prompted to log in again.\n- **Session Management**: The page uses session management to handle user authentication. When a user logs in, their session is established, and they are redirected to the main content area. If the session times out, the user is prompted to log in again.\n- **Error Handling**: The page includes an error message to inform users that their session has timed out and they need to log in again. The \"Continue\" button allows users to bypass the login process and proceed with their session.\n\n### Summary\nThe page is designed to handle user authentication and session management. It provides a clear error message for users whose session has timed out and includes a \"Continue\" button to allow them to bypass the login process. The page also includes navigation links for additional information and a footer for footer links. The URL parameters are used to manage the user's session and redirect them to the appropriate page.",
       "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/login/forgot_password.php#maincontent": {
+      "section_name": "Skip to main content",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/login/index.php": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Login/Logout**: The page controls the login and logout processes for users.\n- **Password Reset**: Users can reset their password if they forget it.\n- **Guest Access**: Users can log in as a guest if necessary.\n- **Cookie Settings**: Users must enable cookies in their browser to access some courses.\n\n#### 2. Data Element Blocks and Table Structure\n- **Header**: \n  - Contains the institution's logo and name.\n  - Positioned at the top of the page.\n  \n- **Main Content Area**:\n  - **Login Form**:\n    - **Username Field**: Placeholder text \"Username\".\n    - **Password Field**: Placeholder text \"Password\".\n    - **Remember Username Checkbox**: Placeholder text \"Remember username\".\n    - **Login Button**: Placeholder text \"Log in\".\n  - **Footer**:\n    - Contains links to \"Home\", \"Data retention summary\", and \"Get the mobile app\".\n    - Positioned at the bottom of the page.\n\n#### 3. Variable Value and Variable Structure\n- **Cookies Requirement**:\n  - The page informs users that cookies must be enabled in their browser to access some courses.\n  - This is a conditional message that appears based on user settings.\n\n#### 4. Structural Functionality\n- **User Authentication**:\n  - The page serves as a primary authentication portal for students.\n  - It ensures that users can log in or reset their password.\n  - It also provides a guest login option for those who do not have an account.\n\n- **User Interface**:\n  - The layout is designed to be user-friendly, with clear instructions and placeholders for user input.\n  - The footer provides additional resources for users, such as a mobile app.\n\n- **Security**:\n  - The page ensures that users are aware of the cookie requirement, which is a security measure to prevent unauthorized access.\n  - It also provides a link to the data retention summary, which is important for legal and compliance purposes.\n\n### Summary\nThis page is a critical component of the student portal, controlling the login and logout processes, password reset, and guest access. It also ensures that users are aware of the cookie requirement and provides additional resources for users. The layout is designed to be user-friendly and secure, serving the broader system functions of managing student access and compliance.",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/login/forgot_password.php#": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/#maincontent": {
+      "section_name": "Skip to main content",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/#sb-1": {
+      "section_name": "Skip Online users",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Login/Logout**: The page indicates that the user is not logged in, with options to either log in or log out.\n- **Search Courses**: There is a search bar for courses, which allows users to search for specific courses.\n- **Online Users**: The page shows that there are no online users currently.\n\n#### 2. Data Element Blocks and Table Structure\n- **Header Section**:\n  - **Logo**: Displays the logo of Saveetha Engineering College.\n  - **User Status**: Indicates that the user is not logged in and provides a login link.\n  - **Online Users**: Shows that there are no online users currently.\n\n- **Main Content Area**:\n  - **Search Bar**: A text input field for searching courses.\n  - **Search Button**: A button labeled \"Go\" to initiate the search.\n\n- **Footer Section**:\n  - **Footer Links**: Contains links to various resources such as the Moodle logo, data retention summary, and a mobile app link.\n\n#### 3. Structural Functionality\n- **User Interface**: The layout is designed to provide a user-friendly interface for searching courses and viewing online user status. The search bar and button are prominently displayed to facilitate easy navigation.\n- **User Authentication**: The presence of a login link ensures that users can log in if they are not currently logged in.\n- **Online User Status**: The display of online users helps in maintaining awareness of the current user activity within the system.\n- **Footer Links**: These links provide additional resources and information, enhancing user experience and accessibility.\n\n### Structural Role in the Wider System\n- **User Authentication**: Ensures that users can log in or out, maintaining system security and user management.\n- **Course Search**: Facilitates easy access to course information, allowing users to find and select courses efficiently.\n- **Online User Status**: Keeps track of user activity, which can be useful for system monitoring and user engagement analysis.\n- **Footer Links**: Provides additional resources and information, enhancing user experience and accessibility.\n\nThis layout is designed to be user-friendly and functional, ensuring that users can easily find and access the information they need, while also maintaining system security and user management.",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/#": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Login/Logout**: The page indicates that the user is not logged in, with options to either log in or log out.\n- **Search Functionality**: There is a search bar for courses, which allows users to search for specific courses.\n- **Online Users**: The page shows that there are no online users currently.\n\n#### 2. Data Element Blocks and Table Structure\n- **Header Section**:\n  - **Logo**: Displays the logo of Saveetha Engineering College.\n  - **User Information**: Indicates that the user is not logged in and provides a login link.\n  - **Online Users**: Shows that there are no online users currently.\n\n- **Main Content Area**:\n  - **Search Bar**: Positioned to the left, with a placeholder text \"Search courses\".\n  - **Search Button**: A button labeled \"Go\" to initiate the search.\n\n- **Right Sidebar**:\n  - **Online Users**: Displays a message indicating that there are no online users in the last 5 minutes.\n\n#### 3. Structural Functionality\n- **Navigation and Menu**: The page is designed to be navigable, with clear sections for user information, search functionality, and online user status.\n- **Responsive Design**: The layout is responsive, ensuring that the page is usable on various devices, including desktops and mobiles.\n- **Security**: The page emphasizes security by clearly indicating that the user is not logged in and providing a login link.\n- **User Experience**: The layout is user-friendly, with a clear search bar and immediate feedback on online user status.\n\n### Wider System Functions\n- **User Authentication**: The page serves as a login page, allowing users to log in and access their account.\n- **Course Search**: The search bar facilitates easy navigation to specific courses, enhancing user experience.\n- **Online Presence**: The page shows the current online user status, which can be useful for system administrators to monitor user activity.\n- **Mobile App**: The page encourages users to download a mobile app, which can enhance the user experience and provide additional functionality.\n\n### Summary\nThis page is a login page for the student portal, designed to manage user authentication, facilitate course search, and provide real-time online user status. The layout is structured to be user-friendly and responsive, ensuring a seamless experience for both desktop and mobile users.",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/admin/tool/dataprivacy/summary.php#maincontent": {
+      "section_name": "Skip to main content",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "http://lms.saveetha.in/admin/tool/dataprivacy/summary.php#": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?chat=group#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?chat=topics#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=11941#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=2530#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=974#": {
+      "section_name": "Academics",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Specific Transactional Parameters\nThis page is designed to control and display specific transactional parameters related to a student's participation in an academic event. The page allows users to view details such as attendance, feedback, session date, and booking information. The specific transactional parameters include:\n- **Attendance Status**: Whether the student is present or absent.\n- **Feedback Status**: Whether the feedback has been posted or not.\n- **Session Date**: The date and time of the session.\n- **Booking Information**: The date and time when the booking was made.\n\n#### 2. Data Element Blocks and Table Structure\nThe page is structured into several data element blocks and tables to present the relevant information clearly. The main sections include:\n- **Overview**: Displays the student's name, registration number, and mode of participation.\n- **Session Details**: Provides information about the module, event term, location, and time.\n- **Summary**: Shows the attendance percentage and feedback status.\n\nThe data is organized in a tabular format, making it easy to read and understand. Each block contains specific data points that are crucial for tracking the student's participation in the event.\n\n#### 3. Structural Functionality\nThis layout segment serves the wider system functions by:\n- **Providing Detailed Information**: It ensures that all relevant details about the student's participation are easily accessible, allowing administrators and students to monitor their attendance and feedback.\n- **Enhancing User Experience**: By presenting the information in a clear and organized manner, it enhances the user experience, making it easier for students to understand their participation status and the details of the event.\n- **Supporting Reporting and Analytics**: The structured data allows for easy reporting and analytics, which can be used to track the overall participation rates and feedback trends over time.\n\nOverall, this page is a critical component of the student portal, ensuring that all necessary information is readily available to both students and administrators, facilitating better management and tracking of academic events.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=4184#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=693#": {
+      "section_name": "Academics",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Page Actions:**\n  - **Attendance Check:** The page allows users to check their attendance status for the event.\n  - **Feedback Submission:** Users can submit feedback for the event.\n  - **Booking Information:** Users can view and manage their booking details.\n  - **Event Details:** Users can view detailed event information, including session date, time, and location.\n\n#### 2. Data Element Blocks and Table Structure\n- **Header Section:**\n  - **Event Title:** \"Module/LeetCode/SA\"\n  - **Event Type:** \"26-27-ODD-EXAMCENTRE - EXAMINATIONS\"\n  - **Event Date:** \"Aug 17, 2026\"\n  - **Booking Status:** \"Booked\" on \"Aug 16, 2026 19:13\"\n\n- **Main Content Section:**\n  - **Overview Tab:**\n    - **Student Information:**\n      - **Name:** Muhammad Asjad E\n      - **Register Number:** 212225240091\n      - **Mode:** Booked\n    - **Session Details:**\n      - **Event Name:** Module/LeetCode/SA\n      - **Event Type:** 26-27-ODD-EXAMCENTRE\n      - **Location:** 4731\n      - **Time:** 9 a.m. - 9:59 a.m.\n\n  - **Summary Tab:**\n    - **Attendance Status:** Present\n    - **Attendance Percentage:** 100.0%\n    - **Feedback Status:** Feedback Posted\n\n#### 3. Structural Functionality and Wider System Integration\n- **User Interface:**\n  - The page is designed to be user-friendly, with clear sections for different types of information and actions.\n  - The navigation bar on the left side allows users to access different sections of the portal, such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, and Services.\n\n- **Data Integration:**\n  - The page integrates data from the wider system, such as attendance records, booking details, and feedback submissions.\n  - The system likely uses a database to store and retrieve this data, ensuring that users can access and update their information in real-time.\n\n- **Security and Authentication:**\n  - The page is designed to be secure, with a login section at the top right corner.\n  - The user ID \"25013957\" indicates that the user is logged in, and they can access their profile details.\n\n- **Accessibility:**\n  - The page is designed to be accessible, with clear headings and structured content.\n  - The use of headings and subheadings helps users navigate the page and find the information they need quickly.\n\nIn summary, this page serves as a central hub for students to manage their attendance, feedback, and booking details for academic events. It integrates seamlessly with the wider system, ensuring that all data is up-to-date and accessible to the users.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=680#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
     }
   },
   "site_structure": [],
   "queue": [
-    "http://lms.saveetha.in/login/forgot_password.php#maincontent",
-    "http://lms.saveetha.in/login/index.php",
-    "http://lms.saveetha.in/login/forgot_password.php#",
-    "http://lms.saveetha.in/#maincontent",
-    "http://lms.saveetha.in/#sb-1",
-    "http://lms.saveetha.in/#",
-    "http://lms.saveetha.in/admin/tool/dataprivacy/summary.php#maincontent",
-    "http://lms.saveetha.in/admin/tool/dataprivacy/summary.php#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?chat=group#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?chat=topics#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=11941#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=2530#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=974#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=4184#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=693#",
-    "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=680#",
     "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=4867#",
     "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=2960#",
     "https://learner.saveetha.in/academicevents/event-participating/14732/?peer_id=4206#",
