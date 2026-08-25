@@ -120,12 +120,13 @@ jobs:
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@://github.com"
         
-        if [ -f ai_self_learning_data.json ]; then
-          git add ai_self_learning_data.json
+        # ✅ FIXED: Now tracks complete-interact.json files explicitly
+        if [ -f complete-interact.json ]; then
+          git add complete-interact.json
           if ! git diff-index --quiet HEAD; then
-            git commit -m "🔒 Concurrency Lock: Claimed and Registered Discussion Node Target"
+            git commit -m "🔒 Concurrency Lock: Claimed and Registered Discussion Node in complete-interact.json"
             git pull origin HEAD:${{ github.ref }} --rebase
             git push origin HEAD:${{ github.ref }}
-            echo "✅ Thread reservation successfully logged in repository master file!"
+            echo "✅ Thread reservation successfully logged in complete-interact.json!"
           fi
         fi
