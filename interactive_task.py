@@ -1994,6 +1994,6 @@ async def run_ai_automation():
         finally:
                 await context.close()
                 await browser.close()
-if name == "main":
+if __name__ == "__main__":
         asyncio.run(run_ai_automation())
 
