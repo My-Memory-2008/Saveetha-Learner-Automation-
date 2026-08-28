@@ -1693,10 +1693,11 @@ MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extract strictly the second item from the arguments array as a clean string URL
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     """Loads complete-interact.json from repository storage."""
@@ -1712,7 +1713,7 @@ def load_knowledge_base():
     return {"completed_topics": {}}
 
 def save_knowledge_base(data):
-    """Writes status progress instantly to complete-interact.json."""
+    """Writes progress tracking metrics instantly to complete-interact.json."""
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"💾 File updated: Verification logs saved straight to '{KNOWLEDGE_FILE}'")
@@ -1771,20 +1772,17 @@ async def scroll_to_absolute_top_of_chat(page):
         previous_height = current_height
     print("✅ Arrived at the absolute initial message position frame.")
 
-# ✅ FIXED: Implements a 10-try event monitoring system instead of a fixed timeout crash
 async def send_chat_message(page, message_text):
     print(f"✍️ Initiating event monitoring input sequence for message...")
-    
     chat_box = page.get_by_placeholder("Write a message...")
     
-    # 🔁 10-TRIES REPEAT TRACKER LOOP
     input_ready = False
     for attempt in range(1, 11):
         print(f"📡 [Event Monitor] Verifying chat box input readiness (Try {attempt}/10)...")
         if await chat_box.is_visible() and await chat_box.is_enabled():
             input_ready = True
             break
-        await asyncio.sleep(3) # Wait 3 seconds between sensor checks
+        await asyncio.sleep(3)
 
     if not input_ready:
         print("❌ Event Monitor Alert: Input box failed to stabilize after 10 tries. Skipping submission step.")
@@ -1820,7 +1818,7 @@ async def run_ai_automation():
         await page.route("**/*", lambda route: route.abort() if route.request.resource_type in ["image", "media", "font"] else route.continue_())
 
         try:
-            print(f"🌐 Accessing target endpoint: {TARGET_URL}")
+            print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
@@ -1851,7 +1849,6 @@ async def run_ai_automation():
             print("🔍 STEP 3: Scrolling list thoroughly to map topics via red background banner landmarks...")
             await trigger_full_page_sensory_scan(page)
             
-            # ✅ FIXED: Refined selector targeting to ensure it ignores category headings and pulls pure topic links
             topic_locators = page.locator("div[style*='background-color'] + div a, a[href*='topic-id'], .discussion-list-item a")
             count = await topic_locators.count()
             
@@ -1863,9 +1860,8 @@ async def run_ai_automation():
                 raw_text = await topic_locators.nth(i).inner_text()
                 lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
                 if not lines: continue
-                topic_title = lines[0] # Take the top heading string to avoid subtitles
+                topic_title = lines
                 
-                # Filter out system navigational buttons from matching your records
                 if "Discussion topics" in topic_title or "Class conversation" in topic_title:
                     continue
 
@@ -1883,12 +1879,10 @@ async def run_ai_automation():
                 await browser.close()
                 return
 
-            # ✅ FIXED: Displays the chat name explicitly in the terminal output logs right now
             print("="*60)
             print(f"📢 ACTIVE TASK CLAIMED: [{target_topic_name}]")
             print("="*60)
 
-            # ✅ FIXED: Commits the topic to complete-interact.json and saves IMMEDIATELY BEFORE opening the chat
             print(f"🔒 Locking and appending '{target_topic_name}' to complete-interact.json tracking indexes...")
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
@@ -1968,5 +1962,4 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
-
 
