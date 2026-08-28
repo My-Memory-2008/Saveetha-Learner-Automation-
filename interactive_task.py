@@ -1708,7 +1708,6 @@ def load_knowledge_base():
                 return data
         except Exception:
             pass
-    print(f"🆕 '{KNOWLEDGE_FILE}' not found or empty. Building fresh schema...")
     return {"completed_topics": {}}
 
 def save_knowledge_base(data):
@@ -1820,6 +1819,10 @@ async def run_ai_automation():
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
+            # ✅ STEP SCREENSHOT 0: Landing Diagnostics
+            await page.screenshot(path="step0_landing_page.png", full_page=True)
+            print("📸 Diagnostic Saved: 'step0_landing_page.png' captured.")
+
             # Extract Subject Name + Code layout string context
             subject_header = await page.locator("h1, h2, .subject-title").first.inner_text()
             subject_header = subject_header.strip().replace('\n', ' ')
@@ -1838,13 +1841,20 @@ async def run_ai_automation():
             await chat_tab.click()
             await asyncio.sleep(5)
 
+            # ✅ STEP SCREENSHOT 1: Post Chat Click Diagnostics
+            await page.screenshot(path="step1_clicked_chat.png", full_page=True)
+            print("📸 Diagnostic Saved: 'step1_clicked_chat.png' captured.")
+
             # STEP 2: Open Discussion Topics
             print("🔍 STEP 2: Scanning for the 'Discussion topics' region using the red badge marker layout...")
             discussion_topics_tab = page.locator("div:has-text('Discussion topics'), button:has-text('Discussion topics'), [class*='Discussion']").last
             await discussion_topics_tab.click()
             await asyncio.sleep(5)
 
-            # ✅ NEW STEP: Dynamic stabilization loop to force the actual chat list links to populate on-screen
+            # ✅ STEP SCREENSHOT 2: Post Discussion Click Diagnostics
+            await page.screenshot(path="step2_clicked_discussion.png", full_page=True)
+            print("📸 Diagnostic Saved: 'step2_clicked_discussion.png' captured.")
+
             print("⏳ Holding canvas context for nested item components to initialize...")
             for load_try in range(5):
                 list_rows = page.locator("a[href*='topic-id'], .discussion-list-item, [class*='topicItem']")
@@ -1869,7 +1879,7 @@ async def run_ai_automation():
                 raw_text = await topic_locators.nth(i).inner_text()
                 lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
                 if not lines: continue
-                topic_title = lines[0] # Select header title string token explicitly
+                topic_title = lines
                 
                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]):
                     continue
@@ -1888,12 +1898,10 @@ async def run_ai_automation():
                 await browser.close()
                 return
 
-            # ✅ CHAT DISPLAY METRIC: Explicitly outputs active chat title name to runner terminal output logs
             print("="*60)
             print(f"📢 WRITING TO FILE & LAUNCHING CHAT: [{target_topic_name}]")
             print("="*60)
 
-            # ✅ INSTANT RECORD: Appends title name context right now before entering chat
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
 
@@ -1901,6 +1909,10 @@ async def run_ai_automation():
             print(f"🖱️ Entering chat forum container room for: {target_topic_name}")
             await target_element.click()
             await asyncio.sleep(6)
+
+            # ✅ STEP SCREENSHOT 3: Inside Target Chat Room Diagnostics
+            await page.screenshot(path="step3_entered_room.png", full_page=True)
+            print("📸 Diagnostic Saved: 'step3_entered_room.png' captured.")
 
             # Move browser viewport context up to the absolute genesis of the thread
             await scroll_to_absolute_top_of_chat(page)
