@@ -1690,19 +1690,19 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
-# ✅ FIXED: Extract strictly the second array slot element index as a clean string URL
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
 TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
+    """Loads complete-interact.json from repository storage safely."""
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
@@ -1715,6 +1715,7 @@ def load_knowledge_base():
     return {"completed_topics": {}}
 
 def save_knowledge_base(data):
+    """Writes progress tracking metrics instantly to complete-interact.json."""
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"💾 File updated: Verification logs saved straight to '{KNOWLEDGE_FILE}'")
@@ -1736,11 +1737,30 @@ async def ask_qwen(prompt, image_path=None):
         except Exception as e:
             return f"Error: {e}"
     return "I do not know."
+async def trigger_full_page_sensory_scan(page):
+    """Scrolls down smoothly to trigger lazy-loaded component blocks on heavy pages."""
+    await page.evaluate("""async () => {
+        await new Promise((resolve) => {
+            let totalHeight = 0;
+            let distance = 150;
+            let timer = setInterval(() => {
+                let scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                if(totalHeight >= scrollHeight){
+                    clearInterval(timer);
+                    window.scrollTo(0, 0);
+                    resolve();
+                }
+            }, 40);
+        });
+    }""")
+    await asyncio.sleep(2)
 
 async def scroll_inner_discussion_panel(page):
-    print("CN Scroll down sidebar container layer...")
+    print("📜 Scrolling inner sidebar panel mapping matrix...")
     try:
-        feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar").first
+        feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
         if await feed_panel.count() > 0:
             box = await feed_panel.bounding_box()
             if box:
@@ -1751,7 +1771,7 @@ async def scroll_inner_discussion_panel(page):
         else:
             await page.evaluate("window.scrollBy(0, 300);")
     except Exception as e:
-        print(f"⚠️ Sidebar scroll notification: {e}")
+        print(f"⚠️ Sidebar scroll block note: {e}")
     await asyncio.sleep(2)
 
 async def scroll_to_absolute_top_of_chat(page):
@@ -1830,7 +1850,6 @@ async def run_ai_automation():
             await page.screenshot(path="step0_landing_page.png")
             print("📸 Diagnostic Saved: 'step0_landing_page.png' captured.")
 
-            # Extract Subject Name + Code layout string context
             subject_header = await page.locator("h1, h2, .subject-title").first.inner_text()
             subject_header = subject_header.strip().replace('\n', ' ')
             match = re.search(r'([0-9]{2}[A-Z]{2}[0-9]{3})', subject_header)
@@ -1841,7 +1860,7 @@ async def run_ai_automation():
                 knowledge["completed_topics"][subject_code] = []
             knowledge["last_run_timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S")
 
-            # STEP 1: Open Chat Tab
+            # STEP 1: Click Chat Tab
             print("🎯 STEP 1: Locating and opening Chat Tab channel layout blocks...")
             chat_tab = page.locator("a:has-text('Chat')").or_(page.locator("button:has-text('Chat')")).first
             await chat_tab.wait_for(timeout=15000)
@@ -1851,11 +1870,26 @@ async def run_ai_automation():
             await page.screenshot(path="step1_clicked_chat.png")
             print("📸 Diagnostic Saved: 'step1_clicked_chat.png' captured.")
 
-            # STEP 2: Open Discussion Topics
-            print("🔍 STEP 2: Scanning for the 'Discussion topics' region using the red badge marker layout...")
-            discussion_topics_tab = page.locator("div:has-text('Discussion topics'), button:has-text('Discussion topics'), [class*='Discussion']").last
-            await discussion_topics_tab.click()
-            await asyncio.sleep(5)
+            # STEP 2: Wait and click Discussion Topics
+            print("🔍 STEP 2: Sensing for the 'Discussion topics' region...")
+            discussion_topics_tab = page.locator("a:has-text('Discussion topics'), button:has-text('Discussion topics'), div:has-text('Discussion topics')").last
+            
+            tab_located = False
+            for sensor_try in range(1, 11):
+                print(f"📡 [Sidebar Sensor] Searching for 'Discussion topics' visibility (Try {sensor_try}/10)...")
+                if await discussion_topics_tab.is_visible():
+                    tab_located = True
+                    break
+                await asyncio.sleep(3)
+
+            if not tab_located:
+                print("❌ Fatal: Sidebar failed to render 'Discussion topics' block. Saving crash frame.")
+                await page.screenshot(path="step2_error_sidebar_missing.png")
+                return
+
+            await discussion_topics_tab.click(force=True)
+            print("🎯 Successfully navigated into the Discussion Topics list canvas panel!")
+            await asyncio.sleep(6)
 
             await page.screenshot(path="step2_clicked_discussion.png")
             print("📸 Diagnostic Saved: 'step2_clicked_discussion.png' captured.")
@@ -1864,14 +1898,12 @@ async def run_ai_automation():
             for load_try in range(5):
                 list_rows = page.locator("a[href*='topic'], .discussion-list-item a, [class*='topic'] a")
                 if await list_rows.count() > 0:
-                    print(f"✨ Detected {await list_rows.count()} raw data entries populated inside list panel container!")
+                    print(f"✨ Detected {await list_rows.count()} raw data entries populated inside list container!")
                     break
                 await asyncio.sleep(3)
 
-            # STEP 3: Scroll inner elements
             await scroll_inner_discussion_panel(page)
             
-            # Target explicit clickable anchor links containing topic paths
             topic_locators = page.locator("a[href*='topic'], [class*='topic'] a, div[style*='background-color'] + div a")
             count = await topic_locators.count()
 
@@ -1883,7 +1915,7 @@ async def run_ai_automation():
                 raw_text = await topic_locators.nth(i).inner_text()
                 lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
                 if not lines: continue
-                topic_title = lines
+                topic_title = lines[0]
                 
                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]):
                     continue
@@ -1893,7 +1925,7 @@ async def run_ai_automation():
                     target_element = topic_locators.nth(i)
                     break
                 else:
-                    print(f"⏭ * Skipping already completed row: '{topic_title}'")
+                    print(f"⏭️ Skipping already completed row: '{topic_title}'")
 
             if not target_topic_name:
                 print(f"✨ All visible topics under subject [{subject_code}] have already been processed in complete-interact.json! Exiting.")
@@ -1909,8 +1941,7 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
 
-            # Click the selected topic card to launch into the discussion forum
-            print(f"🖱 Entering chat forum container room for: {target_topic_name}")
+            print(f"🖱️ Entering chat forum container room for: {target_topic_name}")
             await target_element.scroll_into_view_if_needed()
             await target_element.click(force=True)
             print("⏳ Awaiting room panel rendering and data stream synchronization...")
@@ -1919,7 +1950,6 @@ async def run_ai_automation():
             await page.screenshot(path="step3_entered_room.png")
             print("📸 Diagnostic Saved: 'step3_entered_room.png' captured.")
 
-            # Move browser viewport context up to the absolute genesis of the thread
             await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
@@ -1936,7 +1966,6 @@ async def run_ai_automation():
             if os.path.exists(snap_path):
                 os.remove(snap_path)
 
-            # Submit initial response directly to the active chat box using our event monitor
             await send_chat_message(page, initial_answer)
 
             # --- TWO-HOUR STANDBY MONITORING PHASE ---
