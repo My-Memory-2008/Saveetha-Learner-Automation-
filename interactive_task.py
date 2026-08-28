@@ -1699,7 +1699,6 @@ if len(sys.argv) < 2:
 TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
-    """Loads complete-interact.json. Creates it dynamically if missing."""
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
@@ -1709,14 +1708,13 @@ def load_knowledge_base():
                 return data
         except Exception:
             pass
-    print(f"🆕 '{KNOWLEDGE_FILE}' not found or empty. Initializing empty tracking dictionary layout...")
+    print(f"🆕 '{KNOWLEDGE_FILE}' not found or empty. Building fresh schema...")
     return {"completed_topics": {}}
 
 def save_knowledge_base(data):
-    """Writes progress tracking metrics instantly to complete-interact.json."""
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
-    print(f"💾 File written to runner storage: '{KNOWLEDGE_FILE}'")
+    print(f"💾 File updated: Verification logs saved straight to '{KNOWLEDGE_FILE}'")
 
 def image_to_base64(image_path):
     with open(image_path, "rb") as img:
@@ -1829,7 +1827,6 @@ async def run_ai_automation():
             subject_code = match.group(1) if match else "UNKNOWN_SUBJECT"
             print(f"📚 Subject Identity Mapped: Code Key -> [{subject_code}]")
 
-            # ✅ FORCE INITIAL CHANGE: Adds verification stamp so Git pushes file to repo root even if 0 rows load
             if subject_code not in knowledge["completed_topics"]:
                 knowledge["completed_topics"][subject_code] = []
             knowledge["last_run_timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S")
@@ -1847,20 +1844,23 @@ async def run_ai_automation():
             await discussion_topics_tab.click()
             await asyncio.sleep(5)
 
+            # ✅ NEW STEP: Dynamic stabilization loop to force the actual chat list links to populate on-screen
+            print("⏳ Holding canvas context for nested item components to initialize...")
+            for load_try in range(5):
+                list_rows = page.locator("a[href*='topic-id'], .discussion-list-item, [class*='topicItem']")
+                if await list_rows.count() > 0:
+                    print(f"✨ Detected {await list_rows.count()} raw data entries populated inside list panel container!")
+                    break
+                await asyncio.sleep(3)
+
             # STEP 3: Scroll layout thoroughly to map topics
             print("🔍 STEP 3: Scrolling list thoroughly to map topics via red background banner landmarks...")
             await trigger_full_page_sensory_scan(page)
             
-            # ✅ BULLETPROOF FALLBACK SELECTOR: Scans all elements inside the main content view row if list container changes names
-            topic_locators = page.locator("a[href*='topic'], div[style*='background-color'] + div a, .discussion-list-item a, div:has(span[style*='background-color']) a, div.discussion-topics-list a")
+            # Target elements targeting clean chat list anchor blocks explicitly
+            topic_locators = page.locator("a[href*='topic'], .discussion-list-item a, [class*='topicItem'] a, div[style*='background-color'] + div a")
             count = await topic_locators.count()
             
-            # If standard selectors still pull 0, look for generic clickable anchors inside the chat workspace viewport container
-            if count == 0:
-                print("⚠️ Warning: Primary topic selectors returned 0 rows. Running broad link harvester...")
-                topic_locators = page.locator("main a, #workspace a, .content a").filter(has_not=page.locator("a:has-text('Chat')"))
-                count = await topic_locators.count()
-
             target_topic_name = None
             target_element = None
 
@@ -1871,7 +1871,6 @@ async def run_ai_automation():
                 if not lines: continue
                 topic_title = lines[0] # Select header title string token explicitly
                 
-                # Exclude administrative navigation keywords from logging as classroom chat rooms
                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]):
                     continue
 
@@ -1891,7 +1890,7 @@ async def run_ai_automation():
 
             # ✅ CHAT DISPLAY METRIC: Explicitly outputs active chat title name to runner terminal output logs
             print("="*60)
-            print(f"📢 WRITING TO FILE & LAUNCHING: [{target_topic_name}]")
+            print(f"📢 WRITING TO FILE & LAUNCHING CHAT: [{target_topic_name}]")
             print("="*60)
 
             # ✅ INSTANT RECORD: Appends title name context right now before entering chat
@@ -1899,7 +1898,7 @@ async def run_ai_automation():
             save_knowledge_base(knowledge)
 
             # Click the selected topic card to launch into the discussion forum
-            print(f"鼠标 Click entering chat forum container room for: {target_topic_name}")
+            print(f"🖱️ Entering chat forum container room for: {target_topic_name}")
             await target_element.click()
             await asyncio.sleep(6)
 
