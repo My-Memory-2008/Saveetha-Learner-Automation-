@@ -1675,6 +1675,9 @@
 
 
 
+
+
+
 import asyncio
 import os
 import sys
@@ -1695,7 +1698,7 @@ MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv[1]
+TARGET_URL = sys.argv
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -1732,32 +1735,28 @@ async def ask_qwen(prompt, image_path=None):
             return f"Error: {e}"
     return "I do not know."
 
-# ✅ FIXED: Human-like smooth scroll specifically targeting inner scrollable panels instead of the whole layout window
 async def scroll_inner_discussion_panel(page):
     print("📜 Scrolling down the inner sidebar discussion panel to reveal hidden topics...")
     try:
-        # Target the left-hand panel wrapper specifically using common sidebar classes
-        sidebar_locator = page.locator("div[class*='sidebar'], div[class*='navigation'], .chat-sidebar, nav").first
-        if await sidebar_locator.count() > 0:
-            # Hover over it and scroll down using the mouse wheel
-            box = await sidebar_locator.bounding_box()
+        # Hover over the conversation discussion feed box directly and apply scroll inputs
+        feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar").first
+        if await feed_panel.count() > 0:
+            box = await feed_panel.bounding_box()
             if box:
                 await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
-                for _ in range(5):
-                    await page.mouse.wheel(0, 300)
+                for _ in range(4):
+                    await page.mouse.wheel(0, 250)
                     await asyncio.sleep(1)
         else:
-            # Fallback to standard smooth scrolling if sidebar class isn't detected
-            await page.evaluate("window.scrollBy(0, 400);")
+            await page.evaluate("window.scrollBy(0, 300);")
     except Exception as e:
-        print(f"⚠️ Sidebar scroll animation helper notice: {e}")
+        print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
 async def scroll_to_absolute_top_of_chat(page):
     print("📜 Scrolling up inner conversation container history to locate the first message...")
     previous_height = 0
     for attempt in range(25):
-        # Scroll up the inner chat area scrollbar specifically
         await page.evaluate("""() => {
             let chatDiv = document.querySelector('.chat-history, .message-list-container, [class*="chat"], main, div[style*="overflow-y"]');
             if(chatDiv) chatDiv.scrollTop = 0;
@@ -1815,7 +1814,6 @@ async def run_ai_automation():
             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
         )
         
-        # ✅ FIXED: Enforces traditional 1920x1080 layout screen dimension to give perfect proportions
         context = await browser.new_context(
             storage_state=COOKIE_FILE if os.path.exists(COOKIE_FILE) else None,
             viewport={"width": 1920, "height": 1080}
@@ -1828,7 +1826,6 @@ async def run_ai_automation():
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
-            # ✅ FIXED: Traditional 1920x1080 standard view screen grab
             await page.screenshot(path="step0_landing_page.png")
             print("📸 Diagnostic Saved: 'step0_landing_page.png' captured.")
 
@@ -1850,7 +1847,6 @@ async def run_ai_automation():
             await chat_tab.click()
             await asyncio.sleep(5)
 
-            # ✅ FIXED: Traditional 1920x1080 standard view screen grab
             await page.screenshot(path="step1_clicked_chat.png")
             print("📸 Diagnostic Saved: 'step1_clicked_chat.png' captured.")
 
@@ -1860,23 +1856,22 @@ async def run_ai_automation():
             await discussion_topics_tab.click()
             await asyncio.sleep(5)
 
-            # ✅ FIXED: Traditional 1920x1080 standard view screen grab
             await page.screenshot(path="step2_clicked_discussion.png")
             print("📸 Diagnostic Saved: 'step2_clicked_discussion.png' captured.")
 
             print("⏳ Holding canvas context for nested item components to initialize...")
             for load_try in range(5):
-                list_rows = page.locator("a[href*='topic-id'], .discussion-list-item, [class*='topicItem'], div[style*='background-color'] + div a")
+                list_rows = page.locator("a[href*='topic'], .discussion-list-item a, [class*='topic'] a")
                 if await list_rows.count() > 0:
                     print(f"✨ Detected {await list_rows.count()} raw data entries populated inside list panel container!")
                     break
                 await asyncio.sleep(3)
 
-            # STEP 3: Scroll layout thoroughly to map topics inside the inner panel container
+            # STEP 3: Scroll inner elements
             await scroll_inner_discussion_panel(page)
             
-            # Target elements targeting clean chat list anchor blocks explicitly
-            topic_locators = page.locator("a[href*='topic'], .discussion-list-item a, [class*='topicItem'] a, div[style*='background-color'] + div a")
+            # ✅ REFINED SELECTOR: Targets explicitly interactive anchor tags that contain room reference paths
+            topic_locators = page.locator("a[href*='topic'], [class*='topic'] a, div[style*='background-color'] + div a")
             count = await topic_locators.count()
 
             target_topic_name = None
@@ -1887,8 +1882,9 @@ async def run_ai_automation():
                 raw_text = await topic_locators.nth(i).inner_text()
                 lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
                 if not lines: continue
-                topic_title = lines[0]
+                topic_title = lines
                 
+                # Exclude navigation container headers from acting as clickable rooms
                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]):
                     continue
 
@@ -1914,11 +1910,15 @@ async def run_ai_automation():
             save_knowledge_base(knowledge)
 
             # Click the selected topic card to launch into the discussion forum
-            print(f"鼠标 Click entering chat forum container room for: {target_topic_name}")
-            await target_element.click()
-            await asyncio.sleep(6)
+            print(f"🖱️ Entering chat forum container room for: {target_topic_name}")
+            
+            # Force click the explicit link location coordinates to ensure the workspace shifts tabs cleanly
+            await target_element.scroll_into_view_if_needed()
+            await target_element.click(force=True)
+            print("⏳ Awaiting room panel rendering and data stream synchronization...")
+            await asyncio.sleep(8) # Generous 8-second wait to ensure the inner room completely loads
 
-            # ✅ FIXED: Traditional 1920x1080 standard view screen grab
+            # ✅ CAPTURE INTERACTIVE VIEW: Captures standard frame view showing the inside of the chat conversation board
             await page.screenshot(path="step3_entered_room.png")
             print("📸 Diagnostic Saved: 'step3_entered_room.png' captured.")
 
@@ -1950,7 +1950,6 @@ async def run_ai_automation():
                 remaining_minutes = (two_hours_in_seconds - (time.time() - monitor_start_time)) / 60
                 print(f"🔄 Checking chat landscape updates... ({remaining_minutes:.1f} minutes remaining)")
                 
-                # Scroll inner components to fetch new messages
                 await page.evaluate("""() => {
                     let chatDiv = document.querySelector('.chat-history, .message-list-container, main');
                     if(chatDiv) chatDiv.scrollTop = chatDiv.scrollHeight;
@@ -1996,4 +1995,3 @@ async def run_ai_automation():
                 await browser.close()
 if __name__ == "__main__":
         asyncio.run(run_ai_automation())
-
