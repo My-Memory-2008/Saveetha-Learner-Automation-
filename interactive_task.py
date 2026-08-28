@@ -1678,6 +1678,7 @@
 
 
 
+
 import asyncio
 import os
 import sys
@@ -1689,16 +1690,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extract strictly the second array slot element index as a clean string URL
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -1736,9 +1738,8 @@ async def ask_qwen(prompt, image_path=None):
     return "I do not know."
 
 async def scroll_inner_discussion_panel(page):
-    print("📜 Scrolling down the inner sidebar discussion panel to reveal hidden topics...")
+    print("CN Scroll down sidebar container layer...")
     try:
-        # Hover over the conversation discussion feed box directly and apply scroll inputs
         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar").first
         if await feed_panel.count() > 0:
             box = await feed_panel.bounding_box()
@@ -1870,7 +1871,7 @@ async def run_ai_automation():
             # STEP 3: Scroll inner elements
             await scroll_inner_discussion_panel(page)
             
-            # ✅ REFINED SELECTOR: Targets explicitly interactive anchor tags that contain room reference paths
+            # Target explicit clickable anchor links containing topic paths
             topic_locators = page.locator("a[href*='topic'], [class*='topic'] a, div[style*='background-color'] + div a")
             count = await topic_locators.count()
 
@@ -1884,7 +1885,6 @@ async def run_ai_automation():
                 if not lines: continue
                 topic_title = lines
                 
-                # Exclude navigation container headers from acting as clickable rooms
                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]):
                     continue
 
@@ -1893,7 +1893,7 @@ async def run_ai_automation():
                     target_element = topic_locators.nth(i)
                     break
                 else:
-                    print(f"⏭️ Skipping already completed row: '{topic_title}'")
+                    print(f"⏭ * Skipping already completed row: '{topic_title}'")
 
             if not target_topic_name:
                 print(f"✨ All visible topics under subject [{subject_code}] have already been processed in complete-interact.json! Exiting.")
@@ -1910,15 +1910,12 @@ async def run_ai_automation():
             save_knowledge_base(knowledge)
 
             # Click the selected topic card to launch into the discussion forum
-            print(f"🖱️ Entering chat forum container room for: {target_topic_name}")
-            
-            # Force click the explicit link location coordinates to ensure the workspace shifts tabs cleanly
+            print(f"🖱 Entering chat forum container room for: {target_topic_name}")
             await target_element.scroll_into_view_if_needed()
             await target_element.click(force=True)
             print("⏳ Awaiting room panel rendering and data stream synchronization...")
-            await asyncio.sleep(8) # Generous 8-second wait to ensure the inner room completely loads
+            await asyncio.sleep(8) 
 
-            # ✅ CAPTURE INTERACTIVE VIEW: Captures standard frame view showing the inside of the chat conversation board
             await page.screenshot(path="step3_entered_room.png")
             print("📸 Diagnostic Saved: 'step3_entered_room.png' captured.")
 
@@ -1991,7 +1988,8 @@ async def run_ai_automation():
             try: save_knowledge_base(knowledge)
             except: pass
         finally:
-                await context.close()
-                await browser.close()
+            await context.close()
+            await browser.close()
+
 if __name__ == "__main__":
-        asyncio.run(run_ai_automation())
+    asyncio.run(run_ai_automation())
