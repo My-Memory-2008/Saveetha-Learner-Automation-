@@ -114,19 +114,34 @@ jobs:
 
     # ✅ FIXED STEP: Commits the updated tracking JSON file back to your repo root
     # Uses rebase and branch targeting to ensure parallel jobs push cleanly
-    - name: Push Topic Lock to Repository Memory
+    # - name: Push Topic Lock to Repository Memory
+    #   if: always()
+    #   run: |
+    #     git config --global user.name "github-actions[bot]"
+    #     git config --global user.email "41898282+github-actions[bot]@://github.com"
+        
+    #     # ✅ FIXED: Now tracks complete-interact.json files explicitly
+    #     if [ -f complete-interact.json ]; then
+    #       git add complete-interact.json
+    #       if ! git diff-index --quiet HEAD; then
+    #         git commit -m "🔒 Concurrency Lock: Claimed and Registered Discussion Node in complete-interact.json"
+    #         git pull origin HEAD:${{ github.ref }} --rebase
+    #         git push origin HEAD:${{ github.ref }}
+    #         echo "✅ Thread reservation successfully logged in complete-interact.json!"
+    #       fi
+    #     fi
+    - name: Push Topic Lock and Step Diagnostics to Repository Memory
       if: always()
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@://github.com"
         
-        # ✅ FIXED: Now tracks complete-interact.json files explicitly
-        if [ -f complete-interact.json ]; then
-          git add complete-interact.json
-          if ! git diff-index --quiet HEAD; then
-            git commit -m "🔒 Concurrency Lock: Claimed and Registered Discussion Node in complete-interact.json"
-            git pull origin HEAD:${{ github.ref }} --rebase
-            git push origin HEAD:${{ github.ref }}
-            echo "✅ Thread reservation successfully logged in complete-interact.json!"
-          fi
+        # Track both the status data file and all generated milestone images
+        git add complete-interact.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
+        
+        if ! git diff-index --quiet HEAD; then
+          git commit -m "📸 AI Diagnostic Update: Logged step-by-step visual milestone frames"
+          git pull origin HEAD:${{ github.ref }} --rebase
+          git push origin HEAD:${{ github.ref }}
+          echo "✅ Diagnostic state frames successfully saved directly to your repo branch!"
         fi
