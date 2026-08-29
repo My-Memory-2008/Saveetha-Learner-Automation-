@@ -3063,11 +3063,11 @@ async def run_ai_automation():
                 
                 await asyncio.sleep(120)
             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
-            except Exception as e:
+        except Exception as e:
                 print(f"❌ Automation workflow run encountered an exception: {e}")
                 try:save_knowledge_base(knowledge)
                 except: pass
-            finally:
+        finally:
                 await context.close()
                 await browser.close()
 if __name__ == "__main__":
