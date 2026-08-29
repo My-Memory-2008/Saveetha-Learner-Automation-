@@ -2741,19 +2741,19 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extracts strictly the second command argument slot as a clean text string URL path
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = str(sys.argv)
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
-    """Loads complete-interact.json from repository storage safely."""
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
@@ -2766,7 +2766,6 @@ def load_knowledge_base():
     return {"completed_topics": {}}
 
 def save_knowledge_base(data):
-    """Writes progress tracking metrics instantly to complete-interact.json."""
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"💾 File updated: Logs saved straight to '{KNOWLEDGE_FILE}'")
@@ -2794,7 +2793,6 @@ async def ask_qwen(prompt, image_path=None):
             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
 async def trigger_full_page_sensory_scan(page):
-    """Scrolls down smoothly to trigger lazy-loaded component blocks on heavy pages."""
     await page.evaluate("""async () => {
         await new Promise((resolve) => {
             let totalHeight = 0;
@@ -2829,22 +2827,17 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ FIXED: Replaced blind top scrolling with an explicit Instructor-Hunting Event Monitor Loop
 async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Initializing Event Monitor to hunt for the official Instructor's question thread...")
-    
+    print("CN STEP 3: Initializing Event Monitor hunting loop for the official Instructor's question thread...")
     instructor_located = False
     for attempt in range(1, 25):
-        # Scan if there's a visible badge container possessing the exact text "Instructor"
         instructor_badge = page.locator("span:has-text('Instructor'), div:has-text('Instructor'), [class*='instructor']").first
-        
         if await instructor_badge.is_visible():
             print(f"🎯 [Event Monitor] Instructor beacon successfully spotted on target view frame (Try {attempt})!")
             instructor_located = True
             break
             
-        print(f"📡 [Top Monitor] Instructor badge not found yet. Scrolling upward to reveal hidden context (Try {attempt}/25)...")
-        # Scroll up the inner chat pane smoothly
+        print(f"📡 [Top Monitor] Instructor badge not found yet. Scrolling upward... (Try {attempt}/25)")
         await page.evaluate("""() => {
             let chatDiv = document.querySelector('.chat-history, .message-list-container, [class*="chat"], main, div[style*="overflow-y"]');
             if(chatDiv) chatDiv.scrollTop -= 400;
@@ -2853,13 +2846,13 @@ async def scroll_to_absolute_top_of_chat(page):
         await asyncio.sleep(2.5)
 
     if not instructor_located:
-        print("⚠️ Warning: Could not locate 'Instructor' tag via linear element streams. Defaulting to fallback top position.")
+        print("⚠️ Warning: Could not locate 'Instructor' tag. Defaulting to fallback top position.")
         await page.evaluate("window.scrollTo(0, 0);")
     await asyncio.sleep(2)
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
-        print("🛑 SECURITY FILTER WARNING: Blocked faulty or empty text string payload to protect your profile dashboard!")
+        print("🛑 SECURITY FILTER WARNING: Blocked faulty text string payload to protect your profile dashboard!")
         return False
 
     print(f"✍️ Initiating event monitoring input sequence for message submission...")
@@ -2879,8 +2872,6 @@ async def send_chat_message(page, message_text):
     try:
         await chat_box.fill(message_text)
         await asyncio.sleep(1)
-        
-        # Target the precise faculty chat class button to resolve strict-mode selector conflicts
         send_btn = page.locator("button.btn-primary.faculty-chat-send").or_(page.locator("button:has-text('Send')")).first
         await send_btn.click()
         print("🚀 Response successfully sent directly to the chat board!")
@@ -2905,6 +2896,7 @@ async def run_ai_automation():
 
         try:
             print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
+            # ✅ FIXED: Now cleanly loads the targeted string variable without array syntax contamination
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
@@ -2985,14 +2977,11 @@ async def run_ai_automation():
             await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            # Run the instructor tracking upward scroll sequence
             await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
-            print("📸 Visual snapshot saved: 'genesis_chat_message.png' contains the true instructor post layout.")
             
-            # ✅ UPGRADED PROMPT: Asks Qwen to specifically find the Instructor box and write in a natural human tone
             ai_prompt = (
                 "Review this classroom discussion chat. Locate the message box that belongs to the 'Instructor'. "
                 "Read the question or prompt asked by the Instructor carefully. "
@@ -3001,13 +2990,12 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            # ✅ UPGRADED TEXT FALLBACK: Pulls the exact markup box sitting immediately next to the Instructor marker
             if "SYSTEM_ERROR_SIGNAL" in initial_answer or "incomplete" in initial_answer:
-                print("⚠️ Vision channel missed target boundary fields. Pulling raw markup string matching Instructor elements as text fallback...")
+                print("⚠️ Vision failed. Using text fallback parsing matching Instructor elements...")
                 try:
                     instructor_msg_bubble = page.locator("div:has(span:has-text('Instructor')) + div, div:has-text('Instructor') ~ p, .instructor-message").first
                     first_message_text = await instructor_msg_bubble.inner_text()
-                    print(f"📄 Successfully pulled instructor prompt text context: '{first_message_text[:120]}...'")
+                    print(f"📄 Pulled instructor text: '{first_message_text[:120]}...'")
                     
                     text_prompt = (
                         f"Read this instructor's question carefully: '{first_message_text}'. "
@@ -3053,7 +3041,6 @@ async def run_ai_automation():
                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
                         
                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            print("⚠️ Vision failed on follow-up. Using text fallback synthesis...")
                             followup_answer = await ask_qwen(f"Scholar just asked you a question in a class forum thread. Respond to it briefly, professionally, and in a human tone. Context: {msg}")
                             
                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
@@ -3063,12 +3050,14 @@ async def run_ai_automation():
                 
                 await asyncio.sleep(120)
             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+
         except Exception as e:
-                print(f"❌ Automation workflow run encountered an exception: {e}")
-                try:save_knowledge_base(knowledge)
-                except: pass
+            print(f"❌ Automation workflow run encountered an exception: {e}")
+            try: save_knowledge_base(knowledge)
+            except: pass
         finally:
-                await context.close()
-                await browser.close()
+            await context.close()
+            await browser.close()
+
 if __name__ == "__main__":
-        asyncio.run(run_ai_automation())
+    asyncio.run(run_ai_automation())
