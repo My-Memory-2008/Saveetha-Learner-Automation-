@@ -551,7 +551,7 @@ jobs:
           PYTHONUNBUFFERED: "1" 
       run: python run_agent.py
 
-    # ✅ FIXED STEP: Synchronizes overlapping file changes automatically via pulling rebase rules
+        # ✅ FIXED STEP: Synchronizes overlapping file changes automatically via pulling rebase rules
     - name: Commit AI Self Learning Data and Refreshed Cookies to Repository Root
       if: always()
       run: |
@@ -565,12 +565,13 @@ jobs:
           if ! git diff-index --quiet HEAD; then
             git commit -m "🤖 AI Loop Update: Extended Session Cookie Lifespans & Site Structure Knowledge Base"
             
-            # ✅ FIX 2: Fetch and align manual interface updates ahead of our data payload push
+            # ✅ FIX 2: Fetch latest changes from remote and rebase current commit on top of them
             echo "Pulling down web interface edits and aligning commit trees..."
-            git pull origin HEAD:${{ github.ref }} --rebase
+            git fetch origin
+            git rebase origin/${{ github.ref_name }}
             
             # Dispatch structural update payload package
-            git push origin HEAD:${{ github.ref }}
+            git push origin HEAD:refs/heads/${{ github.ref_name }}
             echo "✅ Refreshed cookies and learning database committed straight back to your GitHub repository!"
           else
             echo "ℹ️ No changes detected in token lifecycles or layout. Skipping push loop."
