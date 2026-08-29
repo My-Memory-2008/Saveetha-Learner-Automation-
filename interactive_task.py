@@ -2392,7 +2392,6 @@
 
 
 
-
 import asyncio
 import os
 import sys
@@ -2404,18 +2403,20 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Strict string extraction to pull ONLY the clean URL string from arguments
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = str(sys.argv[1])
 
 def load_knowledge_base():
+    """Loads complete-interact.json from repository storage safely."""
     if os.path.exists(KNOWLEDGE_FILE):
         try:
             with open(KNOWLEDGE_FILE, 'r') as f:
@@ -2428,6 +2429,7 @@ def load_knowledge_base():
     return {"completed_topics": {}}
 
 def save_knowledge_base(data):
+    """Writes progress tracking metrics instantly to complete-interact.json."""
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
     print(f"💾 File updated: Logs saved straight to '{KNOWLEDGE_FILE}'")
@@ -2454,8 +2456,8 @@ async def ask_qwen(prompt, image_path=None):
         except Exception as e:
             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
-
 async def trigger_full_page_sensory_scan(page):
+    """Scrolls down smoothly to trigger lazy-loaded component blocks on heavy pages."""
     await page.evaluate("""async () => {
         await new Promise((resolve) => {
             let totalHeight = 0;
@@ -2475,6 +2477,7 @@ async def trigger_full_page_sensory_scan(page):
     await asyncio.sleep(2)
 
 async def scroll_inner_discussion_panel(page):
+    print("📜 Scrolling inner sidebar panel mapping matrix...")
     try:
         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
         if await feed_panel.count() > 0:
@@ -2487,10 +2490,11 @@ async def scroll_inner_discussion_panel(page):
         else:
             await page.evaluate("window.scrollBy(0, 300);")
     except Exception as e:
-        print(f"⚠️ Sidebar scroll notification: {e}")
+        print(f"⚠️ Sidebar scroll block note: {e}")
     await asyncio.sleep(2)
+
 async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Initializing Event Monitor to navigate to the absolute top of the conversation...")
+    print("CN STEP 3: Initializing Event Monitor to navigate to the absolute top of the conversation...")
     for attempt in range(1, 11):
         initial_msg_count = await page.locator(".message, .chat-item, p, span, div[class*='msg']").count()
         print(f"📡 [Top Monitor] Scrolling upward (Try {attempt}/10)... Current elements visible: {initial_msg_count}")
@@ -2531,9 +2535,8 @@ async def send_chat_message(page, message_text):
         await chat_box.fill(message_text)
         await asyncio.sleep(1)
         
-        # ✅ FIXED: Targeting the precise primary chat send button element to resolve strict mode collisions
+        # ✅ FIXED: Exact primary chat button targeting to eliminate strict mode overlap crashes
         send_btn = page.locator("button.btn-primary.faculty-chat-send").or_(page.locator("button:has-text('Send')")).first
-        
         await send_btn.click()
         print("🚀 Response successfully sent directly to the chat board!")
         return True
@@ -2571,7 +2574,7 @@ async def run_ai_automation():
                 knowledge["completed_topics"][subject_code] = []
             knowledge["last_run_timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S")
 
-            # STEP 1: Click Chat Tab
+            # STEP 1: Open Chat Tab
             print("🎯 STEP 1: Locating and opening Chat Tab channel layout blocks...")
             chat_tab = page.locator("a:has-text('Chat')").or_(page.locator("button:has-text('Chat')")).first
             await chat_tab.wait_for(timeout=15000)
@@ -2652,7 +2655,7 @@ async def run_ai_automation():
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
             if "SYSTEM_ERROR_SIGNAL" in initial_answer:
-                print("⚠️ Vision channel timed out on CPU engine layer. Pulling raw markup string elements as fallback...")
+                print("⚠️ Vision channel failed. Pulling raw markup string elements as fallback...")
                 try:
                     first_message_text = await page.locator(".message, .chat-item, p, span, div[class*='content']").first.inner_text()
                     print(f"📄 Successfully pulled initial question text context: '{first_message_text[:120]}...'")
