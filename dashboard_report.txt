@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 8288
-**Pending Unexplored Queue Scope:** 3375
+**Total Unique Sub-System Paths Mapped:** 8304
+**Pending Unexplored Queue Scope:** 3371
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -179245,6 +179245,210 @@ API server link offline:
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/circulars/73/?tab=circular#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/73/?tab=chat#
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+Everyone in the circular
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/73/?tab=chat&chat=group
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Discussion Topics
+Focused threaded discussions
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/73/?tab=chat&chat=topics
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Transactional Parameters
+- **Circulars Tab**: The page is currently on the "Circulars" tab, which is indicated by the red highlight. This tab likely contains a list of all the circulars the user is participating in.
+- **Tasks Tab**: The user is viewing the "Tasks" tab, which shows the number of tasks they have completed and the total number of tasks they need to complete.
+- **Group Chat**: The user is in the "Group Chat" section, which is locked by a manager. This means the user can read the chat and topics but cannot post or rate actions.
+
+#### 2. Data Element Blocks and Table Structure
+- **Circular Details**:
+  - **Title**: "Study Week Plan and Attendance Guidelines - 01/06/2026 to 06/06/2026."
+  - **Participants**: "Participant"
+  - **Time**: "1495.99:1495.99"
+  - **Core Details**:
+    - **Mentors**: "152 / 164"
+    - **Managers**: "3 / 3"
+    - **Start Date**: "31/05/2026"
+    - **Task Completion**: "19591/25158"
+    - **Status**: "Approved / Expected"
+  - **Schedule**: "Scheduled"
+  - **Circulars**: "23"
+  - **My Reward Points**: "0"
+  - **Workflow Requests**: "0"
+  - **Workflow Approvals**: "0"
+  - **Bookings**: "0"
+  - **Services**: "0"
+  - **Manage Mentees**: "0"
+  - **Mentorship**: "0"
+  - **Logged in as**: "Engineering College 2026"
+
+- **Tasks Details**:
+  - **Tasks**: "2"
+  - **Total score for you in this circular**: "33"
+
+- **Group Chat Details**:
+  - **Message**: "This circular is locked by a manager. You can read chat and topics, but posting and rating actions are disabled."
+  - **Action**: "Create and rate focused discussion topics for this circular."
+  - **Status**: "No discussion topics yet."
+
+#### 3. Structural Functionality and System Integration
+- **Circular Management**: The page allows the user to manage their participation in various circulars, view their progress, and access detailed information about each circular.
+- **Task Tracking**: The "Tasks" tab provides a clear view of the user's progress in completing tasks, which is essential for tracking and managing their academic activities.
+- **Group Chat**: The locked group chat section allows for communication within the circular, ensuring that participants can discuss and collaborate on the assigned tasks and topics.
+- **Discussion Topics**: The "Create and rate focused discussion topics" section enables the user to engage in focused discussions, which is crucial for collaborative learning and problem-solving.
+- **Status Indicators**: The status indicators (e.g., "Approved / Expected") provide transparency about the current status of the circular and tasks, helping the user understand their progress and any pending actions.
+
+### Summary
+This page is designed to facilitate the management and tracking of academic activities, including circular participation, task completion, and group discussions. The locked group chat section ensures that discussions are managed and monitored by a manager, promoting structured and controlled communication. The detailed information provided in the circular details tab helps users stay informed about the progress and requirements of their assigned tasks.
+
+--•--•--
+
+## Portal Path Endpoint: Refresh
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/73/?tab=chat&chat=group&message_page=2
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/73/?tab=tasks#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/66/?tab=tasks#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and monitor the registration and progress of students for the APR/MAY 2026 End Semester Examinations Fee for UG I, II, and III Year. The specific transactional parameters include:
+- **Participants**: Total number of students registered.
+- **Mentors**: Number of mentors assigned.
+- **Managers**: Number of managers assigned.
+- **Start Date**: Date when the registration process began.
+- **Task Completion**: Status of task completion, which is currently 0/0 (unstarted).
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data elements and tables:
+- **Participants**: 3530 / 5494
+- **Mentors**: 149 / 174
+- **Managers**: 2 / 2
+- **Start Date**: 25/05/2026
+- **Task Completion**: 0/0 (Approved / Expected)
+
+The data is organized in a table format with columns for each of these elements. The table is designed to provide a clear overview of the registration status and progress.
+
+#### 3. Score Layout and Variable Values
+The page displays the following score layout:
+- **Participants**: 3530 / 5494
+- **Mentors**: 149 / 174
+- **Managers**: 2 / 2
+- **Start Date**: 25/05/2026
+- **Task Completion**: 0/0 (Approved / Expected)
+
+The variable values are:
+- **Participants**: 3530 (Total participants) and 5494 (Total participants including mentors and managers).
+- **Mentors**: 149 (Total mentors) and 174 (Total mentors including managers).
+- **Managers**: 2 (Total managers) and 2 (Total managers including mentors).
+- **Start Date**: 25/05/2026 (Date when the registration process began).
+- **Task Completion**: 0/0 (Unstarted).
+
+#### 4. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Monitoring Registration Status**: It provides a clear overview of the registration status, helping administrators track the progress of students.
+- **Task Management**: The task completion status (0/0) indicates that no tasks have been added to this circular yet, which is crucial for managing ongoing tasks and ensuring that all necessary steps are completed.
+- **User Interface**: The structured layout ensures that users can easily navigate and understand the data presented, enhancing the user experience.
+
+### Summary
+This page is a critical component of the student portal, designed to manage and monitor the registration and progress of students for the specified examinations. It provides a clear, structured overview of the registration status, task completion, and other relevant data, ensuring that all necessary steps are completed and tracked efficiently.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/66/?tab=chat#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+Everyone in the circular
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/66/?tab=chat&chat=group
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Discussion Topics
+Focused threaded discussions
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/66/?tab=chat&chat=topics
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/66/?tab=circular#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/138/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Circular
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/138/?tab=circular
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Chat
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/138/?tab=chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Tasks
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/138/?tab=tasks
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/85/?tab=chat&chat=group&message_page=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/82/?tab=chat&chat=group&message_page=1#
 ### Structural Analysis Breakdown:
 API server link offline: 
 
