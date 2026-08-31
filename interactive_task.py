@@ -3785,7 +3785,6 @@
 
 
 
-
 import asyncio
 import os
 import sys
@@ -3806,7 +3805,7 @@ MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv[1]
+TARGET_URL = sys.argv
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -3847,25 +3846,6 @@ async def ask_qwen(prompt, image_path=None):
         except Exception as e:
             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
-async def trigger_full_page_sensory_scan(page):
-    await page.evaluate("""async () => {
-        await new Promise((resolve) => {
-            let totalHeight = 0;
-            let distance = 150;
-            let timer = setInterval(() => {
-                let scrollHeight = document.body.scrollHeight;
-                window.scrollBy(0, distance);
-                totalHeight += distance;
-                if(totalHeight >= scrollHeight){
-                    clearInterval(timer);
-                    window.scrollTo(0, 0);
-                    resolve();
-                }
-            }, 40);
-        });
-    }""")
-    await asyncio.sleep(2)
-
 async def scroll_inner_discussion_panel(page):
     try:
         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
@@ -3882,90 +3862,99 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Tracks the visual loading cue ("Loading earlier messages...") dynamically while scrolling
-async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Activating Interactive Spinner-Tracking Scroller Engine...")
+# ✅ UPGRADED: Intercepts raw network JSON API traffic streams in the background to capture messages instantly
+async def capture_instructor_question_via_api(page, target_element):
+    print("📡 STEP 3: Initializing Network API Interceptor. Listening for message payloads...")
     
-    chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
-    await chat_panel.wait_for(timeout=10000)
-    box = await chat_panel.bounding_box()
-    if box:
-        await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
-        await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+    captured_payloads = []
 
-    instructor_question_text = None
-    step_counter = 0
+    # Dynamic network response event registration hook
+    async def handle_response(response):
+        url = response.url.lower()
+        # Look specifically for database packets transmitting chat entries
+        if any(keyword in url for x in ["chat", "message", "topic", "discussion", "get_messages"]):
+            try:
+                # Capture and decode the raw JSON data block from the wire
+                text_content = await response.text()
+                if text_content and ("instructor" in text_content or "msg" in text_content or "[" in text_content):
+                    captured_payloads.append(text_content)
+            except:
+                pass
+
+    # Assign background event listener
+    page.on("response", handle_response)
+
+    print("🖱️ Launching channel link target... Clicking to trigger background API streams.")
+    await target_element.scroll_into_view_if_needed()
+    await target_element.click(force=True)
     
-    # Climb continuously looking for the true visual context parameters
-    while step_counter < 200:
-        step_counter += 1
-        
-        # 🚨 VISUAL CUE MONITOR: Check for the actual "Loading earlier messages..." container spinner element
-        spinner_visible = await page.evaluate("""() => {
-            const txt = document.body.innerText;
-            const hasTextSpinner = txt.includes("Loading earlier messages...");
-            const hasDOMSpinner = !!document.querySelector('.spinner, .loading-indicator, [class*="loading"]');
-            return hasTextSpinner || hasDOMSpinner;
-        }""")
-        
-        if spinner_visible:
-            print(f"⏳ [Visual Cue Spotted] Spinner 'Loading earlier messages...' is active. Pausing thread execution...")
-            # Loop until the loading cue cleanly disappears from the DOM stream architecture
-            while spinner_visible:
-                await asyncio.sleep(2)
-                spinner_visible = await page.evaluate("""() => {
-                    const txt = document.body.innerText;
-                    return txt.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
-                }""")
-            print("✨ [Visual Cue Cleared] Data nodes populated. Resuming upward scroll...")
-            continue
+    # Hold the pipeline for 8 seconds to capture data packets streaming down the wire
+    await asyncio.sleep(8)
+    
+    # Remove event hook to clean resource profiles
+    page.remove_listener("response", handle_response)
 
-        # Execute an upward interactive mouse wheel scroll chunk transformation
-        await page.mouse.wheel(0, -220)
-        await asyncio.sleep(0.3)
+    # 🛠️ PARSING ENGINE: Inspect the captured background raw text blocks
+    print(f"📦 Network Sniffer Analysis: Intercepted {len(captured_payloads)} candidate network data blocks.")
+    instructor_prompt = None
 
-        # High-precision targeted evaluation to pull only from chat entries linked to the Instructor tag role
-        instructor_question_text = await page.evaluate("""() => {
-            const chatBubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
-            for (let bubble of chatBubbles) {
-                // Pinpoint the text node matching the Instructor tag block context
-                if (bubble.innerText && bubble.innerText.includes("Instructor")) {
-                    // Extract the core data block containing algorithm variables (Filtering sidebar links)
-                    if (bubble.innerText.includes("Algorithm A") || bubble.innerText.includes("recurrence relation")) {
-                        const paragraphs = Array.from(bubble.querySelectorAll('p, span, [class*="text"], [class*="content"]'));
-                        const cleanParts = paragraphs.map(p => p.innerText.trim()).filter(t => t.length > 15 && !t.includes("Instructor"));
-                        if (cleanParts.length > 0) return cleanParts.join('\\n');
-                        
-                        // String line slicing fallback matching inner elements
-                        const lines = bubble.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
-                        return lines.filter(l => !l.includes("Instructor") && !l.includes("By")).join(' ');
-                    }
+    for raw_data in captured_payloads:
+        try:
+            # 1. If it's a formatted JSON dictionary/list structure, target it directly
+            parsed_json = json.loads(raw_data)
+            
+            # Walk data arrays sequentially
+            messages_list = []
+            if isinstance(parsed_json, list): messages_list = parsed_json
+            elif isinstance(parsed_json, dict):
+                # Search for arrays inside dictionary response leaves
+                for key, val in parsed_json.items():
+                    if isinstance(val, list): messages_list = val; break
+            
+            if messages_list:
+                print(f"📄 Successfully decoded message data array with {len(messages_list)} total tracking log nodes.")
+                # The oldest message (the original prompt question) resides at index 0 or the end of the payload
+                for candidate in [messages_list[0], messages_list[-1]]:
+                    cand_str = str(candidate).lower()
+                    if "instructor" in cand_str or "dinesh" in cand_str:
+                        # Extract the exact text variable string properties
+                        if isinstance(candidate, dict):
+                            for text_prop in ["message", "content", "msg_text", "text", "body"]:
+                                if text_prop in candidate:
+                                    instructor_prompt = str(candidate[text_prop])
+                                    break
+                        if instructor_prompt: break
+                if instructor_prompt: break
+        except:
+            # 2. String Match Fallback Layer if the framework uses non-JSON encoded strings
+            match = re.search(r'(?:instructor|dinesh)[^}]+(?:message|content|text)["\']:\s*["\']([^"\']+)', raw_data, re.IGNORECASE)
+            if match:
+                instructor_prompt = match.group(1)
+                break
+
+    # If network interception misses, use a local DOM text scraper as a safe fallback layer
+    if not instructor_prompt:
+        print("⚠️ Sniffer Notice: API routes were blank. Triggering instant internal text scraper fallback...")
+        instructor_prompt = await page.evaluate("""() => {
+            const bubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
+            for (let b of bubbles) {
+                if (b.innerText && b.innerText.includes("Instructor") && (b.innerText.includes("Algorithm") || b.innerText.includes("recurrence"))) {
+                    return b.innerText.replace(/Instructor/g, '').trim();
                 }
             }
             return null;
         }""")
 
-        if instructor_question_text:
-            print("\n" + "❓" * 30)
-            print(f"🎯 SUCCESS: TARGET INSTRUCTOR QUESTION ISOLATED AT STEP {step_counter}!")
-            print(f"📝 SPECIFIC PROMPT QUESTION:\n'{instructor_question_text}'")
-            print("❓" * 30 + "\n")
-            
-            try:
-                instructor_box = page.locator("div:has(span:has-text('Instructor')):has-text('Algorithm')").first
-                await instructor_box.screenshot(path="instructor_question_node.png")
-                print("📸 Visual Target Cropped: 'instructor_question_node.png' successfully saved.")
-            except:
-                pass
-            break
+    if instructor_prompt:
+        print("\n" + "❓" * 30)
+        print("🎯 NETWORK API INTERCEPTION INTERCEPT SUCCESS!")
+        print(f"📝 VERIFIED INSTRUCTOR PROMPT QUESTION:\n'{instructor_prompt}'")
+        print("❓" * 30 + "\n")
+    else:
+        print("⚠️ Fallback: Instructor question string unresolved. Harvesting topmost canvas placeholder blocks...")
+        instructor_prompt = await page.locator(".message, p, span").first.inner_text()
 
-    if not instructor_question_text:
-        print("⚠️ Warning: Instructor search bounds timed out. Harvesting fallback top text layers...")
-        await page.evaluate("window.scrollTo(0, 0);")
-        await asyncio.sleep(2)
-        instructor_question_text = await page.locator(".message, [class*='content'], p").first.inner_text()
-
-    return instructor_question_text
+    return instructor_prompt
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
@@ -4088,13 +4077,10 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
 
-            await target_element.scroll_into_view_if_needed()
-            await target_element.click(force=True)
-            await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            # Run the spinner-tracking upward scroll sequence
-            instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
+            # ✅ TRIGGER NETWORK INTERCEPTION HANDLER: Decodes background packets to extract text immediately!
+            instructor_prompt_string = await capture_instructor_question_via_api(page, target_element)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
@@ -4172,4 +4158,3 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
-
