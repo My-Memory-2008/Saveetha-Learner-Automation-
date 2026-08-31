@@ -4565,6 +4565,7 @@
 
 
 
+
 import asyncio
 import os
 import sys
@@ -4582,10 +4583,11 @@ MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Strict string index array selection to isolate only the clean URL text parameter
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -4661,7 +4663,7 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Forces precise top-down array indexing to grab the true initial instructor prompt question
+# ✅ HIGH-SPEED TOP-DOWN PACKET PARSER: Captures raw json traffic and extracts strictly the original instructor question text
 async def capture_instructor_question_via_api(page, target_element):
     print("📡 STEP 3: Initializing Network API Interceptor. Listening for message payloads...")
     captured_payloads = []
@@ -4694,10 +4696,9 @@ async def capture_instructor_question_via_api(page, target_element):
                     if isinstance(val, list): messages_list = val; break
             
             if messages_list:
-                # ✅ FIXED: Sort/Iterate strictly from index 0 forward to read the oldest genesis message first
+                # Iterate from index 0 forward to prioritize the oldest genesis question message
                 for candidate in messages_list:
                     cand_str = str(candidate).lower()
-                    # Filter out phrases that look like student summaries or meta affirmations
                     if ("instructor" in cand_str or "dinesh" in cand_str) and not any(x in cand_str for x in ["scales better", "that's correct", "by observing this"]):
                         if isinstance(candidate, dict):
                             for text_prop in ["message", "content", "msg_text", "text", "body"]:
@@ -4712,7 +4713,6 @@ async def capture_instructor_question_via_api(page, target_element):
                 instructor_prompt = match.group(1)
                 break
 
-    # Native DOM fallback scraper if API tracking misses
     if not instructor_prompt:
         instructor_prompt = await page.evaluate("""() => {
             const bubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
@@ -4733,7 +4733,7 @@ async def capture_instructor_question_via_api(page, target_element):
     print("\n" + "❓" * 30)
     print("🎯 ISOLATED INSTRUCTOR QUESTION LOCATED:")
     if instructor_prompt:
-        clean_question_log = instructor_prompt.split("DIRECT MESSAGES").strip()
+        clean_question_log = instructor_prompt.split("DIRECT MESSAGES")[0].strip()
         print(f"'{clean_question_log}'")
         instructor_prompt = clean_question_log
     else:
@@ -4788,6 +4788,7 @@ async def run_ai_automation():
 
         try:
             print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
+            # ✅ FIXED: Navigates to a pure string layout object natively without array casting errors
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
@@ -4933,7 +4934,6 @@ async def run_ai_automation():
                 
                 await asyncio.sleep(120)
             
-            # ✅ AUTOMATED REFRESH: Extracts fresh cookies at the end of execution to sustain session lifespan permanently
             print("🔄 Refreshing repository token lifespan context matrix...")
             await context.storage_state(path=COOKIE_FILE)
             print("✅ Fresh cookies captured and saved to runner engine container state storage!")
@@ -4948,4 +4948,5 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
 
