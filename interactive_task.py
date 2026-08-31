@@ -4564,6 +4564,7 @@
 
 
 
+
 import asyncio
 import os
 import sys
@@ -4575,17 +4576,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
-# ✅ FIXED: Extracts strictly the clean URL string from the command-line arguments list array
+# ✅ FIXED: Strips away formatting objects by safely mapping the system argument array string
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv[1]
+TARGET_URL = str(sys.argv[1]).strip("['\"]")
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -4626,25 +4627,6 @@ async def ask_qwen(prompt, image_path=None):
         except Exception as e:
             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
-async def trigger_full_page_sensory_scan(page):
-    await page.evaluate("""async () => {
-        await new Promise((resolve) => {
-            let totalHeight = 0;
-            let distance = 150;
-            let timer = setInterval(() => {
-                let scrollHeight = document.body.scrollHeight;
-                window.scrollBy(0, distance);
-                totalHeight += distance;
-                if(totalHeight >= scrollHeight){
-                    clearInterval(timer);
-                    window.scrollTo(0, 0);
-                    resolve();
-                }
-            }, 40);
-        });
-    }""")
-    await asyncio.sleep(2)
-
 async def scroll_inner_discussion_panel(page):
     try:
         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
@@ -4661,88 +4643,102 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Activating Perpetual Visual Sentinel Loop Scroller Engine...")
-    await asyncio.sleep(4)
+# ✅ UPGRADED: Network Traffic Interceptor Sniffer Engine (Replaces all physical scrolling loops)
+async def capture_instructor_question_via_api(page, target_element):
+    print("📡 STEP 3: Initializing Network API Interceptor. Listening for background traffic...")
+    captured_payloads = []
+
+    # Dynamic asynchronous traffic response handler function hook
+    async def handle_response(response):
+        url = response.url.lower()
+        # Intercept background handshakes loading historical messages or discussion streams
+        if any(kw in url for kw in ["chat", "message", "topic", "discussion", "get_messages", "vhtcx", "mindful"]):
+            try:
+                text_content = await response.text()
+                if text_content and ("instructor" in text_content or "msg" in text_content or "[" in text_content):
+                    captured_payloads.append(text_content)
+            except:
+                pass
+
+    # Attach network packet event handler hook
+    page.on("response", handle_response)
+
+    print("🖱️ Clicking discussion forum card to trigger server fetch requests...")
+    await target_element.scroll_into_view_if_needed()
+    await target_element.click(force=True)
     
-    chat_panel = page.locator(".chat-history, .message-list-container, main, div[style*='overflow-y']").first
-    await chat_panel.wait_for(timeout=10000)
-    box = await chat_panel.bounding_box()
-    if box:
-        await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
-        await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+    # Hold the thread execution for 8 seconds to allow background packets to populate safely
+    await asyncio.sleep(8)
+    
+    # Detach listener to clean framework resource memory profiles
+    page.remove_listener("response", handle_response)
+    print(f"📦 Sniffer Analysis complete: Intercepted {len(captured_payloads)} total data packet bursts.")
+    
+    instructor_prompt = None
 
-    instructor_question_text = None
-    step_counter = 0
-    stable_cycles = 0
-    last_msg_count = 0
-
-    while True:
-        step_counter += 1
-        await page.evaluate("""() => {
-            const boxes = document.querySelectorAll('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
-            boxes.forEach(el => { el.scrollTop = 0; });
-            window.scrollTo(0, 0);
-        }""")
-        
-        is_loading = await page.evaluate("""() => {
-            const txt = document.body.innerText;
-            return txt.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
-        }""")
-        
-        if is_loading:
-            print(f"⏳ [Sentinel Engine Step {step_counter}] Spinner detected. Holding thread 3.5 seconds...")
-            await asyncio.sleep(3.5)
-            continue
+    # Parse through intercepted background packets
+    for raw_data in captured_payloads:
+        try:
+            parsed_json = json.loads(raw_data)
+            messages_list = []
             
-        await asyncio.sleep(1.0)
-        current_msg_count = await page.locator(".message, .chat-item, p, span").count()
-        
-        if current_msg_count == last_msg_count:
-            stable_cycles += 1
-            if stable_cycles > 8:
-                print(f"🏁 [Sentinel Engine Step {step_counter}] Arrived at the genesis boundary block wall. Messages loaded: {current_msg_count}")
-                
-                instructor_question_text = await page.evaluate("""() => {
-                    const entries = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
-                    for (let entry of entries) {
-                        if (entry.innerText && entry.innerText.includes("Instructor")) {
-                            if (entry.innerText.includes("Algorithm") || entry.innerText.includes("recurrence") || entry.innerText.includes("T(n)")) {
-                                const para = entry.querySelector('p, [class*="text"], [class*="content"]');
-                                if (para && para.innerText.trim().length > 15) return para.innerText.trim();
-                                
-                                const lines = entry.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
-                                return lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug")).join(' ');
-                            }
+            if isinstance(parsed_json, list):
+                messages_list = parsed_json
+            elif isinstance(parsed_json, dict):
+                for key, val in parsed_json.items():
+                    if isinstance(val, list):
+                        messages_list = val
+                        break
+            
+            if messages_list:
+                # ✅ HIGH-PRECISION INDEX 0 TARGETING: Evaluates strictly from the oldest first entry forward
+                for candidate in messages_list:
+                    cand_str = str(candidate).lower()
+                    # Filter out student summary phrases to lock directly onto the base assignment query
+                    if ("instructor" in cand_str or "dinesh" in cand_str) and not any(x in cand_str for x in ["scales better", "that's correct", "by observing"]):
+                        if isinstance(candidate, dict):
+                            for text_prop in ["message", "content", "msg_text", "text", "body"]:
+                                if text_prop in candidate and len(str(candidate[text_prop])) > 15:
+                                    instructor_prompt = str(candidate[text_prop])
+                                    break
+                        if instructor_prompt: break
+                if instructor_prompt: break
+        except:
+            # Regular Expression extraction backup rule if the framework utilizes custom protocol structures
+            match = re.search(r'(?:instructor|dinesh)[^}]+(?:message|content|text)["\']:\s*["\']([^"\']{15,})', raw_data, re.IGNORECASE)
+            if match:
+                instructor_prompt = match.group(1)
+                break
+
+    # Static DOM fallback scraper text backup if network api filters completely miss
+    if not instructor_prompt:
+        print("⚠️ Sniffer notice: API strings were empty. Pulling direct from Instructor view bubbles...")
+        instructor_prompt = await page.evaluate("""() => {
+            const bubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
+            for (let b of bubbles) {
+                if (b.innerText && b.innerText.includes("Instructor") && (b.innerText.includes("Algorithm") || b.innerText.includes("recurrence") || b.innerText.includes("T(n)"))) {
+                    const paragraphs = Array.from(b.querySelectorAll('p, [class*="text"], [class*="content"]'));
+                    for(let p of paragraphs) {
+                        if(p.innerText.trim().length > 15 && !p.innerText.includes("Instructor") && !p.innerText.includes("scales better")) {
+                            return p.innerText.trim();
                         }
                     }
-                    return null;
-                }""")
-                break
-        else:
-            stable_cycles = 0
-            
-        last_msg_count = current_msg_count
-        if step_counter % 10 == 0:
-            print(f"📡 [Sentinel Loop] Climbing message nodes... Step: {step_counter} | Elements visible: {current_msg_count}")
-
-    if not instructor_question_text:
-        print("⚠️ Sniffer notice: Instructor custom elements missed target frames. Harvesting genesis text field element...")
-        instructor_question_text = await page.evaluate("""() => {
-            const firstBubble = document.querySelector('.message, [class*="chat-content"] p, .chat-item');
-            return firstBubble ? firstBubble.innerText.trim() : null;
+                }
+            }
+            return null;
         }""")
-        if not instructor_question_text:
-            instructor_question_text = await page.locator(".message, p, [class*='content']").first.inner_text()
 
+    # Standard clean up constraint layer matching output console logs
     print("\n" + "❓" * 30)
-    print("🎯 FINAL ISOLATED INSTRUCTOR QUESTION:")
-    if instructor_question_text:
-        instructor_question_text = instructor_question_text.split("DIRECT MESSAGES")[0].strip()
-        print(f"'{instructor_question_text}'")
+    print("🎯 CLEAN ISOLATED INSTRUCTOR QUESTION GENERATED:")
+    if instructor_prompt:
+        instructor_prompt = instructor_prompt.split("DIRECT MESSAGES")[0].strip()
+        print(f"'{instructor_prompt}'")
+    else:
+        print("⚠️ Warning: Question text extraction boundaries unresolved.")
     print("❓" * 30 + "\n")
 
-    return instructor_question_text
+    return instructor_prompt
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
@@ -4865,12 +4861,10 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
 
-            await target_element.scroll_into_view_if_needed()
-            await target_element.click(force=True)
-            await asyncio.sleep(4)
             await page.screenshot(path="step3_entered_room.png")
 
-            instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
+            # ✅ TRIGGER API INTERCEPTION HANDLER: Sniffs the network requests directly from the database stream instantly
+            instructor_prompt_string = await capture_instructor_question_via_api(page, target_element)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
@@ -4937,6 +4931,7 @@ async def run_ai_automation():
                 
                 await asyncio.sleep(120)
             
+            # ✅ AUTOMATED REFRESH: Extends cookie lifespan at the end of every successful execution run automatically
             print("🔄 Refreshing repository token lifespan context matrix...")
             await context.storage_state(path=COOKIE_FILE)
             print("✅ Fresh cookies captured and saved to runner container state storage!")
@@ -4951,4 +4946,3 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
-
