@@ -3066,6 +3066,360 @@
 
 
 
+# import asyncio
+# import os
+# import sys
+# import json
+# import httpx
+# import base64
+# import time
+# import re
+# from playwright.async_api import async_playwright
+
+# KNOWLEDGE_FILE = "complete-interact.json"
+# BASE_URL = "https://learner.saveetha.in"
+# OLLAMA_URL = "http://localhost:11434/api/generate"
+# MODEL_NAME = "qwen2.5vl:3b"
+# COOKIE_FILE = "cookies.json"
+# MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
+
+# if len(sys.argv) < 2:
+#     print("❌ Error: Missing destination URL target input argument.")
+#     sys.exit(1)
+# TARGET_URL = sys.argv[1]
+
+# def load_knowledge_base():
+#     if os.path.exists(KNOWLEDGE_FILE):
+#         try:
+#             with open(KNOWLEDGE_FILE, 'r') as f:
+#                 data = json.load(f)
+#                 if "completed_topics" not in data:
+#                     data["completed_topics"] = {}
+#                 return data
+#         except Exception:
+#             pass
+#     return {"completed_topics": {}}
+
+# def save_knowledge_base(data):
+#     with open(KNOWLEDGE_FILE, 'w') as f:
+#         json.dump(data, f, indent=2)
+#     print(f"💾 File updated: Logs saved straight to '{KNOWLEDGE_FILE}'")
+
+# def image_to_base64(image_path):
+#     with open(image_path, "rb") as img:
+#         return base64.b64encode(img.read()).decode('utf-8')
+
+# async def ask_qwen(prompt, image_path=None):
+#     payload = {"model": MODEL_NAME, "prompt": prompt, "stream": False}
+#     if image_path and os.path.exists(image_path):
+#         try:
+#             payload["images"] = [image_to_base64(image_path)]
+#         except Exception as e:
+#             print(f"⚠️ Image conversion notice: {e}")
+            
+#     async with httpx.AsyncClient(timeout=300.0) as client:
+#         try:
+#             response = await client.post(OLLAMA_URL, json=payload)
+#             if response.status_code == 200:
+#                 res_text = response.json().get("response", "").strip()
+#                 if res_text:
+#                     return res_text
+#         except Exception as e:
+#             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
+#     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
+# async def trigger_full_page_sensory_scan(page):
+#     await page.evaluate("""async () => {
+#         await new Promise((resolve) => {
+#             let totalHeight = 0;
+#             let distance = 150;
+#             let timer = setInterval(() => {
+#                 let scrollHeight = document.body.scrollHeight;
+#                 window.scrollBy(0, distance);
+#                 totalHeight += distance;
+#                 if(totalHeight >= scrollHeight){
+#                     clearInterval(timer);
+#                     window.scrollTo(0, 0);
+#                     resolve();
+#                 }
+#             }, 40);
+#         });
+#     }""")
+#     await asyncio.sleep(2)
+
+# async def scroll_inner_discussion_panel(page):
+#     try:
+#         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
+#         if await feed_panel.count() > 0:
+#             box = await feed_panel.bounding_box()
+#             if box:
+#                 await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+#                 for _ in range(4):
+#                     await page.mouse.wheel(0, 250)
+#                     await asyncio.sleep(1)
+#         else:
+#             await page.evaluate("window.scrollBy(0, 300);")
+#     except Exception as e:
+#         print(f"⚠️ Sidebar scroll notification: {e}")
+#     await asyncio.sleep(2)
+
+# # ✅ UPGRADED: Implements continuous environmental monitoring, physical-interaction scrolling, and lazy-load stabilizers
+# async def scroll_to_absolute_top_of_chat(page):
+#     print("📜 STEP 3: Activating Interactive Touch Scroller. Hunting for Instructor thread endpoint...")
+    
+#     # 1. Target the actual chat panel workspace container bounding region box
+#     chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
+#     await chat_panel.wait_for(timeout=10000)
+#     box = await chat_panel.bounding_box()
+    
+#     if box:
+#         # Position the mouse pointer right in the middle of the chat area to engage interactive physical focus
+#         await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+#         await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+    
+#     # 2. Continuous scrolling loop block
+#     for step in range(1, 150):
+#         # Scan if an Instructor badge element is actively visible on-screen right now
+#         instructor_badge = page.locator("span:has-text('Instructor'), div:has-text('Instructor'), .instructor").first
+#         if await instructor_badge.is_visible():
+#             print(f"🎯 [Touch Scroller] Instructor question node successfully brought into viewport frame (Step {step})!")
+#             break
+            
+#         # 🚨 LAZY-LOAD DETECTOR: Check if the interface is streaming or shows loading elements
+#         is_loading = await page.evaluate("""() => {
+#             const text = document.body.innerText.toLowerCase();
+#             return text.includes("loading") || text.includes("load previous") || !!document.querySelector('.spinner, .loading-indicator');
+#         }""")
+        
+#         if is_loading:
+#             print("⏳ [Sensor Notice] Chat stream lazy-load activity detected. Holding scrolling thread to let rows stabilize...")
+#             await asyncio.sleep(3) # Pause 3 seconds to clear buffer network delays
+#             continue
+            
+#         # Simulate an incremental physical scroll wheel action upward
+#         await page.mouse.wheel(0, -180)
+#         await asyncio.sleep(0.4) # Fast but orderly interval step speed
+
+#     await asyncio.sleep(2)
+
+# async def send_chat_message(page, message_text):
+#     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
+#         print("🛑 SECURITY FILTER WARNING: Blocked faulty or empty text string payload to protect your profile dashboard!")
+#         return False
+
+#     print(f"✍️ Initiating event monitoring input sequence for message submission...")
+#     chat_box = page.get_by_placeholder("Write a message...")
+    
+#     input_ready = False
+#     for attempt in range(1, 11):
+#         if await chat_box.is_visible() and await chat_box.is_enabled():
+#             input_ready = True
+#             break
+#         await asyncio.sleep(3)
+
+#     if not input_ready:
+#         print("❌ Event Monitor Alert: Input container box missed stability windows.")
+#         return False
+
+#     try:
+#         await chat_box.fill(message_text)
+#         await asyncio.sleep(1)
+#         send_btn = page.locator("button.btn-primary.faculty-chat-send").or_(page.locator("button:has-text('Send')")).first
+#         await send_btn.click()
+#         print("🚀 Response successfully sent directly to the chat board!")
+#         return True
+#     except Exception as e:
+#         print(f"❌ Submission encountered a processing exception: {e}")
+#         return False
+# async def run_ai_automation():
+#     knowledge = load_knowledge_base()
+#     start_time = time.time()
+#     two_hours_in_seconds = 2 * 60 * 60
+
+#     print("🚀 Booting sandbox-compliant cloud worker matrix...")
+#     async with async_playwright() as p:
+#         browser = await p.chromium.launch(
+#             headless=True,
+#             args=["--no-sandbox", "--disable-setuid-sandbox", "--disable-dev-shm-usage", "--disable-gpu"]
+#         )
+#         context = await browser.new_context(storage_state=COOKIE_FILE if os.path.exists(COOKIE_FILE) else None, viewport={"width": 1920, "height": 1080})
+#         page = await context.new_page()
+#         await page.route("**/*", lambda route: route.abort() if route.request.resource_type in ["image", "media", "font"] else route.continue_())
+
+#         try:
+#             print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
+#             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
+#             await asyncio.sleep(5)
+
+#             await page.screenshot(path="step0_landing_page.png")
+#             subject_header = await page.locator("h1, h2, .subject-title").first.inner_text()
+#             subject_header = subject_header.strip().replace('\n', ' ')
+#             match = re.search(r'([0-9]{2}[A-Z]{2}[0-9]{3})', subject_header)
+#             subject_code = match.group(1) if match else "UNKNOWN_SUBJECT"
+#             print(f"📚 Subject Identity Mapped: Code Key -> [{subject_code}]")
+
+#             if subject_code not in knowledge["completed_topics"]:
+#                 knowledge["completed_topics"][subject_code] = []
+#             knowledge["last_run_timestamp"] = time.strftime("%Y-%m-%d %H:%M:%S")
+
+#             # STEP 1: Click Chat Tab
+#             print("🎯 STEP 1: Locating and opening Chat Tab channel layout blocks...")
+#             chat_tab = page.locator("a:has-text('Chat')").or_(page.locator("button:has-text('Chat')")).first
+#             await chat_tab.wait_for(timeout=15000)
+#             await chat_tab.click()
+#             await asyncio.sleep(5)
+#             await page.screenshot(path="step1_clicked_chat.png")
+
+#             # STEP 2: Open Discussion Topics
+#             print("🔍 STEP 2: Sensing for the 'Discussion topics' region...")
+#             discussion_topics_tab = page.locator("a:has-text('Discussion topics'), button:has-text('Discussion topics'), div:has-text('Discussion topics')").last
+            
+#             tab_located = False
+#             for sensor_try in range(1, 11):
+#                 if await discussion_topics_tab.is_visible():
+#                     tab_located = True
+#                     break
+#                 await asyncio.sleep(3)
+
+#             if not tab_located:
+#                 print("❌ Fatal: Sidebar failed to render 'Discussion topics' block.")
+#                 return
+
+#             await discussion_topics_tab.click(force=True)
+#             await asyncio.sleep(6)
+#             await page.screenshot(path="step2_clicked_discussion.png")
+
+#             print("⏳ Holding canvas context for nested item components to initialize...")
+#             for load_try in range(5):
+#                 list_rows = page.locator("a[href*='topic'], .discussion-list-item a, [class*='topic'] a")
+#                 if await list_rows.count() > 0: break
+#                 await asyncio.sleep(3)
+
+#             await scroll_inner_discussion_panel(page)
+#             topic_locators = page.locator("a[href*='topic'], [class*='topic'] a, div[style*='background-color'] + div a")
+#             count = await topic_locators.count()
+
+#             target_topic_name = None
+#             target_element = None
+
+#             for i in range(count - 1, -1, -1):
+#                 raw_text = await topic_locators.nth(i).inner_text()
+#                 lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
+#                 if not lines: continue
+#                 topic_title = lines
+#                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]): continue
+
+#                 if topic_title not in knowledge["completed_topics"][subject_code]:
+#                     target_topic_name = topic_title
+#                     target_element = topic_locators.nth(i)
+#                     break
+
+#             if not target_topic_name:
+#                 print("✨ All threads processed.")
+#                 save_knowledge_base(knowledge)
+#                 return
+
+#             print(f"📢 CLAIMED CHAT: [{target_topic_name}]")
+#             knowledge["completed_topics"][subject_code].append(target_topic_name)
+#             save_knowledge_base(knowledge)
+
+#             await target_element.scroll_into_view_if_needed()
+#             await target_element.click(force=True)
+#             await asyncio.sleep(8) 
+#             await page.screenshot(path="step3_entered_room.png")
+
+#             # ✅ TRIGGER INTERACTIVE TOUCH HUNT: Run the physical-interaction mouse wheel upward sequence
+#             await scroll_to_absolute_top_of_chat(page)
+            
+#             snap_path = "genesis_chat_message.png"
+#             await page.screenshot(path=snap_path)
+#             print("📸 Visual snapshot saved: 'genesis_chat_message.png' contains the true instructor post layout.")
+            
+#             ai_prompt = (
+#                 "Review this classroom discussion chat. Locate the message box that belongs to the 'Instructor'. "
+#                 "Read the question or prompt asked by the Instructor carefully. "
+#                 "Compose an accurate, brief response answering that question. "
+#                 "CRUCIAL RULE: Write your response in a natural, friendly, human tone, like an elite student explaining a concept to a peer. Do not sound robotic."
+#             )
+#             initial_answer = await ask_qwen(ai_prompt, snap_path)
+            
+#             if "SYSTEM_ERROR_SIGNAL" in initial_answer or "incomplete" in initial_answer:
+#                 print("⚠️ Vision channel missed target boundary fields. Pulling raw markup text...")
+#                 try:
+#                     instructor_msg_bubble = page.locator("div:has(span:has-text('Instructor')) + div, div:has-text('Instructor') ~ p, .instructor-message").first
+#                     first_message_text = await instructor_msg_bubble.inner_text()
+#                     print(f"📄 Successfully pulled instructor prompt text context: '{first_message_text[:120]}...'")
+                    
+#                     text_prompt = (
+#                         f"Read this instructor's question carefully: '{first_message_text}'. "
+#                         "Compose a high-quality answer to it. CRUCIAL RULE: Keep your response brief, highly accurate, "
+#                         "and write it in a natural, conversational, human tone like a real student."
+#                     )
+#                     initial_answer = await ask_qwen(text_prompt)
+#                 except Exception as text_err:
+#                     print(f"❌ Fallback text scraper crashed: {text_err}")
+            
+#             print(f"🤖 Final Verified Answer Token:\n'{initial_answer}'\n")
+#             if os.path.exists(snap_path): os.remove(snap_path)
+
+#             await send_chat_message(page, initial_answer)
+
+#             # --- TWO-HOUR STANDBY MONITORING PHASE ---
+#             print(f"⏳ Entering 2-Hour Standby Verification phase looking for 'Scholar' tagging updates...")
+#             monitor_start_time = time.time()
+
+#             while (time.time() - monitor_start_time) < two_hours_in_seconds:
+#                 remaining_minutes = (two_hours_in_seconds - (time.time() - monitor_start_time)) / 60
+#                 print(f"🔄 Checking chat landscape updates... ({remaining_minutes:.1f} minutes remaining)")
+                
+#                 await page.evaluate("""() => {
+#                     let chatDiv = document.querySelector('.chat-history, .message-list-container, main');
+#                     if(chatDiv) chatDiv.scrollTop = chatDiv.scrollHeight;
+#                 }""")
+#                 await asyncio.sleep(2)
+                
+#                 messages_data = await page.evaluate("""() => {
+#                     return Array.from(document.querySelectorAll('.message, .chat-item, p, span'))
+#                         .map(el => el.innerText)
+#                         .filter(txt => txt.includes('Scholar') || txt.includes('scholar'));
+#                 }""")
+                
+#                 for msg in messages_data:
+#                     if MY_IDENTITY_NAME in msg:
+#                         print(f"🎯 Match Registered! 'Scholar' explicitly addressed identity tag context: '{MY_IDENTITY_NAME}'")
+#                         reply_frame = "target_reply_context.png"
+#                         await page.screenshot(path=reply_frame)
+                        
+#                         followup_prompt = f"A chat member named Scholar has replied directly to you, explicitly mentioning your name '{MY_IDENTITY_NAME}'. Review this conversation context and formulate a precise, brief follow-up response in a conversational human tone."
+#                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
+                        
+#                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
+#                             followup_answer = await ask_qwen(f"Scholar just asked you a question in a class forum thread. Respond to it briefly, professionally, and in a human tone. Context: {msg}")
+                            
+#                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
+#                         await send_chat_message(page, followup_answer)
+#                         if os.path.exists(reply_frame): os.remove(reply_frame)
+#                         break
+                
+#                 await asyncio.sleep(120)
+#             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+
+#         except Exception as e:
+#             print(f"❌ Automation workflow run encountered an exception: {e}")
+#             try: save_knowledge_base(knowledge)
+#             except: pass
+#         finally:
+#             await context.close()
+#             await browser.close()
+
+# if __name__ == "__main__":
+#         asyncio.run(run_ai_automation())
+
+
+
+
+
+
+
 import asyncio
 import os
 import sys
@@ -3162,48 +3516,58 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Implements continuous environmental monitoring, physical-interaction scrolling, and lazy-load stabilizers
 async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Activating Interactive Touch Scroller. Hunting for Instructor thread endpoint...")
-    
-    # 1. Target the actual chat panel workspace container bounding region box
+    print("CN STEP 3: Activating Interactive Touch Scroller. Hunting for Instructor thread endpoint...")
     chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
     await chat_panel.wait_for(timeout=10000)
     box = await chat_panel.bounding_box()
     
     if box:
-        # Position the mouse pointer right in the middle of the chat area to engage interactive physical focus
         await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
         await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
     
-    # 2. Continuous scrolling loop block
+    instructor_located = False
     for step in range(1, 150):
-        # Scan if an Instructor badge element is actively visible on-screen right now
-        instructor_badge = page.locator("span:has-text('Instructor'), div:has-text('Instructor'), .instructor").first
+        # Target the message container that contains the instructor text or badge elements
+        instructor_badge = page.locator("span:has-text('Instructor'), div:has-text('Instructor'), .instructor, [class*='instructor']").first
         if await instructor_badge.is_visible():
-            print(f"🎯 [Touch Scroller] Instructor question node successfully brought into viewport frame (Step {step})!")
+            print(f"🎯 [Touch Scroller] Instructor question node brought into viewport frame (Step {step})!")
+            instructor_located = True
+            
+            # ✅ NEW: Isolate and take a screenshot specifically of the instructor's question bubble node
+            try:
+                msg_container = page.locator("div:has(span:has-text('Instructor'))").first
+                await msg_container.screenshot(path="instructor_question_node.png")
+                print("📸 Visual Target Cropped: Captured and saved 'instructor_question_node.png'.")
+                
+                # ✅ NEW: Extract and print the exact question text to your terminal output log streams
+                raw_extracted_text = await msg_container.inner_text()
+                print("\n" + "?"*60)
+                print(f"❓ EXTRACTED INSTRUCTOR QUESTION:\n{raw_extracted_text}")
+                print("?"*60 + "\n")
+            except Exception as capture_err:
+                print(f"⚠️ Focus framing screenshot skip notice: {capture_err}")
             break
             
-        # 🚨 LAZY-LOAD DETECTOR: Check if the interface is streaming or shows loading elements
         is_loading = await page.evaluate("""() => {
             const text = document.body.innerText.toLowerCase();
             return text.includes("loading") || text.includes("load previous") || !!document.querySelector('.spinner, .loading-indicator');
         }""")
-        
         if is_loading:
-            print("⏳ [Sensor Notice] Chat stream lazy-load activity detected. Holding scrolling thread to let rows stabilize...")
-            await asyncio.sleep(3) # Pause 3 seconds to clear buffer network delays
+            await asyncio.sleep(3)
             continue
             
-        # Simulate an incremental physical scroll wheel action upward
         await page.mouse.wheel(0, -180)
-        await asyncio.sleep(0.4) # Fast but orderly interval step speed
+        await asyncio.sleep(0.4)
 
+    if not instructor_located:
+        print("⚠️ Warning: Instructor node not found. Defaulting to fallback top positions.")
+        await page.evaluate("window.scrollTo(0, 0);")
     await asyncio.sleep(2)
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
-        print("🛑 SECURITY FILTER WARNING: Blocked faulty or empty text string payload to protect your profile dashboard!")
+        print("🛑 SECURITY FILTER WARNING: Blocked faulty text payload.")
         return False
 
     print(f"✍️ Initiating event monitoring input sequence for message submission...")
@@ -3327,38 +3691,39 @@ async def run_ai_automation():
             await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER INTERACTIVE TOUCH HUNT: Run the physical-interaction mouse wheel upward sequence
+            # Run the physical mouse wheel scroller up to the Instructor node
             await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
-            print("📸 Visual snapshot saved: 'genesis_chat_message.png' contains the true instructor post layout.")
             
+            # ✅ FIXED PROMPT: Enforces an absolute zero-intro direct technical explanation in human tone
             ai_prompt = (
-                "Review this classroom discussion chat. Locate the message box that belongs to the 'Instructor'. "
-                "Read the question or prompt asked by the Instructor carefully. "
-                "Compose an accurate, brief response answering that question. "
-                "CRUCIAL RULE: Write your response in a natural, friendly, human tone, like an elite student explaining a concept to a peer. Do not sound robotic."
+                "Review this classroom discussion chat. Focus on the message block that belongs to the 'Instructor'. "
+                "Read the technical computer science question asked by the Instructor carefully. "
+                "Compose an accurate, high-quality solution to it. "
+                "STRICT FORMATTING RULE: Output your answer directly starting with the explanation text. "
+                "Do NOT include any introduction phrases, meta-commentary, greetings (like Hello, Hey), or conversational fluff. "
+                "Write it in a natural, confident, human tone, like an elite computer science student writing an answer."
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
             if "SYSTEM_ERROR_SIGNAL" in initial_answer or "incomplete" in initial_answer:
-                print("⚠️ Vision channel missed target boundary fields. Pulling raw markup text...")
+                print("⚠️ Vision channel missed. Using raw text fallback parsing...")
                 try:
                     instructor_msg_bubble = page.locator("div:has(span:has-text('Instructor')) + div, div:has-text('Instructor') ~ p, .instructor-message").first
                     first_message_text = await instructor_msg_bubble.inner_text()
-                    print(f"📄 Successfully pulled instructor prompt text context: '{first_message_text[:120]}...'")
                     
                     text_prompt = (
                         f"Read this instructor's question carefully: '{first_message_text}'. "
-                        "Compose a high-quality answer to it. CRUCIAL RULE: Keep your response brief, highly accurate, "
-                        "and write it in a natural, conversational, human tone like a real student."
+                        "Compose a high-quality answer to it. STRICT RULE: Output only the explanation directly. "
+                        "Do not include greetings, introductions, or conversational prefaces. Use a conversational human tone."
                     )
                     initial_answer = await ask_qwen(text_prompt)
                 except Exception as text_err:
                     print(f"❌ Fallback text scraper crashed: {text_err}")
             
-            print(f"🤖 Final Verified Answer Token:\n'{initial_answer}'\n")
+            print(f"🤖 Final Direct Answer Token:\n'{initial_answer}'\n")
             if os.path.exists(snap_path): os.remove(snap_path)
 
             await send_chat_message(page, initial_answer)
@@ -3389,11 +3754,11 @@ async def run_ai_automation():
                         reply_frame = "target_reply_context.png"
                         await page.screenshot(path=reply_frame)
                         
-                        followup_prompt = f"A chat member named Scholar has replied directly to you, explicitly mentioning your name '{MY_IDENTITY_NAME}'. Review this conversation context and formulate a precise, brief follow-up response in a conversational human tone."
+                        followup_prompt = f"A chat member named Scholar has replied directly to you, explicitly mentioning your name '{MY_IDENTITY_NAME}'. Review this conversation context and formulate a precise, brief follow-up response in a conversational human tone without prefaces."
                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
                         
                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            followup_answer = await ask_qwen(f"Scholar just asked you a question in a class forum thread. Respond to it briefly, professionally, and in a human tone. Context: {msg}")
+                            followup_answer = await ask_qwen(f"Respond to this question briefly, professionally, directly, and in a human tone without prefaces. Context: {msg}")
                             
                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
                         await send_chat_message(page, followup_answer)
@@ -3410,6 +3775,5 @@ async def run_ai_automation():
         finally:
             await context.close()
             await browser.close()
-
 if __name__ == "__main__":
         asyncio.run(run_ai_automation())
