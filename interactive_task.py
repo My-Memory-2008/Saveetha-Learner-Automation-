@@ -4583,7 +4583,6 @@ MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
-# ✅ FIXED: Strict string index array selection to isolate only the clean URL text parameter
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
@@ -4663,88 +4662,92 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ HIGH-SPEED TOP-DOWN PACKET PARSER: Captures raw json traffic and extracts strictly the original instructor question text
-async def capture_instructor_question_via_api(page, target_element):
-    print("📡 STEP 3: Initializing Network API Interceptor. Listening for message payloads...")
-    captured_payloads = []
-
-    async def handle_response(response):
-        url = response.url.lower()
-        if any(keyword in url for keyword in ["chat", "message", "topic", "discussion", "get_messages"]):
-            try:
-                text_content = await response.text()
-                if text_content and ("instructor" in text_content or "msg" in text_content or "[" in text_content):
-                    captured_payloads.append(text_content)
-            except:
-                pass
-
-    page.on("response", handle_response)
-    await target_element.scroll_into_view_if_needed()
-    await target_element.click(force=True)
-    await asyncio.sleep(8) 
-    page.remove_listener("response", handle_response)
+# ✅ UPGRADED: Forced container-level scroll validation engine that climbs the absolute layout until the first message settles
+async def scroll_to_absolute_top_of_chat(page):
+    print("📜 STEP 3: Initializing container-level upward crawler loop to force first message initialization...")
+    
+    # Give the room canvas elements ample time to hook up completely
+    await asyncio.sleep(4)
     
     instructor_prompt = None
+    last_visible_count = 0
+    stable_cycles = 0
 
-    for raw_data in captured_payloads:
-        try:
-            parsed_json = json.loads(raw_data)
-            messages_list = []
-            if isinstance(parsed_json, list): messages_list = parsed_json
-            elif isinstance(parsed_json, dict):
-                for key, val in parsed_json.items():
-                    if isinstance(val, list): messages_list = val; break
+    # Run up to 40 aggressive execution loops to drive the scrollbar directly to index 0
+    for crawl_step in range(1, 41):
+        # Force the inner layout element container itself to reset its height values completely to 0
+        await page.evaluate("""() => {
+            const chatContainers = document.querySelectorAll('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
+            chatContainers.forEach(el => {
+                el.scrollTop = 0;
+            });
+            window.scrollTo(0, 0);
+        }""")
+        
+        # Check if a dynamic background network loading node spinner element is actively rendering
+        is_loading = await page.evaluate("""() => {
+            const innerText = document.body.innerText;
+            return innerText.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
+        }""")
+        
+        if is_loading:
+            print(f"⏳ [Crawl Step {crawl_step}] Spinner observed. Holding execution 3 seconds for node sync...")
+            await asyncio.sleep(3)
+            continue
             
-            if messages_list:
-                # Iterate from index 0 forward to prioritize the oldest genesis question message
-                for candidate in messages_list:
-                    cand_str = str(candidate).lower()
-                    if ("instructor" in cand_str or "dinesh" in cand_str) and not any(x in cand_str for x in ["scales better", "that's correct", "by observing this"]):
-                        if isinstance(candidate, dict):
-                            for text_prop in ["message", "content", "msg_text", "text", "body"]:
-                                if text_prop in candidate and len(str(candidate[text_prop])) > 15:
-                                    instructor_prompt = str(candidate[text_prop])
-                                    break
-                        if instructor_prompt: break
-                if instructor_prompt: break
-        except:
-            match = re.search(r'(?:instructor|dinesh)[^}]+(?:message|content|text)["\']:\s*["\']([^"\']{15,})', raw_data, re.IGNORECASE)
-            if match:
-                instructor_prompt = match.group(1)
-                break
-
-    if not instructor_prompt:
+        await asyncio.sleep(1.5)
+        current_count = await page.locator(".message, .chat-item, p, span").count()
+        
+        # Pull text exclusively linked to the Instructor tag card container from the DOM
         instructor_prompt = await page.evaluate("""() => {
-            const bubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
-            for (let b of bubbles) {
-                if (b.innerText && b.innerText.includes("Instructor") && (b.innerText.includes("Algorithm A") || b.innerText.includes("recurrence") || b.innerText.includes("T(n)")) ) {
-                    const paragraphs = Array.from(b.querySelectorAll('p, [class*="text"], [class*="content"]'));
-                    for(let p of paragraphs) {
-                        const txt = p.innerText;
-                        if(txt.trim().length > 15 && !txt.includes("Instructor") && !txt.includes("scales better")) {
-                            return txt.trim();
+            const cards = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
+            for (let card of cards) {
+                if (card.innerText && card.innerText.includes("Instructor")) {
+                    // Look for core coding technical prompt properties while ignoring layout navigation text crumbs
+                    if (card.innerText.includes("Algorithm") || card.innerText.includes("recurrence") || card.innerText.includes("T(n)")) {
+                        const paragraphs = Array.from(card.querySelectorAll('p, [class*="text"], [class*="content"]'));
+                        for(let p of paragraphs) {
+                            if (p.innerText.trim().length > 15 && !p.innerText.includes("Instructor")) {
+                                return p.innerText.trim();
+                            }
                         }
+                        const lines = card.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
+                        return lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug")).join(' ');
                     }
                 }
             }
             return null;
         }""")
 
+        if instructor_prompt:
+            print(f"🎯 [Crawl Step {crawl_step}] Instructor question isolated successfully via deep element mapping!")
+            break
+            
+        if current_count == last_visible_count:
+            stable_cycles += 1
+            if stable_cycles > 6:
+                print(f"🛑 [Crawl Step {crawl_step}] Message stream stabilized. Absolute boundary wall reached.")
+                break
+        else:
+            stable_cycles = 0
+            
+        last_visible_count = current_count
+
+    if not instructor_prompt:
+        print("⚠️ Sniffer notice: Instructor custom elements missed target frames. Scraping absolute top canvas p-node block...")
+        instructor_prompt = await page.locator(".message, p, [class*='content']").first.inner_text()
+
     print("\n" + "❓" * 30)
-    print("🎯 ISOLATED INSTRUCTOR QUESTION LOCATED:")
-    if instructor_prompt:
-        clean_question_log = instructor_prompt.split("DIRECT MESSAGES")[0].strip()
-        print(f"'{clean_question_log}'")
-        instructor_prompt = clean_question_log
-    else:
-        print("⚠️ Warning: Question block extraction bounds unresolved.")
+    print("🎯 ISOLATED INSTRUCTOR QUESTION:")
+    clean_question = instructor_prompt.split("DIRECT MESSAGES")[0].strip()
+    print(f"'{clean_question}'")
     print("❓" * 30 + "\n")
 
-    return instructor_prompt
+    return clean_question
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
-        print("🛑 SECURITY FILTER WARNING: Blocked faulty text payload.")
+        print("🛑 SECURITY FILTER WARNING: Blocked faulty text payload to protect your account.")
         return False
 
     print(f"✍️ Initiating event monitoring input sequence for message submission...")
@@ -4788,7 +4791,6 @@ async def run_ai_automation():
 
         try:
             print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
-            # ✅ FIXED: Navigates to a pure string layout object natively without array casting errors
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
@@ -4864,10 +4866,13 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
 
+            await target_element.scroll_into_view_if_needed()
+            await target_element.click(force=True)
+            await asyncio.sleep(4)
             await page.screenshot(path="step3_entered_room.png")
 
-            # Intercept background network packets to isolate the true Instructor question text
-            instructor_prompt_string = await capture_instructor_question_via_api(page, target_element)
+            # ✅ TRIGGER PRECISION CRAWLER: Force container scrolling to parse the genesis text string
+            instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
@@ -4936,7 +4941,7 @@ async def run_ai_automation():
             
             print("🔄 Refreshing repository token lifespan context matrix...")
             await context.storage_state(path=COOKIE_FILE)
-            print("✅ Fresh cookies captured and saved to runner engine container state storage!")
+            print("✅ Fresh cookies captured and saved to runner container state storage!")
 
         except Exception as e:
             print(f"❌ Automation workflow run encountered an exception: {e}")
@@ -4948,5 +4953,4 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
-
 
