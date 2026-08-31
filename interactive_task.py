@@ -4184,16 +4184,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ NATIVE STRING SELECTION FIX: Extracts exclusively the clean URL text string from index 1 of sys.argv
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -4269,7 +4270,7 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Intercepts network payloads and prints strictly the isolated Instructor Question
+# ✅ HIGH-SPEED FILTER SCANNER: Intercepts network response payloads and logs strictly the isolated Instructor Question text
 async def capture_instructor_question_via_api(page, target_element):
     print("📡 STEP 3: Initializing Network API Interceptor. Listening for message payloads...")
     captured_payloads = []
@@ -4318,7 +4319,7 @@ async def capture_instructor_question_via_api(page, target_element):
                 instructor_prompt = match.group(1)
                 break
 
-    # Native DOM fallback scraper if API routes run completely blank
+    # DOM Fallback Scraper: Filters down specifically to paragraphs within the Instructor container card bubble
     if not instructor_prompt:
         instructor_prompt = await page.evaluate("""() => {
             const bubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
@@ -4337,11 +4338,10 @@ async def capture_instructor_question_via_api(page, target_element):
             return null;
         }""")
 
-    # ✅ FIXED LOG PRINTER: Outputs exclusively the clean isolated text prompt question
+    # ✅ ISOLATED OUTPUT LOG SIGNATURE: Prints exclusively the clean question payload block
     print("\n" + "❓" * 30)
     print("🎯 ISOLATED INSTRUCTOR QUESTION LOCATED:")
     if instructor_prompt:
-        # Strip any remaining system navigation formatting elements
         clean_question_log = instructor_prompt.split("DIRECT MESSAGES")[0].strip()
         print(f"'{clean_question_log}'")
         instructor_prompt = clean_question_log
@@ -4474,7 +4474,7 @@ async def run_ai_automation():
 
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER API SNIFFER ENGINE: Extracts and prints exclusively the clean isolated text prompt question
+            # Sniff background network response packets to isolate the true Instructor prompt text instantly
             instructor_prompt_string = await capture_instructor_question_via_api(page, target_element)
             
             snap_path = "genesis_chat_message.png"
@@ -4533,7 +4533,7 @@ async def run_ai_automation():
                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
                         
                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            followup_answer = await ask_qwen(f"Respond to this question brief, professional, direct, and in a human tone without prefaces. Context: {msg}")
+                            followup_answer = await ask_qwen(f"Respond to this question briefly, professionally, directly, and in a human tone without prefaces. Context: {msg}")
                             
                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
                         await send_chat_message(page, followup_answer)
@@ -4553,4 +4553,3 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
-
