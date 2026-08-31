@@ -3796,13 +3796,12 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
-# ✅ FIXED: Extracts strictly the clean URL string from the command-line arguments list array
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
@@ -3882,84 +3881,47 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ FIXED: Perpetual continuous scrolling loop engine that runs until the Instructor elements render fully
-async def scroll_to_absolute_top_of_chat(page):
-    print("CN STEP 3: Activating Perpetual Upward Scroller Engine. Hunting for Instructor message...")
-    chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
-    await chat_panel.wait_for(timeout=10000)
-    box = await chat_panel.bounding_box()
-    if box:
-        await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
-        await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
-
-    instructor_question_text = None
-    step_counter = 0
-    consecutive_no_change = 0
-    last_msg_count = 0
+# ✅ UPGRADED: Reads the complete HTML raw code to extract the Instructor text instantly, skipping physical scrolling entirely!
+async def extract_instructor_question_from_html(page):
+    print("🔍 STEP 3: Scanning background HTML code structures to extract Instructor's text instantly...")
     
-    while True:
-        step_counter += 1
-        for _ in range(12):
-            await page.mouse.wheel(0, -300)
-        await asyncio.sleep(0.5)
-            
-        is_loading = await page.evaluate("""() => {
-            const txt = document.body.innerText.toLowerCase();
-            return txt.includes("loading") || txt.includes("load previous") || !!document.querySelector('.spinner, .loading');
-        }""")
-        if is_loading:
-            print(f"⏳ [Scroll Step {step_counter}] Network lazy-load active. Pausing 3 seconds...")
-            await asyncio.sleep(3)
-            continue
-
-        extracted_text = await page.evaluate("""() => {
-            const items = document.querySelectorAll('div, li, [class*="message"], [class*="chat-item"]');
-            for (let el of items) {
-                if (el.innerText && el.innerText.includes("Instructor")) {
-                    const paragraphs = Array.from(el.querySelectorAll('p, span, [class*="text"], [class*="content"]'));
-                    const validTexts = paragraphs.map(p => p.innerText.trim()).filter(t => t.length > 12 && !t.includes("Instructor"));
-                    if (validTexts.length > 0) return validTexts[0];
-                    
-                    const lines = el.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
-                    const cleanLines = lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug") && !l.includes("2026"));
-                    if (cleanLines.length > 0) return cleanLines.join(' ');
+    # Give the page a 5-second buffer to completely stream background JSON/HTML nodes into memory
+    await asyncio.sleep(5)
+    
+    # Parse the complete raw DOM tree inside memory looking for Instructor blocks
+    extracted_text = await page.evaluate("""() => {
+        // Broad search for any message block container in the entire code
+        const allElements = Array.from(document.querySelectorAll('div, li, section, [class*="message"], [class*="chat"]'));
+        
+        for (let el of allElements) {
+            // Locate the block explicitly containing the 'Instructor' tag role signature
+            if (el.innerText && el.innerText.includes("Instructor")) {
+                // Target the specific text block or paragraph sibling inside this Instructor structure
+                const contentNode = el.querySelector('p, span, [class*="content"], [class*="text"], [class*="body"]');
+                if (contentNode && contentNode.innerText.trim().length > 10) {
+                    return contentNode.innerText.trim();
                 }
+                
+                // Fallback: Clean and pull text lines if explicit p tags aren't found
+                const lines = el.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
+                const cleanLines = lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug") && !l.includes("2026"));
+                if (cleanLines.length > 0) return cleanLines.join(' ');
             }
-            return null;
-        }""")
+        }
+        return null;
+    }""")
 
-        if extracted_text and len(extracted_text) > 12 and "Copyright" not in extracted_text and "Next students" not in extracted_text:
-            print("\n" + "❓" * 30)
-            print(f"🎯 SUCCESS: TARGET INSTRUCTOR QUESTION CAPTURED AT STEP {step_counter}!")
-            print(f"📝 SPECIFIC INSTRUCTOR QUESTION:\n'{extracted_text}'")
-            print("❓" * 30 + "\n")
-            instructor_question_text = extracted_text
-            try:
-                instructor_box = page.locator("div:has(span:has-text('Instructor')), [class*='instructor']").first
-                await instructor_box.screenshot(path="instructor_question_node.png")
-            except Exception as cap_err:
-                print(f"⚠️ Snapshot cropping skipped: {cap_err}")
-            break
-
-        current_msg_count = await page.locator(".message, .chat-item, p, span").count()
-        if current_msg_count == last_msg_count:
-            consecutive_no_change += 1
-            if consecutive_no_change > 15:
-                print(f"🛑 [Scroll Step {step_counter}] Absolute top wall reached. Total elements: {current_msg_count}")
-                break
-        else:
-            consecutive_no_change = 0
-        last_msg_count = current_msg_count
+    # Print the verified Instructor question clearly to your GitHub Action logs
+    if extracted_text:
+        print("\n" + "🎯" * 30)
+        print("📝 COGNITIVE HTML SCAN SUCCESS: EXTRACTED INSTRUCTOR QUESTION!")
+        print(f"👉 TEXT CONTENT:\n'{extracted_text}'")
+        print("🎯" * 30 + "\n")
+    else:
+        print("⚠️ HTML Search Notice: Instructor signature not found in background code. Pulling top element text as fallback...")
+        extracted_text = await page.locator(".message, p, span").first.inner_text()
         
-        if step_counter % 10 == 0:
-            print(f"📡 [Scroll Ticker] Climbed {step_counter} steps. Visible elements: {current_msg_count}")
-
-    if not instructor_question_text:
-        await page.evaluate("window.scrollTo(0, 0);")
-        await asyncio.sleep(2)
-        instructor_question_text = await page.locator(".message, .chat-item, p, [class*='content']").first.inner_text()
-        
-    return instructor_question_text
+    return extracted_text
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
@@ -4087,11 +4049,13 @@ async def run_ai_automation():
             await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
+            # ✅ HIGH-SPEED FIX TRIGGER: Read raw HTML code to parse the Instructor question text instantly!
+            instructor_prompt_string = await extract_instructor_question_from_html(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
+            # Formulate answer via pure text mapping
             ai_prompt = (
                 f"The Instructor asked this exact technical assignment question: '{instructor_prompt_string}'. "
                 "Compose an accurate, high-quality solution explaining this concept comprehensively. "
