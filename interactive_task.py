@@ -3784,7 +3784,6 @@
 
 
 
-
 import asyncio
 import os
 import sys
@@ -3802,10 +3801,11 @@ MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extracts strictly the clean URL string from the command-line arguments list array
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -3846,6 +3846,25 @@ async def ask_qwen(prompt, image_path=None):
         except Exception as e:
             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
+async def trigger_full_page_sensory_scan(page):
+    await page.evaluate("""async () => {
+        await new Promise((resolve) => {
+            let totalHeight = 0;
+            let distance = 150;
+            let timer = setInterval(() => {
+                let scrollHeight = document.body.scrollHeight;
+                window.scrollBy(0, distance);
+                totalHeight += distance;
+                if(totalHeight >= scrollHeight){
+                    clearInterval(timer);
+                    window.scrollTo(0, 0);
+                    resolve();
+                }
+            }, 40);
+        });
+    }""")
+    await asyncio.sleep(2)
+
 async def scroll_inner_discussion_panel(page):
     try:
         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
@@ -3862,62 +3881,45 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Intercepts raw network JSON API traffic streams in the background to capture messages instantly
+# ✅ FIXED: Intercepts raw network JSON API traffic streams in the background to capture messages instantly
 async def capture_instructor_question_via_api(page, target_element):
     print("📡 STEP 3: Initializing Network API Interceptor. Listening for message payloads...")
-    
     captured_payloads = []
 
-    # Dynamic network response event registration hook
     async def handle_response(response):
         url = response.url.lower()
-        # Look specifically for database packets transmitting chat entries
-        if any(keyword in url for x in ["chat", "message", "topic", "discussion", "get_messages"]):
+        if any(keyword in url for keyword in ["chat", "message", "topic", "discussion", "get_messages"]):
             try:
-                # Capture and decode the raw JSON data block from the wire
                 text_content = await response.text()
                 if text_content and ("instructor" in text_content or "msg" in text_content or "[" in text_content):
                     captured_payloads.append(text_content)
             except:
                 pass
 
-    # Assign background event listener
     page.on("response", handle_response)
 
-    print("🖱️ Launching channel link target... Clicking to trigger background API streams.")
+    print("鼠标 Click entering chat forum container room link...")
     await target_element.scroll_into_view_if_needed()
     await target_element.click(force=True)
+    await asyncio.sleep(8) 
     
-    # Hold the pipeline for 8 seconds to capture data packets streaming down the wire
-    await asyncio.sleep(8)
-    
-    # Remove event hook to clean resource profiles
     page.remove_listener("response", handle_response)
-
-    # 🛠️ PARSING ENGINE: Inspect the captured background raw text blocks
     print(f"📦 Network Sniffer Analysis: Intercepted {len(captured_payloads)} candidate network data blocks.")
     instructor_prompt = None
 
     for raw_data in captured_payloads:
         try:
-            # 1. If it's a formatted JSON dictionary/list structure, target it directly
             parsed_json = json.loads(raw_data)
-            
-            # Walk data arrays sequentially
             messages_list = []
             if isinstance(parsed_json, list): messages_list = parsed_json
             elif isinstance(parsed_json, dict):
-                # Search for arrays inside dictionary response leaves
                 for key, val in parsed_json.items():
                     if isinstance(val, list): messages_list = val; break
             
             if messages_list:
-                print(f"📄 Successfully decoded message data array with {len(messages_list)} total tracking log nodes.")
-                # The oldest message (the original prompt question) resides at index 0 or the end of the payload
                 for candidate in [messages_list[0], messages_list[-1]]:
                     cand_str = str(candidate).lower()
                     if "instructor" in cand_str or "dinesh" in cand_str:
-                        # Extract the exact text variable string properties
                         if isinstance(candidate, dict):
                             for text_prop in ["message", "content", "msg_text", "text", "body"]:
                                 if text_prop in candidate:
@@ -3926,13 +3928,11 @@ async def capture_instructor_question_via_api(page, target_element):
                         if instructor_prompt: break
                 if instructor_prompt: break
         except:
-            # 2. String Match Fallback Layer if the framework uses non-JSON encoded strings
             match = re.search(r'(?:instructor|dinesh)[^}]+(?:message|content|text)["\']:\s*["\']([^"\']+)', raw_data, re.IGNORECASE)
             if match:
                 instructor_prompt = match.group(1)
                 break
 
-    # If network interception misses, use a local DOM text scraper as a safe fallback layer
     if not instructor_prompt:
         print("⚠️ Sniffer Notice: API routes were blank. Triggering instant internal text scraper fallback...")
         instructor_prompt = await page.evaluate("""() => {
@@ -4158,3 +4158,4 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
