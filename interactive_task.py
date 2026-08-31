@@ -3785,6 +3785,7 @@
 
 
 
+
 import asyncio
 import os
 import sys
@@ -3796,7 +3797,7 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
@@ -3881,47 +3882,90 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Reads the complete HTML raw code to extract the Instructor text instantly, skipping physical scrolling entirely!
-async def extract_instructor_question_from_html(page):
-    print("🔍 STEP 3: Scanning background HTML code structures to extract Instructor's text instantly...")
+# ✅ UPGRADED: Tracks the visual loading cue ("Loading earlier messages...") dynamically while scrolling
+async def scroll_to_absolute_top_of_chat(page):
+    print("📜 STEP 3: Activating Interactive Spinner-Tracking Scroller Engine...")
     
-    # Give the page a 5-second buffer to completely stream background JSON/HTML nodes into memory
-    await asyncio.sleep(5)
-    
-    # Parse the complete raw DOM tree inside memory looking for Instructor blocks
-    extracted_text = await page.evaluate("""() => {
-        // Broad search for any message block container in the entire code
-        const allElements = Array.from(document.querySelectorAll('div, li, section, [class*="message"], [class*="chat"]'));
-        
-        for (let el of allElements) {
-            // Locate the block explicitly containing the 'Instructor' tag role signature
-            if (el.innerText && el.innerText.includes("Instructor")) {
-                // Target the specific text block or paragraph sibling inside this Instructor structure
-                const contentNode = el.querySelector('p, span, [class*="content"], [class*="text"], [class*="body"]');
-                if (contentNode && contentNode.innerText.trim().length > 10) {
-                    return contentNode.innerText.trim();
-                }
-                
-                // Fallback: Clean and pull text lines if explicit p tags aren't found
-                const lines = el.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
-                const cleanLines = lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug") && !l.includes("2026"));
-                if (cleanLines.length > 0) return cleanLines.join(' ');
-            }
-        }
-        return null;
-    }""")
+    chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
+    await chat_panel.wait_for(timeout=10000)
+    box = await chat_panel.bounding_box()
+    if box:
+        await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+        await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
 
-    # Print the verified Instructor question clearly to your GitHub Action logs
-    if extracted_text:
-        print("\n" + "🎯" * 30)
-        print("📝 COGNITIVE HTML SCAN SUCCESS: EXTRACTED INSTRUCTOR QUESTION!")
-        print(f"👉 TEXT CONTENT:\n'{extracted_text}'")
-        print("🎯" * 30 + "\n")
-    else:
-        print("⚠️ HTML Search Notice: Instructor signature not found in background code. Pulling top element text as fallback...")
-        extracted_text = await page.locator(".message, p, span").first.inner_text()
+    instructor_question_text = None
+    step_counter = 0
+    
+    # Climb continuously looking for the true visual context parameters
+    while step_counter < 200:
+        step_counter += 1
         
-    return extracted_text
+        # 🚨 VISUAL CUE MONITOR: Check for the actual "Loading earlier messages..." container spinner element
+        spinner_visible = await page.evaluate("""() => {
+            const txt = document.body.innerText;
+            const hasTextSpinner = txt.includes("Loading earlier messages...");
+            const hasDOMSpinner = !!document.querySelector('.spinner, .loading-indicator, [class*="loading"]');
+            return hasTextSpinner || hasDOMSpinner;
+        }""")
+        
+        if spinner_visible:
+            print(f"⏳ [Visual Cue Spotted] Spinner 'Loading earlier messages...' is active. Pausing thread execution...")
+            # Loop until the loading cue cleanly disappears from the DOM stream architecture
+            while spinner_visible:
+                await asyncio.sleep(2)
+                spinner_visible = await page.evaluate("""() => {
+                    const txt = document.body.innerText;
+                    return txt.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
+                }""")
+            print("✨ [Visual Cue Cleared] Data nodes populated. Resuming upward scroll...")
+            continue
+
+        # Execute an upward interactive mouse wheel scroll chunk transformation
+        await page.mouse.wheel(0, -220)
+        await asyncio.sleep(0.3)
+
+        # High-precision targeted evaluation to pull only from chat entries linked to the Instructor tag role
+        instructor_question_text = await page.evaluate("""() => {
+            const chatBubbles = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
+            for (let bubble of chatBubbles) {
+                // Pinpoint the text node matching the Instructor tag block context
+                if (bubble.innerText && bubble.innerText.includes("Instructor")) {
+                    // Extract the core data block containing algorithm variables (Filtering sidebar links)
+                    if (bubble.innerText.includes("Algorithm A") || bubble.innerText.includes("recurrence relation")) {
+                        const paragraphs = Array.from(bubble.querySelectorAll('p, span, [class*="text"], [class*="content"]'));
+                        const cleanParts = paragraphs.map(p => p.innerText.trim()).filter(t => t.length > 15 && !t.includes("Instructor"));
+                        if (cleanParts.length > 0) return cleanParts.join('\\n');
+                        
+                        // String line slicing fallback matching inner elements
+                        const lines = bubble.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
+                        return lines.filter(l => !l.includes("Instructor") && !l.includes("By")).join(' ');
+                    }
+                }
+            }
+            return null;
+        }""")
+
+        if instructor_question_text:
+            print("\n" + "❓" * 30)
+            print(f"🎯 SUCCESS: TARGET INSTRUCTOR QUESTION ISOLATED AT STEP {step_counter}!")
+            print(f"📝 SPECIFIC PROMPT QUESTION:\n'{instructor_question_text}'")
+            print("❓" * 30 + "\n")
+            
+            try:
+                instructor_box = page.locator("div:has(span:has-text('Instructor')):has-text('Algorithm')").first
+                await instructor_box.screenshot(path="instructor_question_node.png")
+                print("📸 Visual Target Cropped: 'instructor_question_node.png' successfully saved.")
+            except:
+                pass
+            break
+
+    if not instructor_question_text:
+        print("⚠️ Warning: Instructor search bounds timed out. Harvesting fallback top text layers...")
+        await page.evaluate("window.scrollTo(0, 0);")
+        await asyncio.sleep(2)
+        instructor_question_text = await page.locator(".message, [class*='content'], p").first.inner_text()
+
+    return instructor_question_text
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
@@ -4049,13 +4093,12 @@ async def run_ai_automation():
             await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ HIGH-SPEED FIX TRIGGER: Read raw HTML code to parse the Instructor question text instantly!
-            instructor_prompt_string = await extract_instructor_question_from_html(page)
+            # Run the spinner-tracking upward scroll sequence
+            instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
-            # Formulate answer via pure text mapping
             ai_prompt = (
                 f"The Instructor asked this exact technical assignment question: '{instructor_prompt_string}'. "
                 "Compose an accurate, high-quality solution explaining this concept comprehensively. "
@@ -4067,7 +4110,7 @@ async def run_ai_automation():
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
             if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer) < 5:
-                print("⚠️ Vision channel hit limits. Requesting text compilation fallback...")
+                print("⚠️ Vision failed on prompt engine. Requesting high-speed text compilation fallback...")
                 text_prompt = (
                     f"Answer this technical question carefully: '{instructor_prompt_string}'. "
                     "STRICT RULE: Output only the explanation directly. Do not include greetings or prefaces. Use a conversational human tone."
