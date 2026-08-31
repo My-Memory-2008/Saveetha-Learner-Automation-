@@ -4577,7 +4577,7 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
@@ -4586,7 +4586,7 @@ MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv[1]
+TARGET_URL = sys.argv
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -4662,88 +4662,106 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Forced container-level scroll validation engine that climbs the absolute layout until the first message settles
+# ✅ UPGRADED: A Perpetual Sentinel Loop that climbs infinitely until it hits the absolute structural top message block
 async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Initializing container-level upward crawler loop to force first message initialization...")
+    print("📜 STEP 3: Activating Perpetual Visual Sentinel Loop Scroller Engine...")
     
-    # Give the room canvas elements ample time to hook up completely
+    # Allow the chat room overlay layers to load fully into the workspace
     await asyncio.sleep(4)
     
-    instructor_prompt = None
-    last_visible_count = 0
-    stable_cycles = 0
+    # Bring the inner chat feed viewport directly into pointer focus
+    chat_panel = page.locator(".chat-history, .message-list-container, main, div[style*='overflow-y']").first
+    await chat_panel.wait_for(timeout=10000)
+    box = await chat_panel.bounding_box()
+    if box:
+        await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
+        await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
 
-    # Run up to 40 aggressive execution loops to drive the scrollbar directly to index 0
-    for crawl_step in range(1, 41):
-        # Force the inner layout element container itself to reset its height values completely to 0
+    instructor_question_text = None
+    step_counter = 0
+    stable_cycles = 0
+    last_msg_count = 0
+
+    # ♾️ PERPETUAL CRAWLER LAYER: Runs continuously without hardcoded cycle step limits
+    while True:
+        step_counter += 1
+        
+        # Pull the layout height element coordinates to absolute zero
         await page.evaluate("""() => {
-            const chatContainers = document.querySelectorAll('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
-            chatContainers.forEach(el => {
-                el.scrollTop = 0;
-            });
+            const boxes = document.querySelectorAll('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
+            boxes.forEach(el => { el.scrollTop = 0; });
             window.scrollTo(0, 0);
         }""")
         
-        # Check if a dynamic background network loading node spinner element is actively rendering
+        # Check if the website's database streaming animation overlay spinner is active
         is_loading = await page.evaluate("""() => {
-            const innerText = document.body.innerText;
-            return innerText.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
+            const txt = document.body.innerText;
+            return txt.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
         }""")
         
         if is_loading:
-            print(f"⏳ [Crawl Step {crawl_step}] Spinner observed. Holding execution 3 seconds for node sync...")
-            await asyncio.sleep(3)
+            print(f"⏳ [Sentinel Engine Step {step_counter}] Spinner detected. Holding thread 3.5 seconds...")
+            await asyncio.sleep(3.5)
             continue
             
-        await asyncio.sleep(1.5)
-        current_count = await page.locator(".message, .chat-item, p, span").count()
+        await asyncio.sleep(1.0)
+        current_msg_count = await page.locator(".message, .chat-item, p, span").count()
         
-        # Pull text exclusively linked to the Instructor tag card container from the DOM
-        instructor_prompt = await page.evaluate("""() => {
-            const cards = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
-            for (let card of cards) {
-                if (card.innerText && card.innerText.includes("Instructor")) {
-                    // Look for core coding technical prompt properties while ignoring layout navigation text crumbs
-                    if (card.innerText.includes("Algorithm") || card.innerText.includes("recurrence") || card.innerText.includes("T(n)")) {
-                        const paragraphs = Array.from(card.querySelectorAll('p, [class*="text"], [class*="content"]'));
-                        for(let p of paragraphs) {
-                            if (p.innerText.trim().length > 15 && !p.innerText.includes("Instructor")) {
-                                return p.innerText.trim();
+        # ✅ STABILITY VALIDATION GATE: Only execute target matching once element counts halt growing (absolute top hit)
+        if current_msg_count == last_msg_count:
+            stable_cycles += 1
+            if stable_cycles > 8: # Confirms the absolute oldest message array segment has completely loaded
+                print(f"🏁 [Sentinel Engine Step {step_counter}] Arrived at the genesis boundary block wall. Messages loaded: {current_msg_count}")
+                
+                # Extract the message text directly from the Instructor bubble card at the very top edge context
+                instructor_question_text = await page.evaluate("""() => {
+                    // Gather all bubble frames on the feed area column
+                    const entries = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
+                    
+                    // Filter down exclusively to bubbles containing the structural metadata matching the Instructor role
+                    for (let entry of entries) {
+                        if (entry.innerText && entry.innerText.includes("Instructor")) {
+                            // Extract inner paragraph content while screening out sidebars or text widgets
+                            if (entry.innerText.includes("Algorithm") || entry.innerText.includes("recurrence") || entry.innerText.includes("T(n)")) {
+                                const para = entry.querySelector('p, [class*="text"], [class*="content"]');
+                                if (para && para.innerText.trim().length > 15) return para.innerText.trim();
+                                
+                                const lines = entry.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
+                                return lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug")).join(' ');
                             }
                         }
-                        const lines = card.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
-                        return lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug")).join(' ');
                     }
-                }
-            }
-            return null;
-        }""")
-
-        if instructor_prompt:
-            print(f"🎯 [Crawl Step {crawl_step}] Instructor question isolated successfully via deep element mapping!")
-            break
-            
-        if current_count == last_visible_count:
-            stable_cycles += 1
-            if stable_cycles > 6:
-                print(f"🛑 [Crawl Step {crawl_step}] Message stream stabilized. Absolute boundary wall reached.")
+                    return null;
+                }""")
                 break
         else:
             stable_cycles = 0
             
-        last_visible_count = current_count
+        last_msg_count = current_msg_count
+        
+        if step_counter % 10 == 0:
+            print(f"📡 [Sentinel Loop] Climbing message nodes... Step: {step_counter} | Elements visible: {current_msg_count}")
 
-    if not instructor_prompt:
-        print("⚠️ Sniffer notice: Instructor custom elements missed target frames. Scraping absolute top canvas p-node block...")
-        instructor_prompt = await page.locator(".message, p, [class*='content']").first.inner_text()
+    # Ultimate defensive safety net fallback if the raw string variables match empty parameters
+    if not instructor_question_text:
+        print("⚠️ Sniffer notice: Instructor custom elements missed target frames. Harvesting genesis text field element...")
+        instructor_question_text = await page.evaluate("""() => {
+            // Target the absolute first chat body bubble element child that isn't a header link
+            const firstBubble = document.querySelector('.message, [class*="chat-content"] p, .chat-item');
+            return firstBubble ? firstBubble.innerText.trim() : null;
+        }""")
+        if not instructor_question_text:
+            instructor_question_text = await page.locator(".message, p, [class*='content']").first.inner_text()
 
     print("\n" + "❓" * 30)
-    print("🎯 ISOLATED INSTRUCTOR QUESTION:")
-    clean_question = instructor_prompt.split("DIRECT MESSAGES")[0].strip()
-    print(f"'{clean_question}'")
+    print("🎯 FINAL ISOLATED INSTRUCTOR QUESTION:")
+    if instructor_question_text:
+        # Erase tracking breadcrumbs from our console display
+        instructor_question_text = instructor_question_text.split("DIRECT MESSAGES")[0].strip()
+        print(f"'{instructor_question_text}'")
     print("❓" * 30 + "\n")
 
-    return clean_question
+    return instructor_question_text
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
@@ -4871,7 +4889,7 @@ async def run_ai_automation():
             await asyncio.sleep(4)
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER PRECISION CRAWLER: Force container scrolling to parse the genesis text string
+            # ✅ TRIGGER SENTINEL ENGINE CRAWLER: Force container scrolling until the absolute genesis text settles
             instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
