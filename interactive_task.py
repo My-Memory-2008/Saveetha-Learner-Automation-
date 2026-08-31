@@ -3787,7 +3787,6 @@
 
 
 
-
 import asyncio
 import os
 import sys
@@ -3799,16 +3798,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extracts strictly the second command argument slot as a clean text string URL path
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = str(sys.argv[1])
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -3849,7 +3849,6 @@ async def ask_qwen(prompt, image_path=None):
         except Exception as e:
             return f"SYSTEM_ERROR_SIGNAL: {str(e)}"
     return "SYSTEM_ERROR_SIGNAL: Blank layout response"
-
 async def trigger_full_page_sensory_scan(page):
     await page.evaluate("""async () => {
         await new Promise((resolve) => {
@@ -3868,6 +3867,7 @@ async def trigger_full_page_sensory_scan(page):
         });
     }""")
     await asyncio.sleep(2)
+
 async def scroll_inner_discussion_panel(page):
     try:
         feed_panel = page.locator("div[class*='conversation'], div[class*='list'], .chat-sidebar, nav").first
@@ -3884,10 +3884,8 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ FIXED: Implements an active 10-trial verification scroller that validates if it is reading the true instructor question
 async def scroll_to_absolute_top_of_chat(page):
     print("📜 STEP 3: Activating high-precision physical touch scroller. Hunting for instructor thread...")
-    
     chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
     await chat_panel.wait_for(timeout=10000)
     box = await chat_panel.bounding_box()
@@ -3895,40 +3893,29 @@ async def scroll_to_absolute_top_of_chat(page):
         await page.mouse.move(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
         await page.mouse.click(box["x"] + box["width"]/2, box["y"] + box["height"]/2)
 
-    # Global variables to pass the validated text out of our tracking function
     instructor_question_text = None
     
-    # 🔁 10-TRIAL TARGET MONITORS SYSTEM
     for trial in range(1, 11):
         print(f"📡 [Verification Monitor] Executing upward scroll segment (Trial {trial}/10)...")
-        
-        # Roll the mouse wheel up forcefully to load previous database segments
         for _ in range(8):
             await page.mouse.wheel(0, -250)
             await asyncio.sleep(0.2)
             
-        # Hold execution if the page indicates message data stream loading activity
         is_loading = await page.evaluate("""() => {
             const txt = document.body.innerText.toLowerCase();
             return txt.includes("loading") || txt.includes("load previous") || !!document.querySelector('.spinner');
         }""")
         if is_loading:
-            print("⏳ [Sensor Notice] Dynamic rows loading. Waiting 3 seconds for text to materialize...")
             await asyncio.sleep(3)
 
-        # ✅ FIXED: Strict DOM extraction to find the message box that belongs specifically to the Instructor
-        # This completely filters out general page text headers, copy blocks, and copyright strings
         extracted_text = await page.evaluate("""() => {
-            // Find any bubble container containing the official "Instructor" label tag
             const containers = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
             for (let el of containers) {
                 if (el.innerText && el.innerText.includes("Instructor")) {
-                    // Pull the main content text block from inside this instructor's bubble container
                     const msgContent = el.querySelector('p, span, [class*="content"], [class*="text"]');
                     if (msgContent && msgContent.innerText.trim().length > 10) {
                         return msgContent.innerText.trim();
                     }
-                    // Fallback to cleaning the block's text lines if internal p tags are missing
                     const lines = el.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
                     const filtered = lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug"));
                     if (filtered.length > 0) return filtered.join(' ');
@@ -3942,23 +3929,17 @@ async def scroll_to_absolute_top_of_chat(page):
             print(f"🎯 SUCCESS: TARGET INSTRUCTOR QUESTION VERIFIED ON TRIAL {trial}!")
             print(f"📝 QUESTION TEXT:\n'{extracted_text}'")
             print("❓"*30 + "\n")
-            
             instructor_question_text = extracted_text
-            
-            # Crop a dedicated screenshot matching the exact visible boundaries of the instructor box element
             try:
                 instructor_box = page.locator("div:has(span:has-text('Instructor')), [class*='instructor']").first
                 await instructor_box.screenshot(path="instructor_question_node.png")
-                print("📸 Visual Target Cropped: Captured and saved 'instructor_question_node.png'.")
             except Exception as cap_err:
                 print(f"⚠️ Screenshot crop notice: {cap_err}")
             break
         else:
             print(f"⏭️ Trial {trial}: Instructor question text block not clearly visible yet. Climbing further up...")
             
-    # Ultimate fallback: If 10 trials run out, pull the absolute first message bubble link element at the top edge
     if not instructor_question_text:
-        print("⚠️ Warning: Instructor badge text missed extraction fields. Pulling absolute top message node...")
         await page.evaluate("window.scrollTo(0, 0);")
         await asyncio.sleep(2)
         instructor_question_text = await page.locator(".message, .chat-item, p, [class*='content']").first.inner_text()
@@ -3967,7 +3948,7 @@ async def scroll_to_absolute_top_of_chat(page):
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
-        print("🛑 SECURITY FILTER WARNING: Blocked faulty text payload.")
+        print("🛑 SECURITY FILTER WARNING: Blocked faulty text string payload to protect your profile dashboard!")
         return False
 
     print(f"✍️ Initiating event monitoring input sequence for message submission...")
@@ -4011,6 +3992,7 @@ async def run_ai_automation():
 
         try:
             print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
+            # ✅ FIXED: Uses target string variable directly without list casting errors
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
@@ -4091,13 +4073,11 @@ async def run_ai_automation():
             await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER STRICT INTERACTIVE RETRY SCROLLER: Returns the verified instructor question text layout string directly
             instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
-            # ✅ REFINED HUMAN ANSWER ENGINE PROMPT: Injects the isolated text and forces a confident human answer layout
             ai_prompt = (
                 f"The Instructor asked this exact technical assignment question: '{instructor_prompt_string}'. "
                 "Compose an accurate, high-quality solution explaining this concept comprehensively. "
@@ -4108,7 +4088,6 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            # High-speed text-only fallback backup if the vision processing core hits limits
             if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer) < 5:
                 print("⚠️ Vision processing timed out on CPU engine layer. Requesting pure text compilation fallback...")
                 text_prompt = (
