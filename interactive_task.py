@@ -4564,8 +4564,6 @@
 
 
 
-
-
 import asyncio
 import os
 import sys
@@ -4577,16 +4575,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extracts strictly the clean URL string from the command-line arguments list array
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -4662,14 +4661,10 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: A Perpetual Sentinel Loop that climbs infinitely until it hits the absolute structural top message block
 async def scroll_to_absolute_top_of_chat(page):
     print("📜 STEP 3: Activating Perpetual Visual Sentinel Loop Scroller Engine...")
-    
-    # Allow the chat room overlay layers to load fully into the workspace
     await asyncio.sleep(4)
     
-    # Bring the inner chat feed viewport directly into pointer focus
     chat_panel = page.locator(".chat-history, .message-list-container, main, div[style*='overflow-y']").first
     await chat_panel.wait_for(timeout=10000)
     box = await chat_panel.bounding_box()
@@ -4682,18 +4677,14 @@ async def scroll_to_absolute_top_of_chat(page):
     stable_cycles = 0
     last_msg_count = 0
 
-    # ♾️ PERPETUAL CRAWLER LAYER: Runs continuously without hardcoded cycle step limits
     while True:
         step_counter += 1
-        
-        # Pull the layout height element coordinates to absolute zero
         await page.evaluate("""() => {
             const boxes = document.querySelectorAll('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
             boxes.forEach(el => { el.scrollTop = 0; });
             window.scrollTo(0, 0);
         }""")
         
-        # Check if the website's database streaming animation overlay spinner is active
         is_loading = await page.evaluate("""() => {
             const txt = document.body.innerText;
             return txt.includes("Loading earlier messages...") || !!document.querySelector('.spinner, [class*="loading"]');
@@ -4707,21 +4698,15 @@ async def scroll_to_absolute_top_of_chat(page):
         await asyncio.sleep(1.0)
         current_msg_count = await page.locator(".message, .chat-item, p, span").count()
         
-        # ✅ STABILITY VALIDATION GATE: Only execute target matching once element counts halt growing (absolute top hit)
         if current_msg_count == last_msg_count:
             stable_cycles += 1
-            if stable_cycles > 8: # Confirms the absolute oldest message array segment has completely loaded
+            if stable_cycles > 8:
                 print(f"🏁 [Sentinel Engine Step {step_counter}] Arrived at the genesis boundary block wall. Messages loaded: {current_msg_count}")
                 
-                # Extract the message text directly from the Instructor bubble card at the very top edge context
                 instructor_question_text = await page.evaluate("""() => {
-                    // Gather all bubble frames on the feed area column
                     const entries = Array.from(document.querySelectorAll('div, li, [class*="message"]'));
-                    
-                    // Filter down exclusively to bubbles containing the structural metadata matching the Instructor role
                     for (let entry of entries) {
                         if (entry.innerText && entry.innerText.includes("Instructor")) {
-                            // Extract inner paragraph content while screening out sidebars or text widgets
                             if (entry.innerText.includes("Algorithm") || entry.innerText.includes("recurrence") || entry.innerText.includes("T(n)")) {
                                 const para = entry.querySelector('p, [class*="text"], [class*="content"]');
                                 if (para && para.innerText.trim().length > 15) return para.innerText.trim();
@@ -4738,15 +4723,12 @@ async def scroll_to_absolute_top_of_chat(page):
             stable_cycles = 0
             
         last_msg_count = current_msg_count
-        
         if step_counter % 10 == 0:
             print(f"📡 [Sentinel Loop] Climbing message nodes... Step: {step_counter} | Elements visible: {current_msg_count}")
 
-    # Ultimate defensive safety net fallback if the raw string variables match empty parameters
     if not instructor_question_text:
         print("⚠️ Sniffer notice: Instructor custom elements missed target frames. Harvesting genesis text field element...")
         instructor_question_text = await page.evaluate("""() => {
-            // Target the absolute first chat body bubble element child that isn't a header link
             const firstBubble = document.querySelector('.message, [class*="chat-content"] p, .chat-item');
             return firstBubble ? firstBubble.innerText.trim() : null;
         }""")
@@ -4756,7 +4738,6 @@ async def scroll_to_absolute_top_of_chat(page):
     print("\n" + "❓" * 30)
     print("🎯 FINAL ISOLATED INSTRUCTOR QUESTION:")
     if instructor_question_text:
-        # Erase tracking breadcrumbs from our console display
         instructor_question_text = instructor_question_text.split("DIRECT MESSAGES")[0].strip()
         print(f"'{instructor_question_text}'")
     print("❓" * 30 + "\n")
@@ -4889,7 +4870,6 @@ async def run_ai_automation():
             await asyncio.sleep(4)
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER SENTINEL ENGINE CRAWLER: Force container scrolling until the absolute genesis text settles
             instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
