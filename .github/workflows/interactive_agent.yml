@@ -207,21 +207,39 @@ jobs:
           PYTHONUNBUFFERED: "1" 
       run: python interactive_task.py "${{ github.event.inputs.target_url }}"
 
+    # - name: Push Topic Lock and Step Diagnostics to Repository Memory
+    #   if: always()
+    #   run: |
+    #     git config --global user.name "github-actions[bot]"
+    #     git config --global user.email "41898282+github-actions[bot]@://github.com"
+        
+    #     # Track both the status data file and all generated milestone images safely
+    #     git add complete-interact.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
+        
+    #     if ! git diff-index --quiet HEAD; then
+    #       git commit -m "📸 AI Diagnostic Update: Logged step-by-step visual milestone frames"
+    #       git pull origin HEAD:${{ github.ref }} --rebase
+    #       git push origin HEAD:${{ github.ref }}
+    #       echo "✅ Diagnostic state frames successfully saved directly to your repo branch!"
+    #     fi
+
+
     - name: Push Topic Lock and Step Diagnostics to Repository Memory
       if: always()
       run: |
         git config --global user.name "github-actions[bot]"
         git config --global user.email "41898282+github-actions[bot]@://github.com"
         
-        # Track both the status data file and all generated milestone images safely
-        git add complete-interact.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
+        # Track data files, diagnostic screenshots, AND the freshly extended cookie file
+        git add complete-interact.json cookies.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
         
         if ! git diff-index --quiet HEAD; then
-          git commit -m "📸 AI Diagnostic Update: Logged step-by-step visual milestone frames"
+          git commit -m "🔒 AI Perpetual Loop Sync: Claim logged & cookie token lifespan extended"
           git pull origin HEAD:${{ github.ref }} --rebase
           git push origin HEAD:${{ github.ref }}
-          echo "✅ Diagnostic state frames successfully saved directly to your repo branch!"
+          echo "✅ Token session extended and changes saved straight back to main repository branch!"
         fi
+
 
     # ✅ FIXED STEP: Captures your new files and packages them into a visible, downloadable bundle at the bottom of the run page
     - name: Securely Store Step-by-Step Diagnostic Artifacts
