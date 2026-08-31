@@ -3785,7 +3785,6 @@
 
 
 
-
 import asyncio
 import os
 import sys
@@ -3797,16 +3796,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ FIXED: Extracts strictly the clean URL string from the command-line arguments list array
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = str(sys.argv)
+TARGET_URL = sys.argv[1]
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -3882,10 +3882,9 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Implements an Infinite Upward Scroller with loop validation until the Instructor block is found
+# ✅ FIXED: Perpetual continuous scrolling loop engine that runs until the Instructor elements render fully
 async def scroll_to_absolute_top_of_chat(page):
-    print("📜 STEP 3: Activating Perpetual Upward Scroller Engine. Hunting for Instructor message...")
-    
+    print("CN STEP 3: Activating Perpetual Upward Scroller Engine. Hunting for Instructor message...")
     chat_panel = page.locator(".chat-history, .message-list-container, main, [class*='chat-content']").first
     await chat_panel.wait_for(timeout=10000)
     box = await chat_panel.bounding_box()
@@ -3898,16 +3897,12 @@ async def scroll_to_absolute_top_of_chat(page):
     consecutive_no_change = 0
     last_msg_count = 0
     
-    # ♾️ INFINITE TRAVERSAL LOOP: Keeps climbing until target matches register
     while True:
         step_counter += 1
-        
-        # Physical scroll wheel upward stroke execution
         for _ in range(12):
             await page.mouse.wheel(0, -300)
         await asyncio.sleep(0.5)
             
-        # Lazy load handler monitoring check
         is_loading = await page.evaluate("""() => {
             const txt = document.body.innerText.toLowerCase();
             return txt.includes("loading") || txt.includes("load previous") || !!document.querySelector('.spinner, .loading');
@@ -3917,58 +3912,49 @@ async def scroll_to_absolute_top_of_chat(page):
             await asyncio.sleep(3)
             continue
 
-        # ✅ HIGH-PRECISION EXTRACTION: Isolates the message content exclusively linked to the Instructor tag element
         extracted_text = await page.evaluate("""() => {
-            // Find all message cards/chat items on the board
             const items = document.querySelectorAll('div, li, [class*="message"], [class*="chat-item"]');
             for (let el of items) {
-                // Confirm the card explicitly holds the text label 'Instructor'
                 if (el.innerText && el.innerText.includes("Instructor")) {
-                    // Pull text blocks right next to the Instructor metadata layer
                     const paragraphs = Array.from(el.querySelectorAll('p, span, [class*="text"], [class*="content"]'));
                     const validTexts = paragraphs.map(p => p.innerText.trim()).filter(t => t.length > 12 && !t.includes("Instructor"));
                     if (validTexts.length > 0) return validTexts[0];
                     
-                    // Fallback string line clean parsing filter
                     const lines = el.innerText.split('\\n').map(l => l.trim()).filter(l => l.length > 0);
                     const cleanLines = lines.filter(l => !l.includes("Instructor") && !l.includes("By") && !l.includes("Aug") && !l.includes("2026"));
-                    if (cleanLines.length > 0 && cleanLines[0].length > 10) return cleanLines[0];
+                    if (cleanLines.length > 0) return cleanLines.join(' ');
                 }
             }
             return null;
         }""")
 
         if extracted_text and len(extracted_text) > 12 and "Copyright" not in extracted_text and "Next students" not in extracted_text:
-            print("\n" + "❓"*30)
+            print("\n" + "❓" * 30)
             print(f"🎯 SUCCESS: TARGET INSTRUCTOR QUESTION CAPTURED AT STEP {step_counter}!")
             print(f"📝 SPECIFIC INSTRUCTOR QUESTION:\n'{extracted_text}'")
-            print("❓"*30 + "\n")
+            print("❓" * 30 + "\n")
             instructor_question_text = extracted_text
-            
             try:
                 instructor_box = page.locator("div:has(span:has-text('Instructor')), [class*='instructor']").first
                 await instructor_box.screenshot(path="instructor_question_node.png")
-                print("📸 Visual Target Cropped: 'instructor_question_node.png' saved successfully.")
             except Exception as cap_err:
                 print(f"⚠️ Snapshot cropping skipped: {cap_err}")
             break
 
-        # Safety Fallback: Stop loop if we hit the absolute top boundary of history and no more data loads
         current_msg_count = await page.locator(".message, .chat-item, p, span").count()
         if current_msg_count == last_msg_count:
             consecutive_no_change += 1
-            if consecutive_no_change > 15: # Absolute top wall constraint confirmation
-                print(f"🛑 [Scroll Step {step_counter}] Absolute top wall reached. Total elements populated: {current_msg_count}")
+            if consecutive_no_change > 15:
+                print(f"🛑 [Scroll Step {step_counter}] Absolute top wall reached. Total elements: {current_msg_count}")
                 break
         else:
             consecutive_no_change = 0
         last_msg_count = current_msg_count
         
         if step_counter % 10 == 0:
-            print(f"📡 [Scroll Ticker] Continuing upward history traversal. Climbed {step_counter} steps. Visible elements: {current_msg_count}")
+            print(f"📡 [Scroll Ticker] Climbed {step_counter} steps. Visible elements: {current_msg_count}")
 
     if not instructor_question_text:
-        print("⚠️ Warning: Instructor target layout missed. Grabbing absolute top text element bubble...")
         await page.evaluate("window.scrollTo(0, 0);")
         await asyncio.sleep(2)
         instructor_question_text = await page.locator(".message, .chat-item, p, [class*='content']").first.inner_text()
@@ -4101,13 +4087,11 @@ async def run_ai_automation():
             await asyncio.sleep(8) 
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER UNLIMITED UPWARD TRAVERSAL: Scrapes and verifies the direct instructor prompt text
             instructor_prompt_string = await scroll_to_absolute_top_of_chat(page)
             
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
-            # Formulate accurate human response using the isolated instructor string
             ai_prompt = (
                 f"The Instructor asked this exact technical assignment question: '{instructor_prompt_string}'. "
                 "Compose an accurate, high-quality solution explaining this concept comprehensively. "
@@ -4181,3 +4165,4 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
