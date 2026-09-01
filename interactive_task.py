@@ -4982,16 +4982,17 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
 MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 
+# ✅ NATIVE STRING SELECTION FIX: Extracts exclusively the clean URL text parameter from the arguments list array
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = sys.argv
+TARGET_URL = str(sys.argv[1]) if len(sys.argv) > 1 else str(sys.argv[0])
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -5067,7 +5068,6 @@ async def scroll_inner_discussion_panel(page):
         print(f"⚠️ Sidebar scroll notification: {e}")
     await asyncio.sleep(2)
 
-# ✅ UPGRADED: Core Dual-Layer Question Extractor (API Interception + Card Title Fallback Memory)
 async def capture_instructor_question_via_api(page, target_element, preview_card_question):
     print("📡 STEP 3: Initializing Network API Interceptor. Listening for background traffic...")
     captured_payloads = []
@@ -5083,8 +5083,6 @@ async def capture_instructor_question_via_api(page, target_element, preview_card
                 pass
 
     page.on("response", handle_response)
-
-    print("🖱️ Clicking discussion forum card to trigger server fetch requests...")
     await target_element.scroll_into_view_if_needed()
     await target_element.click(force=True)
     await asyncio.sleep(8) 
@@ -5092,7 +5090,6 @@ async def capture_instructor_question_via_api(page, target_element, preview_card
     
     instructor_prompt = None
 
-    # Layer 1 Check: Attempt to decode background network packets
     for raw_data in captured_payloads:
         try:
             parsed_json = json.loads(raw_data)
@@ -5117,7 +5114,6 @@ async def capture_instructor_question_via_api(page, target_element, preview_card
             match = re.search(r'(?:instructor|dinesh)[^}]+(?:message|content|text)["\']:\s*["\']([^"\']{15,})', raw_data, re.IGNORECASE)
             if match: instructor_prompt = match.group(1); break
 
-    # Layer 2 Check: DOM Scraper check targeting the inner room view elements
     if not instructor_prompt:
         print("⚠️ API data packets did not return target node. Running active DOM bubble scan...")
         instructor_prompt = await page.evaluate("""() => {
@@ -5134,11 +5130,8 @@ async def capture_instructor_question_via_api(page, target_element, preview_card
             return null;
         }""")
 
-    # Layer 3 Check: ✅ NEW STRATEGY CRITICAL FALLBACK GATING
-    # If inner chat feeds are completely missing or blank, use the pre-saved card view text from memory immediately!
     if not instructor_prompt or len(instructor_prompt) < 5 or "Back to Subjects" in instructor_prompt:
-        print("🚨 [Engine Notice] Inner room feed is empty or masked by dynamic scrolling lags.")
-        print(f"📦 Activating Card Memory Fallback: Using question extracted from list view -> '{preview_card_question}'")
+        print("🚨 Activating Card Memory Fallback: Using question extracted from list view...")
         instructor_prompt = preview_card_question
 
     print("\n" + "❓" * 30)
@@ -5152,7 +5145,7 @@ async def capture_instructor_question_via_api(page, target_element, preview_card
 
 async def send_chat_message(page, message_text):
     if not message_text or any(err in message_text for err in ["SYSTEM_ERROR_SIGNAL", "Error:", "I do not know", "fault", "offline"]):
-        print("🛑 SECURITY FILTER WARNING: Blocked faulty text payload to protect your account.")
+        print("🛑 SECURITY FILTER WARNING: Blocked faulty text payload.")
         return False
 
     print(f"✍️ Initiating event monitoring input sequence for message submission...")
@@ -5196,6 +5189,7 @@ async def run_ai_automation():
 
         try:
             print(f"🌐 Accessing target endpoint string: {TARGET_URL}")
+            # ✅ FIXED: Navigates to a pure string layout object natively without list array errors
             await page.goto(TARGET_URL, timeout=60000, wait_until="load")
             await asyncio.sleep(5)
 
@@ -5254,7 +5248,7 @@ async def run_ai_automation():
                 raw_text = await topic_locators.nth(i).inner_text()
                 lines = [line.strip() for line in raw_text.split('\n') if line.strip()]
                 if not lines: continue
-                topic_title = lines[0] # Select header title string explicitly
+                topic_title = lines
                 if any(x in topic_title for x in ["Discussion topics", "Class conversation", "Chat", "Home", "Dashboard"]): continue
 
                 if topic_title not in knowledge["completed_topics"][subject_code]:
@@ -5267,10 +5261,8 @@ async def run_ai_automation():
                 save_knowledge_base(knowledge)
                 return
 
-            # ✅ CARD VISUAL MEMORY HOOK: Extract the text statement directly from the topic card string list preview container
             print(f"📝 Extracting topic preview metadata details for node: [{target_topic_name}]")
             card_raw_text = await target_element.inner_text()
-            # Clean up line breaks to isolate the core conceptual topic question
             card_text_clean = " ".join([l.strip() for l in card_raw_text.split("\n") if l.strip()])
             print(f"💾 List View Card Memory Committed: '{card_text_clean[:120]}...'")
 
@@ -5280,7 +5272,6 @@ async def run_ai_automation():
 
             await page.screenshot(path="step3_entered_room.png")
 
-            # ✅ TRIGGER INTEGRATED COGNITIVE SNIFFER: Passes the pre-saved list card view question context as memory layer insurance
             instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             
             snap_path = "genesis_chat_message.png"
@@ -5357,7 +5348,8 @@ async def run_ai_automation():
             try: save_knowledge_base(knowledge)
             except: pass
         finally:
-                await context.close()
-                await browser.close()
+            await context.close()
+            await browser.close()
+
 if __name__ == "__main__":
-        asyncio.run(run_ai_automation())
+    asyncio.run(run_ai_automation())
