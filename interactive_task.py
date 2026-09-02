@@ -5770,6 +5770,8 @@
 
 
 
+
+
 import asyncio
 import os
 import sys
@@ -5791,7 +5793,6 @@ if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
 
-# Clean and isolate the destination URL string natively from arguments array mapping noise
 RAW_ARGS_STRING = " ".join(sys.argv[1:])
 URL_MATCH = re.search(r'(https?://[^\s\'"\]]+)', RAW_ARGS_STRING)
 TARGET_URL = URL_MATCH.group(1).strip() if URL_MATCH else str(sys.argv[-1]).strip("[]'\", ")
@@ -5808,6 +5809,7 @@ def load_knowledge_base():
         except Exception:
             pass
     return {"completed_topics": {}}
+
 def save_knowledge_base(data):
     with open(KNOWLEDGE_FILE, 'w') as f:
         json.dump(data, f, indent=2)
@@ -6033,6 +6035,7 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
             await page.screenshot(path="step3_entered_room.png")
+
             instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
@@ -6047,14 +6050,10 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            # if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
-            #         ".map(el => el.innerText.trim());"
-            #     )
-
-               # Example using Playwright's evaluate method
-i            if "SYSTEM_ERROR_SIGNAL" in initial_answer or el.evaluate("el => el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar'))"):
-
-        
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
+                    ".map(el => el.innerText.trim());"
+                )
+                
                 if isinstance(messages_data, list):
                     for msg in messages_data:
                         if not msg:
@@ -6085,31 +6084,21 @@ i            if "SYSTEM_ERROR_SIGNAL" in initial_answer or el.evaluate("el => el
                                     f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
                                 )
                                 followup_answer = await ask_qwen(fallback_prompt)
-                                
                             print(f"🤖 Formulated Followup Response: '{followup_answer}'")
-                            
                             await send_chat_message(page, followup_answer)
-                            if os.path.exists(reply_frame):
-                                os.remove(reply_frame)
-                            
+                            if os.path.exists(reply_frame):os.remove(reply_frame)
                             asyncio.create_task(context.storage_state(path=COOKIE_FILE))
-                            break 
-
-            print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
-            await context.storage_state(path=COOKIE_FILE)
-
+                            break
+                  print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+                  await context.storage_state(path=COOKIE_FILE)
         except Exception as e:
-            print(f"❌ Automation workflow run encountered an exception: {e}")
-            try:
-                save_knowledge_base(knowledge)
-            except:
-                pass
+                print(f"❌ Automation workflow run encountered an exception: {e}")
+                try:save_knowledge_base(knowledge)
+                except:pass
         finally:
-            await context.close()
-            await browser.close()
-
+                await context.close()
+                await browser.close()
 if __name__ == "__main__":
-    asyncio.run(run_ai_automation())
-
+        asyncio.run(run_ai_automation())
 
 
