@@ -6033,7 +6033,7 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
             await page.screenshot(path="step3_entered_room.png")
-                        instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
+            instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
