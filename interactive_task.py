@@ -6047,47 +6047,49 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar'))
-                        .map(el => el.innerText.trim())
-               
-                messages_data = await page.evaluate(js_code)
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
+                    ".map(el => el.innerText.trim());"
+                )
                 
-                for msg in messages_data:
-                    msg_sig = "".join(msg.split())[-60:]
-                    
-                    if msg_sig not in processed_scholar_signatures and any(keyword in msg.lower() for keyword in ["scholar", "teaching assistant"]):
-                        print("\n" + "🚨" * 30)
-                        print(f"🎯 SENTINEL INTERCEPT: Scholar published a fresh feedback node!\nPayload text content:\n'{msg}'")
-                        print("🚨" * 30 + "\n")
+                if isinstance(messages_data, list):
+                    for msg in messages_data:
+                        if not msg:
+                            continue
+                        msg_sig = "".join(msg.split())[-60:]
                         
-                        processed_scholar_signatures.add(msg_sig)
-                        reply_frame = "target_reply_context.png"
-                        await page.screenshot(path=reply_frame)
-                        
-                        followup_prompt = (
-                            f"An AI Teaching Assistant named Scholar has just published a feedback evaluation on your work. "
-                            f"Review their statement text carefully: '{msg}'. "
-                            f"Formulate a precise, brief follow-up technical response addressing their feedback or instruction directly. "
-                            f"STRICT RULE: Output your answer directly in a natural conversational human tone. No introductions or greetings."
-                        )
-                        followup_answer = await ask_qwen(followup_prompt, reply_frame)
-                        
-                        if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            print("⚠️ Vision channel busy. Processing high-speed textual synthesis fallback...")
-                            fallback_prompt = (
-                                f"An AI Assistant named Scholar just submitted feedback on your student response board: '{msg}'. "
-                                f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
-                            )
-                            followup_answer = await ask_qwen(fallback_prompt)
+                        if msg_sig not in processed_scholar_signatures and any(keyword in msg.lower() for keyword in ["scholar", "teaching assistant"]):
+                            print("\n" + "🚨" * 30)
+                            print(f"🎯 SENTINEL INTERCEPT: Scholar published a fresh feedback node!\nPayload text content:\n'{msg}'")
+                            print("🚨" * 30 + "\n")
                             
-                        print(f"🤖 Formulated Followup Response: '{followup_answer}'")
-                        
-                        await send_chat_message(page, followup_answer)
-                        if os.path.exists(reply_frame):
-                            os.remove(reply_frame)
-                        
-                        asyncio.create_task(context.storage_state(path=COOKIE_FILE))
-                        break 
+                            processed_scholar_signatures.add(msg_sig)
+                            reply_frame = "target_reply_context.png"
+                            await page.screenshot(path=reply_frame)
+                            
+                            followup_prompt = (
+                                f"An AI Teaching Assistant named Scholar has just published a feedback evaluation on your work. "
+                                f"Review their statement text carefully: '{msg}'. "
+                                f"Formulate a precise, brief follow-up technical response addressing their feedback or instruction directly. "
+                                f"STRICT RULE: Output your answer directly in a natural conversational human tone. No introductions or greetings."
+                            )
+                            followup_answer = await ask_qwen(followup_prompt, reply_frame)
+                            
+                            if "SYSTEM_ERROR_SIGNAL" in followup_answer:
+                                print("⚠️ Vision channel busy. Processing high-speed textual synthesis fallback...")
+                                fallback_prompt = (
+                                    f"An AI Assistant named Scholar just submitted feedback on your student response board: '{msg}'. "
+                                    f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
+                                )
+                                followup_answer = await ask_qwen(fallback_prompt)
+                                
+                            print(f"🤖 Formulated Followup Response: '{followup_answer}'")
+                            
+                            await send_chat_message(page, followup_answer)
+                            if os.path.exists(reply_frame):
+                                os.remove(reply_frame)
+                            
+                            asyncio.create_task(context.storage_state(path=COOKIE_FILE))
+                            break 
 
             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
             await context.storage_state(path=COOKIE_FILE)
@@ -6104,5 +6106,6 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
 
 
