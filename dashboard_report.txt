@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 11440
-**Pending Unexplored Queue Scope:** 3798
+**Total Unique Sub-System Paths Mapped:** 11456
+**Pending Unexplored Queue Scope:** 3791
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -252871,6 +252871,585 @@ This layout segment serves the wider system functions by:
    - The "Cookies notice" link ensures that users are informed about the use of cookies on the site, enhancing transparency and user trust.
 
 Overall, this page is a critical component of the student portal, ensuring that students can securely access their accounts and resources while providing flexibility for those who may not have a registered account.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=158
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=13569
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button submits the login credentials to authenticate the user.
+- **Forgot Password**: Links to a password reset page if the user forgets their password.
+- **Workspace Selection**: Users can log in using their account on the SEC Workspace.
+- **Guest Access**: Option to access courses as a guest if guest access is allowed.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data element blocks and tables to manage user authentication and account information. The main sections are:
+- **Login Section**:
+  - **Username Field**: Input for username.
+  - **Password Field**: Input for password.
+  - **Login Button**: Submit button to log in.
+  - **Forgot Password Link**: Link to password reset page.
+  - **Workspace Selection**: Dropdown or input field for selecting the workspace.
+  - **Guest Access Option**: Button to access courses as a guest.
+
+- **Footer Section**:
+  - **Cookies Notice**: Link to the cookies notice page.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Authentication**: Ensures that only authorized users can access the system.
+- **Workspace Management**: Allows users to log in using their account on the SEC Workspace.
+- **Guest Access**: Provides an option for users to access courses without logging in, which is useful for guest users or those who prefer not to log in.
+- **User Profile**: Provides a link to the user's profile page, which can be used for account management and other user-related actions.
+
+### Detailed Breakdown
+
+#### Login Section
+- **Username Field**: 
+  - Type: Text
+  - Placeholder: Username
+  - Required: Yes
+  - Validation: None
+
+- **Password Field**:
+  - Type: Text
+  - Placeholder: Password
+  - Required: Yes
+  - Validation: None
+
+- **Login Button**:
+  - Type: Button
+  - Label: Log in
+  - Action: Submit login form
+
+- **Forgot Password Link**:
+  - Type: Link
+  - Text: Lost password?
+  - Action: Redirect to password reset page
+
+- **Workspace Selection**:
+  - Type: Dropdown or Input
+  - Placeholder: SEC Workspace
+  - Action: Submit workspace selection
+
+- **Guest Access Option**:
+  - Type: Button
+  - Label: Access as a guest
+  - Action: Redirect to guest access page
+
+#### Footer Section
+- **Cookies Notice**:
+  - Type: Link
+  - Text: Cookies notice
+  - Action: Redirect to cookies notice page
+
+### Conclusion
+This page is designed to manage user authentication and account management for students at Saveetha Engineering College. It ensures that users can log in using their credentials, select their workspace, and access guest access if needed. The layout is structured to provide a seamless user experience while ensuring security and functionality.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=13254
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The primary actions it facilitates are:
+- Logging in using a username and password.
+- Resetting a lost password.
+- Logging in using an account associated with the SEC Workspace.
+- Accessing courses that allow guest access.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several key data elements and blocks:
+- **Login Form:**
+  - **Username:** A text input field for the username.
+  - **Password:** A text input field for the password.
+  - **Login Button:** A blue button labeled "Log in" to submit the login credentials.
+  - **Forgot Password Link:** A link labeled "Lost password?" for password reset.
+  - **Workspace Login:** A text input field labeled "SEC Workspace" for logging in using a workspace account.
+  - **Guest Access Button:** A button labeled "Access as a guest" for guest access to courses.
+  - **Cookies Notice:** A button labeled "Cookies notice" for displaying the cookie notice.
+
+- **Course Access:**
+  - **Guest Access:** A button labeled "Access as a guest" for guest access to courses.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Authentication:** Ensures that only authorized users can access the system.
+- **Account Management:** Provides options for users to reset their passwords or access their accounts.
+- **Course Access:** Facilitates guest access to courses that allow it, ensuring flexibility in course participation.
+- **User Interface:** Provides a clean and user-friendly interface for logging in and managing account access.
+
+### Detailed Breakdown
+
+#### Login Form
+- **Username Field:** The username is the primary identifier for logging in.
+- **Password Field:** The password is the second required field for authentication.
+- **Login Button:** This button triggers the login process when clicked.
+- **Forgot Password Link:** This link provides a way for users to reset their passwords if they forget them.
+- **Workspace Login:** This field allows users to log in using their workspace account.
+- **Guest Access Button:** This button allows users to access courses without logging in, providing flexibility for guest access.
+- **Cookies Notice:** This button displays the cookie notice, which is important for user privacy and consent.
+
+#### Course Access
+- **Guest Access Button:** This button allows users to access courses without logging in, ensuring that guest access is available for those who do not have an account.
+
+### Conclusion
+This page is a critical component of the student portal, controlling the login process, account management, and course access. It ensures that users can log in securely, reset their passwords if needed, and access courses as guests when necessary. The layout is designed to be user-friendly and functional, serving the broader system's needs for authentication and course access.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=15912
+### Structural Analysis Breakdown:
+### 1. Actions and Transactional Parameters
+
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: The "Log in" button is used to submit the login credentials.
+- **Forgot Password**: A link to reset the password if forgotten.
+- **Workspace Selection**: Users can log in using their account on the SEC Workspace.
+- **Guest Access**: Some courses may allow guest access, and users can choose to log in as a guest.
+- **Cookies Notice**: A link to the cookies notice page.
+
+### 2. Data Element Blocks and Table Structure
+
+The page is structured with the following data elements and blocks:
+
+1. **Header Section**:
+   - Title: "Log in to Saveetha Engineering College"
+   - Username and Password Input Fields
+   - "Log in" Button
+   - "Forgot password?" Link
+
+2. **Login Using Account**:
+   - "Log in using your account on:" section
+   - "SEC Workspace" Input Field
+
+3. **Guest Access**:
+   - "Some courses may allow guest access" section
+   - "Access as a guest" Button
+
+4. **Footer Section**:
+   - "Cookies notice" Button
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **User Authentication**:
+   - It allows students to authenticate their accounts using their credentials.
+   - It provides a secure way for students to access their profiles and courses.
+
+2. **Account Management**:
+   - It includes a "Forgot password?" link, which helps students reset their passwords if they forget them.
+   - It allows students to log in using their workspace account, which is useful for students who use the SEC Workspace.
+
+3. **Accessibility**:
+   - It provides an option for students to log in as a guest if their account is not available or if they need temporary access.
+   - It includes a "Cookies notice" button, which is a standard practice to inform users about cookies and their usage.
+
+4. **User Interface**:
+   - The layout is designed to be user-friendly, with clear sections for different actions and information.
+   - It ensures that users can easily find and access the necessary options for logging in and managing their accounts.
+
+Overall, this page is a critical component of the student portal, ensuring that students can securely access their profiles and courses while providing them with the necessary options for account management and access.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=8126
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button submits the login form.
+- **Forgot Password**: Users can click this link to reset their password.
+- **Workspace Selection**: Users can choose to log in using their account on the SEC Workspace.
+- **Guest Access**: Users can access some courses as a guest if their account allows it.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data element blocks and tables. Here is a detailed breakdown:
+
+1. **Login Form Block**:
+   - **Username Field**: A text input field for the username.
+   - **Password Field**: A text input field for the password.
+   - **Login Button**: A blue button labeled "Log in" to submit the login form.
+   - **Forgot Password Link**: A link labeled "Lost password?" for password reset.
+
+2. **Workspace Selection Block**:
+   - **Workspace Dropdown**: A dropdown menu labeled "SEC Workspace" for selecting the workspace.
+
+3. **Guest Access Block**:
+   - **Guest Access Button**: A button labeled "Access as a guest" for guest access.
+
+4. **Additional Information Block**:
+   - **Cookies Notice**: A link labeled "Cookies notice" for information about cookies.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Authentication**: Ensures that only authorized users can access the system.
+- **Workspace Management**: Allows users to log in using their account on the SEC Workspace.
+- **Guest Access**: Provides an option for users to access some courses without logging in.
+- **User Information**: Provides a link for users to reset their password if they forget it.
+- **Cookie Notice**: Provides information about cookies to users.
+
+### Detailed Breakdown of Each Section
+
+1. **Login Form Block**:
+   - **Username Field**: This field is where the user enters their username.
+   - **Password Field**: This field is where the user enters their password.
+   - **Login Button**: This button is used to submit the login form.
+   - **Forgot Password Link**: This link is used to reset the user's password if they forget it.
+
+2. **Workspace Selection Block**:
+   - **Workspace Dropdown**: This dropdown allows users to select their workspace.
+   - **SEC Workspace**: This is the default workspace selected by default.
+
+3. **Guest Access Block**:
+   - **Guest Access Button**: This button allows users to access some courses without logging in.
+
+4. **Additional Information Block**:
+   - **Cookies Notice**: This link provides information about cookies to users.
+
+### Conclusion
+This page is designed to control the login process for a student account at Saveetha Engineering College. It includes fields for username and password, a login button, a link for password reset, a dropdown for workspace selection, and a button for guest access. The layout is structured to provide a user-friendly experience while ensuring that only authorized users can access the system.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=157
+### Structural Analysis Breakdown:
+### 1. Actions and Specific Transactional Parameters
+
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button will attempt to authenticate the user.
+- **Forgot Password**: Users can click this link to reset their password if they forget it.
+- **Workspace Selection**: Users can select their workspace (e.g., SEC Workspace) to log in.
+- **Guest Access**: Users can access some courses as a guest if their account allows it.
+- **Cookies Notice**: Users can click this link to view the cookie notice.
+
+### 2. Data Element Blocks and Table Structure
+
+The page is structured with the following data elements and blocks:
+
+1. **Header Section**:
+   - Title: "Log in to Saveetha Engineering College"
+   - Login Form Fields:
+     - Username: Input field for username
+     - Password: Input field for password
+     - Login Button: "Log in" button
+     - "Forgot password?" link
+     - Workspace Selection: "SEC Workspace" input field
+     - "Access as a guest" button
+     - "Cookies notice" link
+
+2. **Footer Section**:
+   - "Access as a guest" button
+   - "Cookies notice" link
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **User Authentication**: Ensures that only authorized users can access the system.
+2. **Workspace Management**: Allows users to log in using their specific workspace, which can be crucial for course access.
+3. **Guest Access**: Provides an option for users who do not have an account to access certain courses.
+4. **User Experience**: Simplifies the login process by providing clear options and links for users to reset their password or access as a guest.
+5. **Security**: Includes a "Forgot password?" link to help users recover their credentials if they forget them.
+
+By structuring the page in this way, the system ensures that users can log in, manage their workspace, and access courses as needed, while also providing necessary security and user-friendly options.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=20305
+### Structural Analysis Breakdown:
+### Home Page Layout Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to facilitate user authentication and access to the student portal. The specific actions and transactional parameters controlled by this page include:
+- **Login/Logout**: Users can log in using their credentials or guest access.
+- **Password Reset**: Users can reset their forgotten password.
+- **Course Access**: Users can access specific courses or workspaces.
+- **Guest Access**: Users can access courses without logging in.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured with the following key elements:
+- **Header**: Displays the institution's name and login information.
+- **Login Form**: Contains fields for username and password.
+- **Forgot Password Link**: Links to a password reset page.
+- **Login Button**: Enables users to log in.
+- **Workspace Selection**: Allows users to select their workspace.
+- **Guest Access Option**: Provides an option to access courses as a guest.
+- **Cookies Notice**: A link to the cookies policy.
+
+#### 3. Structural Functionality and Wider System Integration
+This layout segment serves the wider system functions by:
+- **User Authentication**: Ensures that only authorized users can access the system.
+- **Workspace Management**: Facilitates access to specific workspaces or courses.
+- **Guest Access**: Provides flexibility for users who may not have a login account.
+- **User Experience**: Enhances the user experience by providing clear options for login, password reset, and guest access.
+
+### Detailed Breakdown
+
+#### Header
+- **Institution Name**: "Saveetha Engineering College"
+- **Login Information**: Fields for username and password, a "Log in" button, and a "Forgot password?" link.
+
+#### Login Form
+- **Username Field**: Placeholder text "Username"
+- **Password Field**: Placeholder text "Password"
+- **Login Button**: "Log in" button
+- **Forgot Password Link**: "Forgot password?"
+
+#### Workspace Selection
+- **Workspace Selection**: "SEC Workspace" field
+
+#### Guest Access Option
+- **Guest Access Button**: "Access as a guest"
+
+#### Cookies Notice
+- **Cookies Notice Link**: "Cookies notice"
+
+### Integration with Wider System Functions
+- **User Authentication**: Ensures that only registered users can access the system.
+- **Workspace Management**: Allows users to access specific workspaces or courses.
+- **Guest Access**: Provides flexibility for users who may not have a login account.
+- **User Experience**: Enhances the user experience by providing clear options for login, password reset, and guest access.
+
+This layout is designed to be user-friendly and efficient, ensuring that users can access the system seamlessly while maintaining security and flexibility.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=14906
+### Structural Analysis Breakdown:
+### 1. Actions and Transactional Parameters Controlled
+This page is designed to control the login process for a user associated with "Saveetha Engineering College." The specific transactional parameters controlled include:
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking the "Log in" button submits the login credentials.
+- **Forgot Password**: Users can click on "Forgot password?" to reset their password.
+- **Account Type**: Users can log in using their account on "SEC Workspace."
+- **Guest Access**: Users can access some courses as a guest if guest access is allowed.
+
+### 2. Data Element Blocks and Table Structure
+The page is structured with several data element blocks and a table-like structure. Here is a detailed breakdown:
+
+#### Data Element Blocks
+1. **Username Field**:
+   - Type: Text input
+   - Placeholder: Username
+   - Purpose: Users enter their username to log in.
+
+2. **Password Field**:
+   - Type: Text input
+   - Placeholder: Password
+   - Purpose: Users enter their password to log in.
+
+3. **Login Button**:
+   - Type: Button
+   - Label: Log in
+   - Purpose: Submits the login credentials.
+
+4. **Forgot Password Link**:
+   - Type: Link
+   - Text: Lost password?
+   - Purpose: Links to a password reset page if the user forgets their password.
+
+5. **Account Type Dropdown**:
+   - Type: Dropdown
+   - Options: SEC Workspace
+   - Purpose: Allows users to log in using their account on the SEC Workspace.
+
+6. **Guest Access Button**:
+   - Type: Button
+   - Label: Access as a guest
+   - Purpose: Allows users to access some courses as a guest if guest access is enabled.
+
+7. **Cookies Notice Button**:
+   - Type: Button
+   - Label: Cookies notice
+   - Purpose: Links to a page about cookies and privacy settings.
+
+### 3. Structural Role in the Wider System Functions
+This login page serves several key functions within the wider system:
+
+#### Login Process
+- **User Authentication**: The page controls the authentication process, ensuring that users can log in using their credentials.
+- **Password Reset**: The "Forgot password?" link provides a mechanism for users to reset their password if they forget it.
+- **Account Type**: The dropdown allows users to log in using their account on the SEC Workspace, which is a specific feature of the system.
+
+#### Guest Access
+- **Guest Access Button**: This button allows users to access some courses as a guest, which is a feature that can be enabled or disabled based on system policies.
+- **Guest Access Page**: The page that appears when a user clicks "Access as a guest" provides additional information about guest access and possibly other related features.
+
+#### Security and Privacy
+- **Cookies Notice**: The "Cookies notice" button links to a page about cookies and privacy settings, ensuring that users are informed about how their data is handled.
+- **Security Measures**: The presence of a login page with fields for username and password, and a "Forgot password?" link, indicates that the system has implemented basic security measures to protect user data.
+
+### Summary
+This login page is a critical component of the student portal, controlling the login process, providing guest access options, and ensuring user privacy and security. It serves as a bridge between the user and the broader system functionalities, such as course access and account management.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=15885
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button submits the login form.
+- **Forgot Password**: Links to reset the password if forgotten.
+- **Workspace Selection**: Users can log in using their account on the SEC Workspace.
+- **Guest Access**: Option to access courses as a guest if allowed.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data element blocks and tables:
+- **Login Form**:
+  - **Username Field**: Placeholder text "Username".
+  - **Password Field**: Placeholder text "Password".
+  - **Login Button**: "Log in" button.
+  - **Forgot Password Link**: "Lost password?" link.
+- **Workspace Selection**:
+  - **Workspace Field**: "SEC Workspace" is pre-filled.
+- **Guest Access Option**:
+  - **Guest Access Button**: "Access as a guest" button.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Authentication**: Ensures that only authorized users can access the system.
+- **Account Management**: Provides options to reset passwords and manage guest access.
+- **Workspace Integration**: Facilitates access to the SEC Workspace for users.
+- **User Interface**: Provides a clean and user-friendly interface for logging in and managing account access.
+
+### Detailed Breakdown
+
+#### 1. Login Form
+- **Username Field**: Placeholder text "Username" is displayed.
+- **Password Field**: Placeholder text "Password" is displayed.
+- **Login Button**: The button is labeled "Log in" and is the primary action to submit the login form.
+- **Forgot Password Link**: A link labeled "Lost password?" is provided for users who have forgotten their password.
+
+#### 2. Workspace Selection
+- **Workspace Field**: The field is pre-filled with "SEC Workspace" and is a required field for logging in.
+
+#### 3. Guest Access Option
+- **Guest Access Button**: This button allows users to access courses as a guest if their account allows it.
+
+### Conclusion
+This page is a critical component of the student portal, ensuring that users can securely log in, manage their accounts, and access the SEC Workspace. The structured layout and clear labels facilitate a smooth user experience, while the integration of guest access options enhances flexibility for users.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/user/profile.php?id=13579
+### Structural Analysis Breakdown:
+### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button submits the login credentials to authenticate the user.
+- **Forgot Password**: Links to reset the password if the user forgets it.
+- **Workspace Selection**: Users can choose to log in using their account on the SEC Workspace.
+- **Guest Access**: Option to access some courses as a guest if the user does not have a login account.
+
+### 2. Data Element Blocks and Table Structure
+The page layout is structured as follows:
+
+#### Header
+- **Title**: "Log in to Saveetha Engineering College"
+
+#### Main Content
+- **Login Form**:
+  - **Username Field**: Placeholder text "Username"
+  - **Password Field**: Placeholder text "Password"
+  - **Login Button**: "Log in"
+  - **Forgot Password Link**: "Lost password?"
+  - **Workspace Selection**: "SEC Workspace"
+  - **Guest Access Option**: "Access as a guest"
+
+#### Footer
+- **Cookie Notice**: "Cookies notice"
+
+### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Authentication**: Ensures that only authorized users can access the system.
+- **Account Management**: Provides options for users to reset their passwords or access their accounts.
+- **Workspace Integration**: Facilitates access to the SEC Workspace for users.
+- **Guest Access**: Allows users who do not have a login account to access certain courses.
+- **User Interface**: Provides a clean and user-friendly interface for the login process.
+
+### Detailed Breakdown
+- **Username and Password Fields**: These fields are essential for the login process. Users need to enter their credentials to proceed.
+- **Login Button**: This button is the primary action that triggers the login process. It submits the form data to the server for authentication.
+- **Forgot Password Link**: This link provides a way for users to reset their forgotten passwords, ensuring they can regain access to their account.
+- **Workspace Selection**: This option allows users to log in using their account on the SEC Workspace, which is a specific section of the system.
+- **Guest Access Option**: This option allows users who do not have a login account to access certain courses, providing flexibility for those who may not have a permanent account.
+- **Cookie Notice**: This link informs users about the use of cookies on the site, ensuring transparency and compliance with privacy policies.
+
+Overall, this layout ensures a secure and user-friendly login experience while providing necessary options for account management and access to specific sections of the system.
+
+--•--•--
+
+## Portal Path Endpoint: Skip Navigation
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=17#sb-1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=18#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=164
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip Navigation
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=18#sb-1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=19#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=198
+### Structural Analysis Breakdown:
+API server link offline: 
 
 --•--•--
 
