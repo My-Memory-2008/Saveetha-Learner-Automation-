@@ -6033,7 +6033,7 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
             await page.screenshot(path="step3_entered_room.png")
-            instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
+                        instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
@@ -6050,24 +6050,20 @@ async def run_ai_automation():
             if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  {
                     let chatDiv = document.querySelector('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
                     if(chatDiv) chatDiv.scrollTop = chatDiv.scrollHeight;
-                }""")"""
+                }
                 
-                # Active 2000ms high-speed sensory pulse clock
                 await asyncio.sleep(2)
                 
-                # Scrape chat bubbles and isolate text nodes belonging exclusively to Scholar
-                messages_data = await page.evaluate("""() => {
-                    const containers = Array.from(document.querySelectorAll('.message, .chat-item, li, div[class*="msg-container"]'));
+                messages_data = await page.evaluate(() => {
+                    const containers = Array.from(document.querySelectorAll('.message, .chat-item, li, div[class*="msg-container"], div[class*="content"]'));
                     return containers
                         .filter(el => el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))
                         .map(el => el.innerText.trim());
-                }""")"""
+                }
                 
                 for msg in messages_data:
-                    # Isolate strict string content signature markers
                     msg_sig = "".join(msg.split())[-60:]
                     
-                    # ✅ FIXED FILTER: Intercepts EVERY new message block pushed by Scholar, dropping name-string locks completely!
                     if msg_sig not in processed_scholar_signatures and any(keyword in msg.lower() for keyword in ["scholar", "teaching assistant"]):
                         print("\n" + "🚨" * 30)
                         print(f"🎯 SENTINEL INTERCEPT: Scholar published a fresh feedback node!\nPayload text content:\n'{msg}'")
@@ -6086,7 +6082,7 @@ async def run_ai_automation():
                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
                         
                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            print("⚠️ Vision channel busy. Processing high-speed textual synthesis fallback fallback...")
+                            print("⚠️ Vision channel busy. Processing high-speed textual synthesis fallback...")
                             fallback_prompt = (
                                 f"An AI Assistant named Scholar just submitted feedback on your student response board: '{msg}'. "
                                 f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
@@ -6095,11 +6091,10 @@ async def run_ai_automation():
                             
                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
                         
-                        # Post response to the box instantly
                         await send_chat_message(page, followup_answer)
-                        if os.path.exists(reply_frame): os.remove(reply_frame)
+                        if os.path.exists(reply_frame):
+                            os.remove(reply_frame)
                         
-                        # Run cookie preservation non-blockingly in the background to prevent thread freezes
                         asyncio.create_task(context.storage_state(path=COOKIE_FILE))
                         break 
 
@@ -6108,12 +6103,13 @@ async def run_ai_automation():
 
         except Exception as e:
             print(f"❌ Automation workflow run encountered an exception: {e}")
-            try: save_knowledge_base(knowledge)
-            except: pass
+            try:
+                save_knowledge_base(knowledge)
+            except:
+                pass
         finally:
             await context.close()
             await browser.close()
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
-
