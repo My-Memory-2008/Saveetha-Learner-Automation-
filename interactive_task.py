@@ -6033,7 +6033,7 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
             await page.screenshot(path="step3_entered_room.png")
-            instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
+                        instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
             
@@ -6047,19 +6047,7 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  {
-                    let chatDiv = document.querySelector('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
-                    if(chatDiv) chatDiv.scrollTop = chatDiv.scrollHeight;
-                }
-                
-                await asyncio.sleep(2)
-                
-                messages_data = await page.evaluate(() => {
-                    const containers = Array.from(document.querySelectorAll('.message, .chat-item, li, div[class*="msg-container"], div[class*="content"]'));
-                    return containers
-                        .filter(el => el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))
-                        .map(el => el.innerText.trim());
-                }
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar'))).map(el => el.innerText.trim());")
                 
                 for msg in messages_data:
                     msg_sig = "".join(msg.split())[-60:]
@@ -6113,3 +6101,4 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
