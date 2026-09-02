@@ -5768,6 +5768,8 @@
 
 
 
+
+
 import asyncio
 import os
 import sys
@@ -5779,7 +5781,7 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://learner.saveetha.in"
+BASE_URL = "https://saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
@@ -5789,16 +5791,10 @@ if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
 
-# ✅ FIXED: Ultimate RegEx Sanitizer to strip away quotes, brackets, filenames, and extract ONLY the true clean URL string
+# Clean and isolate the destination URL string natively from arguments array mapping noise
 RAW_ARGS_STRING = " ".join(sys.argv[1:])
 URL_MATCH = re.search(r'(https?://[^\s\'"\]]+)', RAW_ARGS_STRING)
-
-if URL_MATCH:
-    TARGET_URL = URL_MATCH.group(1).strip()
-else:
-    # Safe secondary fallback parsing matching standard argument array slices
-    TARGET_URL = str(sys.argv[-1]).strip("[]'\", ")
-
+TARGET_URL = URL_MATCH.group(1).strip() if URL_MATCH else str(sys.argv[-1]).strip("[]'\", ")
 print(f"🎯 Sanitized Target URL Path Token: '{TARGET_URL}'")
 
 def load_knowledge_base():
@@ -6051,77 +6047,55 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer) < 5:
-                print("⚠️ Vision failed on prompt engine. Requesting fallback text compilation...")
-                text_prompt = (
-                    f"Answer this technical question carefully: '{instructor_prompt_string}'. "
-                    "STRICT RULE: Output only the explanation directly. Do not include greetings or prefaces. Use a conversational human tone."
-                )
-                initial_answer = await ask_qwen(text_prompt)
-            
-            print(f"🤖 Final Direct Answer Token:\n'{initial_answer}'\n")
-            if os.path.exists(snap_path): os.remove(snap_path)
-
-            await send_chat_message(page, initial_answer)
-
-            # --- ZERO-LAG SENTINEL SURVEILLANCE LOOP TRACKER ---
-            print(f"⏳ Entering Zero-Lag Sentinel Loop. Scanning chat landscape continuously...")
-            monitor_start_time = time.time()
-            processed_scholar_messages = set()
-            last_logged_minute = -1
-
-            while (time.time() - monitor_start_time) < two_hours_in_seconds:
-                current_elapsed = time.time() - monitor_start_time
-                remaining_minutes = (two_hours_in_seconds - current_elapsed) / 60
-                current_minute_floor = int(remaining_minutes)
-                
-                if current_minute_floor % 5 == 0 and current_minute_floor != last_logged_minute:
-                    print(f"🔄 Zero-Lag Sentinel Status Ticker: {remaining_minutes:.1f} minutes remaining...")
-                    last_logged_minute = current_minute_floor
-
-                # Force scroll bar downward instantaneously without blocking the thread
-                await page.evaluate("""() => {
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  {
                     let chatDiv = document.querySelector('.chat-history, .message-list-container, main, div[style*="overflow-y"]');
                     if(chatDiv) chatDiv.scrollTop = chatDiv.scrollHeight;
-                }""")
+                }""")"""
                 
-                await asyncio.sleep(1)
+                # Active 2000ms high-speed sensory pulse clock
+                await asyncio.sleep(2)
                 
+                # Scrape chat bubbles and isolate text nodes belonging exclusively to Scholar
                 messages_data = await page.evaluate("""() => {
-                    return Array.from(document.querySelectorAll('.message, .chat-item, p, span, div[class*="msg"]'))
-                        .map(el => el.innerText.trim())
-                        .filter(txt => (txt.includes('Scholar') || txt.includes('scholar')) && txt.length > 10);
-                }""")
+                    const containers = Array.from(document.querySelectorAll('.message, .chat-item, li, div[class*="msg-container"]'));
+                    return containers
+                        .filter(el => el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))
+                        .map(el => el.innerText.trim());
+                }""")"""
                 
                 for msg in messages_data:
-                    msg_hash = "".join(msg.split())[-50:] 
+                    # Isolate strict string content signature markers
+                    msg_sig = "".join(msg.split())[-60:]
                     
-                    if MY_IDENTITY_NAME in msg and msg_hash not in processed_scholar_messages:
+                    # ✅ FIXED FILTER: Intercepts EVERY new message block pushed by Scholar, dropping name-string locks completely!
+                    if msg_sig not in processed_scholar_signatures and any(keyword in msg.lower() for keyword in ["scholar", "teaching assistant"]):
                         print("\n" + "🚨" * 30)
-                        print(f"🎯 SENTINEL INTERCEPT: Scholar follow-up captured instantly!\n'{msg}'")
+                        print(f"🎯 SENTINEL INTERCEPT: Scholar published a fresh feedback node!\nPayload text content:\n'{msg}'")
                         print("🚨" * 30 + "\n")
                         
-                        processed_scholar_messages.add(msg_hash)
+                        processed_scholar_signatures.add(msg_sig)
                         reply_frame = "target_reply_context.png"
                         await page.screenshot(path=reply_frame)
                         
                         followup_prompt = (
-                            f"A chat member named Scholar has replied directly to you, explicitly mentioning your name '{MY_IDENTITY_NAME}'. "
-                            f"Review this conversation text context carefully: '{msg}'. "
-                            f"Formulate a precise, brief technical response answering their follow-up. "
+                            f"An AI Teaching Assistant named Scholar has just published a feedback evaluation on your work. "
+                            f"Review their statement text carefully: '{msg}'. "
+                            f"Formulate a precise, brief follow-up technical response addressing their feedback or instruction directly. "
                             f"STRICT RULE: Output your answer directly in a natural conversational human tone. No introductions or greetings."
                         )
                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
                         
                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            print("⚠️ Vision channel busy. Processing text fallback synthesis engine...")
+                            print("⚠️ Vision channel busy. Processing high-speed textual synthesis fallback fallback...")
                             fallback_prompt = (
-                                f"An AI Assistant named Scholar just asked you a direct follow-up question: '{msg}'. "
-                                f"Respond to it briefly, accurately, and directly in a conversational human tone. No greetings."
+                                f"An AI Assistant named Scholar just submitted feedback on your student response board: '{msg}'. "
+                                f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
                             )
                             followup_answer = await ask_qwen(fallback_prompt)
                             
                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
+                        
+                        # Post response to the box instantly
                         await send_chat_message(page, followup_answer)
                         if os.path.exists(reply_frame): os.remove(reply_frame)
                         
