@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 11168
-**Pending Unexplored Queue Scope:** 3218
+**Total Unique Sub-System Paths Mapped:** 11184
+**Pending Unexplored Queue Scope:** 3319
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -245780,6 +245780,272 @@ API server link offline:
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=43949&slot_id=1498&year=2026&month=9&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=44032&slot_id=1636&year=2026&month=9&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=43859&slot_id=1328&year=2026&month=9&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=9&day=16#
+### Structural Analysis Breakdown:
+### 1. Actions or Specific Transactional Parameters Controlled
+This page controls specific transactional parameters related to academic schedules, leave approvals, and attendance tracking. Key actions include:
+- Viewing and managing schedule details for specific courses.
+- Approving or rejecting leave requests for students.
+- Viewing and managing attendance records for scheduled events.
+
+### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observed
+The page displays a schedule for September 2026, focusing on the 16th of the month. The schedule is structured as follows:
+
+#### Schedule
+- **Date:** 16th (Wednesday)
+- **Course:** 19CS405 - Operating System
+- **Slot:** 26OD1089
+- **Time:** 08:00 AM - 09:29 AM
+- **Venue:** 3483
+- **Status:** Leave Rejected
+
+#### Attendance
+- **View Attendance** button
+
+### 3. Structural Functionality and How It Serves the Wider System Functions
+This layout segment serves the wider system functions by:
+- **Displaying Detailed Schedule Information:** It provides a clear view of the schedule for the 16th of September, including course details, time slots, and venue.
+- **Facilitating Leave Approval:** The "Leave Rejected" status indicates that a leave request has been approved, allowing the system to track and manage leave approvals.
+- **Attendance Tracking:** The "View Attendance" button enables users to check the attendance records for the scheduled event, ensuring transparency and accountability.
+- **User Interface:** The layout is designed to be user-friendly, with clear sections for different types of transactions, making it easy for students and administrators to navigate and manage their academic and administrative tasks.
+
+Overall, this segment of the page is crucial for maintaining a structured and transparent system for academic scheduling, leave management, and attendance tracking, which are essential for the smooth functioning of the academic calendar and student management system.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=45042&slot_id=1416&year=2026&month=9&day=16
+### Structural Analysis Breakdown:
+Certainly! Let's break down the page layout and its functionalities step by step.
+
+### Page Layout and Functionality
+
+#### 1. Header
+- **Title**: "Attendance Process"
+- **Navigation Bar**: Contains links to different sections of the system.
+
+#### 2. Main Content Area
+- **Student Information**: 
+  - **Student ID**: 19CS405
+  - **Operating System**: Not specified
+  - **Slot**: 26OD1089
+  - **Date**: Wed, 16 Sep
+
+#### 3. Attendance Process Section
+- **IN OTP Entry**:
+  - **Status**: Not specified
+  - **Message**: IN OTP entry will be available once your faculty generates it.
+- **OUT OTP Entry**:
+  - **Status**: Not specified
+  - **Message**: OUT OTP will be enabled after your IN OTP entry.
+
+#### 4. Time Slot Selection
+- **Time Slot**: 1495.99:1495.99
+  - **Dropdown**: Allows selection of different time slots.
+
+#### 5. Timeline of Attendance Actions
+- **Class Started**:
+  - **Scheduled Time**: 08:00 AM - 09:29 AM
+  - **Date**: Wed, 16 Sep 2026
+  - **Status**: Pending
+- **IN OTP Entry**:
+  - **Date**: Wed, 16 Sep 2026
+  - **Status**: Pending
+- **IN APPROVAL**:
+  - **Status**: Waiting for faculty approval
+- **OUT OTP Entry**:
+  - **Status**: Not specified
+  - **Message**: Enter the OUT OTP (when enabled)
+- **OUT APPROVAL**:
+  - **Status**: Waiting for OUT approval
+- **Feedback Submission**:
+  - **Status**: Not specified
+  - **Message**: Submit class feedback
+- **Attendance Recorded**:
+  - **Status**: Not specified
+  - **Message**: Attendance recorded
+
+### Data Elements and Variables
+
+- **Student ID**: 19CS405
+- **Operating System**: Not specified
+- **Slot ID**: 26OD1089
+- **Year**: 2026
+- **Month**: 9
+- **Day**: 16
+- **Time Slot**: 1495.99:1495.99
+- **Statuses**: Pending, Waiting for faculty approval, Waiting for OUT approval, Not specified
+
+### Structured Functionality
+
+1. **Attendance Entry**:
+   - The page controls the entire attendance entry process, from IN OTP entry to OUT OTP entry, and finally recording the attendance.
+   - The timeline shows the sequence of actions, including pending statuses and waiting for approvals.
+
+2. **Time Slot Management**:
+   - The user can select a specific time slot for attendance entry, which is crucial for accurate time tracking.
+
+3. **Faculty Approval**:
+   - The system waits for faculty approval for both IN and OUT OTP entries, ensuring that attendance is officially recorded only after approval.
+
+4. **Feedback Submission**:
+   - The page allows students to submit feedback, which might be used for improving the system or for administrative purposes.
+
+5. **Attendance Recording**:
+   - Once all entries are completed and approved, the system records the attendance, ensuring that the student's attendance is officially logged.
+
+### Conclusion
+This page is a critical component of the student portal, managing the entire attendance process from entry to recording. It ensures that all steps are completed correctly and efficiently, with clear statuses and waiting times for approvals. The structured timeline helps in tracking the progress of each step, ensuring that the system functions smoothly and accurately.
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fmy%2Fcourses.php&sesskey=YCb4Zqwpdc#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?browse=categories&perpage=20&page=1#maincontent
+### Structural Analysis Breakdown:
+Certainly! Let's break down the page layout and its functions step by step.
+
+### 1. Actions and Transactional Parameters
+The page appears to be a student portal for Saveetha Engineering College. It controls various actions and transactional parameters related to course browsing, faculty information, and training programs. The specific parameters include:
+
+- **Course Browsing**: Users can browse courses by selecting different categories such as "23-24 EVEN," "25-26 ODD," "25-26 EVEN," and "26-27 ODD."
+- **Faculty Information**: Users can view faculty details.
+- **Training Programs**: Users can access training programs.
+- **Search Function**: Users can search for courses using a search bar.
+- **Page Navigation**: Users can navigate through different pages of courses and training programs.
+- **Login/Logout**: Users can log in or log out of their account.
+
+### 2. Data Element Blocks, Table Structure, and Variable Values
+The page is structured into several main sections:
+
+#### Navigation Menu
+- **Home**: Links to the homepage.
+- **My courses**: Links to the user's personal courses.
+- **Courses**: Links to the course browsing section.
+- **Faculty**: Links to faculty information.
+- **Training**: Links to training programs.
+- **SEC**: Links to various sections like Placement, Training, and Projects.
+
+#### Course Browsing
+- **Categories**: Courses are categorized by year and semester (e.g., "23-24 EVEN").
+- **Page Navigation**: Users can navigate through different pages of courses using pagination links (e.g., "1" and "2").
+- **Course Details**: Each course has a title and possibly a brief description.
+
+#### Faculty Information
+- **Faculty Details**: Users can view faculty details, including their name, designation, and contact information.
+
+#### Training Programs
+- **Training Programs**: Users can view training programs, including details like program name, duration, and contact information.
+
+#### Search Function
+- **Search Bar**: Users can enter search queries to find specific courses.
+- **Search Results**: The search results are displayed in a list format, showing course titles and possibly descriptions.
+
+### 3. Structural Functionality
+The layout serves the following broader system functions:
+
+- **User Authentication**: Users can log in or log out of their account, ensuring secure access to their personal information and courses.
+- **Course Management**: Users can browse, search, and manage their courses, including enrolling in new courses or viewing course details.
+- **Faculty Information**: Users can access faculty details, which can be useful for academic and administrative purposes.
+- **Training Programs**: Users can access and enroll in training programs, which can be beneficial for professional development and skill enhancement.
+- **Search Functionality**: The search bar allows users to quickly find specific courses, enhancing the user experience.
+
+Overall, this layout is designed to provide a comprehensive and user-friendly interface for students to manage their academic and professional development needs.
+
+--•--•--
+
+## Portal Path Endpoint: Expand all
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?browse=categories&perpage=20&page=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?browse=categories&perpage=20&page=0
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Fastrack Prime
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=28
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 25-26 ODD
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=31
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 25-26 EVEN
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=32
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 26-27 ODD
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=33
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip Navigation
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?browse=categories&perpage=20&page=1#sb-1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=2#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 1
+Page 1
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=2#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=2&browse=courses&perpage=20&page=1
 ### Structural Analysis Breakdown:
 API server link offline: 
 
