@@ -5779,7 +5779,7 @@ import re
 from playwright.async_api import async_playwright
 
 KNOWLEDGE_FILE = "complete-interact.json"
-BASE_URL = "https://saveetha.in"
+BASE_URL = "https://learner.saveetha.in"
 OLLAMA_URL = "http://localhost:11434/api/generate"
 MODEL_NAME = "qwen2.5vl:3b"
 COOKIE_FILE = "cookies.json"
@@ -5788,7 +5788,18 @@ MY_IDENTITY_NAME = "MUHAMMAD ASJAD E"
 if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
-TARGET_URL = str(sys.argv).strip("['\"]")
+
+# ✅ FIXED: Ultimate RegEx Sanitizer to strip away quotes, brackets, filenames, and extract ONLY the true clean URL string
+RAW_ARGS_STRING = " ".join(sys.argv[1:])
+URL_MATCH = re.search(r'(https?://[^\s\'"\]]+)', RAW_ARGS_STRING)
+
+if URL_MATCH:
+    TARGET_URL = URL_MATCH.group(1).strip()
+else:
+    # Safe secondary fallback parsing matching standard argument array slices
+    TARGET_URL = str(sys.argv[-1]).strip("[]'\", ")
+
+print(f"🎯 Sanitized Target URL Path Token: '{TARGET_URL}'")
 
 def load_knowledge_base():
     if os.path.exists(KNOWLEDGE_FILE):
@@ -5871,7 +5882,6 @@ async def send_chat_message(page, message_text):
     print(f"✍️ Initiating input sequence for message submission...")
     chat_box = page.get_by_placeholder("Write a message...")
     
-    # Instant validation check to bypass loading states
     if await chat_box.is_visible() and await chat_box.is_enabled():
         await chat_box.fill(message_text)
         send_btn = page.locator("button.btn-primary.faculty-chat-send").or_(page.locator("button:has-text('Send')")).first
@@ -6054,7 +6064,7 @@ async def run_ai_automation():
 
             await send_chat_message(page, initial_answer)
 
-            # --- ✅ UPGRADED: NON-BLOCKING INSTANT SENTINEL TRAVERSAL MATRIX ---
+            # --- ZERO-LAG SENTINEL SURVEILLANCE LOOP TRACKER ---
             print(f"⏳ Entering Zero-Lag Sentinel Loop. Scanning chat landscape continuously...")
             monitor_start_time = time.time()
             processed_scholar_messages = set()
@@ -6075,7 +6085,6 @@ async def run_ai_automation():
                     if(chatDiv) chatDiv.scrollTop = chatDiv.scrollHeight;
                 }""")
                 
-                # High-frequency 1-second dynamic sensory sampling window
                 await asyncio.sleep(1)
                 
                 messages_data = await page.evaluate("""() => {
@@ -6085,7 +6094,6 @@ async def run_ai_automation():
                 }""")
                 
                 for msg in messages_data:
-                    # Isolate strict string signatures to detect brand-new messages instantly
                     msg_hash = "".join(msg.split())[-50:] 
                     
                     if MY_IDENTITY_NAME in msg and msg_hash not in processed_scholar_messages:
@@ -6106,7 +6114,7 @@ async def run_ai_automation():
                         followup_answer = await ask_qwen(followup_prompt, reply_frame)
                         
                         if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                            print("⚠️ Vision busy. Executing background text fallback synthesis engine...")
+                            print("⚠️ Vision channel busy. Processing text fallback synthesis engine...")
                             fallback_prompt = (
                                 f"An AI Assistant named Scholar just asked you a direct follow-up question: '{msg}'. "
                                 f"Respond to it briefly, accurately, and directly in a conversational human tone. No greetings."
@@ -6114,14 +6122,12 @@ async def run_ai_automation():
                             followup_answer = await ask_qwen(fallback_prompt)
                             
                         print(f"🤖 Formulated Followup Response: '{followup_answer}'")
-                        
-                        # Post response to the box instantly
                         await send_chat_message(page, followup_answer)
                         if os.path.exists(reply_frame): os.remove(reply_frame)
                         
-                        # ✅ NON-BLOCKING DISK TASK: Run cookie preservation asynchronously in the background loop task shell
+                        # Run cookie preservation non-blockingly in the background to prevent thread freezes
                         asyncio.create_task(context.storage_state(path=COOKIE_FILE))
-                        break # Immediately resume continuous live evaluation tracking
+                        break 
 
             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
             await context.storage_state(path=COOKIE_FILE)
