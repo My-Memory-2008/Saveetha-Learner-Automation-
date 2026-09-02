@@ -6047,10 +6047,14 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
-                    ".map(el => el.innerText.trim());"
-                )
-                
+            # if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
+            #         ".map(el => el.innerText.trim());"
+            #     )
+
+               # Example using Playwright's evaluate method
+i            if "SYSTEM_ERROR_SIGNAL" in initial_answer or el.evaluate("el => el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar'))"):
+
+        
                 if isinstance(messages_data, list):
                     for msg in messages_data:
                         if not msg:
