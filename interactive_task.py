@@ -6047,7 +6047,7 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar'))
                         .map(el => el.innerText.trim())
                
                 messages_data = await page.evaluate(js_code)
