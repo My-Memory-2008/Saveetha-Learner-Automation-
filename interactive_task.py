@@ -5772,6 +5772,7 @@
 
 
 
+
 import asyncio
 import os
 import sys
@@ -5793,6 +5794,7 @@ if len(sys.argv) < 2:
     print("❌ Error: Missing destination URL target input argument.")
     sys.exit(1)
 
+# ✅ FIXED: Ultimate String Extract to pull ONLY the clean URL text, stripping away array brackets and quotes completely
 RAW_ARGS_STRING = " ".join(sys.argv[1:])
 URL_MATCH = re.search(r'(https?://[^\s\'"\]]+)', RAW_ARGS_STRING)
 TARGET_URL = URL_MATCH.group(1).strip() if URL_MATCH else str(sys.argv[-1]).strip("[]'\", ")
@@ -6067,6 +6069,7 @@ async def run_ai_automation():
 
             await send_chat_message(page, initial_answer)
 
+            # --- ✅ UPGRADED: 100% PYTHON-NATIVE ZERO-LAG SURVEILLANCE ENGINE ---
             print("⏳ Entering Python-Native Sentinel Loop. Monitoring Scholar activity every 2 seconds...")
             monitor_start_time = time.time()
             processed_scholar_signatures = set()
@@ -6081,18 +6084,16 @@ async def run_ai_automation():
                     print(f"🔄 Sentinel Status Ticker: {remaining_minutes:.1f} minutes remaining...")
                     last_logged_minute = current_minute_floor
 
-                # Native python scroll execution
                 try:
-                    await page.evaluate("window.scrollTo(0, document.body.scrollHeight);")
+                    await page.evaluate("let div = document.querySelector('.chat-history, main, div[style*=\"overflow-y\"]'); if(div) div.scrollTop = div.scrollHeight;")
                 except:
                     pass
                 await asyncio.sleep(2)
                 
-                # Native Python Locator Scraper (Zero JS injection syntax risk)
+                # Native Python Locator Scraper to bypass Javascript string injection formatting errors
                 msg_locators = page.locator(".message, .chat-item, li, div")
                 count = await msg_locators.count()
                 
-                # Check recent items
                 for idx in range(max(0, count - 15), count):
                     try:
                         loc = msg_locators.nth(idx)
@@ -6101,39 +6102,42 @@ async def run_ai_automation():
                             if ("Scholar" in txt or "scholar" in txt) and len(txt) > 10:
                                 msg_sig = "".join(txt.split())[-60:]
                                 if msg_sig not in processed_scholar_signatures and ("scholar" in txt.lower() or "teaching assistant" in txt.lower()):
-                                    print(f"\n🚨 SENTINEL INTERCEPT: Scholar feedback found!\n'{txt[:100]}...'")
+                                    print(f"\n🚨 SENTINEL INTERCEPT: Scholar feedback found!\n'{txt[:120]}...'")
                                     processed_scholar_signatures.add(msg_sig)
                                     
                                     reply_frame = "target_reply_context.png"
                                     await page.screenshot(path=reply_frame)
                                     
                                     followup_prompt = (
-                                        f"An AI Teaching Assistant named Scholar has published feedback: '{txt}'. "
-                                        "Formulate a precise, brief technical response addressing their feedback directly. "
+                                        f"An AI Teaching Assistant named Scholar has published feedback on your answer: '{txt}'. "
+                                        "Formulate a precise, brief follow-up technical response addressing their feedback directly. "
                                         "STRICT RULE: Output your answer directly in a natural conversational human tone. No greetings."
                                     )
                                     followup_answer = await ask_qwen(followup_prompt, reply_frame)
                                     
                                     if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                                        followup_answer = await ask_qwen(f"Respond briefly and professionally to: '{txt}'")
-                                        
+                                        print("⚠️ Vision busy. Executing text synthesis fallback context wrapper...")
+                                        fallback_prompt = (
+                                            f"An AI Assistant named Scholar just submitted feedback on your response board: '{txt}'. "
+                                            f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
+                                        )
+                                        followup_answer = await ask_qwen(fallback_prompt)
+                                    print(f"🤖 Formulated Followup Response: '{followup_answer}'")
                                     await send_chat_message(page, followup_answer)
-                                    if os.path.exists(reply_frame):
-                                        os.remove(reply_frame)
+                                    if os.path.exists(reply_frame):os.remove(reply_frame)
                                     asyncio.create_task(context.storage_state(path=COOKIE_FILE))
                                     break
-                    except:
+                except:
                         continue
-
-            print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
-            await context.storage_state(path=COOKIE_FILE)
-
+                print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+                await context.storage_state(path=COOKIE_FILE)
         except Exception as e:
-            print(f"❌ Automation workflow run encountered an exception: {e}")
-            try:save_knowledge_base(knowledge)
-            except:pass
+                print(f"❌ Automation workflow run encountered an exception: {e}")
+                try:save_knowledge_base(knowledge)
+                except:pass
         finally:
                 await context.close()
                 await browser.close()
 if __name__ == "__main__":
         asyncio.run(run_ai_automation())
+                                        
