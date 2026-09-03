@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 11680
-**Pending Unexplored Queue Scope:** 3842
+**Total Unique Sub-System Paths Mapped:** 11696
+**Pending Unexplored Queue Scope:** 3929
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -259495,6 +259495,164 @@ API server link offline:
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://training2.saveetha.in/login/index.php#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://training2.saveetha.in/login/forgot_password.php
+### Structural Analysis Breakdown:
+### 1. Actions and Specific Transactional Parameters
+
+This page is designed to facilitate the user's password reset process. The user can either search for their account using their username or email address. The specific transactional parameters controlled by this page include:
+
+- **Username Search**: When the user inputs their username and clicks the "Search" button, the system will check the database for a matching username.
+- **Email Search**: When the user inputs their email address and clicks the "Search" button, the system will check the database for a matching email address.
+
+### 2. Data Element Blocks and Table Structure
+
+The page is divided into two main sections:
+
+1. **Search by Username**:
+   - **Username Input Field**: A text input field where the user can enter their username.
+   - **Search Button**: A blue button labeled "Search" that triggers the search process.
+
+2. **Search by Email Address**:
+   - **Email Input Field**: A text input field where the user can enter their email address.
+   - **Search Button**: A blue button labeled "Search" that triggers the search process.
+
+### 3. Structural Role in the Wider System Functions
+
+This page serves as a critical component of the student portal's authentication and recovery system. It allows users to regain access to their accounts in case they forget their password. The structured layout ensures that users can easily find and input their credentials, and the search functionality ensures that the system can quickly locate the user's account information.
+
+### 4. Variable Value Observations
+
+- **Username Input Field**: The user can enter their username here.
+- **Email Input Field**: The user can enter their email address here.
+- **Search Button**: The user can click this button to initiate the search process.
+
+### 5. Security Considerations
+
+- **Input Validation**: The system should validate the input fields to ensure that only valid characters are entered, preventing potential security vulnerabilities such as SQL injection or cross-site scripting (XSS).
+- **Error Handling**: The system should provide clear error messages if the search fails, such as "User not found" or "Email not found."
+- **Security Tokens**: To prevent brute-force attacks, the system could implement a CAPTCHA or rate-limiting mechanism for the search functionality.
+
+### 6. User Experience
+
+- **User-Friendly Design**: The layout is clean and user-friendly, with clear labels and intuitive buttons.
+- **Accessibility**: The page is designed to be accessible, with proper use of ARIA labels and keyboard navigation.
+- **Responsive Design**: The page is responsive, ensuring it works well on both desktop and mobile devices.
+
+### 7. Integration with the Wider System
+
+- **Database Interaction**: The page interacts with the database to check for the user's account information.
+- **Authentication Flow**: This page is part of the broader authentication flow, where users can reset their password, which is a critical step in maintaining user security and account integrity.
+
+By understanding these elements, the page serves as a crucial component in the student portal's authentication and recovery system, ensuring that users can regain access to their accounts efficiently and securely.
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://training2.saveetha.in/mod/forum/view.php?id=2#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip Navigation
+- **Direct Link Target:** https://training2.saveetha.in/mod/forum/view.php?id=2#sb-1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Expand all
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Category 1
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Other
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=2
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 2023-2024
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=3
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Pre-Placement Opportunities
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10007
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: JAVA
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10008
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Faculty Training
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10009
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: RSQ
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10010
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 2025-2026
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10011
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: PLACEMENT TRAINING
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10012
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Leet Code Training
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php?categoryid=10013
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip Navigation
+- **Direct Link Target:** https://training2.saveetha.in/course/index.php#sb-1
 ### Structural Analysis Breakdown:
 API server link offline: 
 
