@@ -6040,7 +6040,6 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
             await page.screenshot(path="step3_entered_room.png")
-
             instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
@@ -6069,7 +6068,6 @@ async def run_ai_automation():
 
             await send_chat_message(page, initial_answer)
 
-            # --- ✅ UPGRADED: 100% PYTHON-NATIVE ZERO-LAG SURVEILLANCE ENGINE ---
             print("⏳ Entering Python-Native Sentinel Loop. Monitoring Scholar activity every 2 seconds...")
             monitor_start_time = time.time()
             processed_scholar_signatures = set()
@@ -6090,7 +6088,6 @@ async def run_ai_automation():
                     pass
                 await asyncio.sleep(2)
                 
-                # Native Python Locator Scraper to bypass Javascript string injection formatting errors
                 msg_locators = page.locator(".message, .chat-item, li, div")
                 count = await msg_locators.count()
                 
@@ -6122,21 +6119,30 @@ async def run_ai_automation():
                                             f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
                                         )
                                         followup_answer = await ask_qwen(fallback_prompt)
+                                        
                                     print(f"🤖 Formulated Followup Response: '{followup_answer}'")
                                     await send_chat_message(page, followup_answer)
-                                    if os.path.exists(reply_frame):os.remove(reply_frame)
+                                    if os.path.exists(reply_frame):
+                                        os.remove(reply_frame)
                                     asyncio.create_task(context.storage_state(path=COOKIE_FILE))
                                     break
-                
-                        print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
-                        await context.storage_state(path=COOKIE_FILE)
-                  except Exception as e:
-                        print(f"❌ Automation workflow run encountered an exception: {e}")
-                        try:save_knowledge_base(knowledge)
-                        except:pass
-                  finally:
-                        await context.close()
-                        await browser.close()
+                    except:
+                        continue
+
+            print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+            await context.storage_state(path=COOKIE_FILE)
+
+        except Exception as e:
+            print(f"❌ Automation workflow run encountered an exception: {e}")
+            try:
+                save_knowledge_base(knowledge)
+            except:
+                pass
+        finally:
+            await context.close()
+            await browser.close()
+
 if __name__ == "__main__":
-        asyncio.run(run_ai_automation())
+    asyncio.run(run_ai_automation())
+
                                         
