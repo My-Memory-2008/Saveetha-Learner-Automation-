@@ -5652,7 +5652,6 @@ async def run_ai_automation():
             knowledge["completed_topics"][subject_code].append(target_topic_name)
             save_knowledge_base(knowledge)
             await page.screenshot(path="step3_entered_room.png")
-
             instructor_prompt_string = await capture_instructor_question_via_api(page, target_element, card_text_clean)
             snap_path = "genesis_chat_message.png"
             await page.screenshot(path=snap_path)
@@ -5667,7 +5666,9 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar'))).map(el => el.innerText.trim());")
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
+                    ".map(el => el.innerText.trim());"
+                )
                 
                 if isinstance(messages_data, list):
                     for msg in messages_data:
@@ -5700,17 +5701,20 @@ async def run_ai_automation():
                             print(f"🤖 Formulated Followup Response: '{followup_answer}'")
                             await send_chat_message(page, followup_answer)
                             if os.path.exists(reply_frame): os.remove(reply_frame)
-                            # Run cookie state preservation non-blockingly in background task shell to ensure zero thread lag
+                            
                             asyncio.create_task(context.storage_state(path=COOKIE_FILE))
-                            break
-             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
-             await context.storage_state(path=COOKIE_FILE)
+                            break 
+
+            print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+            await context.storage_state(path=COOKIE_FILE)
+
         except Exception as e:
-                print(f"❌ Automation workflow run encountered an exception: {e}")
-                try: save_knowledge_base(knowledge)
-                except: pass
+            print(f"❌ Automation workflow run encountered an exception: {e}")
+            try: save_knowledge_base(knowledge)
+            except: pass
         finally:
-                await context.close()
-                browser.close()
+            await context.close()
+            browser.close()
+
 if __name__ == "__main__":
-        asyncio.run(run_ai_automation())
+    asyncio.run(run_ai_automation())
