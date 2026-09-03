@@ -6127,17 +6127,16 @@ async def run_ai_automation():
                                     if os.path.exists(reply_frame):os.remove(reply_frame)
                                     asyncio.create_task(context.storage_state(path=COOKIE_FILE))
                                     break
-                except:
-                        continue
-                print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
-                await context.storage_state(path=COOKIE_FILE)
-        except Exception as e:
-                print(f"❌ Automation workflow run encountered an exception: {e}")
-                try:save_knowledge_base(knowledge)
-                except:pass
-        finally:
-                await context.close()
-                await browser.close()
+                
+                        print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
+                        await context.storage_state(path=COOKIE_FILE)
+                  except Exception as e:
+                        print(f"❌ Automation workflow run encountered an exception: {e}")
+                        try:save_knowledge_base(knowledge)
+                        except:pass
+                  finally:
+                        await context.close()
+                        await browser.close()
 if __name__ == "__main__":
         asyncio.run(run_ai_automation())
                                         
