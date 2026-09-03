@@ -5666,44 +5666,80 @@ async def run_ai_automation():
             )
             initial_answer = await ask_qwen(ai_prompt, snap_path)
             
-            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer)  el.innerText && (el.innerText.includes('Scholar') || el.innerText.includes('scholar')))"
-                    ".map(el => el.innerText.trim());"
+            if "SYSTEM_ERROR_SIGNAL" in initial_answer or len(initial_answer) < 5:
+                print("⚠️ Vision failed on prompt engine. Requesting fallback text compilation...")
+                text_prompt = (
+                    f"Answer this technical question carefully: '{instructor_prompt_string}'. "
+                    "STRICT RULE: Output only the explanation directly. Do not include greetings or prefaces. Use a conversational human tone."
                 )
+                initial_answer = await ask_qwen(text_prompt)
+            
+            print(f"🤖 Final Direct Answer Token:\n'{initial_answer}'\n")
+            if os.path.exists(snap_path): os.remove(snap_path)
+
+            await send_chat_message(page, initial_answer)
+
+            print("⏳ Entering Speaker-Identity Sentinel Loop. Monitoring Scholar activity every 2 seconds...")
+            monitor_start_time = time.time()
+            processed_scholar_signatures = set()
+            last_logged_minute = -1
+
+            while (time.time() - monitor_start_time) < two_hours_in_seconds:
+                current_elapsed = time.time() - monitor_start_time
+                remaining_minutes = (two_hours_in_seconds - current_elapsed) / 60
+                current_minute_floor = int(remaining_minutes)
                 
-                if isinstance(messages_data, list):
-                    for msg in messages_data:
-                        if not msg: continue
-                        msg_sig = "".join(msg.split())[-60:]
+                if current_minute_floor % 5 == 0 and current_minute_floor != last_logged_minute:
+                    print(f"🔄 Surveillance Engine Status Ticker: {remaining_minutes:.1f} minutes remaining...")
+                    last_logged_minute = current_minute_floor
+
+                await page.evaluate("let chatDiv = document.querySelector('.chat-history, .message-list-container, main, div[style*=\"overflow-y\"]'); if(chatDiv) { chatDiv.scrollTop = chatDiv.scrollHeight; }")
+                await asyncio.sleep(2)
+                
+                # ✅ FIX: Simple, clean element extraction loop that bypasses complex line syntax entirely
+                messages_data = []
+                try:
+                    elements = await page.query_selector_all(".message, .chat-item, li, div")
+                    for el in elements:
+                        txt = (await el.inner_text()).strip()
+                        if txt and ("Scholar" in txt or "scholar" in txt):
+                            messages_data.append(txt)
+                except:
+                    pass
+                
+                for msg in messages_data:
+                    if not msg: continue
+                    msg_sig = "".join(msg.split())[-60:]
+                    
+                    if msg_sig not in processed_scholar_signatures and any(keyword in msg.lower() for keyword in ["scholar", "teaching assistant"]):
+                        print(f"\n🚨 SENTINEL INTERCEPT: Scholar published a fresh feedback node!\nPayload text content:\n'{msg[:150]}...'")
+                        processed_scholar_signatures.add(msg_sig)
                         
-                        if msg_sig not in processed_scholar_signatures and any(keyword in msg.lower() for keyword in ["scholar", "teaching assistant"]):
-                            print(f"\n🚨 SENTINEL INTERCEPT: Scholar published a fresh feedback node!\nPayload text content:\n'{msg[:150]}...'")
-                            processed_scholar_signatures.add(msg_sig)
-                            
-                            reply_frame = "target_reply_context.png"
-                            await page.screenshot(path=reply_frame)
-                            
-                            followup_prompt = (
-                                f"An AI Teaching Assistant named Scholar has just published a feedback evaluation on your work. "
-                                f"Review their statement text carefully: '{msg}'. "
-                                f"Formulate a precise, brief follow-up technical response addressing their feedback or instruction directly. "
-                                f"STRICT RULE: Output your answer directly in a natural conversational human tone. No introductions or greetings."
+                        reply_frame = "target_reply_context.png"
+                        await page.screenshot(path=reply_frame)
+                        
+                        followup_prompt = (
+                            f"An AI Teaching Assistant named Scholar has just published a feedback evaluation on your work. "
+                            f"Review their statement text carefully: '{msg}'. "
+                            f"Formulate a precise, brief follow-up technical response addressing their feedback or instruction directly. "
+                            f"STRICT RULE: Output your answer directly in a natural conversational human tone. No introductions or greetings."
+                        )
+                        followup_answer = await ask_qwen(followup_prompt, reply_frame)
+                        
+                        if "SYSTEM_ERROR_SIGNAL" in followup_answer:
+                            print("⚠️ Vision channel busy. Processing fallback textual synthesis chain...")
+                            fallback_prompt = (
+                                f"An AI Assistant named Scholar just submitted feedback on your student response board: '{msg}'. "
+                                f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
                             )
-                            followup_answer = await ask_qwen(followup_prompt, reply_frame)
+                            followup_answer = await ask_qwen(fallback_prompt)
                             
-                            if "SYSTEM_ERROR_SIGNAL" in followup_answer:
-                                print("⚠️ Vision channel busy. Processing fallback textual synthesis chain...")
-                                fallback_prompt = (
-                                    f"An AI Assistant named Scholar just submitted feedback on your student response board: '{msg}'. "
-                                    f"Compose a highly professional, brief follow-up answer addressing their statement directly in a conversational human tone. No greetings."
-                                )
-                                followup_answer = await ask_qwen(fallback_prompt)
-                                
-                            print(f"🤖 Formulated Followup Response: '{followup_answer}'")
-                            await send_chat_message(page, followup_answer)
-                            if os.path.exists(reply_frame): os.remove(reply_frame)
-                            
-                            asyncio.create_task(context.storage_state(path=COOKIE_FILE))
-                            break 
+                        print(f"🤖 Formulated Followup Response: '{followup_answer}'")
+                        await send_chat_message(page, followup_answer)
+                        if os.path.exists(reply_frame): os.remove(reply_frame)
+                        
+                        asyncio.create_task(context.storage_state(path=COOKIE_FILE))
+                        break 
 
             print("🏁 Finished 2-Hour continuous discussion tracker sequence step successfully.")
             await context.storage_state(path=COOKIE_FILE)
@@ -5718,3 +5754,5 @@ async def run_ai_automation():
 
 if __name__ == "__main__":
     asyncio.run(run_ai_automation())
+
+            
