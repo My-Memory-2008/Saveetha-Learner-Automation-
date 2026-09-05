@@ -224,25 +224,56 @@ jobs:
     #     fi
 
 
+    # - name: Push Topic Lock and Step Diagnostics to Repository Memory
+    #   if: always()
+    #   run: |
+    #     git config --global user.name "github-actions[bot]"
+    #     git config --global user.email "41898282+github-actions[bot]@://github.com"
+        
+    #     # ✅ FIXED: Tracks strictly the JSON progress database file, leaving all screenshots out
+    #     git add complete-interact.json 2>/dev/null || true
+        
+    #     if ! git diff-index --quiet HEAD; then
+    #       git commit -m "🔒 AI Perpetual Loop Sync: Claim logged to tracker file root"
+          
+    #       # Force download updates and auto-merge modifications cleanly to bypass non-fast-forward push rejections
+    #       git fetch origin main
+    #       git merge origin/main -X theirs --allow-unrelated-histories -m "🔄 Merge branch tracking updates to baseline"
+          
+    #       # Securely push directly to your main execution deployment branch
+    #       git push origin HEAD:main
+    #       echo "✅ Complete-interact.json updated and stored safely in repo root!"
+    #     fi
+
+
     - name: Push Topic Lock and Step Diagnostics to Repository Memory
       if: always()
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@://github.com"
+        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
         
-        # ✅ FIXED: Tracks strictly the JSON progress database file, leaving all screenshots out
+        # Explicitly stage the progress tracking database file
         git add complete-interact.json 2>/dev/null || true
         
         if ! git diff-index --quiet HEAD; then
           git commit -m "🔒 AI Perpetual Loop Sync: Claim logged to tracker file root"
           
-          # Force download updates and auto-merge modifications cleanly to bypass non-fast-forward push rejections
+          # ✅ FIX: Fetch latest tree modifications safely
           git fetch origin main
-          git merge origin/main -X theirs --allow-unrelated-histories -m "🔄 Merge branch tracking updates to baseline"
+          
+          # ✅ FIX WORKAROUND: Stash the conflicting local memory state to clear the tree path
+          git stash 2>/dev/null || true
+          
+          # Pull down updates and resolve conflict maps by favoring local progress log points
+          git merge origin/main -X ours --allow-unrelated-histories -m "🔄 Resolve branch alignment conflicts cleanly"
+          
+          # Re-apply the progress file modifications on top of the merged baseline tree 
+          git stash pop 2>/dev/null || true
+          git add complete-interact.json 2>/dev/null || true
           
           # Securely push directly to your main execution deployment branch
           git push origin HEAD:main
-          echo "✅ Complete-interact.json updated and stored safely in repo root!"
+          echo "✅ Database state saved cleanly without cookie overwriting file loop errors!"
         fi
 
 
