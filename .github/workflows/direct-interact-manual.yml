@@ -107,7 +107,7 @@ on:
         default: 'https://learner.saveetha.in/academics/studentsubjects/1636/'
 
 concurrency:
-  group: sync-repository-state
+  group: sync-repository-state-manual-${{ github.run_id }}
   cancel-in-progress: false
 
 permissions:
