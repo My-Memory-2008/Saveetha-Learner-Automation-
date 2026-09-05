@@ -228,21 +228,23 @@ jobs:
       if: always()
       run: |
         git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
+        git config --global user.email "41898282+github-actions[bot]@://github.com"
         
-        git add complete-interact.json cookies.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
+        # ✅ FIXED: Tracks strictly the JSON progress database file, leaving all screenshots out
+        git add complete-interact.json 2>/dev/null || true
         
         if ! git diff-index --quiet HEAD; then
-          git commit -m "🔒 AI Perpetual Loop Sync: Claim logged & cookie token lifespan extended"
+          git commit -m "🔒 AI Perpetual Loop Sync: Claim logged to tracker file root"
           
-          # ✅ WORKAROUND: Force download updates and auto-merge modifications cleanly
+          # Force download updates and auto-merge modifications cleanly to bypass non-fast-forward push rejections
           git fetch origin main
           git merge origin/main -X theirs --allow-unrelated-histories -m "🔄 Merge branch tracking updates to baseline"
           
           # Securely push directly to your main execution deployment branch
           git push origin HEAD:main
-          echo "✅ Token session extended and changes saved straight back to main repository branch!"
+          echo "✅ Complete-interact.json updated and stored safely in repo root!"
         fi
+
 
 
     # ✅ FIXED STEP: Captures your new files and packages them into a visible, downloadable bundle at the bottom of the run page
