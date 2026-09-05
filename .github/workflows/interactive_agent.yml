@@ -259,3 +259,12 @@ jobs:
           step3_entered_room.png
           live_chat_view.png
 
+
+    - name: Execute Scheduler to Trigger Restart Loop
+      if: always()
+      env:
+        # Provide the GitHub token so scheduler.py can trigger restart.yml via the 'gh' CLI
+        GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        echo "Starting scheduler.py to pause for 2 minutes and trigger restart.yml..."
+        python scheduler-interact.py
