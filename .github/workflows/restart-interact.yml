@@ -18,14 +18,14 @@ jobs:
 
       - name: Wait 1 minute before triggering interactive-agent.yml
         run: |
-          echo "Waiting 60 seconds before triggering interactive-agent.yml..."
+          echo "Waiting 60 seconds before triggering interactive_agent.yml..."
           sleep 60
 
-      - name: Trigger interactive-agent.yml with Retries
+      - name: Trigger interactive_agent.yml with Retries
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          echo "Triggering interactive-agent.yml on branch/tag: ${{ github.ref_name }}"
+          echo "Triggering interactive_agent.yml on branch/tag: ${{ github.ref_name }}"
           
           MAX_ATTEMPTS=10
           ATTEMPT=1
@@ -34,8 +34,8 @@ jobs:
           while [ $ATTEMPT -le $MAX_ATTEMPTS ]; do
             echo "Attempt $ATTEMPT of $MAX_ATTEMPTS..."
             
-            if gh workflow run interactive-agent.yml --ref "${{ github.ref_name }}"; then
-              echo "interactive-agent.yml triggered successfully."
+            if gh workflow run interactive_agent.yml --ref "${{ github.ref_name }}"; then
+              echo "interactive_agent.yml triggered successfully."
               SUCCESS=true
               break
             else
@@ -50,7 +50,7 @@ jobs:
           done
           
           if [ "$SUCCESS" = false ]; then
-            echo "Error: Failed to trigger interactive-agent.yml after $MAX_ATTEMPTS attempts."
+            echo "Error: Failed to trigger interactive_agent.yml after $MAX_ATTEMPTS attempts."
             exit 1
           fi
           
