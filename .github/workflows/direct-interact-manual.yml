@@ -1,3 +1,101 @@
+# name: Execute Interactive Task Agent manualy one time
+
+# on:
+#   workflow_dispatch:
+#     inputs:
+#       target_url:
+#         description: 'Paste the destination page URL link here to execute automation'
+#         required: true
+#         default: 'https://learner.saveetha.in/academics/studentsubjects/1636/'
+
+# concurrency:
+#   group: sync-repository-state
+#   cancel-in-progress: false
+
+# permissions:
+#   contents: write
+#   actions: write
+
+# jobs:
+#   run-task:
+#     runs-on: ubuntu-latest
+
+#     services:
+#       ollama-service:
+#         image: ollama/ollama:latest
+#         ports:
+#           - 11434:11434
+
+#     steps:
+#     - name: Checkout Repository Code
+#       uses: actions/checkout@v4
+#       with:
+#         token: ${{ secrets.GITHUB_TOKEN }}
+#         persist-credentials: true
+#         fetch-depth: 0
+
+#     - name: Configure Python Machine Environment
+#       uses: actions/setup-python@v5
+#       with:
+#         python-version: '3.12'
+
+#     - name: Install Runtime Library Dependencies
+#       run: |
+#         pip install playwright httpx beautifulsoup4
+#         playwright install chromium
+
+#     - name: Verify Ollama Service and Pull Qwen Vision Model
+#       run: |
+#         curl -s http://localhost:11434
+#         curl -X POST http://localhost:11434/api/pull -d '{"name": "qwen2.5vl:3b", "stream": false}'
+
+#     - name: Execute Task and Immediate Memory Lock
+#       env:
+#           PYTHONUNBUFFERED: "1" 
+#       run: python direct-interact-manual.py "${{ github.event.inputs.target_url }}"
+
+      
+#     - name: Push Topic Lock and Step Diagnostics to Repository Memory
+#       if: always()
+#       run: |
+#         git config --global user.name "github-actions[bot]"
+#         git config --global user.email "41898282+github-actions[bot]@://github.com"
+        
+#         # Track both the status data file and all generated milestone images safely
+#         git add complete-interact.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
+        
+#         if ! git diff-index --quiet HEAD; then
+#           git commit -m "📸 AI Diagnostic Update: Logged step-by-step visual milestone frames"
+#           git pull origin HEAD:${{ github.ref }} --rebase
+#           git push origin HEAD:${{ github.ref }}
+#           echo "✅ Diagnostic state frames successfully saved directly to your repo branch!"
+#         fi
+
+
+
+#      # ✅ FIXED STEP: Captures your new files and packages them into a visible, downloadable bundle at the bottom of the run page
+#     - name: Securely Store Step-by-Step Diagnostic Artifacts
+#       if: always()
+#       uses: actions/upload-artifact@v4
+#       with:
+#         name: chat-execution-diagnostics
+#         path: |
+#           complete-interact.json
+#           step0_landing_page.png
+#           step1_clicked_chat.png
+#           step2_clicked_discussion.png
+#           step3_entered_room.png
+#           live_chat_view.png
+
+
+    
+
+
+
+
+
+
+
 name: Execute Interactive Task Agent manualy one time
 
 on:
@@ -54,38 +152,14 @@ jobs:
           PYTHONUNBUFFERED: "1" 
       run: python direct-interact-manual.py "${{ github.event.inputs.target_url }}"
 
-      
-    - name: Push Topic Lock and Step Diagnostics to Repository Memory
-      if: always()
-      run: |
-        git config --global user.name "github-actions[bot]"
-        git config --global user.email "41898282+github-actions[bot]@://github.com"
-        
-        # Track both the status data file and all generated milestone images safely
-        git add complete-interact.json step0_landing_page.png step1_clicked_chat.png step2_clicked_discussion.png step3_entered_room.png 2>/dev/null || true
-        
-        if ! git diff-index --quiet HEAD; then
-          git commit -m "📸 AI Diagnostic Update: Logged step-by-step visual milestone frames"
-          git pull origin HEAD:${{ github.ref }} --rebase
-          git push origin HEAD:${{ github.ref }}
-          echo "✅ Diagnostic state frames successfully saved directly to your repo branch!"
-        fi
-
-
-
-     # ✅ FIXED STEP: Captures your new files and packages them into a visible, downloadable bundle at the bottom of the run page
+    # ✅ FIXED STEP: Captures your new files and packages them into a visible, downloadable bundle at the bottom of the run page without risking Git non-fast-forward merge clashes
     - name: Securely Store Step-by-Step Diagnostic Artifacts
       if: always()
       uses: actions/upload-artifact@v4
       with:
         name: chat-execution-diagnostics
         path: |
-          complete-interact.json
           step0_landing_page.png
           step1_clicked_chat.png
           step2_clicked_discussion.png
           step3_entered_room.png
-          live_chat_view.png
-
-
-    
