@@ -76399,26 +76399,90 @@
       "section_name": "Sub-System Node Channel",
       "functional_analysis": "### Page Layout and Functionality Analysis\n\n#### 1. Page Structure and Functionality\nThe page is a login page for the Saveetha Engineering College's student portal. It is designed to handle user authentication and session management. The page includes the following key elements:\n\n1. **Header Section:**\n   - **Login Status:** The top right corner indicates that the user is not logged in, with a \"Log in\" link.\n   - **Main Content Area:** The main content area is where the user can log in or continue with their session.\n\n2. **Main Content Area:**\n   - **Title:** \"Saveetha Engineering College\"\n   - **Navigation Links:** A \"Home\" link is present, likely for navigation purposes.\n   - **Error Message:** A message indicating that the session has likely timed out and prompting the user to log in again.\n   - **Continue Button:** A \"Continue\" button, which likely allows the user to bypass the login process and proceed with their session.\n\n3. **Footer Section:**\n   - **Login Status:** The footer also indicates that the user is not logged in, with a \"Log in\" link.\n   - **Additional Links:** Links for \"Home,\" \"Data retention summary,\" and \"Get the mobile app.\"\n\n#### 2. Data Element Blocks and Variable Values\n1. **Session Management:**\n   - **Session Timeout:** The page indicates that the session has likely timed out, prompting the user to log in again.\n   - **Session ID:** The session ID is not explicitly shown, but it is implied to be part of the URL parameters.\n\n2. **URL Parameters:**\n   - **Session Key:** `I5u58KsT6X`\n   - **Session ID:** `19627`\n   - **Redirect URL:** `https://lms2.ai.saveetha.in/user/profile.php?id=1`\n\n3. **User Interaction:**\n   - **Login Button:** The \"Log in\" link in the header and footer.\n   - **Continue Button:** The \"Continue\" button in the main content area.\n\n#### 3. Structural Functionality\n1. **Session Management:**\n   - The page uses session management to handle user authentication. When a user logs in, their session is established, and they are redirected to the main content area. If the session times out, the user is prompted to log in again.\n\n2. **User Interaction:**\n   - **Login Process:** Users can log in using the \"Log in\" link in the header and footer. If they are already logged in, they can continue with their session using the \"Continue\" button.\n   - **Session Bypass:** The \"Continue\" button allows users to bypass the login process and proceed with their session, which is useful for maintaining user sessions in certain applications.\n\n3. **URL Parameters:**\n   - The URL parameters (`I5u58KsT6X` and `19627`) are used to manage the session and redirect the user to the appropriate page (`user/profile.php?id=1`).\n\n4. **Footer Links:**\n   - The footer links provide additional navigation options, such as going to the home page, viewing the data retention summary, and accessing the mobile app.\n\n### Summary\nThis page is designed to handle user authentication and session management for the Saveetha Engineering College's student portal. It uses session management to ensure that users are logged in and can continue with their session, or it prompts them to log in again if their session has timed out. The page also includes additional navigation links for user convenience.",
       "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D19168&sesskey=I5u58KsT6X": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Login/Logout**: The page prompts the user to log in or log out. The user can click on \"Log in\" to access the login page.\n- **Session Management**: The page indicates that the session has timed out and suggests logging in again. This is likely a security measure to prevent unauthorized access.\n- **Session Timeout Handling**: The user can choose to \"Continue\" to proceed with the session timeout.\n\n#### 2. Data Element Blocks and Table Structure\n- **Header Section**:\n  - **Top Bar**: Contains the user's session status and login link.\n  - **Main Header**: Displays the institution's name, \"Saveetha Engineering College.\"\n  - **Navigation Menu**: Lists available links such as \"Home.\"\n\n- **Main Content Area**:\n  - **Error Message**: \"Your session has most likely timed out. Please log in again.\"\n  - **Continue Button**: A button to proceed with the session timeout.\n\n- **Footer Section**:\n  - **Footer Links**: Provides links to \"Home,\" \"Data retention summary,\" and \"Get the mobile app.\"\n\n#### 3. Structural Functionality\n- **User Authentication**: The page ensures that users are logged in before accessing sensitive information. This is crucial for maintaining security and preventing unauthorized access.\n- **Session Management**: The timeout message and the \"Continue\" button are designed to handle session expiration gracefully, allowing users to log back in without losing their progress.\n- **User Interface**: The layout is designed to be user-friendly, with clear instructions and buttons to guide the user through the process of logging in or continuing with the session.\n\n### Detailed Breakdown\n\n#### Header Section\n- **Top Bar**: \n  - **Session Status**: Displays whether the user is logged in or not.\n  - **Login Link**: Provides a direct path to the login page.\n- **Main Header**:\n  - **Institution Name**: \"Saveetha Engineering College.\"\n- **Navigation Menu**:\n  - **Links**: \"Home,\" \"Data retention summary,\" and \"Get the mobile app.\"\n\n#### Main Content Area\n- **Error Message**:\n  - **Text**: \"Your session has most likely timed out. Please log in again.\"\n- **Continue Button**:\n  - **Text**: \"Continue\"\n  - **Function**: Allows the user to proceed with the session timeout.\n\n#### Footer Section\n- **Footer Links**:\n  - **Home**: Directs the user to the main page.\n  - **Data retention summary**: Provides information about data retention.\n  - **Get the mobile app**: Offers a link to download the mobile app.\n\n### Conclusion\nThis page is designed to manage user sessions and ensure security by prompting users to log in or continue with the session timeout. The layout is structured to guide users through the necessary actions, ensuring a smooth user experience while maintaining system security.",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D449&sesskey=I5u58KsT6X": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Page Structure and Functionality\nThe page is a login page for the Saveetha Engineering College's student portal. It is designed to handle user authentication and session management. The page includes the following key elements:\n\n1. **Header Section**:\n   - **Login Status**: Displays a message indicating that the user is not logged in, with a \"Log in\" link.\n   - **Main Content Area**: Contains the main content of the page, which is the login form and error message.\n\n2. **Main Content Area**:\n   - **Title**: \"Saveetha Engineering College\"\n   - **Navigation Menu**: Contains a \"Home\" link.\n   - **Error Message**: Displays a message indicating that the session has timed out and prompts the user to log in again.\n   - **Continue Button**: A button to proceed with the login process.\n\n3. **Footer Section**:\n   - **Login Status**: Displays a message indicating that the user is not logged in, with a \"Log in\" link.\n   - **Additional Links**: Links to \"Home\", \"Data retention summary\", and \"Get the mobile app\".\n\n#### 2. Data Elements and Variables\nThe page contains the following data elements and variables:\n\n1. **Session Timeout Message**:\n   - **Message**: \"Your session has most likely timed out. Please log in again.\"\n   - **Variable**: `session_timeout_message` = \"Your session has most likely timed out. Please log in again.\"\n\n2. **Continue Button**:\n   - **Text**: \"Continue\"\n   - **Variable**: `continue_button_text` = \"Continue\"\n\n3. **Login Status Message**:\n   - **Message**: \"You are not logged in. (Log in)\"\n   - **Variable**: `login_status_message` = \"You are not logged in. (Log in)\"\n\n4. **Additional Links**:\n   - **Home**: \"Home\"\n   - **Data retention summary**: \"Data retention summary\"\n   - **Get the mobile app**: \"Get the mobile app\"\n\n#### 3. Structural Functionality\nThe page serves the following broader system functions:\n\n1. **User Authentication**:\n   - The page handles user authentication by checking if the user is logged in. If not, it prompts the user to log in.\n   - The \"Log in\" link in the header and footer provides a direct way for users to log in.\n\n2. **Session Management**:\n   - The page checks for session timeouts and displays a message if the session has timed out.\n   - The \"Continue\" button allows users to proceed with the login process, which is essential for maintaining user sessions.\n\n3. **User Interface**:\n   - The page provides a clean and user-friendly interface for users to log in or continue with their session.\n   - The footer contains additional links for users to navigate to other parts of the system, such as the home page, data retention summary, and mobile app.\n\n4. **Error Handling**:\n   - The page handles session timeouts by displaying a clear error message and prompting the user to log in again.\n   - The \"Continue\" button allows users to bypass the error message and proceed with the login process.\n\n### Summary\nThe page is designed to manage user authentication and session management for the Saveetha Engineering College's student portal. It provides a clear and user-friendly interface for users to log in or continue with their session, and handles session timeouts by displaying appropriate error messages and allowing users to proceed with the login process.",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/info.php?id=449#maincontent": {
+      "section_name": "Skip to main content",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/info.php?id=449#sb-1": {
+      "section_name": "Skip Navigation",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=1#maincontent": {
+      "section_name": "Skip to main content",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=0": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=1#": {
+      "section_name": "2\nPage 2",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/view.php?id=183": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/info.php?id=183": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/view.php?id=182": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/info.php?id=182": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/view.php?id=181": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/info.php?id=181": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/view.php?id=180": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### 1. Actions and Transactional Parameters\n\nThis page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:\n\n- **Username and Password Entry**: Users need to enter their username and password to log in.\n- **Login Button**: Clicking this button will attempt to authenticate the user.\n- **Forgot Password**: Users can click this link to reset their password if they have forgotten it.\n- **Account Type**: Users can choose to log in using their account on the SEC Workspace.\n- **Guest Access**: Users can access some courses as a guest if their account allows it.\n\n### 2. Data Element Blocks\n\n1. **Login Form**:\n   - **Username Field**: A text input field for the username.\n   - **Password Field**: A text input field for the password.\n   - **Login Button**: A blue button labeled \"Log in\" to submit the login form.\n   - **Forgot Password Link**: A link labeled \"Lost password?\" for password reset.\n\n2. **Account Type Selection**:\n   - **SEC Workspace**: A text input field for selecting the workspace.\n\n3. **Guest Access Option**:\n   - **Access as a Guest Button**: A button to access courses as a guest.\n\n4. **Additional Information**:\n   - **Cookies Notice**: A link to the cookies notice.\n\n### 3. Structural Functionality\n\nThis layout segment serves the wider system functions by:\n\n1. **User Authentication**: Ensures that only authorized users can access the system.\n2. **Account Management**: Provides options for users to reset their passwords or access their accounts.\n3. **Course Access**: Allows users to access specific courses either as a regular user or as a guest.\n4. **User Experience**: Provides a clean and user-friendly interface for logging in and managing account details.\n\n### 4. Security Considerations\n\n- **Password Storage**: The system likely stores passwords in a secure manner, such as hashing and salting.\n- **Two-Factor Authentication**: The system may offer two-factor authentication for added security.\n- **Error Handling**: The system should handle errors gracefully, such as displaying error messages if login credentials are incorrect.\n\n### 5. Accessibility\n\n- **Screen Reader Support**: The page should be designed to be accessible to users with screen readers, ensuring that all interactive elements are properly labeled.\n- **Keyboard Navigation**: The layout should be designed to allow users to navigate the page using only a keyboard, ensuring that all interactive elements are accessible.\n\n### 6. Performance\n\n- **Page Load Time**: The page should load quickly to ensure a smooth user experience.\n- **Resource Optimization**: The page should optimize resources to reduce load times and improve performance.\n\n### 7. User Experience\n\n- **User Feedback**: The page should provide clear feedback to users, such as error messages or success messages, to guide them through the login process.\n- **User Interface Design**: The layout should be designed with a clean and modern interface to enhance user experience.\n\nBy understanding these elements and their functions, the system can be improved to better serve the needs of the students and ensure a secure and user-friendly login experience.",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/info.php?id=180": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://lms2.ai.saveetha.in/course/view.php?id=179": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
     }
   },
   "site_structure": [],
   "queue": [
-    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D19168&sesskey=I5u58KsT6X",
-    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D449&sesskey=I5u58KsT6X",
-    "https://lms2.ai.saveetha.in/course/info.php?id=449#maincontent",
-    "https://lms2.ai.saveetha.in/course/info.php?id=449#sb-1",
-    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=1#maincontent",
-    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=0",
-    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=1#",
-    "https://lms2.ai.saveetha.in/course/view.php?id=183",
-    "https://lms2.ai.saveetha.in/course/info.php?id=183",
-    "https://lms2.ai.saveetha.in/course/view.php?id=182",
-    "https://lms2.ai.saveetha.in/course/info.php?id=182",
-    "https://lms2.ai.saveetha.in/course/view.php?id=181",
-    "https://lms2.ai.saveetha.in/course/info.php?id=181",
-    "https://lms2.ai.saveetha.in/course/view.php?id=180",
-    "https://lms2.ai.saveetha.in/course/info.php?id=180",
-    "https://lms2.ai.saveetha.in/course/view.php?id=179",
     "https://lms2.ai.saveetha.in/course/info.php?id=179",
     "https://lms2.ai.saveetha.in/course/view.php?id=178",
     "https://lms2.ai.saveetha.in/course/info.php?id=178",
@@ -79421,7 +79485,26 @@
     "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D26155&sesskey=I5u58KsT6X#maincontent",
     "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D26907&sesskey=I5u58KsT6X#maincontent",
     "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D12141&sesskey=I5u58KsT6X#maincontent",
-    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D19627&sesskey=I5u58KsT6X#maincontent"
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D19627&sesskey=I5u58KsT6X#maincontent",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D449&sesskey=I5u58KsT6X#maincontent",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D19168&sesskey=I5u58KsT6X#maincontent",
+    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=0#maincontent",
+    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=0#",
+    "https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=0#sb-1",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D183&sesskey=jOlAmuuJUA",
+    "https://lms2.ai.saveetha.in/course/info.php?id=183#maincontent",
+    "https://lms2.ai.saveetha.in/course/info.php?id=183#sb-1",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D182&sesskey=jOlAmuuJUA",
+    "https://lms2.ai.saveetha.in/course/info.php?id=182#maincontent",
+    "https://lms2.ai.saveetha.in/course/info.php?id=182#sb-1",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D181&sesskey=jOlAmuuJUA",
+    "https://lms2.ai.saveetha.in/course/info.php?id=181#maincontent",
+    "https://lms2.ai.saveetha.in/user/profile.php?id=17315",
+    "https://lms2.ai.saveetha.in/course/info.php?id=181#sb-1",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D180&sesskey=jOlAmuuJUA",
+    "https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D179&sesskey=jOlAmuuJUA",
+    "https://lms2.ai.saveetha.in/course/info.php?id=180#maincontent",
+    "https://lms2.ai.saveetha.in/course/info.php?id=180#sb-1"
   ],
   "visited": {
     "https://learner.saveetha.in": {

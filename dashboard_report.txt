@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 15280
-**Pending Unexplored Queue Scope:** 3019
+**Total Unique Sub-System Paths Mapped:** 15296
+**Pending Unexplored Queue Scope:** 3022
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -329346,6 +329346,285 @@ The page is a login page for the Saveetha Engineering College's student portal. 
 
 ### Summary
 This page is designed to handle user authentication and session management for the Saveetha Engineering College's student portal. It uses session management to ensure that users are logged in and can continue with their session, or it prompts them to log in again if their session has timed out. The page also includes additional navigation links for user convenience.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fuser%2Fprofile.php%3Fid%3D19168&sesskey=I5u58KsT6X
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Login/Logout**: The page prompts the user to log in or log out. The user can click on "Log in" to access the login page.
+- **Session Management**: The page indicates that the session has timed out and suggests logging in again. This is likely a security measure to prevent unauthorized access.
+- **Session Timeout Handling**: The user can choose to "Continue" to proceed with the session timeout.
+
+#### 2. Data Element Blocks and Table Structure
+- **Header Section**:
+  - **Top Bar**: Contains the user's session status and login link.
+  - **Main Header**: Displays the institution's name, "Saveetha Engineering College."
+  - **Navigation Menu**: Lists available links such as "Home."
+
+- **Main Content Area**:
+  - **Error Message**: "Your session has most likely timed out. Please log in again."
+  - **Continue Button**: A button to proceed with the session timeout.
+
+- **Footer Section**:
+  - **Footer Links**: Provides links to "Home," "Data retention summary," and "Get the mobile app."
+
+#### 3. Structural Functionality
+- **User Authentication**: The page ensures that users are logged in before accessing sensitive information. This is crucial for maintaining security and preventing unauthorized access.
+- **Session Management**: The timeout message and the "Continue" button are designed to handle session expiration gracefully, allowing users to log back in without losing their progress.
+- **User Interface**: The layout is designed to be user-friendly, with clear instructions and buttons to guide the user through the process of logging in or continuing with the session.
+
+### Detailed Breakdown
+
+#### Header Section
+- **Top Bar**: 
+  - **Session Status**: Displays whether the user is logged in or not.
+  - **Login Link**: Provides a direct path to the login page.
+- **Main Header**:
+  - **Institution Name**: "Saveetha Engineering College."
+- **Navigation Menu**:
+  - **Links**: "Home," "Data retention summary," and "Get the mobile app."
+
+#### Main Content Area
+- **Error Message**:
+  - **Text**: "Your session has most likely timed out. Please log in again."
+- **Continue Button**:
+  - **Text**: "Continue"
+  - **Function**: Allows the user to proceed with the session timeout.
+
+#### Footer Section
+- **Footer Links**:
+  - **Home**: Directs the user to the main page.
+  - **Data retention summary**: Provides information about data retention.
+  - **Get the mobile app**: Offers a link to download the mobile app.
+
+### Conclusion
+This page is designed to manage user sessions and ensure security by prompting users to log in or continue with the session timeout. The layout is structured to guide users through the necessary actions, ensuring a smooth user experience while maintaining system security.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/auth/oauth2/login.php?id=1&wantsurl=https%3A%2F%2Flms2.ai.saveetha.in%2Fcourse%2Fview.php%3Fid%3D449&sesskey=I5u58KsT6X
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Page Structure and Functionality
+The page is a login page for the Saveetha Engineering College's student portal. It is designed to handle user authentication and session management. The page includes the following key elements:
+
+1. **Header Section**:
+   - **Login Status**: Displays a message indicating that the user is not logged in, with a "Log in" link.
+   - **Main Content Area**: Contains the main content of the page, which is the login form and error message.
+
+2. **Main Content Area**:
+   - **Title**: "Saveetha Engineering College"
+   - **Navigation Menu**: Contains a "Home" link.
+   - **Error Message**: Displays a message indicating that the session has timed out and prompts the user to log in again.
+   - **Continue Button**: A button to proceed with the login process.
+
+3. **Footer Section**:
+   - **Login Status**: Displays a message indicating that the user is not logged in, with a "Log in" link.
+   - **Additional Links**: Links to "Home", "Data retention summary", and "Get the mobile app".
+
+#### 2. Data Elements and Variables
+The page contains the following data elements and variables:
+
+1. **Session Timeout Message**:
+   - **Message**: "Your session has most likely timed out. Please log in again."
+   - **Variable**: `session_timeout_message` = "Your session has most likely timed out. Please log in again."
+
+2. **Continue Button**:
+   - **Text**: "Continue"
+   - **Variable**: `continue_button_text` = "Continue"
+
+3. **Login Status Message**:
+   - **Message**: "You are not logged in. (Log in)"
+   - **Variable**: `login_status_message` = "You are not logged in. (Log in)"
+
+4. **Additional Links**:
+   - **Home**: "Home"
+   - **Data retention summary**: "Data retention summary"
+   - **Get the mobile app**: "Get the mobile app"
+
+#### 3. Structural Functionality
+The page serves the following broader system functions:
+
+1. **User Authentication**:
+   - The page handles user authentication by checking if the user is logged in. If not, it prompts the user to log in.
+   - The "Log in" link in the header and footer provides a direct way for users to log in.
+
+2. **Session Management**:
+   - The page checks for session timeouts and displays a message if the session has timed out.
+   - The "Continue" button allows users to proceed with the login process, which is essential for maintaining user sessions.
+
+3. **User Interface**:
+   - The page provides a clean and user-friendly interface for users to log in or continue with their session.
+   - The footer contains additional links for users to navigate to other parts of the system, such as the home page, data retention summary, and mobile app.
+
+4. **Error Handling**:
+   - The page handles session timeouts by displaying a clear error message and prompting the user to log in again.
+   - The "Continue" button allows users to bypass the error message and proceed with the login process.
+
+### Summary
+The page is designed to manage user authentication and session management for the Saveetha Engineering College's student portal. It provides a clear and user-friendly interface for users to log in or continue with their session, and handles session timeouts by displaying appropriate error messages and allowing users to proceed with the login process.
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=449#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip Navigation
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=449#sb-1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Skip to main content
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=1#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=0
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 2
+Page 2
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=21&browse=courses&perpage=20&page=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=183
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=183
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=182
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=182
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=181
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=181
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=180
+### Structural Analysis Breakdown:
+### 1. Actions and Transactional Parameters
+
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button will attempt to authenticate the user.
+- **Forgot Password**: Users can click this link to reset their password if they have forgotten it.
+- **Account Type**: Users can choose to log in using their account on the SEC Workspace.
+- **Guest Access**: Users can access some courses as a guest if their account allows it.
+
+### 2. Data Element Blocks
+
+1. **Login Form**:
+   - **Username Field**: A text input field for the username.
+   - **Password Field**: A text input field for the password.
+   - **Login Button**: A blue button labeled "Log in" to submit the login form.
+   - **Forgot Password Link**: A link labeled "Lost password?" for password reset.
+
+2. **Account Type Selection**:
+   - **SEC Workspace**: A text input field for selecting the workspace.
+
+3. **Guest Access Option**:
+   - **Access as a Guest Button**: A button to access courses as a guest.
+
+4. **Additional Information**:
+   - **Cookies Notice**: A link to the cookies notice.
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **User Authentication**: Ensures that only authorized users can access the system.
+2. **Account Management**: Provides options for users to reset their passwords or access their accounts.
+3. **Course Access**: Allows users to access specific courses either as a regular user or as a guest.
+4. **User Experience**: Provides a clean and user-friendly interface for logging in and managing account details.
+
+### 4. Security Considerations
+
+- **Password Storage**: The system likely stores passwords in a secure manner, such as hashing and salting.
+- **Two-Factor Authentication**: The system may offer two-factor authentication for added security.
+- **Error Handling**: The system should handle errors gracefully, such as displaying error messages if login credentials are incorrect.
+
+### 5. Accessibility
+
+- **Screen Reader Support**: The page should be designed to be accessible to users with screen readers, ensuring that all interactive elements are properly labeled.
+- **Keyboard Navigation**: The layout should be designed to allow users to navigate the page using only a keyboard, ensuring that all interactive elements are accessible.
+
+### 6. Performance
+
+- **Page Load Time**: The page should load quickly to ensure a smooth user experience.
+- **Resource Optimization**: The page should optimize resources to reduce load times and improve performance.
+
+### 7. User Experience
+
+- **User Feedback**: The page should provide clear feedback to users, such as error messages or success messages, to guide them through the login process.
+- **User Interface Design**: The layout should be designed with a clean and modern interface to enhance user experience.
+
+By understanding these elements and their functions, the system can be improved to better serve the needs of the students and ensure a secure and user-friendly login experience.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=180
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=179
+### Structural Analysis Breakdown:
+API server link offline: 
 
 --•--•--
 
