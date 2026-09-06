@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 14800
-**Pending Unexplored Queue Scope:** 3020
+**Total Unique Sub-System Paths Mapped:** 14816
+**Pending Unexplored Queue Scope:** 3025
 
 ## Portal Path Endpoint: SEC
 - **Direct Link Target:** https://learner.saveetha.in/
@@ -320258,6 +320258,281 @@ API server link offline:
 
 ## Portal Path Endpoint: Skip to main content
 - **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=4&browse=courses&perpage=20&page=2#maincontent
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 3
+Page 3
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/index.php?categoryid=4&browse=courses&perpage=20&page=2#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=254
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=254
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=253
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=253
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=252
+### Structural Analysis Breakdown:
+### 1. Actions and Transactional Parameters
+
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button submits the login credentials to authenticate the user.
+- **Forgot Password**: Links to reset the password if the user forgets it.
+- **Workspace Selection**: Users can choose to log in using their account on the SEC Workspace.
+- **Guest Access**: Option to access some courses as a guest if the user does not have a login account.
+
+### 2. Data Element Blocks
+
+The page contains the following data element blocks:
+
+1. **Login Form**:
+   - **Username Field**: Placeholder text "Username".
+   - **Password Field**: Placeholder text "Password".
+   - **Login Button**: Label "Log in".
+   - **Forgot Password Link**: Text "Lost password?".
+
+2. **Workspace Selection**:
+   - **Workspace Dropdown**: Placeholder text "SEC Workspace".
+
+3. **Guest Access Option**:
+   - **Guest Access Button**: Label "Access as a guest".
+
+4. **Additional Links**:
+   - **Cookies Notice**: Button labeled "Cookies notice".
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **User Authentication**: Ensures that only authorized users can access the system.
+2. **Account Management**: Provides options for users to reset their passwords if they forget them.
+3. **Workspace Integration**: Facilitates access to the SEC Workspace for users who have an account there.
+4. **Guest Access**: Allows users who do not have a login account to access some courses.
+5. **User Experience**: Provides a clean and user-friendly interface for logging in and managing account access.
+
+### 4. Security Considerations
+
+- **Password Storage**: The system likely stores passwords in a secure manner, such as hashing and salting.
+- **Two-Factor Authentication (2FA)**: The system may offer 2FA as an additional security measure.
+- **Data Privacy**: The system ensures that user data is protected and secure.
+
+### 5. Accessibility
+
+- **Screen Reader Support**: The page is designed to be accessible to users with screen readers, with clear labels and structured content.
+- **Keyboard Navigation**: The layout is designed to be navigable using a keyboard, ensuring that users with motor disabilities can access the system.
+
+### 6. Performance
+
+- **Page Load Time**: The page is optimized for performance, ensuring that users can log in quickly without significant delays.
+- **Responsive Design**: The layout is responsive, adapting to different screen sizes and devices.
+
+### 7. User Experience
+
+- **User-Friendly Interface**: The layout is designed to be user-friendly, with clear labels and intuitive navigation.
+- **Error Handling**: The system likely handles errors gracefully, providing clear messages to users if they enter incorrect credentials or encounter other issues.
+
+By understanding these elements and their interactions, the system can ensure a seamless and secure user experience while maintaining the integrity of the data and the system's functionality.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=252
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=251
+### Structural Analysis Breakdown:
+### Home Page Layout Analysis
+
+#### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The specific transactional parameters include:
+- **Username and Password Entry**: Users need to enter their username and password to log in.
+- **Login Button**: Clicking this button submits the login credentials.
+- **Forgot Password**: Links to a password reset page.
+- **Workspace Login**: Allows users to log in using their SEC Workspace credentials.
+- **Guest Access**: Provides an option to access courses as a guest.
+- **Cookies Notice**: A link to the cookies policy.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several data element blocks and tables. Here is a detailed breakdown:
+
+1. **Login Section**:
+   - **Username Field**: A text input field for the username.
+   - **Password Field**: A text input field for the password.
+   - **Login Button**: A blue button labeled "Log in" to submit the login credentials.
+   - **Forgot Password Link**: A link to the password reset page.
+
+2. **Workspace Login Section**:
+   - **Workspace Input Field**: A text input field labeled "SEC Workspace" for entering workspace credentials.
+
+3. **Guest Access Section**:
+   - **Guest Access Button**: A button labeled "Access as a guest" for guest access.
+
+4. **Additional Information**:
+   - **Cookies Notice**: A link to the cookies policy.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Authentication**: Ensures that only authorized users can access the system.
+- **Workspace Integration**: Facilitates access to the SEC Workspace for students.
+- **Guest Access**: Provides flexibility for students who may not have a regular account.
+- **User Experience**: Simplifies the login process by providing clear options and links.
+
+### Detailed Breakdown of Each Section
+
+#### Login Section
+- **Username Field**: 
+  - **Purpose**: Collects the username for authentication.
+  - **Type**: Text input field.
+  - **Label**: "Username".
+
+- **Password Field**:
+  - **Purpose**: Collects the password for authentication.
+  - **Type**: Text input field.
+  - **Label**: "Password".
+
+- **Login Button**:
+  - **Purpose**: Submits the login credentials.
+  - **Label**: "Log in".
+
+- **Forgot Password Link**:
+  - **Purpose**: Provides a link to reset the password.
+  - **Label**: "Forgot password?".
+
+#### Workspace Login Section
+- **Workspace Input Field**:
+  - **Purpose**: Allows students to log in using their SEC Workspace credentials.
+  - **Label**: "SEC Workspace".
+
+#### Guest Access Section
+- **Guest Access Button**:
+  - **Purpose**: Provides an option for students to access courses without a regular account.
+  - **Label**: "Access as a guest".
+
+#### Additional Information
+- **Cookies Notice**:
+  - **Purpose**: Provides information about cookies and privacy settings.
+  - **Label**: "Cookies notice".
+
+### Conclusion
+This login page is designed to manage user authentication and access to the student portal. It includes fields for username and password, a workspace login option, and a guest access feature. The layout is structured to ensure a smooth and secure login experience for students.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=251
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=250
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=250
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=249
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page is designed to control the login process for a student account at Saveetha Engineering College. The primary actions it facilitates are:
+- Logging in using a username and password.
+- Resetting a lost password.
+- Logging in using an account associated with the SEC Workspace.
+- Accessing courses as a guest if guest access is allowed.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several key elements:
+- **Login Form:**
+  - **Username:** A text input field for the username.
+  - **Password:** A text input field for the password.
+  - **Login Button:** A blue button labeled "Log in" to submit the login credentials.
+  - **Forgot Password:** A link labeled "Lost password?" to reset the password.
+  
+- **Account Login:**
+  - **Account Type:** A dropdown or select box labeled "Log in using your account on:" with an option "SEC Workspace."
+
+- **Guest Access:**
+  - **Guest Access Button:** A button labeled "Access as a guest" to allow guest access to courses.
+
+- **Additional Links:**
+  - **Cookies Notice:** A link labeled "Cookies notice" for information about cookies.
+
+#### 3. Structural Role in the Wider System
+This page serves as a critical component of the student portal, ensuring that students can securely access their courses and resources. The login process is essential for maintaining the integrity of the system, allowing only authorized users to access their accounts. The additional options for guest access and account login help in managing user access and ensuring that students can still access their courses even if they do not have a registered account.
+
+The layout is designed to be user-friendly, with clear labels and intuitive navigation. The use of a light background and contrasting colors helps in making the page visually appealing and easy to navigate. The structured approach ensures that the page can handle various user scenarios, from regular login to guest access, and provides a seamless user experience.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=249
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=248
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/info.php?id=248
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://lms2.ai.saveetha.in/course/view.php?id=247
 ### Structural Analysis Breakdown:
 API server link offline: 
 
