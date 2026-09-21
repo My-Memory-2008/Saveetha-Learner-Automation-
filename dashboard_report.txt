@@ -1,123 +1,68 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 2
-**Pending Unexplored Queue Scope:** 0
+**Total Unique Sub-System Paths Mapped:** 1
+**Pending Unexplored Queue Scope:** 1
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
 ### Structural Analysis Breakdown:
 ### Page Overview
-
 The page is a login page for the Saveetha Engineering College Workspace. It is designed to allow students to securely access their academic portal and institutional services. The page is divided into two main sections: the left sidebar and the right login form.
 
-### Left Sidebar
+### Actions and Transactional Parameters
+1. **Sign in**: The user can sign in using their account credentials.
+2. **Access Class Schedules**: The user can access their class schedules and groups.
+3. **Book Campus Events**: The user can book seminars, workshops, and other campus events.
+4. **Request Official Documents**: The user can request official letters and documents.
+5. **Track Academic Progress**: The user can track their mentor guides and academic progress.
 
-1. **Title and Header:**
-   - The title "Welcome to Saveetha Engineering College Workspace" is prominently displayed at the top.
-   - Below the title, there is a brief description: "Securely access your academic portal and institutional services."
-
-2. **Features:**
-   - A list of features is provided, including:
+### Data Element Blocks
+1. **Left Sidebar (Login Form)**
+   - **Title**: "Welcome to Saveetha Engineering College Workspace"
+   - **Subtitle**: "Securely access your academic portal and institutional services."
+   - **List of Features**:
      - Access your class schedules and groups.
      - Book campus events, seminars, and workshops.
      - Request letters and official documents.
      - Track mentor guides and academic progress.
+   - **Authentication Section**:
+     - **Title**: "Authentication"
+     - **Description**: "Secure login using your institutional credentials."
+   - **24/7 Access Section**:
+     - **Title**: "24/7 Access"
+     - **Description**: "Available anytime from campus or home."
 
-3. **Authentication:**
-   - A section titled "Authentication" is present, which states: "Secure login using your institutional credentials."
-
-### Right Login Form
-
-1. **Header:**
-   - The header contains the logo of Saveetha Engineering College.
-
-2. **Sign-in Section:**
-   - The sign-in section is titled "Sign in."
-   - It instructs users to use their account credentials to continue.
-
-3. **Username Field:**
-   - A text input field labeled "Username" is provided for users to enter their username.
-
-4. **Password Field:**
-   - A text input field labeled "Password" is provided for users to enter their password.
-
-5. **Forgot Password?**
-   - A link labeled "Need help?" is provided for users who need assistance with their account.
-
-6. **Submit Button:**
-   - A green button labeled "Sign in" is provided for users to submit their credentials.
-
-7. **Additional Information:**
-   - A note at the bottom of the form states: "By continuing you agree to the latest security and privacy terms."
-
-### Page Structure and Functionality
-
-- **Authentication and Authorization:**
-  - The page is designed to authenticate users using their institutional credentials. This is crucial for ensuring that only authorized students can access the workspace.
-
-- **User Interface:**
-  - The layout is clean and user-friendly, with clear sections for different types of information. The use of bullet points for features and a straightforward sign-in process helps in guiding users through the login process.
-
-- **Security and Privacy:**
-  - The page emphasizes the importance of security and privacy, as indicated by the note at the bottom. This is important for maintaining the integrity and confidentiality of the student's data.
-
-### Conclusion
-
-This page serves as a critical entry point for students to access their academic and institutional resources. The structured layout and clear instructions help in ensuring a smooth and secure login experience. The integration of features such as 24/7 access and the ability to track academic progress further enhances the functionality of the page.
-
---•--•--
-
-## Portal Path Endpoint: Need help?
-- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DIP4YvE7d-oDvnjbxPPuWVg%26nonce%3DxOOaSbAOIVFo_ufzqYjFOg%26code_challenge%3D419DJieK742MyeWLp8d7gM5FKeRXQJJmInNlVvTwFzo%26code_challenge_method%3DS256#
-### Structural Analysis Breakdown:
-This page is the login page for the Saveetha Engineering College Workspace. It is designed to allow students to securely access their academic portal and institutional services. The page is divided into two main sections: the left side with the login form and the right side with additional information about the workspace.
-
-### Actions or Specific Transactional Parameters
-1. **Sign in**: The user can sign in using their credentials.
-2. **Access class schedules and groups**: The user can access their class schedules and groups.
-3. **Book campus events, seminars, and workshops**: The user can book events and workshops.
-4. **Request letters and official documents**: The user can request letters and official documents.
-5. **Track mentor guides and academic progress**: The user can track their mentor guides and academic progress.
-6. **24/7 Access**: The user can access the workspace anytime from campus or home.
-7. **New here? Request access**: The user can request access if they are new to the system.
-8. **Agree to security and privacy terms**: The user must agree to the latest security and privacy terms to continue.
-
-### Data Element Blocks
-1. **Login Form**:
-   - **Username**: A text input field for the username.
-   - **Password**: A text input field for the password.
-   - **Sign in button**: A button to submit the login form.
-   - **Need help?**: A link to get help with the login process.
-
-2. **Additional Information**:
-   - **Authentication**: A section explaining that the login is secure using institutional credentials.
-   - **24/7 Access**: A section explaining that the workspace is available anytime from campus or home.
-   - **New here? Request access**: A link to request access if the user is new to the system.
-   - **Agree to terms**: A link to agree to the security and privacy terms.
+2. **Right Sidebar (Login Form)**
+   - **Header**: "Sign in"
+   - **Instructions**: "Use your account credentials to continue."
+   - **Username Field**: "Username"
+   - **Password Field**: "Password"
+   - **Help Link**: "Need help?"
+   - **Submit Button**: "Sign in"
+   - **Additional Links**:
+     - "New here? Request access"
 
 ### Table Structure
-The page does not contain a table structure. It is a single-page layout with a login form and additional information.
+The page does not contain a traditional table structure. Instead, it uses a combination of text blocks and form fields.
 
 ### Score Layout
-The page is designed to be user-friendly and informative. The login form is prominently displayed, and additional information is provided to help users understand the features of the workspace. The layout is clean and organized, making it easy for users to find the information they need.
+The page is designed to be user-friendly and intuitive. The left sidebar provides a clear overview of the features available, while the right login form is straightforward and easy to use.
 
-### Variable Values
-- **Username**: The username field is empty.
-- **Password**: The password field is empty.
-- **Sign in button**: The sign in button is not clicked.
-- **Need help?**: The link to get help is not clicked.
-- **New here? Request access**: The link to request access is not clicked.
-- **Agree to terms**: The link to agree to the terms is not clicked.
+### Variable Value
+- **Username Field**: The user can enter their username here.
+- **Password Field**: The user can enter their password here.
+- **Submit Button**: The user can click this button to sign in.
 
 ### Structural Functionality
-The page serves the following functions:
-1. **User Authentication**: Allows users to sign in using their credentials.
-2. **Workspace Access**: Provides access to various features such as class schedules, events, documents, and progress tracking.
-3. **Information Provision**: Provides additional information about the workspace and how to request access.
-4. **Security and Privacy**: Ensures that users agree to the security and privacy terms before accessing the workspace.
+1. **User Authentication**: The page serves as a login page for students to authenticate themselves using their institutional credentials.
+2. **Access Control**: The page ensures that only authorized users can access the workspace.
+3. **User Interface**: The page provides a clean and organized user interface, making it easy for students to navigate and access their academic resources.
 
-### Home Analogy
-This page is like a home where the user can manage their personal information, access important documents, and stay connected with their academic community. The login form is like the front door, providing access to the main room of the home, which contains all the necessary information and features. The additional information sections are like the side rooms, providing extra context and support.
+### Security and Privacy
+The page emphasizes security and privacy by requiring users to enter their credentials and by providing a help link for assistance. The page also includes a link to request access for new users, ensuring that all users are aware of the security and privacy terms.
+
+### Conclusion
+The page is designed to be user-friendly and secure, providing students with easy access to their academic resources while ensuring that only authorized users can access the workspace. The left sidebar provides a clear overview of the features available, while the right login form is straightforward and easy to use.
 
 --•--•--
 
