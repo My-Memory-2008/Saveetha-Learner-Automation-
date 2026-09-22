@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1
-**Pending Unexplored Queue Scope:** 1
+**Total Unique Sub-System Paths Mapped:** 2
+**Pending Unexplored Queue Scope:** 0
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -64,6 +64,77 @@ The page is a login page for the Saveetha Engineering College Workspace. It is d
 ### Conclusion
 
 This page serves as a critical entry point for students to access their academic and institutional resources. The structured layout and clear instructions help in ensuring a smooth and secure login experience. The integration of features such as 24/7 access and the ability to track academic progress further enhances the functionality of the page.
+
+--•--•--
+
+## Portal Path Endpoint: Need help?
+- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DRIHQsm2lNkBbb7oEkDp1IQ%26nonce%3DNiuSYvZbWII-w7QQvx4F7g%26code_challenge%3DNyBkXEn1dEUEHNeNHK4Zm3Q3fkViV9GKZzMCSIWaeRg%26code_challenge_method%3DS256#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Page Structure and Functionality
+The page is a login page for the Saveetha Engineering College Workspace. It allows users to sign in using their credentials. The page is divided into two main sections: the left sidebar and the right login form.
+
+- **Left Sidebar:**
+  - **Title:** "Welcome to Saveetha Engineering College Workspace"
+  - **Description:** "Securely access your academic portal and institutional services."
+  - **Features:**
+    - Access your class schedules and groups.
+    - Book campus events, seminars, and workshops.
+    - Request letters and official documents.
+    - Track mentor guides and academic progress.
+  - **Authentication:**
+    - Secure login using your institutional credentials.
+
+- **Right Login Form:**
+  - **Header:**
+    - Logo of Saveetha Engineering College.
+  - **Form Fields:**
+    - **Username:** Input field for username.
+    - **Password:** Input field for password.
+    - **Sign-in Button:** Green button to submit the login form.
+    - **Help Link:** "Need help?" link.
+  - **Additional Information:**
+    - **24/7 Access:** Information about the availability of access.
+    - **New User Link:** "New here?" link with a "Request access" button.
+    - **Agreement Section:** Text indicating that by continuing, users agree to the latest security and privacy terms.
+
+#### 2. Data Elements and Variables
+- **Form Fields:**
+  - **Username:** Text input field.
+  - **Password:** Text input field.
+  - **Sign-in Button:** Submit button.
+  - **Help Link:** "Need help?" link.
+  - **24/7 Access:** Information about availability.
+  - **New User Link:** "New here?" link with a "Request access" button.
+  - **Agreement Section:** Text indicating terms agreement.
+
+- **Variables:**
+  - **Username:** User's username.
+  - **Password:** User's password.
+  - **Access Type:** 24/7 access or new user request.
+  - **Agreement:** Terms of use agreement.
+
+#### 3. Structural Functionality
+- **Login Process:**
+  - Users enter their username and password in the form fields.
+  - Click the "Sign in" button to submit the login form.
+  - If the credentials are correct, the user is logged in.
+  - If incorrect, the user is prompted to try again or seek help.
+
+- **24/7 Access:**
+  - Provides continuous access to the system.
+  - Available from campus or home.
+
+- **New User Request:**
+  - Allows new users to request access to the system.
+  - Provides a link to request access.
+
+- **Agreement Section:**
+  - Ensures users agree to the system's security and privacy terms before proceeding.
+
+### Summary
+This page is designed to facilitate secure and convenient access to the Saveetha Engineering College Workspace. It includes features for both existing users and new users, ensuring a smooth login process and continuous access. The layout is user-friendly, with clear instructions and links for help and new user requests.
 
 --•--•--
 
