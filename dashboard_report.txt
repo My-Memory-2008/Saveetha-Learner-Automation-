@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1
-**Pending Unexplored Queue Scope:** 1
+**Total Unique Sub-System Paths Mapped:** 2
+**Pending Unexplored Queue Scope:** 0
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -64,6 +64,54 @@ The page is a login page for the Saveetha Engineering College Workspace. It is d
 ### Conclusion
 
 This page serves as a critical entry point for students to access their academic and institutional resources. The structured layout and clear instructions help in ensuring a smooth and secure login experience. The integration of features such as 24/7 access and the ability to track academic progress further enhances the functionality of the page.
+
+--•--•--
+
+## Portal Path Endpoint: Need help?
+- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DyBUKwQWCgjoObJidsP6Inw%26nonce%3DOy3fE5t2zEVszC2K_r3QLQ%26code_challenge%3D4XjHSm39Y17NZL9W9jiYtXXgaGKPMnFN6NVdwVACcTY%26code_challenge_method%3DS256#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page is designed to facilitate user authentication and access to the Saveetha Engineering College Workspace. The primary actions and transactional parameters include:
+- **Sign-in**: Users need to enter their username and password to access the system.
+- **24/7 Access**: Users can access the system anytime from campus or home.
+- **Request Access**: Users can request access to the system if they are new to the institution.
+- **Central Auth**: The system uses central authentication for user access.
+
+#### 2. Data Element Blocks and Table Structure
+The page is divided into several key sections:
+- **Header**: Displays the institution's logo and welcome message.
+- **Main Content Area**:
+  - **Left Sidebar**:
+    - **Welcome Message**: "Welcome to Saveetha Engineering College Workspace."
+    - **Features**: Lists the benefits of accessing the system, such as accessing class schedules, booking events, requesting documents, and tracking academic progress.
+  - **Right Sidebar**:
+    - **Sign-in Form**: Contains fields for username and password, a "Sign in" button, and a "Need help?" link.
+    - **Authentication Information**: Provides details about secure login using institutional credentials and 24/7 access.
+    - **Request Access Information**: Links to request access if the user is new to the institution.
+
+#### 3. Score Layout and Variable Values
+- **Score Layout**:
+  - The page is designed to be responsive and accessible, with a clean and professional layout.
+  - The main content is centered, with clear sections for different types of information.
+  - The use of icons and labels helps to guide users through the process of signing in and accessing features.
+
+- **Variable Values**:
+  - **Username Field**: The placeholder text "Enter your username" is visible.
+  - **Password Field**: The placeholder text "Enter your password" is visible.
+  - **Sign-in Button**: The button text is "Sign in".
+  - **Need help? Link**: The link text is "Need help?".
+  - **Request Access Link**: The link text is "Request access".
+
+#### 4. Structural Functionality
+- **Central Authentication**: The system uses central authentication to manage user access, ensuring that users can securely log in using their institutional credentials.
+- **24/7 Access**: The system provides 24/7 access, allowing users to log in from anywhere, ensuring that students can access their academic resources at any time.
+- **Request Access**: The system allows new users to request access, ensuring that all students have the opportunity to access the system.
+- **User Interface**: The layout is designed to be user-friendly, with clear instructions and easy-to-use forms, ensuring that users can quickly and easily access the system.
+
+### Conclusion
+This page serves as a critical component of the Saveetha Engineering College Workspace, providing users with a secure and accessible way to access their academic resources. The structured layout and clear instructions ensure that users can easily navigate the system and access the features they need.
 
 --•--•--
 
