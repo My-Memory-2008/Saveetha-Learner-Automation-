@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1
-**Pending Unexplored Queue Scope:** 1
+**Total Unique Sub-System Paths Mapped:** 2
+**Pending Unexplored Queue Scope:** 0
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -64,6 +64,55 @@ The page is a login page for the Saveetha Engineering College Workspace. It is d
 ### Conclusion
 
 This page serves as a critical entry point for students to access their academic and institutional resources. The structured layout and clear instructions help in ensuring a smooth and secure login experience. The integration of features such as 24/7 access and the ability to track academic progress further enhances the functionality of the page.
+
+--•--•--
+
+## Portal Path Endpoint: Need help?
+- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DGd0f3EfE_Dj2h2sJiIuEjA%26nonce%3D-ufMnzBLJmtov92Zs6gdFQ%26code_challenge%3DqBHhE5SPGT8PiozK9AgrP7DR9f-80dXylBpD7CYqPu4%26code_challenge_method%3DS256#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Login Page**: The page is designed to facilitate user login to the Saveetha Engineering College Workspace. Users can sign in using their credentials.
+- **Next Parameter**: The `next` parameter in the URL (`/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DGd0f3EfE_Dj2h2sJiIuEjA%26nonce%3D-ufMnzBLJmtov92Zs6gdFQ%26code_challenge%3DqBHhE5SPGT8PiozK9AgrP7DR9f-80dXylBpD7CYqPu4%26code_challenge_method%3DS256#`) indicates that the user is being redirected to an authorization endpoint after signing in.
+- **Scope Parameters**: The scope parameters (`openid`, `profile`, `email`, `offline_access`, `groups`) indicate the permissions the user is granted upon login, such as accessing user profile, email, offline access, and group information.
+- **Nonce and Code Challenge**: These parameters ensure secure communication between the client and the server, preventing man-in-the-middle attacks.
+
+#### 2. Data Element Blocks and Table Structure
+- **Login Form**:
+  - **Username Field**: The username field is where the user enters their username.
+  - **Password Field**: The password field is where the user enters their password.
+  - **Sign In Button**: The button labeled "Sign in" is used to submit the login form.
+  - **Help Link**: There is a link labeled "Need help?" for additional assistance.
+  - **Error Messages**: There are no visible error messages on the page.
+
+- **Authentication Section**:
+  - **Title**: The title "Authentication" is displayed.
+  - **Description**: The description "Secure login using your institutional credentials" is provided.
+  - **Icon**: There is an icon of a lock next to the title.
+
+- **24/7 Access Section**:
+  - **Title**: The title "24/7 Access" is displayed.
+  - **Description**: The description "Available anytime from campus or home" is provided.
+  - **Icon**: There is an icon of a clock next to the title.
+
+#### 3. Score Layout and Variable Values
+- **Header Section**:
+  - **Logo**: The logo of Saveetha Engineering College is displayed at the top.
+  - **Title**: The title "Welcome to Saveetha Engineering College Workspace" is displayed.
+  - **Description**: The description "Securely access your academic portal and institutional services" is provided.
+
+- **Footer Section**:
+  - **Links**: There are links to "Request access" and "New here?".
+  - **Privacy Terms**: The text "By continuing you agree to the latest security and privacy terms" is displayed.
+
+### Structural Functionality
+- **User Authentication**: The page serves as a login portal for students to access their academic and institutional resources. The form allows users to enter their credentials and submit them to the server.
+- **24/7 Access**: The "24/7 Access" section ensures that students can access their resources at any time, whether on campus or at home.
+- **Security Measures**: The use of nonce and code challenge ensures secure communication between the client and server, preventing man-in-the-middle attacks.
+- **Help and Support**: The "Need help?" link and "Request access" link provide additional support and assistance for users.
+
+This layout effectively serves the wider system functions by providing a secure and user-friendly interface for students to access their academic and institutional resources.
 
 --•--•--
 
