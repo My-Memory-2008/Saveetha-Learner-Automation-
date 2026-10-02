@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1
-**Pending Unexplored Queue Scope:** 1
+**Total Unique Sub-System Paths Mapped:** 2
+**Pending Unexplored Queue Scope:** 0
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -47,6 +47,42 @@
 
 ### Summary
 This page is designed to facilitate user authentication and access to the Saveetha Engineering College Workspace. It includes features for 24/7 access, new user access requests, and a clear indication of the security and privacy terms. The layout is structured to provide a seamless user experience while ensuring the security and integrity of the system.
+
+--•--•--
+
+## Portal Path Endpoint: Need help?
+- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3D9dfD2-Pdiso9Il4knn48nw%26nonce%3DeYRXw0a3_3mFMaYVj4adWQ%26code_challenge%3D1X67duFIZIrnFeZ2EItqC750SO6MipSkAutHKqT5Z3E%26code_challenge_method%3DS256#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Page Structure and Functionality
+The page is a login page for the Saveetha Engineering College Workspace. It allows users to sign in using their institutional credentials. The page is divided into two main sections: the left sidebar and the right login form.
+
+#### 2. Specific Transactional Parameters
+- **Login Form**: The form requires the user to enter their username and password to sign in.
+- **Next Page**: The user is redirected to `/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3D9dfD2-Pdiso9Il4knn48nw%26nonce%3DeYRXw0a3_3mFMaYVj4adWQ%26code_challenge%3D1X67duFIZIrnFeZ2EItqC750SO6MipSkAutHKqT5Z3E%26code_challenge_method%3DS256#` after signing in.
+- **Authentication**: The page ensures a secure login using institutional credentials.
+- **24/7 Access**: The system provides 24/7 access to the workspace.
+
+#### 3. Data Elements and Layout Structure
+- **Header**: The page header includes the institution's logo and a welcome message.
+- **Left Sidebar**:
+  - **Welcome Message**: "Welcome to Saveetha Engineering College Workspace."
+  - **Features**: Lists the benefits of using the workspace, such as accessing class schedules, booking events, requesting documents, and tracking academic progress.
+  - **Authentication**: Describes the secure login process using institutional credentials.
+  - **24/7 Access**: Highlights the 24/7 availability of the workspace.
+- **Right Sidebar**:
+  - **Sign-in Form**: Contains fields for username and password, a "Sign in" button, and a "Need help?" link.
+  - **Footer**: Contains a note about agreeing to the security and privacy terms.
+
+#### 4. Structural Functionality
+- **User Authentication**: The page ensures that users can sign in using their institutional credentials, providing a secure and convenient way to access the workspace.
+- **24/7 Access**: The 24/7 access feature ensures that users can access the workspace at any time, enhancing usability and convenience.
+- **Next Page**: The user is redirected to the authorization page after signing in, allowing for further authentication steps.
+- **Help and Support**: The "Need help?" link provides support for users who may need assistance with the login process.
+
+### Summary
+This page is designed to facilitate user authentication and access to the Saveetha Engineering College Workspace. It provides clear instructions and benefits, ensuring a smooth and secure login experience. The layout is structured to guide users through the login process and to provide necessary support and information.
 
 --•--•--
 
