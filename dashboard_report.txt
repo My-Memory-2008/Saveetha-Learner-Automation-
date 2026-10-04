@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 2
-**Pending Unexplored Queue Scope:** 0
+**Total Unique Sub-System Paths Mapped:** 1
+**Pending Unexplored Queue Scope:** 1
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -9,82 +9,35 @@
 ### Page Layout and Functionality
 
 #### 1. Actions and Transactional Parameters
-- **Sign-in Page**: The page controls the sign-in process for accessing the Saveetha Engineering College Workspace.
-- **Authentication**: Users can log in using their institutional credentials.
-- **24/7 Access**: Provides 24/7 access to the system from anywhere.
-- **Request Access**: Allows users to request access if they are new to the system.
+- **Sign-in Page**: The page controls the sign-in process for accessing the Saveetha Engineering College Workspace. Users need to enter their username and password to log in.
+- **Authentication**: The page ensures secure login using institutional credentials.
+- **24/7 Access**: The page provides 24/7 access to the system, allowing users to access their academic portal and institutional services from anywhere.
 
 #### 2. Data Element Blocks and Table Structure
 1. **Header Section**:
-   - **Logo**: Displayed at the top left corner.
-   - **Welcome Message**: "Welcome to Saveetha Engineering College Workspace."
-   - **Features**: List of benefits such as accessing class schedules, booking events, requesting documents, and tracking progress.
+   - **Logo**: Located at the top left corner, representing the institution's logo.
+   - **Welcome Message**: "Welcome to Saveetha Engineering College Workspace" is prominently displayed.
+   - **Features List**: A list of features such as accessing class schedules, booking events, requesting documents, and tracking progress.
 
 2. **Main Content Area**:
-   - **Left Sidebar**:
-     - **Authentication Section**:
-       - **Title**: "Authentication"
-       - **Description**: "Secure login using your institutional credentials."
-     - **24/7 Access Section**:
-       - **Title**: "24/7 Access"
-       - **Description**: "Available anytime from campus or home."
+   - **Sign-in Form**:
+     - **Username Field**: A text input field for entering the username.
+     - **Password Field**: A text input field for entering the password.
+     - **Sign-in Button**: A green button labeled "Sign in" for submitting the credentials.
+     - **Help Link**: A link labeled "Need help?" for assistance.
+     - **New User Link**: A link labeled "New here?" with a sub-link "Request access" for new users.
 
-3. **Sign-in Form**:
-   - **Username Field**: Input field for username.
-   - **Password Field**: Input field for password.
-   - **Sign-in Button**: Button to submit the sign-in credentials.
-   - **Help Link**: "Need help?" link for assistance.
-   - **New Access Link**: "New here? Request access" link.
-
-4. **Footer Section**:
-   - **Privacy Terms**: "By continuing you agree to the latest security and privacy terms."
+3. **Footer Section**:
+   - **Footer Text**: "By continuing you agree to the latest security and privacy terms." This indicates the terms of use and privacy policy.
 
 #### 3. Structural Functionality
-- **User Authentication**: The sign-in page is designed to authenticate users using their institutional credentials. This ensures that only authorized individuals can access the workspace.
-- **24/7 Access**: The 24/7 access feature allows users to log in from anywhere, ensuring continuous access to the system.
-- **Request Access**: The "Request access" link is provided for new users who may not have an account yet, allowing them to request access.
-- **Security and Privacy**: The page includes a link to the privacy terms, ensuring users are aware of the security and privacy policies they are agreeing to by continuing.
+- **User Authentication**: The sign-in page is designed to authenticate users using their institutional credentials. This ensures that only authorized individuals can access the system.
+- **24/7 Access**: The 24/7 access feature allows users to log in and access their academic portal and institutional services at any time, enhancing convenience and accessibility.
+- **Help and Support**: The help link and new user request access link provide support and assistance to users, ensuring they can resolve any issues or request new access if needed.
+- **Security and Privacy**: The footer text indicates the terms of use and privacy policy, emphasizing the importance of security and privacy in the system.
 
 ### Summary
-This page is designed to facilitate user authentication and access to the Saveetha Engineering College Workspace. It includes features for 24/7 access, new user access requests, and a clear indication of the security and privacy terms. The layout is structured to provide a seamless user experience while ensuring the security and integrity of the system.
-
---•--•--
-
-## Portal Path Endpoint: Need help?
-- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DQrXE2yKsGuGiXOqBOmV4_w%26nonce%3Dstxez9xSl0EjY84EwTy0MA%26code_challenge%3D02l2kwXpELOLHqPg9seVufuGof7vHCN_mqzb7247018%26code_challenge_method%3DS256#
-### Structural Analysis Breakdown:
-### Page Layout and Functionality Analysis
-
-#### 1. Page Actions and Transactional Parameters
-The page is designed to facilitate user authentication and access to the Saveetha Engineering College Workspace. The primary actions include:
-- **Sign-in**: Users need to enter their credentials to access the system.
-- **24/7 Access**: Users can access the system anytime from campus or home.
-- **Request Access**: Users can request new access if they do not have an account.
-- **Central Auth**: The page is part of the central authentication system for the college.
-
-#### 2. Data Element Blocks and Table Structure
-The page is divided into several sections:
-- **Header**: Contains the college logo and a welcome message.
-- **Main Content Area**: Divided into two main sections:
-  - **Left Section**: Contains information about the workspace, including access features and authentication details.
-  - **Right Section**: Contains the sign-in form with fields for username and password, and a "Sign in" button.
-- **Footer**: Contains a link to request access if the user does not have an account.
-
-#### 3. Variable Values and Layout Structure
-- **Logo**: The college logo is prominently displayed at the top.
-- **Welcome Message**: "Welcome to Saveetha Engineering College Workspace" is displayed.
-- **Access Features**: A list of features such as accessing class schedules, booking events, requesting documents, and tracking progress.
-- **Sign-in Form**: Fields for username and password, a "Sign in" button, and a link to "Need help?".
-- **Footer**: Contains a link to "Request access" if the user does not have an account.
-
-#### 4. Structural Functionality
-- **Authentication**: The page serves as a central authentication point for students to access their academic portal.
-- **24/7 Access**: Ensures that students can access the system at any time, enhancing convenience.
-- **Request Access**: Provides a mechanism for new users to request access, ensuring that all students have a way to log in.
-- **Central Auth**: Integrates with the college's central authentication system, ensuring secure and consistent access.
-
-### Summary
-This page is designed to facilitate user authentication and access to the Saveetha Engineering College Workspace. It includes features for accessing class schedules, booking events, requesting documents, and tracking progress. The page also provides a central authentication system and a mechanism for new users to request access. The layout is structured to ensure ease of use and security for students.
+This page is designed to control the sign-in process for accessing the Saveetha Engineering College Workspace. It includes features for authentication, 24/7 access, help and support, and security and privacy terms. The layout is structured to ensure a seamless and secure user experience.
 
 --•--•--
 
