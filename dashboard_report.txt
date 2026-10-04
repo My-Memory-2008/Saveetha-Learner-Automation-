@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1
-**Pending Unexplored Queue Scope:** 1
+**Total Unique Sub-System Paths Mapped:** 2
+**Pending Unexplored Queue Scope:** 0
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -38,6 +38,53 @@
 
 ### Summary
 This page is designed to control the sign-in process for accessing the Saveetha Engineering College Workspace. It includes features for authentication, 24/7 access, help and support, and security and privacy terms. The layout is structured to ensure a seamless and secure user experience.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DgkHDpksbNpKpHRkbsI55-g%26nonce%3D9DwqucSc99JwjYyDeatntg%26code_challenge%3D1GzGG3Rj8btRoB3LikmMvGTlYxvWb9rMDjm_vtmsCmc%26code_challenge_method%3DS256#
+### Structural Analysis Breakdown:
+### Home Layout Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+- **Page URL**: The page URL is `https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DgkHDpksbNpKpHRkbsI55-g%26nonce%3D9DwqucSc99JwjYyDeatntg%26code_challenge%3D1GzGG3Rj8btRoB3LikmMvGTlYxvWb9rMDjm_vtmsCmc%26code_challenge_method%3DS256#`.
+- **Parameters**:
+  - `next`: `/authorize/` - This indicates the next page after login.
+  - `response_type`: `code` - This indicates that the server will return a code in exchange for authentication.
+  - `client_id`: `s8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl` - This is the client ID for authentication.
+  - `redirect_uri`: `https://learner.saveetha.in/sso/callback/` - This is the callback URL for authentication.
+  - `scope`: `openid profile email offline_access groups` - This specifies the permissions required for the user.
+  - `state`: `gkHDpksbNpKpHRkbsI55-g` - This is a session token for state management.
+  - `nonce`: `9DwqucSc99JwjYyDeatntg` - This is a nonce for security.
+  - `code_challenge`: `1GzGG3Rj8btRoB3LikmMvGTlYxvWb9rMDjm_vtmsCmc` - This is a code challenge for security.
+  - `code_challenge_method`: `S256` - This specifies the method for code challenge.
+
+#### 2. Data Element Block, Table Structure, Score Layout, or Variable Value
+- **URL Structure**:
+  - The URL is structured with query parameters that are essential for authentication.
+  - The `next` parameter indicates the next page after authentication.
+  - The `response_type`, `client_id`, `redirect_uri`, `scope`, `state`, `nonce`, `code_challenge`, and `code_challenge_method` parameters are all critical for the authentication process.
+
+#### 3. Structural Role in the Wider System Functions
+- **Login Process**:
+  - The page is designed to handle the login process, where users can authenticate with their credentials.
+  - The `next` parameter ensures that the user is redirected to the correct page after authentication.
+  - The `response_type`, `client_id`, `redirect_uri`, `scope`, `state`, `nonce`, `code_challenge`, and `code_challenge_method` parameters are essential for the authentication flow.
+  - The `code_challenge` and `code_challenge_method` parameters ensure the security of the authentication process by verifying the user's identity.
+
+- **Callback URL**:
+  - The `redirect_uri` is set to `https://learner.saveetha.in/sso/callback/`, which is the callback URL for authentication.
+  - This URL is where the server will send the authentication response to the client.
+
+- **State Management**:
+  - The `state` parameter is used for session management, ensuring that the user's session is maintained.
+  - The `nonce` and `code_challenge` parameters are used for security, ensuring that the authentication process is not tampered with.
+
+- **Security Measures**:
+  - The use of `code_challenge` and `code_challenge_method` ensures that the authentication process is secure.
+  - The `nonce` parameter helps in preventing replay attacks.
+
+In summary, this page is a critical part of the authentication process, ensuring that users can securely log in and that the authentication flow is handled correctly by the server.
 
 --•--•--
 
