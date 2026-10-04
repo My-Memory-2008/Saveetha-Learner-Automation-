@@ -1,90 +1,53 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 2
-**Pending Unexplored Queue Scope:** 0
+**Total Unique Sub-System Paths Mapped:** 1
+**Pending Unexplored Queue Scope:** 30
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
 ### Structural Analysis Breakdown:
-### Page Layout and Functionality
-
-#### 1. Actions and Transactional Parameters
-- **Sign-in Page**: The page controls the sign-in process for accessing the Saveetha Engineering College Workspace. Users need to enter their username and password to log in.
-- **Authentication**: The page ensures secure login using institutional credentials.
-- **24/7 Access**: The page provides 24/7 access to the system, allowing users to access their academic portal and institutional services from anywhere.
-
-#### 2. Data Element Blocks and Table Structure
-1. **Header Section**:
-   - **Logo**: Located at the top left corner, representing the institution's logo.
-   - **Welcome Message**: "Welcome to Saveetha Engineering College Workspace" is prominently displayed.
-   - **Features List**: A list of features such as accessing class schedules, booking events, requesting documents, and tracking progress.
-
-2. **Main Content Area**:
-   - **Sign-in Form**:
-     - **Username Field**: A text input field for entering the username.
-     - **Password Field**: A text input field for entering the password.
-     - **Sign-in Button**: A green button labeled "Sign in" for submitting the credentials.
-     - **Help Link**: A link labeled "Need help?" for assistance.
-     - **New User Link**: A link labeled "New here?" with a sub-link "Request access" for new users.
-
-3. **Footer Section**:
-   - **Footer Text**: "By continuing you agree to the latest security and privacy terms." This indicates the terms of use and privacy policy.
-
-#### 3. Structural Functionality
-- **User Authentication**: The sign-in page is designed to authenticate users using their institutional credentials. This ensures that only authorized individuals can access the system.
-- **24/7 Access**: The 24/7 access feature allows users to log in and access their academic portal and institutional services at any time, enhancing convenience and accessibility.
-- **Help and Support**: The help link and new user request access link provide support and assistance to users, ensuring they can resolve any issues or request new access if needed.
-- **Security and Privacy**: The footer text indicates the terms of use and privacy policy, emphasizing the importance of security and privacy in the system.
-
-### Summary
-This page is designed to control the sign-in process for accessing the Saveetha Engineering College Workspace. It includes features for authentication, 24/7 access, help and support, and security and privacy terms. The layout is structured to ensure a seamless and secure user experience.
-
---•--•--
-
-## Portal Path Endpoint: Sub-System Node Channel
-- **Direct Link Target:** https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DgkHDpksbNpKpHRkbsI55-g%26nonce%3D9DwqucSc99JwjYyDeatntg%26code_challenge%3D1GzGG3Rj8btRoB3LikmMvGTlYxvWb9rMDjm_vtmsCmc%26code_challenge_method%3DS256#
-### Structural Analysis Breakdown:
-### Home Layout Analysis
+### Page Layout and Functionality Analysis
 
 #### 1. Actions and Specific Transactional Parameters
-- **Page URL**: The page URL is `https://accounts.saveetha.in/login/?next=/authorize/%3Fresponse_type%3Dcode%26client_id%3Ds8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl%26redirect_uri%3Dhttps%253A//learner.saveetha.in/sso/callback/%26scope%3Dopenid%2520profile%2520email%2520offline_access%2520groups%26state%3DgkHDpksbNpKpHRkbsI55-g%26nonce%3D9DwqucSc99JwjYyDeatntg%26code_challenge%3D1GzGG3Rj8btRoB3LikmMvGTlYxvWb9rMDjm_vtmsCmc%26code_challenge_method%3DS256#`.
-- **Parameters**:
-  - `next`: `/authorize/` - This indicates the next page after login.
-  - `response_type`: `code` - This indicates that the server will return a code in exchange for authentication.
-  - `client_id`: `s8kDBbZEETxhItUhIVMlWFsfK3RsM4qlroZ7eeOl` - This is the client ID for authentication.
-  - `redirect_uri`: `https://learner.saveetha.in/sso/callback/` - This is the callback URL for authentication.
-  - `scope`: `openid profile email offline_access groups` - This specifies the permissions required for the user.
-  - `state`: `gkHDpksbNpKpHRkbsI55-g` - This is a session token for state management.
-  - `nonce`: `9DwqucSc99JwjYyDeatntg` - This is a nonce for security.
-  - `code_challenge`: `1GzGG3Rj8btRoB3LikmMvGTlYxvWb9rMDjm_vtmsCmc` - This is a code challenge for security.
-  - `code_challenge_method`: `S256` - This specifies the method for code challenge.
+This page is a part of a student portal, specifically the "CORE" section. It controls various transactional parameters related to student schedules, notifications, reward points, workflow requests, approvals, bookings, and services. The specific actions and parameters controlled by this page include:
+
+- **Schedule Management**: Allows students to view and manage their schedules.
+- **Circulars**: Displays notifications or circulars.
+- **My Reward Points**: Shows the student's reward points.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+- **Mentorship**: Manages mentorship.
 
 #### 2. Data Element Block, Table Structure, Score Layout, or Variable Value
-- **URL Structure**:
-  - The URL is structured with query parameters that are essential for authentication.
-  - The `next` parameter indicates the next page after authentication.
-  - The `response_type`, `client_id`, `redirect_uri`, `scope`, `state`, `nonce`, `code_challenge`, and `code_challenge_method` parameters are all critical for the authentication process.
+The page is structured with a left-side menu and a main content area. The left-side menu contains various tabs and sections, each representing different functionalities. The main content area displays the calendar for October 2026, showing the days of the week and the dates.
 
-#### 3. Structural Role in the Wider System Functions
-- **Login Process**:
-  - The page is designed to handle the login process, where users can authenticate with their credentials.
-  - The `next` parameter ensures that the user is redirected to the correct page after authentication.
-  - The `response_type`, `client_id`, `redirect_uri`, `scope`, `state`, `nonce`, `code_challenge`, and `code_challenge_method` parameters are essential for the authentication flow.
-  - The `code_challenge` and `code_challenge_method` parameters ensure the security of the authentication process by verifying the user's identity.
+- **Left Side Menu**:
+  - **Schedule**: Displays the schedule for the selected date.
+  - **Circulars**: Displays notifications or circulars.
+  - **My Reward Points**: Shows the student's reward points.
+  - **Workflow Requests**: Manages workflow requests.
+  - **Workflow Approvals**: Manages workflow approvals.
+  - **Bookings**: Manages bookings.
+  - **Services**: Manages services.
+  - **Mentees**: Manages mentees.
+  - **Mentorship**: Manages mentorship.
 
-- **Callback URL**:
-  - The `redirect_uri` is set to `https://learner.saveetha.in/sso/callback/`, which is the callback URL for authentication.
-  - This URL is where the server will send the authentication response to the client.
+- **Main Content Area**:
+  - **Calendar**: Displays the calendar for October 2026.
+  - **Date Selection**: Allows the user to select a specific date.
+  - **Notification**: Displays a message indicating "No schedule found for this date" for the selected date.
 
-- **State Management**:
-  - The `state` parameter is used for session management, ensuring that the user's session is maintained.
-  - The `nonce` and `code_challenge` parameters are used for security, ensuring that the authentication process is not tampered with.
+#### 3. Structural Functionality and Wider System Integration
+This layout segment serves the wider system functions by providing a user-friendly interface for students to manage their academic and administrative tasks. The page is designed to be accessible and user-friendly, allowing students to easily navigate through different functionalities without needing to leave the main page.
 
-- **Security Measures**:
-  - The use of `code_challenge` and `code_challenge_method` ensures that the authentication process is secure.
-  - The `nonce` parameter helps in preventing replay attacks.
+- **User Interface**: The layout ensures that all functionalities are easily accessible from the main page, reducing the need for users to navigate through multiple pages.
+- **Notifications and Alerts**: The page includes notifications and alerts, such as "No schedule found for this date," to inform users when specific functionalities are not available for the selected date.
+- **Integration with Wider System**: The page integrates with the wider system by providing access to various functionalities, such as schedule management, workflow requests, and mentorship, which are essential for the student's academic and administrative needs.
 
-In summary, this page is a critical part of the authentication process, ensuring that users can securely log in and that the authentication flow is handled correctly by the server.
+Overall, this page is designed to streamline the student's experience by providing a comprehensive view of their academic and administrative tasks, ensuring that they can manage their schedules, notifications, and other important information from a single page.
 
 --•--•--
 
