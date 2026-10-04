@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 1
-**Pending Unexplored Queue Scope:** 30
+**Total Unique Sub-System Paths Mapped:** 17
+**Pending Unexplored Queue Scope:** 60
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -48,6 +48,274 @@ This layout segment serves the wider system functions by providing a user-friend
 - **Integration with Wider System**: The page integrates with the wider system by providing access to various functionalities, such as schedule management, workflow requests, and mentorship, which are essential for the student's academic and administrative needs.
 
 Overall, this page is designed to streamline the student's experience by providing a comprehensive view of their academic and administrative tasks, ensuring that they can manage their schedules, notifications, and other important information from a single page.
+
+--•--•--
+
+## Portal Path Endpoint: SEC
+- **Direct Link Target:** https://learner.saveetha.in/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page is a student portal for managing academic schedules, workflow requests, and other academic-related tasks. The specific transactional parameters include:
+- **Schedule Management**: Allows students to view and manage their academic schedules.
+- **Workflow Requests**: Enables students to submit and track workflow requests.
+- **Workflow Approvals**: Facilitates the approval process for workflow requests.
+- **Bookings**: Manages student bookings for events or appointments.
+- **Services**: Provides access to various academic services.
+- **Mentees**: Manages mentees and mentorship programs.
+- **Mentorship**: Manages mentorship relationships and activities.
+- **Logged in as**: Displays the user's login information.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured with a left-hand menu and a main content area. The main content area displays the current month's schedule for October 2026. The left-hand menu contains various tabs for different functionalities:
+- **Schedule**: Displays the student's schedule for the current month.
+- **Circulars**: Shows circulars or announcements.
+- **My Reward Points**: Displays the student's reward points.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Tracks workflow approvals.
+- **Bookings**: Manages bookings.
+- **Services**: Accesses various academic services.
+- **Mentees**: Manages mentees.
+- **Mentorship**: Manages mentorship relationships.
+
+The main content area shows the current date as October 4, 2026, with the days of the week labeled (THU for Thursday, FRI for Friday, SAT for Saturday, SUN for Sunday, MON for Monday, TUE for Tuesday, WED for Wednesday). The page indicates that no schedule is found for the specified date.
+
+#### 3. Structural Functionality and System Integration
+The layout serves the wider system functions by:
+- **Scheduling Management**: Facilitates students to view and manage their academic schedules, ensuring they are aware of upcoming classes, exams, and other academic commitments.
+- **Workflow Requests**: Allows students to submit and track workflow requests, which could be related to academic processes such as course registration, exam scheduling, or other administrative tasks.
+- **Workflow Approvals**: Enables students to monitor and approve workflow requests, ensuring that academic processes are efficiently managed and resolved.
+- **Bookings**: Manages student bookings for events or appointments, ensuring that students can plan their time effectively.
+- **Services**: Provides access to various academic services, such as counseling, counseling, and other support services.
+- **Mentees and Mentorship**: Facilitates the management of mentees and mentorship relationships, promoting academic support and guidance.
+- **Logged in as**: Displays the user's login information, ensuring that the user's identity is verified and their actions are traceable.
+
+Overall, this layout is designed to streamline academic management, ensuring that students have easy access to all necessary information and tools to manage their academic schedules and processes efficiently.
+
+--•--•--
+
+## Portal Path Endpoint: Settings
+- **Direct Link Target:** https://learner.saveetha.in/people/settings/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Profile
+- **Direct Link Target:** https://learner.saveetha.in/people/profile/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Activity Log
+- **Direct Link Target:** https://learner.saveetha.in/people/activity-log/
+### Structural Analysis Breakdown:
+### 1. Actions or Specific Transactional Parameters Controlled
+This page controls the following specific transactional parameters:
+- **Activity Log**: Displays the activity history of the user from September 28, 2026, to October 4, 2026.
+- **No activity recorded in the last seven days**: Indicates that there has been no activity recorded in the last seven days.
+
+### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observed
+The page is structured as follows:
+- **Header**: Contains the user's IP address and a user profile icon.
+- **Main Content Area**:
+  - **Title**: "Activity Log"
+  - **Subtitle**: "Your activity from Sept. 28, 2026 to Oct. 4, 2026."
+  - **Table**:
+    - **Columns**: Date/Time, Activity, Details, IP Address
+    - **Rows**: Currently, there are no rows in the table, indicating no activity recorded in the last seven days.
+- **Footer**: Contains the user's login information and a copyright notice.
+
+### 3. Structural Functionality and How It Serves the Wider System Functions
+This layout segment serves the wider system functions by:
+- **Displaying Activity History**: It provides a clear view of the user's activity over a specified period, helping the user understand their recent actions.
+- **Indicating No Activity**: By showing "No activity recorded in the last seven days," it informs the user that there has been no significant activity in the specified period, which can be useful for monitoring and managing user behavior.
+- **User Profile Information**: The footer with the user's login information and credentials helps in maintaining user authentication and security.
+- **System Maintenance**: The table structure and data display help in tracking and managing user activities, which is crucial for system maintenance and user support.
+
+Overall, this page is designed to provide a clear and concise view of the user's activity history, ensuring that users can easily monitor and manage their activities within the system.
+
+--•--•--
+
+## Portal Path Endpoint: My College Hours
+- **Direct Link Target:** https://learner.saveetha.in/attendance/my-college-hours/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Active Sessions
+- **Direct Link Target:** https://learner.saveetha.in/people/active-sessions/
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Active Sessions**: This page controls the session management for logged-in users. It displays the list of active sessions, including the number of sessions, the type of service (e.g., nginx), and the version of the software.
+- **Refresh Button**: Allows users to refresh the page to update the session list.
+- **Logged In as**: Displays the user's login information, including their username and possibly other details.
+
+#### 2. Data Element Blocks and Table Structure
+- **Header Section**:
+  - **Title**: "Active Sessions"
+  - **Description**: "Review browsers and devices currently signed in to your account."
+  - **Refresh Button**: Positioned on the right side of the title.
+  - **User Information**: Displays the user's name and possibly other details.
+
+- **Main Content Area**:
+  - **Error Message**: "503 Service Temporarily Unavailable"
+  - **Details**: "nginx/1.18.0 (Ubuntu)"
+  - **User Information**: Displays the user's name and possibly other details.
+
+- **Sidebar Menu**:
+  - **CORE Section**:
+    - **Schedule**: Displays the number of scheduled sessions (43).
+    - **Circulars**: Displays the number of circulars (43).
+    - **My Reward Points**: Displays the user's reward points.
+    - **Workflow Requests**: Displays the number of workflow requests.
+    - **Workflow Approvals**: Displays the number of workflow approvals.
+    - **Bookings**: Displays the number of bookings.
+    - **Services**: Displays the number of services.
+  - **MANAGE Section**:
+    - **Mentees**: Displays the number of mentees.
+    - **Mentorship**: Displays the number of mentorship sessions.
+
+- **Footer Section**:
+  - **Copyright Information**: Displays the copyright details of the website.
+
+#### 3. Structural Functionality
+- **Session Management**: The page serves as a central hub for managing active sessions. It allows users to review and manage their current sessions, which are essential for tracking and monitoring user activity.
+- **User Interface**: The layout is designed to be user-friendly, with clear sections for different types of sessions and a sidebar for quick access to other functionalities.
+- **Error Handling**: The page handles temporary unavailability by displaying a clear error message, which helps users understand the issue and provides a way to refresh the page for updates.
+- **Security**: The page ensures that only logged-in users can access the active sessions, maintaining the security of the system.
+
+Overall, this page is designed to provide a comprehensive view of active sessions, manage user sessions, and ensure that users can easily access and update their session information.
+
+--•--•--
+
+## Portal Path Endpoint: Schedule
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Circulars
+43
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: My Reward Points
+- **Direct Link Target:** https://learner.saveetha.in/rewards/my-reward-points/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Workflow Requests
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Workflow Approvals
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-approvals/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Bookings
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-booking/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Services
+- **Direct Link Target:** https://learner.saveetha.in/academics/services/
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to provide access to various operational tools for students, including:
+- **Calculate My Attendance**: To calculate current academic slot attendance with session-level counting details.
+- **LeaveBalance**: To view leave credits, debits, and current balance.
+- **Skill Development**: To review accessible skills, LMS course links, marks, and earned reward points.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several key sections:
+1. **Header Section**:
+   - **Logo**: Located at the top left corner.
+   - **User Information**: Located at the top right corner, showing the user's name and ID.
+   - **User Profile**: Located at the top right corner, showing the user's profile picture and name.
+
+2. **Main Content Section**:
+   - **Title**: "Services" at the top.
+   - **Description**: "Access user-facing operational tools from one place."
+   - **Service Cards**:
+     - **Calculate My Attendance**: Card with an icon, title, and a "Open service" button.
+     - **LeaveBalance**: Card with an icon, title, and a "Open service" button.
+     - **Skill Development**: Card with an icon, title, and a "Open service" button.
+
+3. **Footer Section**:
+   - **Logged in as**: Displays the user's name and ID.
+   - **Copyright**: Displays the copyright information for Saveetha Engineering College.
+
+#### 3. Structural Functionality
+This layout serves the wider system functions by:
+- **Providing Access to Operational Tools**: Students can easily access tools for managing their attendance, leave balances, and skill development.
+- **User Identification**: Ensures that the user is logged in and provides their profile information.
+- **User Interface**: Offers a clean and organized interface for users to interact with the system.
+- **System Integration**: Facilitates the integration of different operational tools into a single user interface, enhancing user experience.
+
+### Detailed Breakdown
+
+#### Header Section
+- **Logo**: Positioned at the top left corner, representing the institution's logo.
+- **User Information**: Positioned at the top right corner, showing the user's name and ID.
+- **User Profile**: Positioned at the top right corner, showing the user's profile picture and name.
+
+#### Main Content Section
+- **Title**: "Services" at the top, indicating the main content area.
+- **Description**: "Access user-facing operational tools from one place."
+- **Service Cards**:
+  - **Calculate My Attendance**: Card with an icon, title, and a "Open service" button.
+  - **LeaveBalance**: Card with an icon, title, and a "Open service" button.
+  - **Skill Development**: Card with an icon, title, and a "Open service" button.
+
+#### Footer Section
+- **Logged in as**: Displays the user's name and ID.
+- **Copyright**: Displays the copyright information for Saveetha Engineering College.
+
+### Conclusion
+This page is designed to provide students with easy access to various operational tools for managing their attendance, leave balances, and skill development. The structured layout ensures that users can easily navigate and interact with the system, while the footer provides essential information about the user's login status and the institution's copyright.
+
+--•--•--
+
+## Portal Path Endpoint: Mentees
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/mentees/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Mentorship
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/mentorship/
+### Structural Analysis Breakdown:
+API server link offline: 
 
 --•--•--
 
