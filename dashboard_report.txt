@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 225
-**Pending Unexplored Queue Scope:** 641
+**Total Unique Sub-System Paths Mapped:** 305
+**Pending Unexplored Queue Scope:** 626
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -2806,6 +2806,1319 @@ API server link offline:
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in/academics/circulars/?page=1
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/circulars/?page=3
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and display academic circulars for a student. The specific actions and transactional parameters controlled by this page include:
+- **Circulars Management**: Users can view, edit, and manage circulars related to their academic progress.
+- **Role Selection**: Users can filter circulars based on their role (e.g., AcademicMentor, NoMentor).
+- **Date Range Selection**: Users can specify a date range for viewing circulars.
+- **Circular Status**: Users can mark circulars as "Locked," "Active," or "Participant."
+- **Clustering Information**: Users can view and manage clusters associated with the circulars.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several data element blocks and tables:
+- **Circulars List**: Displays a list of circulars with details such as title, start date, mentorship status, and clusters.
+- **Circular Details**: Each circular has a detailed view with fields like title, start date, mentorship status, and clusters.
+- **Status Buttons**: Buttons to lock, activate, or mark as participant for each circular.
+- **Date Range Input**: Fields to specify the date range for viewing circulars.
+- **Pagination**: Controls navigation to different pages of circulars.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **User Interface**: Provides a user-friendly interface for students to manage their academic records and circulars.
+- **Data Management**: Facilitates the tracking and management of academic milestones and milestones.
+- **Notifications**: Allows users to receive notifications about changes in their mentorship status or circulars.
+- **Clustering Information**: Ensures that students are aware of their academic progress and can manage their clusters effectively.
+- **Accessibility**: Ensures that the information is easily accessible and can be filtered based on user roles and preferences.
+
+### Detailed Breakdown
+
+#### Circulars List
+- **Title**: Displays the title of the circular.
+- **Start Date**: Shows the start date of the circular.
+- **Mentorship Status**: Indicates whether the circular is locked, active, or participant.
+- **Clusters**: Lists the clusters associated with the circular.
+
+#### Circular Details
+- **Title**: The title of the circular.
+- **Start Date**: The start date of the circular.
+- **Mentorship Status**: The status of the mentorship (locked, active, participant).
+- **Clusters**: The clusters associated with the circular.
+
+#### Status Buttons
+- **Lock**: Marks the circular as locked.
+- **Activate**: Marks the circular as active.
+- **Participant**: Marks the circular as participant.
+
+#### Date Range Input
+- **From Date**: The start date of the date range.
+- **To Date**: The end date of the date range.
+
+#### Pagination
+- **Previous**: Moves to the previous page.
+- **Page 3 of 3**: Indicates the current page.
+- **Next**: Moves to the next page.
+
+### Conclusion
+This page is designed to provide a comprehensive view and management of academic circulars for students. It ensures that students can easily access, filter, and manage their academic milestones, while also providing notifications and clustering information. The layout is structured to be user-friendly and efficient, serving the broader system functions of academic management and tracking.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/rewards/my-reward-points/general-information/8/#
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/rewards/my-reward-points/?page=2#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/rewards/my-reward-points/?page=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Letter
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/create/?tab=draft
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Workflow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/create/?tab=workflow
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/new-events/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: EventApplication
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/new-events/create/?tab=event_application
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/new-events/create/?tab=workflow
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+- **Event Creation**: The page allows users to create and manage new events, including approval workflows.
+- **Approval Workflow Management**: Users can draft, submit, and track the approval workflow for event applications.
+- **Approval Flow Tab**: This tab is used to manage the approval workflow for event applications.
+- **Save Workflow**: Users can save the current approval workflow for future use.
+- **Apply**: This button applies the selected approval workflow to the event application.
+
+#### 2. Data Element Blocks and Table Structure
+- **Approval Workflow Section**:
+  - **Approval Workflow**: A text input field where users can enter the approval workflow details.
+  - **Save Workflow**: A button to save the current approval workflow.
+  - **Apply**: A button to apply the selected approval workflow to the event application.
+
+- **Student Instruction Section**:
+  - **Student Instruction**: A text area where users can select a workflow to see instructions.
+
+#### 3. Structural Functionality and System Integration
+- **Event Management**: The page is part of a larger system for managing events, including scheduling, approvals, and student instructions.
+- **Approval Workflow Tracking**: Users can track the approval process for event applications, ensuring transparency and accountability.
+- **Workflow Approval**: The approval workflow allows for a structured process for event approvals, ensuring that all necessary steps are followed.
+- **User Interface**: The layout is designed to be user-friendly, with clear sections for different actions and information.
+- **System Integration**: This page is part of a larger system for academic management, likely integrated with other modules such as scheduling, mentoring, and student records.
+
+### Detailed Breakdown
+
+#### Approval Workflow Section
+- **Approval Workflow**: This is the main input field where users can enter the details of the approval workflow. This field is crucial for defining the steps and roles involved in the approval process.
+- **Save Workflow**: This button allows users to save the current approval workflow for future use. This feature is useful for maintaining consistency and ensuring that the workflow is consistent across different events.
+- **Apply**: This button applies the selected approval workflow to the event application. This ensures that the workflow is applied correctly and that the event application is processed according to the defined steps.
+
+#### Student Instruction Section
+- **Student Instruction**: This section allows users to select a workflow to see instructions. This feature is important for providing guidance and ensuring that all users understand the approval process.
+
+### System Functionality
+- **Event Management**: The page is part of a larger system for event management, which includes scheduling, approvals, and student instructions.
+- **Approval Workflow Tracking**: Users can track the approval process for event applications, ensuring transparency and accountability.
+- **Workflow Approval**: The approval workflow allows for a structured process for event approvals, ensuring that all necessary steps are followed.
+- **User Interface**: The layout is designed to be user-friendly, with clear sections for different actions and information.
+- **System Integration**: This page is part of a larger system for academic management, likely integrated with other modules such as scheduling, mentoring, and student records.
+
+### Conclusion
+This page is a critical component of the academic management system, providing users with the tools to manage and track event approvals. The structured layout and clear sections ensure that users can easily navigate and perform their tasks, while the approval workflow feature ensures that the process is transparent and accountable.
+
+--•--•--
+
+## Portal Path Endpoint: LocationSchedule
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/new-events/create/?tab=location_schedule
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Letter
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/?tab=letter
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/create/?tab=workflow
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Timeout Node Link
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/present-participants/sample-download/
+### Structural Analysis Breakdown:
+System validation or rendering pipeline timed out: Page.goto: Download is starting
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/workflow-requests/manual-academic-attendance/present-participants/sample-download/", waiting until "load"
+
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/leave-applications/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Leave Application
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/leave-applications/create/?tab=leave
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to control the creation and management of leave applications within an academic system. The specific transactional parameters include:
+- **Leave Application Creation**: Users can draft, submit, and track leave approval workflows.
+- **Approval Flow**: Users can manage the approval process for leave requests.
+- **Chat**: Users can communicate with administrators or other users regarding leave requests.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with several key data elements and fields:
+- **Short Title**: A required field for the leave application title.
+- **Leave Type**: A dropdown menu for selecting the type of leave.
+- **Leave From**: A date and time field for specifying the start date and time of the leave.
+- **Leave To**: A date and time field for specifying the end date and time of the leave.
+- **Subject**: A text field for entering a subject or message for the leave application.
+- **Attachment**: An optional field for attaching supporting files.
+- **Approval Flow**: A tab for managing the approval process.
+- **Chat**: A tab for communication with administrators or other users.
+
+#### 3. Layout and Functionality
+The layout serves the wider system functions by:
+- **Centralizing Information**: All necessary fields and options are centrally located, making it easy for users to fill out the form and manage their leave requests.
+- **User Interface**: The interface is designed to be user-friendly, with clear labels and instructions for each field.
+- **Approval Process Management**: The approval flow tab allows administrators to review and approve leave requests, ensuring that leave is granted only after necessary checks are completed.
+- **Communication Channel**: The chat tab provides a direct channel for communication, allowing users to ask questions or seek clarification on leave requests.
+- **Dashboard Integration**: The page is part of a larger dashboard, allowing users to manage multiple aspects of their academic life, including leave requests, work requests, and other academic activities.
+
+### Detailed Breakdown of Each Section
+
+#### Short Title
+- **Field**: Required text field.
+- **Purpose**: To provide a title for the leave application.
+
+#### Leave Type
+- **Field**: Dropdown menu.
+- **Purpose**: To select the type of leave (e.g., sick leave, vacation, etc.).
+
+#### Leave From
+- **Field**: Date and time picker.
+- **Purpose**: To specify the start date and time of the leave.
+
+#### Leave To
+- **Field**: Date and time picker.
+- **Purpose**: To specify the end date and time of the leave.
+
+#### Subject
+- **Field**: Text field.
+- **Purpose**: To enter a subject or message for the leave application.
+
+#### Attachment
+- **Field**: File upload field.
+- **Purpose**: To attach supporting files for the leave application.
+
+#### Approval Flow
+- **Tab**: Separate tab for managing the approval process.
+- **Purpose**: To allow administrators to review and approve leave requests.
+
+#### Chat
+- **Tab**: Separate tab for communication with administrators or other users.
+- **Purpose**: To facilitate communication and clarification on leave requests.
+
+### Conclusion
+This page is a critical component of an academic system's leave management system, providing users with the tools to draft, submit, and track leave requests, while also allowing administrators to manage the approval process and communicate with users. The layout is designed to be user-friendly and efficient, ensuring that leave requests are managed effectively within the academic environment.
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/leave-applications/create/?tab=workflow
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Letter
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/?tab=letter
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/create/?tab=workflow
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+- **Manual Event Attendance**: This section allows users to draft, submit, and track manual event attendance approvals.
+- **Approval Flow**: Users can manage and apply approval workflows for event attendance.
+- **Letter**: This tab likely contains options for drafting and sending letters related to event attendance.
+- **Chat**: This tab may provide a messaging interface for communication related to event attendance approvals.
+- **Save Workflow**: Allows users to save their current approval workflow settings.
+- **Apply**: Submits the current approval workflow settings.
+
+#### 2. Data Element Blocks and Table Structure
+- **Approval Workflow**: A text input field where users can enter their approval workflow details.
+- **Student Instruction**: A text area where users can select and view instructions for different workflows.
+- **Save Workflow**: A button to save the current approval workflow settings.
+- **Apply**: A button to submit the current approval workflow settings.
+
+#### 3. Structural Functionality and System Integration
+- **Approval Workflow Management**: This section is crucial for managing the approval process for event attendance. Users can draft, submit, and track the approval workflow, ensuring that all necessary steps are followed.
+- **Letter and Chat Integration**: The presence of these tabs suggests that users can communicate and document their approval process through letters and chat, which is essential for transparency and accountability.
+- **Save Workflow and Apply Buttons**: These buttons facilitate the workflow management process, allowing users to save their current settings and submit them for approval.
+- **Student Instruction**: This feature ensures that users understand the approval process by providing instructions for different workflows, enhancing user experience and reducing errors.
+
+### Page Layout and Functionality
+The page is designed to manage and track manual event attendance approvals. It includes tabs for drafting letters, managing approval workflows, and viewing instructions. The layout is structured to ensure that users can easily manage their approval processes, communicate with others, and save their settings for future reference. The buttons for saving and applying workflows are crucial for the approval process, ensuring that all necessary steps are followed and documented.
+
+--•--•--
+
+## Portal Path Endpoint: Timeout Node Link
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/present-participants/sample-download/
+### Structural Analysis Breakdown:
+System validation or rendering pipeline timed out: Page.goto: Download is starting
+Call log:
+  - navigating to "https://learner.saveetha.in/academics/workflow-requests/manual-event-attendance/present-participants/sample-download/", waiting until "load"
+
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Reward Redeem
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=redeem
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-redeems/create/?tab=workflow
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Reward Claim
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/?tab=claim
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Approval Flow
+- **Direct Link Target:** https://learner.saveetha.in/academics/workflow-requests/reward-claims/create/?tab=workflow
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/calculate-my-attendance/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/attendance/leave-balance/#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page controls the following specific transactional parameters:
+- **Date To**: Allows the user to select a date range for leave balance calculation.
+- **Leave Type**: Allows the user to filter leave types for the leave balance calculation.
+- **Apply**: Submits the selected parameters to calculate the leave balance.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value
+The page displays the following data elements and structures:
+- **Header Section**:
+  - **Date To**: Set to 10/11/2026.
+  - **Leave Type**: Set to "All Leave Types".
+  - **Buttons**: "Reset" and "Apply".
+
+- **Main Content Section**:
+  - **Current Leave Balance**:
+    - **Debit**: 0.00
+    - **Net**: 3.00
+
+- **Leave Application Table**:
+  - **Credit**: 3.00
+  - **Debit**: 0.00
+  - **Date From**: 2026-04-16 00:00
+  - **Date To**: 2026-06-30 23:59
+  - **Entry Type**: Manual
+  - **Leave Application**: -
+  - **Description**: OD credit for 25-26 Even Term-II
+
+- **User Information**:
+  - **Logged in as**: 25013957
+  - **Name**: MUHAMMAD ASJAD E
+  - **Ref1**: 212225240091
+  - **Ref2**: 25013957
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Allowing Users to Filter and Calculate Leave Balance**: The user can specify a date range and leave type to calculate the leave balance accurately.
+- **Displaying Detailed Leave Application Information**: The table provides detailed information about each leave application, including the date range, entry type, and description.
+- **User Authentication and Identification**: The user's logged-in information is displayed, ensuring that the user is authenticated and their details are visible.
+- **Integration with the System**: The page is part of a larger system that manages leave balances and applications, ensuring that all leave-related data is accessible and manageable.
+
+### Summary
+This page is designed to facilitate the calculation and management of leave balances, allowing users to filter by date and leave type, and displaying detailed information about leave applications. It integrates with the broader system to ensure accurate and accessible leave management.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/skill-development/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Overview
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=overview
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Chat
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=chat&chat=group
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Mentorship**: The page is part of the mentorship system, specifically for the group "ACAM47."
+- **Tab Selection**: The user is currently in the "Chat" tab, which is indicated by the highlighted "Chat" button.
+- **Tab Navigation**: The user can navigate back to the mentorship overview by clicking the "Back to Mentorship" button.
+
+#### 2. Data Element Blocks and Table Structure
+- **Header**: 
+  - **Title**: "ACAM47 - Mentorship"
+  - **Mentorship Type**: "Academic Mentor"
+  - **Chat Tab**: "Chat"
+  - **Overview Tab**: "Overview"
+  - **Back Button**: "Back to Mentorship"
+  - **User Information**: "Logged in as" (loading profile)
+  - **Footer**: "Copyright © Saveetha Engineering College 2026"
+
+- **Sidebar Menu**:
+  - **Core**: 
+    - **Schedule**
+    - **Circulars** (with a notification badge showing 29 new items)
+    - **My Reward Points**
+    - **Workflow Requests**
+    - **Workflow Approvals**
+    - **Bookings**
+    - **Services**
+  - **Manage**:
+    - **Mentees**
+    - **Mentorship**
+
+- **Main Content Area**:
+  - **Loading Message**: "Loading your mentorship conversations..."
+
+#### 3. Structural Functionality
+- **Mentorship Overview**: The user can navigate back to the mentorship overview by clicking the "Back to Mentorship" button. This allows them to view all conversations and interactions within the mentorship group.
+- **Chat Tab**: The user is currently in the chat tab, where they can communicate with their mentor. The chat tab is highlighted, indicating it is the active tab.
+- **Overview Tab**: The user can switch to the overview tab to view a summary of the mentorship group's activities and conversations.
+- **Loading Message**: The message "Loading your mentorship conversations..." indicates that the user is in the process of loading their mentorship conversations, which are being fetched from the server.
+- **User Information**: The user is logged in, and their profile is being loaded. This ensures that the user can access their personal information and settings.
+- **Footer**: The footer contains the copyright information, indicating the source of the system.
+
+### Summary
+This page is a part of a student portal designed for mentorship activities. It controls the user's interaction with their mentor, allowing them to communicate, view their mentorship activities, and navigate between different tabs. The page is structured to ensure a smooth user experience, with clear navigation and loading indicators.
+
+--•--•--
+
+## Portal Path Endpoint: Counselling
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/131/mentorship/?tab=counselling
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/378/mentorship/#
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Overview
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/378/mentorship/?tab=overview
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Chat
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/378/mentorship/?tab=chat&chat=group
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Counselling
+- **Direct Link Target:** https://learner.saveetha.in/mentormentee/groups/378/mentorship/?tab=counselling
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+                    
+                
+                All members in this session
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?chat=group#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Discussion Topics
+Focused topic threads
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?chat=topics#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: ARYA KRISHNA E
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=5057#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: HASHINI R
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=4900#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: KANNADHASAN J
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=4916#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: LAXMI PRIYA N
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=3100#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: LOKESH S
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=4924#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: MERLIN M
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=5127#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: NALLAMALLI VENKATA CHETAN SATWIK
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=4945#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: PRABHANJAN B
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=3208#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: SAIRAIMA V G
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=3262#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: SANJAI T
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=4988#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to manage student participation in academic events. It controls specific transactional parameters such as:
+- **Event Participation**: The student's participation in the event is tracked.
+- **Feedback Submission**: The student can submit feedback on the event.
+- **Booking Status**: The booking status of the event is managed.
+- **Attendance Tracking**: The student's attendance status is recorded.
+- **Chat Interaction**: The student can interact with chat support for any queries.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several key sections:
+- **Header**: Displays the event details, including the event ID, date, and booking status.
+- **Main Content Area**:
+  - **Overview**: Displays the student's name, registration number, mode of participation, and event details.
+  - **Summary**: Displays the attendance status and feedback status.
+  - **Feedback**: Displays the feedback status and pending status.
+  - **Session Details**: Displays the event session details, including the event term, location, and time.
+- **Side Navigation**: Contains links to different sections of the student portal, such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+
+#### 3. Score Layout and Variable Values
+- **Event ID**: 19AI408
+- **Event Name**: Data Structures
+- **Event Date**: September 26, 2026
+- **Booking Status**: Booked
+- **Feedback Status**: Pending
+- **Attendance Status**: Absent
+- **Feedback Pending**: Yes
+
+#### 4. Structural Functionality
+The layout serves the wider system functions by:
+- **Tracking Participation**: Ensures that student participation in events is recorded and tracked.
+- **Feedback Collection**: Facilitates the collection and management of student feedback.
+- **Attendance Tracking**: Allows for accurate tracking of student attendance.
+- **Chat Support**: Provides a channel for student support and queries.
+- **Event Details**: Displays all necessary event details for transparency and planning.
+
+### Detailed Breakdown of Each Section
+
+#### Header
+- **Event ID**: 19AI408
+- **Event Name**: Data Structures
+- **Event Date**: September 26, 2026
+- **Booking Status**: Booked
+- **Feedback Status**: Pending
+- **Attendance Status**: Absent
+- **Feedback Pending**: Yes
+
+#### Main Content Area
+- **Overview**:
+  - **Student Name**: Muhammad Asjad E
+  - **Registration Number**: 212225240091
+  - **Mode**: Booked
+  - **Event Details**: 19AI408 - Data Structures
+    - **Event Term**: 26-27-ODD-EXAMHALL
+    - **Location**: 3653
+    - **Time**: 9 a.m. - noon
+
+- **Summary**:
+  - **Attendance Status**: Absent
+  - **Attendance Percentage**: 0.0%
+
+- **Feedback**:
+  - **Feedback Status**: Pending
+  - **Feedback Pending**: Yes
+
+#### Side Navigation
+- **Schedule**: Links to the schedule of events.
+- **Circulars**: Links to circulars and announcements.
+- **My Reward Points**: Links to reward points and achievements.
+- **Workflow Requests**: Links to workflow requests and approvals.
+- **Workflow Approvals**: Links to workflow approvals.
+- **Bookings**: Links to booking details.
+- **Services**: Links to available services.
+- **Mentees**: Links to mentees and their profiles.
+- **Mentorship**: Links to mentorship programs and profiles.
+
+### Conclusion
+This page is a comprehensive interface for managing student participation in academic events, tracking attendance, collecting feedback, and providing support. The structured layout ensures that all necessary information is easily accessible and accessible, facilitating efficient event management and student engagement.
+
+--•--•--
+
+## Portal Path Endpoint: SANTHOSH K
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=3282#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: SYED MOHAMED RAIHAN M
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/16910/?peer_id=5011#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+All members in this session
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?chat=group#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Discussion Topics
+Focused topic threads
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?chat=topics#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: AMAN NAIR
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5051#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: ARYA KRISHNA E
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5057#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to manage and display details about a specific event, "19AI305 - Advanced C Programming," scheduled from September 26 to September 27. The page controls various transactional parameters such as attendance, feedback status, booking information, and session details.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several key sections:
+- **Header**: Displays the event title, date, and a back button to the main events page.
+- **Sidebar**: Contains navigation links for different sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+- **Main Content Area**:
+  - **Event Details**: Displays the event title, date, session time, and booking status.
+  - **Student Information**: Shows the student's name, registration number, mode of participation, and summary of attendance and feedback.
+  - **Session Details**: Provides the event title, event term, location, and time.
+  - **Feedback Status**: Indicates whether the feedback is pending or has been submitted.
+
+#### 3. Score Layout and Variable Values
+- **Event Title**: "19AI305 - Advanced C Programming"
+- **Date**: September 26-27, 2026
+- **Session Time**: 9 a.m. - noon
+- **Booking Status**: Booked on September 28, 2026, at 5:14 PM
+- **Student Name**: Muhammad Asjad E
+- **Registration Number**: 212225240091
+- **Mode of Participation**: Booked
+- **Attendance Status**: Absent (0.0%)
+- **Feedback Status**: Pending
+
+#### 4. Structural Functionality
+- **Attendance and Feedback Tracking**: The page tracks the student's attendance and feedback status, which is crucial for academic and administrative purposes.
+- **Booking Information**: Provides a clear record of when and where the student booked the session, ensuring transparency and accountability.
+- **Student Profile**: Facilitates easy access to the student's profile and details, allowing for further interaction or support if needed.
+- **Event Management**: Helps in managing and tracking the progress of the event, ensuring that all participants are accounted for and that feedback is collected and reviewed.
+
+### Summary
+This page serves as a comprehensive interface for managing and displaying event details, student attendance, and feedback for the "19AI305 - Advanced C Programming" event. It integrates various transactional parameters and data elements to provide a structured and user-friendly experience for both students and administrators.
+
+--•--•--
+
+## Portal Path Endpoint: ATHUL KRISHNA A V
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5060#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: BALAJI T
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5062#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: BHARATHWAJ P
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5067#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: DHANVARSINI S
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5075#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to manage and display details about a specific event, "19AI305 - Advanced C Programming," scheduled from September 26 to September 27. The page controls various transactional parameters such as attendance, feedback status, booking information, and session details.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several key sections:
+- **Header**: Displays the event title, date, and a back button to the main events page.
+- **Sidebar**: Contains navigation links for different sections like Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+- **Main Content Area**:
+  - **Event Details**: Displays the event title, date, session time, and booking information.
+  - **Student Details**: Shows the student's name, register number, mode of participation, and summary of attendance and feedback.
+  - **Session Details**: Provides the event title, event term, location, and time.
+  - **Feedback Status**: Indicates the feedback status as "Pending."
+  - **Booking Info**: Displays the booking date and time.
+
+#### 3. Score Layout and Variable Values
+- **Score Layout**: The page does not explicitly display a score layout. However, the feedback status is marked as "Pending."
+- **Variable Values**:
+  - **Event Title**: "19AI305 - Advanced C Programming"
+  - **Date**: September 29, 2026
+  - **Session Time**: 9 a.m. - noon
+  - **Booking Date**: September 28, 2026, 17:48
+  - **Student Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+  - **Feedback Status**: Pending
+  - **Attendance Status**: Absent (0.0%)
+
+#### 4. Structural Functionality
+- **Attendance and Feedback Tracking**: The page tracks the student's attendance and feedback status, which are crucial for academic and administrative purposes.
+- **Booking Information**: Provides a clear record of when the student booked the session, which helps in managing resources and scheduling.
+- **Event Details**: Ensures that all relevant details about the event are accessible, aiding in event management and communication.
+- **Student Details**: Facilitates easy identification and tracking of student participation, which is essential for academic and administrative reporting.
+
+### Summary
+This page is a comprehensive tool for managing and displaying event details, student participation, and feedback for the "19AI305 - Advanced C Programming" event. It serves the wider system functions by providing clear, organized, and accessible information, which is crucial for academic and administrative purposes.
+
+--•--•--
+
+## Portal Path Endpoint: DIVYA PRIYA S
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5080#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: EZHILAN H
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5083#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to manage and display details about a specific academic event, specifically the "19AI305 - Advanced C Programming" exam. The page allows users to view and manage the following transactional parameters:
+- **Event Details**: The event name, date, and time.
+- **Booking Information**: The booking date and time.
+- **Feedback Status**: The current status of the feedback, which is "Pending."
+- **Attendance Status**: The attendance status is "Absent."
+- **Student Information**: The student's name, registration number, and mode of participation.
+- **Summary**: The summary of the attendance and feedback status.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several data blocks and tables to present the relevant information clearly:
+- **Header Block**: Contains the event name, date, and time.
+- **Booking Info Block**: Displays the booking date and time.
+- **Feedback Status Block**: Shows the current status of the feedback.
+- **Attendance Status Block**: Indicates the attendance status.
+- **Student Information Block**: Provides the student's name, registration number, and mode of participation.
+- **Summary Block**: Summarizes the attendance and feedback status.
+
+#### 3. Structural Functionality
+The layout serves the wider system functions by:
+- **Providing Detailed Information**: It ensures that all relevant details about the event, booking, and student participation are easily accessible and visible.
+- **Facilitating Feedback Management**: The "Feedback Pending" status indicates that the feedback is still being processed, allowing for timely follow-up.
+- **Attendance Tracking**: The "Absent" status helps in tracking student attendance and managing the event logistics.
+- **User Interface**: The clear and organized layout makes it easy for users to navigate and understand the information presented.
+
+### Detailed Breakdown
+
+#### Header Block
+- **Event Name**: "19AI305 - Advanced C Programming"
+- **Date and Time**: September 29, 2026, 9 a.m. - noon
+- **Event Type**: 26-27-ODD-EXAMHALL
+- **Location**: 4372
+
+#### Booking Info Block
+- **Booking Date and Time**: September 28, 2026, 17:48
+
+#### Feedback Status Block
+- **Status**: "Pending"
+
+#### Attendance Status Block
+- **Status**: "Absent"
+- **Attendance Percentage**: 0.0%
+
+#### Student Information Block
+- **Student Name**: Muhammad Asjad E
+- **Registration Number**: 212225240091
+- **Mode**: Booked
+
+#### Summary Block
+- **Attendance Status**: "Absent"
+- **Attendance Percentage**: 0.0%
+- **Feedback Status**: "Feedback Pending"
+
+### Conclusion
+This page is designed to provide comprehensive and up-to-date information about an academic event, including booking details, feedback status, and student attendance. The clear and structured layout ensures that all necessary information is easily accessible and understandable, facilitating effective event management and student tracking.
+
+--•--•--
+
+## Portal Path Endpoint: GINI CLARE G
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5084#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: HARIHARAN M
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5088#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: HARIKRISHNA M
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5089#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: HEMA PRIYA S
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5094#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: INFANT VIJAY A
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5095#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: ISRAVEL Y
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5097#event-student-chat
+### Structural Analysis Breakdown:
+### Home Page Layout Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and display student participation details for an event titled "19AI305 - Advanced C Programming." The specific transactional parameters include:
+- **Event ID**: 19AI305
+- **Event Date**: September 29, 2026
+- **Session Time**: 9 a.m. - noon
+- **Location**: 4372
+- **Booking Status**: Booked
+- **Feedback Status**: Pending
+- **Attendance Status**: Absent (0.0%)
+
+#### 2. Data Element Blocks and Table Structure
+The page is divided into several sections, each containing specific data elements:
+- **Header Section**:
+  - Event Title: "19AI305 - Advanced C Programming"
+  - Event Date: September 29, 2026
+  - Session Time: 9 a.m. - noon
+  - Location: 4372
+  - Booking Status: Booked
+  - Feedback Status: Pending
+  - Attendance Status: Absent (0.0%)
+
+- **Student Details Section**:
+  - Student Name: Muhammad Asjad E
+  - Register Number: 212225240091
+  - Mode: Booked
+
+- **Session Details Section**:
+  - Event ID: 19AI305
+  - Event Title: Advanced C Programming
+  - Event Date: September 26-27, 2026
+  - Event Location: Exam Hall
+  - Session Time: 9 a.m. - noon
+  - Location: 4372
+
+- **Summary Section**:
+  - Attendance Status: Absent (0.0%)
+  - Feedback Status: Pending
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Displaying Event Details**: The page provides all necessary details about the event, including the date, time, location, and booking status, ensuring that students and organizers have comprehensive information.
+- **Student Participation Details**: By showing the student's name, register number, and booking status, it helps in tracking student participation and managing their attendance.
+- **Feedback Tracking**: The feedback status and pending nature indicate that the system is tracking and awaiting feedback, which is crucial for event evaluation and improvement.
+- **Attendance Tracking**: The absence status and percentage provide a clear indication of student attendance, which is essential for event planning and resource allocation.
+
+Overall, this layout ensures that all relevant information is accessible and tracked, facilitating effective event management and student engagement.
+
+--•--•--
+
+## Portal Path Endpoint: JANESHA S
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5099#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+The page controls specific actions related to student participation in academic events. Key actions include:
+- **Booking and Attendance Management**: The page allows students to manage their attendance and feedback for events.
+- **Feedback Submission**: Students can submit feedback for the event.
+- **Event Details**: Provides detailed information about the event, including date, time, and location.
+- **Booking Confirmation**: Displays booking confirmation details, including booking date and time.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several data blocks and tables to present the necessary information clearly:
+- **Event Details**:
+  - **Event ID**: 19AI305
+  - **Event Name**: Advanced C Programming
+  - **Event Date**: September 29, 2026
+  - **Time**: 9 a.m. - noon
+  - **Location**: 4372
+  - **Event Type**: 26-27-ODD-EXAMHALL
+
+- **Student Information**:
+  - **Student Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+
+- **Attendance and Feedback**:
+  - **Attendance Status**: Absent (0.0%)
+  - **Feedback Status**: Pending
+
+- **Booking Information**:
+  - **Booking Date**: September 28, 2026, 17:48
+  - **Booking Status**: Booked
+
+#### 3. Structural Functionality
+This layout serves the wider system functions by:
+- **Providing Clear Information**: Ensures that students and administrators have all the necessary information at a glance.
+- **Facilitating Feedback Submission**: Allows students to submit feedback, which can be reviewed and acted upon by the system.
+- **Booking Confirmation**: Ensures that students are aware of their booking status and can manage their attendance.
+- **Attendance Tracking**: Tracks student attendance and provides a clear status update.
+
+### Detailed Breakdown
+
+#### Event Details
+- **Event ID**: 19AI305
+  - **Name**: Advanced C Programming
+  - **Date**: September 29, 2026
+  - **Time**: 9 a.m. - noon
+  - **Location**: 4372
+  - **Event Type**: 26-27-ODD-EXAMHALL
+
+#### Student Information
+- **Student Name**: Muhammad Asjad E
+- **Register Number**: 212225240091
+- **Mode**: Booked
+
+#### Attendance and Feedback
+- **Attendance Status**: Absent (0.0%)
+- **Feedback Status**: Pending
+
+#### Booking Information
+- **Booking Date**: September 28, 2026, 17:48
+- **Booking Status**: Booked
+
+### Conclusion
+This page is designed to provide a comprehensive view of student participation in academic events, including booking details, attendance status, and feedback submission. The clear and structured layout ensures that all necessary information is easily accessible, facilitating effective event management and student engagement.
+
+--•--•--
+
+## Portal Path Endpoint: JEFFRIN I
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5103#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: KAMLESH P
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5110#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: KEERTHANA P
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5114#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: LOHINI S
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5122#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: MADAVAN V
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5124#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: MERLIN M
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5127#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: MOHAN K
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5130#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: MUHILAN A
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/17230/?peer_id=5135#event-student-chat
 ### Structural Analysis Breakdown:
 Model processing fault: 400
 
