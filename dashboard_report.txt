@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 2225
-**Pending Unexplored Queue Scope:** 2400
+**Total Unique Sub-System Paths Mapped:** 2241
+**Pending Unexplored Queue Scope:** 2486
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -36820,6 +36820,268 @@ API server link offline:
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8045/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=8046&year=2026&month=6&day=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8046/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=2#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 5
+SUN
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=5
+### Structural Analysis Breakdown:
+### 1. Actions and Specific Transactional Parameters
+
+This page is designed to control and display the schedule for a specific date in July 2026. The specific transactional parameters include:
+
+- **Year**: 2026
+- **Month**: July
+- **Day**: 5 (Sunday)
+
+The page also allows the user to navigate through the calendar to view schedules for other dates in the same month.
+
+### 2. Data Element Block, Table Structure, Score Layout, or Variable Value
+
+#### Calendar Layout
+- **Header**: Displays the date "JULY 2026" with navigation buttons for the previous and next months.
+- **Days of the Week**: 
+  - 2nd July: Thursday (THU)
+  - 3rd July: Friday (FRI)
+  - 4th July: Saturday (SAT)
+  - 5th July: Sunday (SUN)
+  - 6th July: Monday (MON)
+  - 7th July: Tuesday (TUE)
+  - 8th July: Wednesday (WED)
+
+#### Schedule Section
+- **No Schedule Found**: Indicates that no schedule is available for the selected date (July 5, 2026).
+
+### 3. Structural Functionality
+
+#### Structural Functionality
+
+1. **Calendar Navigation**:
+   - The calendar is designed to allow users to navigate through the months and days. The user can click on the left and right arrows to move to the previous and next months, respectively.
+   - The current month and day are highlighted, and the user can click on any day to view the schedule for that day.
+
+2. **Schedule Display**:
+   - The schedule section is currently empty, indicating that no schedule is available for the selected date.
+   - The user can click on the days to view the schedule for that day, but since no schedule is available, the page displays a message indicating "No schedule found for this date."
+
+3. **User Interface**:
+   - The page is designed to be user-friendly, with clear navigation and a straightforward layout.
+   - The user can easily access other sections of the portal, such as "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," and "Services."
+
+4. **Security and Authentication**:
+   - The page is logged in, indicating that the user is authenticated and has access to the system.
+   - The page also includes a copyright notice, indicating the source of the content.
+
+### 4. System Integration
+
+This page is part of a larger system designed to manage academic schedules for students. The system likely integrates with other modules such as "Circulars," "My Reward Points," and "Workflow Approvals" to provide a comprehensive view of student activities and responsibilities.
+
+### 5. Security and Privacy
+
+The page is designed to be secure, with clear navigation and a straightforward layout. The user is logged in, indicating that the system has implemented security measures to protect user data.
+
+### 6. User Experience
+
+The page is designed to provide a seamless user experience, with clear navigation and a straightforward layout. The user can easily access the schedule for any day in the selected month, and the page provides a clear message when no schedule is available.
+
+### 7. System Functions
+
+The page serves the following functions:
+- **Display Schedule**: Shows the schedule for the selected date.
+- **Navigation**: Allows users to navigate through the calendar to view schedules for other dates.
+- **User Authentication**: Ensures that only authenticated users can access the system.
+- **System Integration**: Integrates with other modules to provide a comprehensive view of student activities and responsibilities.
+
+### 8. Conclusion
+
+This page is a critical component of the student portal, providing a clear and user-friendly interface for managing and displaying schedules for students. The page is designed to be secure, with clear navigation and a straightforward layout, and it serves the wider system functions by integrating with other modules and providing a comprehensive view of student activities and responsibilities.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=4#
+### Structural Analysis Breakdown:
+### 1. Actions or Specific Transactional Parameters Controlled
+This page controls specific transactional parameters related to the academic schedule for July 2026. The user can navigate through the calendar to view or modify their schedule, check their reward points, manage workflow requests, approvals, bookings, and services. The page also allows the user to manage their mentees and mentorship.
+
+### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observed
+- **Header Section:**
+  - **Logo and Navigation Bar:** Contains the logo and navigation options for the user profile.
+  - **User Information:** Displays the user's ID, name, and ref IDs.
+  - **Calendar Section:** Displays the calendar for July 2026 with the date selected (4th July).
+  - **Notification Icons:** Indicate the number of notifications (30).
+
+- **Left Sidebar:**
+  - **Menu Items:** Contains links to different sections of the portal such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship.
+  - **User Profile:** Displays the user's profile picture and name.
+
+- **Main Content Area:**
+  - **Calendar Display:** Shows the days of the week (Mon to Fri) and the selected date (4th July).
+  - **Notification:** Displays "No schedule found for this date" if the user tries to access a specific schedule for the selected date.
+
+### 3. Structural Functionality and How It Serves the Wider System Functions
+- **Navigation and Menu Structure:**
+  - The left sidebar provides a structured navigation menu that allows users to access different sections of the portal efficiently. This helps in managing various academic and administrative tasks.
+
+- **Calendar Integration:**
+  - The calendar section is crucial for managing schedules and appointments. Users can view their schedule, add or modify events, and check their availability. This feature is essential for academic planning and administrative tasks.
+
+- **Notification System:**
+  - The notification icons indicate the number of unread notifications, which helps users stay updated with important messages or updates from the system.
+
+- **User Profile and ID:**
+  - Displaying the user's ID and name helps in maintaining user identity and access control. It also allows the system to track user activities and interactions.
+
+- **Academic and Administrative Tasks:**
+  - The various sections like Schedule, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, and Mentorship are designed to manage academic and administrative tasks. Users can easily access and manage their schedules, workflow requests, approvals, bookings, services, mentees, and mentorship.
+
+### Summary
+This page is a comprehensive interface for managing academic and administrative tasks for a student. It integrates a calendar for scheduling, notification system for updates, and a user profile for identity and access control. The structured layout ensures easy navigation and access to different sections, making it a vital component of the wider system functions.
+
+--•--•--
+
+## Portal Path Endpoint: 6
+MON
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=6
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 7
+TUE
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=7
+### Structural Analysis Breakdown:
+### 1. Actions and Specific Transactional Parameters
+
+This page is designed to control and display the schedule for a specific date in July 2026. The specific transactional parameters include:
+
+- **Year**: 2026
+- **Month**: July
+- **Day**: 7 (Tuesday)
+
+The page also allows the user to navigate through the month and view the schedule for other days in July 2026.
+
+### 2. Data Element Block, Table Structure, Score Layout, or Variable Value
+
+#### Data Element Block
+- **Schedule**: Displays the schedule for the selected date (July 7, 2026).
+- **Circulars**: Displays the number of circulars for the selected date.
+- **My Reward Points**: Displays the reward points for the selected date.
+- **Workflow Requests**: Displays the workflow requests for the selected date.
+- **Workflow Approvals**: Displays the workflow approvals for the selected date.
+- **Bookings**: Displays the bookings for the selected date.
+- **Services**: Displays the services available for the selected date.
+
+#### Table Structure
+- The page is structured using a table to display the schedule for each day in July 2026.
+- Each row represents a day in the month, and each column represents a specific time slot or event.
+
+#### Score Layout
+- The page displays a score layout for the selected date, showing the schedule, circulars, reward points, workflow requests, workflow approvals, bookings, and services.
+
+#### Variable Value
+- **Day**: 7 (Tuesday)
+- **Month**: July
+- **Year**: 2026
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **Displaying the Schedule**: It provides a clear view of the schedule for the selected date, allowing users to see what activities or events are planned for that day.
+2. **Circulars and Reward Points**: It shows the number of circulars and reward points for the selected date, which can be important for tracking progress or understanding the context of the schedule.
+3. **Workflow Requests and Approvals**: It displays the workflow requests and approvals for the selected date, which is crucial for managing and tracking the workflow processes.
+4. **Bookings and Services**: It shows the bookings and services available for the selected date, which can be important for planning and managing resources.
+5. **Navigation**: It allows users to navigate through the month and view the schedule for other days in July 2026, ensuring that the system is user-friendly and accessible.
+
+Overall, this layout segment is designed to provide a comprehensive view of the schedule and related activities for a specific date, ensuring that users can easily manage and track their activities and progress.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=3#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=28#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 25
+SAT
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=7&day=25
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=33038&slot_id=1498&year=2026&month=7&day=28
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=32958&slot_id=1328&year=2026&month=7&day=28
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=33001&slot_id=1416&year=2026&month=7&day=28
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=12598&year=2026&month=7&day=28
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12598/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=33112&slot_id=1636&year=2026&month=7&day=28
 ### Structural Analysis Breakdown:
 API server link offline: 
 
