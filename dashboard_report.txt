@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 6033
-**Pending Unexplored Queue Scope:** 4148
+**Total Unique Sub-System Paths Mapped:** 6049
+**Pending Unexplored Queue Scope:** 4378
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -118071,6 +118071,222 @@ This page is a critical component of the student portal, ensuring that all acade
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=9&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 14
+MON
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=9&day=14
+### Structural Analysis Breakdown:
+### 1. Actions and Specific Transactional Parameters
+
+This page is designed to control and display the schedule for a specific student in September 2026. The specific transactional parameters include:
+
+- **Year**: 2026
+- **Month**: September
+- **Day**: 14 (Monday)
+- **Student ID**: 19AI408 and 19CS406
+
+The page also allows the user to view attendance records for these specific dates.
+
+### 2. Data Element Blocks
+
+The page is structured into several main sections:
+
+1. **Header**:
+   - Contains the page title "Savetha Engineering College" and a user profile icon.
+   - Displays the current date and time.
+
+2. **Main Content**:
+   - **Schedule**:
+     - Displays the schedule for the selected day (Monday, September 14, 2026).
+     - Lists two courses:
+       - **19AI408 - Data Structures**
+         - Slot: 26OD1309
+         - Time: 09:45 AM - 11:14 AM
+         - Venue: 2512
+         - Leave status: Rejected
+       - **19CS406 - Computer Networks**
+         - Slot: 26OD1001
+         - Time: 01:15 PM - 02:44 PM
+         - Venue: 4651
+         - Leave status: Rejected
+
+3. **Sidebar**:
+   - Contains navigation links for different sections:
+     - Schedule
+     - Circulars
+     - My Reward Points
+     - Workflow Requests
+     - Workflow Approvals
+     - Bookings
+     - Services
+     - Mentees
+     - Mentorship
+     - Logged in as
+
+4. **Footer**:
+   - Contains a copyright notice for Savetha Engineering College 2026.
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **Displaying Student Schedule**:
+   - It provides a clear view of the student's schedule for the selected day, including course details, time slots, and venue information.
+
+2. **Monitoring Attendance**:
+   - The "View Attendance" button allows the user to check the student's attendance records for the selected course and date.
+
+3. **Navigation and Management**:
+   - The sidebar provides easy access to different sections of the system, allowing the user to navigate through different functionalities such as notifications, rewards, workflow requests, and more.
+
+4. **User Profile and Authentication**:
+   - The header and footer sections ensure that the user's profile and authentication details are visible, providing a secure and personalized experience.
+
+5. **System Integration**:
+   - The page integrates with the broader system by displaying specific data related to the student's schedule and attendance, ensuring that the system's data is accessible and up-to-date.
+
+Overall, this layout segment is designed to provide a comprehensive and user-friendly interface for managing and viewing a student's schedule and attendance records within the Savetha Engineering College system.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=15526&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/15526/
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page controls the following specific transactional parameters:
+- **Event Participation**: Controls the attendance and feedback for a specific event.
+- **Booking Information**: Manages the booking status and timing for the event.
+- **Feedback Posting**: Allows posting of feedback related to the event.
+- **Attendance Status**: Displays the attendance percentage and status for the student.
+- **Session Details**: Provides details about the event, including the event ID, event term, location, and time.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several key sections:
+- **Header**: Displays the event details, including the event ID, date, and booking status.
+- **Main Content Area**:
+  - **Overview**: Displays the student's name, registration number, and booking mode.
+  - **Session Details**: Provides detailed information about the event, including the event ID, term, location, and time.
+  - **Summary**: Displays the attendance status and percentage, along with the feedback status.
+
+#### 3. Variable Values and Data Layout
+- **Event ID**: TSCS169
+- **Event Date**: Sep 11, 2026
+- **Booking Status**: Booked
+- **Feedback Status**: Feedback Posted
+- **Attendance Status**: Present
+- **Attendance Percentage**: 100%
+
+#### 4. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Displaying Event Details**: Ensures that all relevant information about the event is visible to the student, including the date, time, and location.
+- **Monitoring Attendance**: Allows the system to track and display the student's attendance percentage and status.
+- **Posting Feedback**: Facilitates the posting of feedback related to the event, which can be reviewed and analyzed by the system.
+- **Booking Information**: Provides the student with the booking details, including the booking date and time, which can be used for future reference or tracking.
+
+### Summary
+This page is designed to provide a comprehensive view of the student's participation in an event, including attendance status, feedback posting, and detailed session information. It serves as a critical tool for managing and tracking student engagement with academic events, ensuring that all necessary information is readily accessible and up-to-date.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=43859&slot_id=1328&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=15865&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/15865/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=15866&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/15866/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=61604&slot_id=2049&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=15853&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/15853/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=43949&slot_id=1498&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=15868&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/15868/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=44032&slot_id=1636&year=2026&month=9&day=11
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=43136&slot_id=1498&year=2026&month=9&day=8#
 ### Structural Analysis Breakdown:
 API server link offline: 
 
