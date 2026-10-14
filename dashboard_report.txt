@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 7505
-**Pending Unexplored Queue Scope:** 4280
+**Total Unique Sub-System Paths Mapped:** 7521
+**Pending Unexplored Queue Scope:** 4267
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -162008,6 +162008,494 @@ API server link offline:
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=63985&slot_id=2670&year=2026&month=10&day=22#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=70432&slot_id=3082&year=2026&month=10&day=21#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=70126&slot_id=2866&year=2026&month=10&day=20#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+This page controls the attendance process for a specific course or session. The user can manage their attendance by entering and verifying OTPs (One-Time Passwords) for both IN and OUT times. The page also allows the user to submit feedback and record attendance.
+
+#### 2. Data Elements and Variables
+- **Course Information:**
+  - Course ID: 19AI550
+  - Course Name: Artificial Intelligence for Games
+  - Slot ID: 26OD2243
+  - Date: Tue, 20 Oct 2026
+
+- **OTP Entry:**
+  - IN OTP: Available once faculty generates it.
+  - OUT OTP: Required for attendance verification.
+
+- **Attendance Status:**
+  - Class Started: Scheduled from 01:15 PM to 02:44 PM on Tue, 20 Oct 2026.
+  - IN OTP Entry: Pending.
+  - IN Approval: Waiting for faculty approval.
+  - OUT OTP Entry: Pending.
+  - OUT Approval: Waiting for OUT approval.
+  - Feedback Submission: Submit class feedback.
+  - Attendance Recorded: Indicates the process is complete.
+
+- **User Information:**
+  - Logged in as: [User's name]
+
+#### 3. Structural Functionality
+This page serves the following broader system functions:
+- **Attendance Management:** Users can manage their attendance by entering and verifying OTPs, which are essential for tracking their presence in the class.
+- **Feedback Submission:** Users can submit feedback, which is crucial for improving the course and providing insights to the faculty.
+- **Approval Process:** The system ensures that attendance is approved by faculty, which is a critical step in maintaining accurate records.
+- **User Interface:** The page is designed to be user-friendly, with clear instructions and status updates, ensuring that users can easily navigate and complete their tasks.
+
+### Detailed Breakdown
+
+#### Course Information
+- **Course ID:** 19AI550
+  - **Course Name:** Artificial Intelligence for Games
+  - **Slot ID:** 26OD2243
+  - **Date:** Tue, 20 Oct 2026
+
+#### OTP Entry
+- **IN OTP:**
+  - **Availability:** Available once faculty generates it.
+  - **Purpose:** Used for entering the class.
+- **OUT OTP:**
+  - **Purpose:** Used for verifying attendance.
+
+#### Attendance Status
+- **Class Started:**
+  - **Scheduled Time:** 01:15 PM to 02:44 PM
+  - **Status:** Pending
+- **IN OTP Entry:**
+  - **Status:** Pending
+  - **Purpose:** Required for entering the class.
+- **IN Approval:**
+  - **Status:** Waiting for faculty approval
+  - **Purpose:** Facilitates the approval process.
+- **OUT OTP Entry:**
+  - **Status:** Pending
+  - **Purpose:** Required for verifying attendance.
+- **OUT Approval:**
+  - **Status:** Waiting for OUT approval
+  - **Purpose:** Facilitates the approval process.
+- **Feedback Submission:**
+  - **Purpose:** Submit class feedback
+  - **Status:** Pending
+- **Attendance Recorded:**
+  - **Status:** Indicates the process is complete
+
+#### User Information
+- **Logged in as:** [User's name]
+
+### Conclusion
+This page is a critical component of the student portal, ensuring that students can manage their attendance, submit feedback, and have their attendance approved by faculty. The structured layout and clear instructions facilitate a smooth user experience, while the status updates keep users informed about the progress of their tasks.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=70491&slot_id=3073&year=2026&month=10&day=23#
+### Structural Analysis Breakdown:
+Certainly! Let's break down the page layout and its functions in detail.
+
+### 1. Actions and Specific Transactional Parameters
+
+The page is designed to manage attendance for a specific course or session. The key transactional parameters include:
+
+- **Slot ID**: 3073
+- **Year**: 2026
+- **Month**: October
+- **Day**: 23
+- **Session ID**: 70491
+- **Course ID**: 19CY602
+- **Course Name**: Climate Change and Sustainability
+
+### 2. Data Element Blocks and Table Structure
+
+#### Header
+- **Title**: Attendance Process
+- **Course Details**:
+  - **Course ID**: 19CY602
+  - **Course Name**: Climate Change and Sustainability
+  - **Slot ID**: 2602450
+
+#### Main Content
+- **Class Started**:
+  - Scheduled from 08:00 AM to 09:29 AM
+  - Date: Friday, October 23, 2026
+  - Status: Pending
+
+- **IN OTP Entry**:
+  - Status: Pending
+  - Entry: Enter the OTP shared by your faculty
+
+- **IN APPROVAL**:
+  - Status: Waiting for faculty approval
+
+- **OUT OTP Entry**:
+  - Status: Pending
+  - Entry: Enter the OUT OTP (when enabled)
+
+- **OUT APPROVAL**:
+  - Status: Waiting for OUT approval
+
+- **Feedback Submission**:
+  - Status: Submit class feedback
+
+- **Attendance Recorded**:
+  - Status: Attendance recorded
+
+#### Sidebar
+- **CORE**:
+  - **Schedule**: 1
+  - **Circulars**: 19
+  - **My Reward Points**
+  - **Workflow Requests**
+  - **Workflow Approvals**
+  - **Bookings**
+  - **Services**
+
+- **MANAGE**:
+  - **Mentees**
+  - **Mentorship**
+  - **Logged in as**: 25013957
+
+### 3. Structural Functionality
+
+This page serves the following broader system functions:
+
+1. **Attendance Management**:
+   - It tracks the attendance of students in a specific course or session.
+   - It allows students to enter their attendance using OTPs.
+   - It manages the approval process for both IN and OUT attendance.
+   - It records the attendance once it is confirmed.
+
+2. **User Interface**:
+   - The sidebar provides quick access to different sections of the system.
+   - It allows users to navigate through different parts of the system efficiently.
+
+3. **Notifications and Status Updates**:
+   - It displays the status of each step in the attendance process (e.g., Pending, Waiting for approval).
+   - It ensures that users are informed about the progress of their attendance.
+
+4. **User Authentication**:
+   - It verifies the user's identity using their session ID and course details.
+   - It ensures that only authorized users can access and manage their attendance.
+
+### Summary
+This page is a comprehensive tool for managing attendance in a structured and user-friendly manner. It integrates various transactional parameters, data elements, and user interface features to ensure efficient and transparent attendance tracking.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=70201&slot_id=3082&year=2026&month=10&day=20#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=70498&slot_id=2670&year=2026&month=10&day=23#
+### Structural Analysis Breakdown:
+Certainly! Let's break down the page layout and its functionalities in detail.
+
+### Page Layout and Functionality
+
+#### 1. Header
+- **Title**: "Attendance Process"
+- **Navigation Menu**: Located on the left sidebar, which includes various sections such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," "Services," "Mentees," and "Mentorship."
+
+#### 2. Main Content Area
+- **Attendance Status**: Displays the current status of the student's attendance.
+  - **IN OTP**: Indicates that the student is in the OTP entry process.
+  - **OUT OTP**: Indicates that the student is out of the OTP entry process.
+  - **OTP Entry**: The OTP entry is pending.
+  - **IN APPROVAL**: Waiting for faculty approval.
+  - **OUT APPROVAL**: Waiting for OUT approval.
+  - **Feedback Submission**: Submitting class feedback.
+  - **Attendance Recorded**: The attendance is recorded.
+
+#### 3. Sidebar
+- **Core Section**: Contains various sections such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," "Services," "Mentees," and "Mentorship."
+  - **Schedule**: Displays the schedule for the session.
+  - **Circulars**: Displays any circulars or announcements.
+  - **My Reward Points**: Shows the student's reward points.
+  - **Workflow Requests**: Displays any workflow requests.
+  - **Workflow Approvals**: Displays any workflow approvals.
+  - **Bookings**: Displays any bookings.
+  - **Services**: Displays any available services.
+  - **Mentees**: Displays any mentees.
+  - **Mentorship**: Displays any mentorship activities.
+
+#### 4. Footer
+- **Logged in as**: Displays the student's ID and other login information.
+
+### Data Elements and Variables
+
+- **Session ID**: `70498`
+- **Slot ID**: `2670`
+- **Year**: `2026`
+- **Month**: `10`
+- **Day**: `23`
+- **Student ID**: `25013957`
+- **Name**: `MUHAMMAD ASJAD E`
+- **Ref1**: `12225240091`
+- **Ref2**: `25013957`
+
+### Structure and Functionality
+
+1. **Attendance Process**: The page controls the entire attendance process for the student. It tracks the student's status in the OTP entry, waiting for faculty approval, and recording the attendance.
+2. **Schedule**: Displays the schedule for the session, which is crucial for students to know when classes are scheduled.
+3. **Circulars**: Displays any announcements or circulars that might affect the student's attendance.
+4. **My Reward Points**: Shows the student's reward points, which might be used for various incentives or rewards.
+5. **Workflow Requests**: Displays any workflow requests that need to be addressed by the student.
+6. **Workflow Approvals**: Displays any workflow approvals that the student needs to approve.
+7. **Bookings**: Displays any bookings that the student might need to manage.
+8. **Services**: Displays any available services that the student might need to use.
+9. **Mentees**: Displays any mentees that the student might be working with.
+10. **Mentorship**: Displays any mentorship activities that the student might be involved in.
+
+### Wider System Functions
+
+- **Attendance Tracking**: The page ensures that the student's attendance is accurately recorded and tracked.
+- **Communication**: It keeps the student informed about any announcements or circulars that might affect their attendance.
+- **Incentives and Rewards**: It shows the student's reward points, which can be used for various incentives or rewards.
+- **Workflow Management**: It manages the workflow requests and approvals, ensuring that all necessary steps are completed.
+- **Services and Resources**: It provides access to various services and resources that the student might need.
+- **Mentorship and Mentees**: It manages the relationships between the student and their mentees, ensuring that all activities are tracked and managed.
+
+This page is designed to provide a comprehensive view of the student's attendance process, ensuring that all necessary steps are completed and that the student is informed about any changes or updates that might affect their attendance.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=11&day=14#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to control and display academic schedule information for a specific student. The specific transactional parameters include:
+- **Year**: 2026
+- **Month**: November
+- **Day**: 14 (Saturday)
+- **User**: Logged in as "25013957" with the name "MUHAMMAD ASJAD E"
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value
+The page displays a structured list of academic events for the specified day. Each event is represented with the following details:
+- **Event ID**: 19CY602, 19AI550, 19MA222
+- **Title**: "Climate Change and Sustainability", "Artificial Intelligence for Games", "Probability and Queueing Models"
+- **Slot**: 26OD2450, 26OD2243, 26OD2404
+- **Time**: 08:00 AM - 09:29 AM, 01:15 PM - 02:44 PM, 03:00 PM - 04:29 PM
+- **Venue**: 5371, 2454, 4371
+
+#### 3. Structural Functionality and Wider System Integration
+The layout serves the following broader system functions:
+- **Event Management**: Displays scheduled events for the student, allowing them to view and manage their attendance.
+- **Attendance Tracking**: Provides a way for students to check their attendance for each event.
+- **User Authentication**: Ensures that only logged-in users can access their schedule.
+- **Event Scheduling**: Facilitates the scheduling and management of academic events.
+- **User Interface**: Designed to be user-friendly, with clear and organized information.
+
+### Detailed Breakdown
+
+#### Event List
+The page is structured to list events for the specified day. Each event is presented with a title, slot, time, and venue. The user can click on the "VIEW ATTENDANCE" button to check their attendance for that event.
+
+#### User Information
+- **Logged in as**: Displays the user's ID and name, ensuring they can identify themselves.
+- **Ref**: Provides a reference number for the user, possibly for tracking purposes.
+
+#### Event Details
+- **Event ID**: Unique identifier for each event.
+- **Title**: Name of the event.
+- **Slot**: Time slot for the event.
+- **Time**: Start and end times of the event.
+- **Venue**: Location where the event is held.
+
+### Conclusion
+This page is a critical component of the student portal, providing essential information and functionality for students to manage their academic schedule. It ensures that students can easily view, manage, and track their attendance for upcoming events, contributing to the overall academic management system.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73988&slot_id=3073&year=2026&month=11&day=14
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=74068&slot_id=2866&year=2026&month=11&day=14
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage the attendance process for a specific course or session. The key actions and parameters include:
+- **Class Started**: The class has started and is pending approval.
+- **IN OTP Entry**: The student needs to enter the OTP provided by their faculty.
+- **IN APPROVAL**: The student's IN OTP needs to be approved by the faculty.
+- **OUT OTP Entry**: The student needs to enter the OUT OTP if enabled.
+- **OUT APPROVAL**: The student's OUT OTP needs to be approved by the faculty.
+- **Feedback Submission**: The student can submit feedback about the class.
+- **Attendance Recorded**: The attendance is recorded once the feedback is submitted.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with a series of blocks and tables to manage the attendance process. The main sections include:
+- **Class Started**: Displays the scheduled time and date.
+- **IN OTP Entry**: Instructions for entering the OTP.
+- **IN APPROVAL**: Indicates the status of the IN OTP approval.
+- **OUT OTP Entry**: Instructions for entering the OUT OTP.
+- **OUT APPROVAL**: Indicates the status of the OUT OTP approval.
+- **Feedback Submission**: Instructions for submitting feedback.
+- **Attendance Recorded**: Indicates the status of attendance recording.
+
+#### 3. Variable Value and Variable Structure
+The page uses variables to display specific information:
+- **Class Started**: Scheduled time and date.
+- **IN OTP Entry**: OTP entry instructions.
+- **IN APPROVAL**: Status of IN OTP approval.
+- **OUT OTP Entry**: OTP entry instructions.
+- **OUT APPROVAL**: Status of OUT OTP approval.
+- **Feedback Submission**: Instructions for feedback submission.
+- **Attendance Recorded**: Status of attendance recording.
+
+#### 4. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Class Management**: Allows students to manage their attendance and feedback for a specific class.
+- **Faculty Approval**: Facilitates the approval process for OTPs and feedback submission.
+- **Attendance Tracking**: Records and tracks attendance for the class.
+- **User Interface**: Provides a user-friendly interface for students to manage their attendance and feedback.
+
+### Detailed Breakdown
+
+#### Class Started
+- **Scheduled Time**: 01:15 PM - 02:44 PM
+- **Date**: Saturday, November 14, 2026
+- **Status**: Pending
+
+#### IN OTP Entry
+- **Instruction**: Enter the OTP shared by your faculty
+- **Date**: Saturday, November 14, 2026
+- **Status**: Pending
+
+#### IN APPROVAL
+- **Status**: Waiting for faculty approval
+
+#### OUT OTP Entry
+- **Instruction**: Enter the OUT OTP (when enabled)
+- **Date**: Saturday, November 14, 2026
+- **Status**: Pending
+
+#### OUT APPROVAL
+- **Status**: Waiting for OUT approval
+
+#### Feedback Submission
+- **Instruction**: Submit class feedback
+
+#### Attendance Recorded
+- **Status**: Attendance recorded
+
+### Conclusion
+This page is designed to manage the attendance process for a specific course or session, providing clear instructions and statuses for each step. It ensures that students can easily manage their attendance and feedback, while also facilitating the approval process for OTPs and feedback submission. The structured layout and clear instructions help in maintaining a smooth and efficient attendance management system.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=74130&slot_id=3027&year=2026&month=11&day=14
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=70599&slot_id=3027&year=2026&month=10&day=23#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73493&slot_id=2670&year=2026&month=11&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73596&slot_id=3027&year=2026&month=11&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73717&slot_id=3082&year=2026&month=11&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73660&slot_id=3027&year=2026&month=11&day=11#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73069&slot_id=2866&year=2026&month=11&day=9#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+The page is designed to manage the attendance process for a specific course. The key actions and transactional parameters include:
+- **Class Started**: The class has started at a scheduled time.
+- **IN OTP Entry**: The student needs to enter the OTP provided by their faculty.
+- **IN APPROVAL**: The student's attendance is pending faculty approval.
+- **OUT OTP Entry**: The student needs to enter the OUT OTP (if enabled).
+- **OUT APPROVAL**: The student's attendance is awaiting OUT approval.
+- **Feedback Submission**: The student can submit class feedback.
+- **Attendance Recorded**: The attendance is recorded once all steps are completed.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with a series of data elements and transactional steps. The main sections are:
+- **Header**: Displays the course details, session ID, and date.
+- **Main Content Area**: Lists the steps in the attendance process.
+- **Sidebar**: Contains navigation links for different sections of the system.
+
+#### 3. Variable Values and Page Structure
+- **Course Details**: "19AI550 - Artificial Intelligence for Games"
+- **Session ID**: "73069"
+- **Slot ID**: "2866"
+- **Year**: "2026"
+- **Month**: "11"
+- **Day**: "09"
+- **User Information**: "Logged in as: 25013957 MUHAMMAD ASJAD E Ref1: 21225240091 Ref2: 25013957"
+
+#### 4. Page Layout and Functionality
+The page serves the wider system functions by:
+- **Displaying Course Information**: Helps students and faculty identify the correct course and session.
+- **Listing Steps**: Provides a clear, step-by-step guide for students to follow the attendance process.
+- **Navigation Links**: Facilitates easy access to other sections of the system, such as schedules, rewards points, and other academic activities.
+- **Status Indicators**: Shows the current status of each step in the process, helping students understand where they are in the attendance process.
+
+### Structured Functionality
+The page is designed to be user-friendly and efficient, ensuring that students can easily navigate through the attendance process. The structured layout helps in maintaining a clear and organized flow, which is crucial for both students and faculty to manage the attendance process effectively.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=73221&slot_id=3073&year=2026&month=11&day=9#
 ### Structural Analysis Breakdown:
 API server link offline: 
 
