@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 7601
-**Pending Unexplored Queue Scope:** 4760
+**Total Unique Sub-System Paths Mapped:** 7617
+**Pending Unexplored Queue Scope:** 5372
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -164125,6 +164125,221 @@ API server link offline:
 
 ## Portal Path Endpoint: Academics
 - **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=5#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 8
+MON
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2026&month=6&day=8
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=7273&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/7273/
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and display the attendance and feedback for a specific event. The specific event is "Module/LeetCode/SA" scheduled on June 5, 2026, from 10:00 AM to 10:59 AM. The student, Muhammad Asjad E, is registered with the ID 212225240091 and has a booked mode of attendance. The page controls the following specific transactional parameters:
+- **Event ID**: 7273
+- **Event Name**: Module/LeetCode/SA
+- **Event Date**: June 5, 2026
+- **Event Time**: 10:00 AM - 10:59 AM
+- **Student ID**: 212225240091
+- **Student Name**: Muhammad Asjad E
+- **Mode of Attendance**: Booked
+
+#### 2. Data Element Blocks and Table Structure
+The page is divided into several sections, each containing specific data elements:
+- **Header Section**: Displays the event name, date, and time.
+- **Student Information Section**: Contains the student's name, ID, and mode of attendance.
+- **Event Details Section**: Provides the event name, date, time, and location.
+- **Attendance Summary Section**: Shows the attendance status and percentage.
+- **Feedback Section**: Displays the feedback status and any posted feedback.
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Displaying Event Details**: Ensures that all relevant information about the event is visible, including the date, time, and location.
+- **Monitoring Student Attendance**: Allows administrators to check if students have attended the event and their mode of attendance.
+- **Feedback Tracking**: Enables administrators to monitor and manage feedback from students, ensuring that the event is evaluated and improved upon.
+- **User Interface**: Provides a user-friendly interface for students to view their attendance and feedback, and for administrators to manage and review the event details.
+
+### Detailed Breakdown of Each Section
+
+#### Header Section
+- **Event Name**: Module/LeetCode/SA
+- **Event Date**: June 5, 2026
+- **Event Time**: 10:00 AM - 10:59 AM
+- **Status**: Booked
+
+#### Student Information Section
+- **Student Name**: Muhammad Asjad E
+- **Register No.**: 212225240091
+- **Mode**: Booked
+
+#### Event Details Section
+- **Event Name**: Module/LeetCode/SA
+- **Event Term**: 25-26-EVEN-EXAMCENTRE
+- **Location**: 4731
+- **Time**: 10:00 AM - 10:59 AM
+
+#### Attendance Summary Section
+- **Attendance Status**: Present
+- **Attendance Percentage**: 100%
+
+#### Feedback Section
+- **Feedback Status**: Feedback Posted
+- **Feedback**: (No specific feedback details provided)
+
+### Conclusion
+This page is a critical component of the student portal, ensuring that all event-related data is accessible and manageable. It provides a clear overview of the event details, student attendance status, and feedback, which are essential for both students and administrators to maintain a smooth and effective event management process.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=8059&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8059/
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and display details about a specific academic event, "STUDY WEEK - S1," for a student named Muhammad Asjad E. The page controls the following specific transactional parameters:
+- **Event Details**: Displays the event name, date, time, and booking status.
+- **Student Information**: Shows the student's name, registration number, and mode of participation.
+- **Attendance Status**: Indicates the student's attendance status and percentage.
+- **Feedback Status**: Shows the feedback status and pending nature.
+- **Booking Information**: Provides the booking date and time.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured into several data blocks and tables to present the relevant information clearly:
+- **Header Section**:
+  - Event Name: "STUDY WEEK - S1"
+  - Event Details: "25-26-LEARNING - LEARNING"
+  - Date and Time: "Jun 5, 2026, 10 a.m. - 11 a.m."
+  - Booking Status: "Booked" on "Jun 1, 2026 00:33"
+
+- **Student Information**:
+  - Student Name: Muhammad Asjad E
+  - Registration Number: 212225240091
+  - Mode of Participation: Booked
+
+- **Event Details**:
+  - Event Name: "STUDY WEEK - S1"
+  - Event Term: "25-26-LEARNING"
+  - Location: 2872
+  - Time: 10 a.m. - 11 a.m.
+
+- **Attendance Status**:
+  - Attendance: "ABSENT"
+  - Attendance Percentage: "0.0%"
+
+- **Feedback Status**:
+  - Feedback: "Pending"
+  - Feedback Status: "Feedback Pending"
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Displaying Detailed Event Information**: Ensures that all relevant details about the event are visible, allowing students to understand their participation status and any pending feedback.
+- **Providing Clear Attendance and Feedback Status**: Facilitates easy tracking of student attendance and feedback status, which is crucial for academic administration.
+- **Linking to Event Details**: Allows students to navigate back to the event details page, ensuring they can access more information if needed.
+- **User Authentication**: The page is logged in as "25013957" Muhammad Asjad E, indicating that the user is authenticated and can interact with the system.
+
+Overall, this page is designed to provide a comprehensive view of a student's participation in an academic event, ensuring transparency and accountability in the educational process.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=8060&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8060/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=8061&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8061/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=7276&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/7276/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event_attendance_process/?slotsession_id=8062&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8062/
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=19239&slot_id=326&year=2026&month=6&day=5
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8047/#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+                    
+                
+                All members in this session
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/8047/?chat=group#event-student-chat
 ### Structural Analysis Breakdown:
 API server link offline: 
 
