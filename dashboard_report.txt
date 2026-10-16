@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 9025
-**Pending Unexplored Queue Scope:** 5894
+**Total Unique Sub-System Paths Mapped:** 9041
+**Pending Unexplored Queue Scope:** 5892
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -202658,6 +202658,482 @@ API server link offline:
 - **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=36478&slot_id=1636&year=2026&month=8&day=11
 ### Structural Analysis Breakdown:
 API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/attendance_process/?slotsession_id=35796&slot_id=1416&year=2026&month=8&day=8#
+### Structural Analysis Breakdown:
+Certainly! Let's break down the page layout and its functions in detail.
+
+### Page Layout and Functionality
+
+#### 1. Header and Navigation
+- **Header**: Contains the page title "Attendance Process" and a navigation bar with links to different sections of the portal.
+- **Navigation Bar**: Links to "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," "Services," "Manage," "Mentees," and "Mentorship."
+
+#### 2. Main Content Area
+- **Attendance Details**:
+  - **IN OTP**: Indicates that the student's attendance has been approved for the session.
+  - **OUT OTP**: States that OUT OTP will be enabled after the IN OTP entry.
+  - **Lesson Details**: Describes the lesson titled "Process Synchronization - Critical Regions, Monitors, and Inter-Process Communication."
+  - **Teaching Method**: Lists the methods used in the lesson, including lecture, interactive lecture, demonstration, and hands-on practice.
+  - **Topics**: Lists the topics covered in the lesson, such as "Critical Regions and Monitors" and "Inter-Process Communication Concepts."
+  - **Class Feedback**: Allows the student to rate the class and provide comments.
+
+#### 3. Sidebar
+- **Sidebar**: Contains additional information and links to other sections of the portal.
+
+### Data Elements and Variables
+
+#### 1. Attendance Details
+- **IN OTP**: "Your IN attendance has been approved for this session."
+- **OUT OTP**: "OUT OTP will be enabled after your IN OTP entry."
+- **Lesson Title**: "Process Synchronization - Critical Regions, Monitors, and Inter-Process Communication."
+- **Teaching Methods**: Lecture, Interactive Lecture, Demonstration, Hands-on Practice.
+- **Topics**: U3 T5: Critical Regions and Monitors, U3 T6: Inter-Process Communication Concepts.
+
+#### 2. Class Feedback
+- **Overall Rating**: Allows the student to rate the class from 1 to 5 stars.
+- **Comments**: A text field for the student to provide feedback.
+
+### Structural Functionality
+
+#### 1. Attendance Process
+- **IN OTP Entry**: The student enters their OTP to confirm attendance.
+- **IN Approval**: The faculty approves the student's attendance.
+- **OUT OTP Entry**: The student enters their OUT OTP if enabled.
+- **OUT Approval**: The faculty approves the student's OUT attendance.
+- **Feedback Submission**: The student submits their feedback on the class.
+
+#### 2. Lesson Synchronization
+- **Lecture**: Covers critical regions, monitors, condition variables, and their role in synchronizing concurrent programs.
+- **Interactive Lecture**: Discusses IPC models, shared memory, and message-passing with student Q&A.
+- **Demonstration**: Demonstrates monitor implementation and usage in a sample Linux program.
+- **Hands-on Practice**: Students write and test IPC code using shared memory and message queues.
+
+### Page Structure and Purpose
+
+- **Page Structure**: The page is designed to manage and record student attendance, lesson synchronization, and provide feedback on the class.
+- **Purpose**: The
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/#
+### Structural Analysis Breakdown:
+### 1. Actions and Specific Transactional Parameters
+
+This page is part of a student portal, specifically for managing academic events and student participation. The page controls the following specific transactional parameters:
+
+- **Event Participation**: Controls the status of the student's participation in the event.
+- **Feedback Submission**: Allows the student to submit feedback on the event.
+- **Booking Information**: Provides details about the booking of the event.
+- **Attendance Tracking**: Tracks the student's attendance percentage.
+- **Session Details**: Displays the session details, including the module, code, and time.
+
+### 2. Data Element Blocks and Table Structure
+
+The page is structured into several data element blocks and tables:
+
+1. **Header Section**:
+   - **Event Title**: "Module/LeetCode/SA"
+   - **Event Details**: "26-27-ODD-EXAMCENTRE - EXAMINATIONS"
+   - **Back to Events Button**: Links back to the main events page.
+
+2. **Main Content Area**:
+   - **Attendance Status**: "100.0%"
+   - **Feedback Status**: "Feedback Posted"
+   - **Session Date**: "Aug 8, 2026" (11 a.m. - 11:59 a.m.)
+   - **Booking Info**: "Booked" (Aug 8, 2026 05:13)
+
+3. **Navigation Tabs**:
+   - **Overview**
+   - **Chat**
+   - **Attendance**
+   - **Feedback**
+
+4. **Student Information**:
+   - **Student Name**: "MUHAMMAD ASJAD E"
+   - **Register Number**: "212225240091"
+   - **Mode**: "Booked"
+
+5. **Session Details**:
+   - **Module/LeetCode/SA**
+   - **Event Term**: "26-27-ODD-EXAMCENTRE"
+   - **Location**: "1851"
+   - **Time**: "11 a.m. - 11:59 a.m."
+
+6. **Summary Section**:
+   - **Attendance Status**: "Present"
+   - **Attendance Percentage**: "100.0%"
+   - **Feedback Status**: "Feedback Posted"
+
+### 3. Structural Functionality
+
+This layout segment serves the wider system functions by:
+
+1. **Displaying Event Details**: Provides all necessary information about the event, including the module, code, and session details.
+2. **Tracking Student Participation**: Allows the student to see their participation status and booking information.
+3. **Attendance Tracking**: Enables the system to track the student's attendance percentage.
+4. **Feedback Submission**: Facilitates the student's ability to submit feedback on the event.
+5. **Navigation and Interaction**: Provides a clear and organized interface for the student to navigate through different sections of the event details.
+
+Overall, this page ensures that students have a comprehensive view of their participation in the event, including their attendance status, feedback, and booking information, which helps in maintaining transparency and accountability in academic events.
+
+--•--•--
+
+## Portal Path Endpoint: Group Chat
+                    
+                
+                All members in this session
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?chat=group#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Discussion Topics
+                    
+                
+                Focused topic threads
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?chat=topics#event-student-chat
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Ajith J
+Staff - Instructor
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=7296#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: Jeevitha S
+Staff - Instructor
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=7295#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: ABINAV AADITYA S
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=2537#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+- **Page Navigation**: The page is part of a student portal, likely for managing academic events and student participation.
+- **Event Details**: The page displays details of an event titled "Module/LeetCode/SA" scheduled from 11 a.m. to 11:59 a.m. on August 8, 2026.
+- **Booking Status**: The booking status is "Booked," indicating that the student has successfully reserved their spot for the event.
+- **Feedback Status**: The feedback status is "Feedback Posted," indicating that the student has submitted their feedback.
+- **Attendance Status**: The attendance status is "Present," indicating that the student was present for the event.
+
+#### 2. Data Element Blocks and Table Structure
+- **Event Details**:
+  - **Title**: Module/LeetCode/SA
+  - **Event Type**: 26-27-ODD-EXAMCENTRE - EXAMINATIONS
+  - **Session Date**: August 8, 2026
+  - **Time**: 11 a.m. - 11:59 a.m.
+  - **Location**: 1851
+  - **Booking Info**: Booked on August 8, 2026, at 05:13
+
+- **Student Details**:
+  - **Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+
+- **Summary**:
+  - **Attendance Status**: Present
+  - **Attendance Percentage**: 100.0%
+  - **Feedback Status**: Feedback Posted
+
+#### 3. Structural Functionality
+- **Overview**: Provides a quick summary of the event details, student information, and attendance status.
+- **Chat**: Likely a chat window for student-to-staff communication.
+- **Attendance**: Displays the student's attendance status.
+- **Feedback**: Displays the feedback status and allows the student to view or submit feedback.
+
+- **Booking Info**: Provides detailed booking information, including the booking date and time.
+
+- **Session Details**: Provides detailed session information, including the event type, location, and time.
+
+- **Summary**: Provides a concise summary of the student's participation in the event, including attendance status and percentage.
+
+### Structural Role in the Wider System
+This page serves as a critical component of the student portal, ensuring that students can easily access and manage their participation in academic events. It provides a clear overview of the event details, student information, and their participation status, facilitating transparency and accountability. The structured layout ensures that all relevant information is easily accessible, allowing students to quickly understand their participation status and any feedback they have submitted. This helps in maintaining a transparent and organized system for academic events, ensuring that students can manage their participation efficiently and effectively.
+
+--•--•--
+
+## Portal Path Endpoint: AMIRTHAVARSHINI V
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=2287#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: ANIRUTH S
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=2924#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: ARIKATLA HARI VEERA PRASAD
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=4673#event-student-chat
+### Structural Analysis Breakdown:
+### Home Page Layout Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+- **Page Navigation**: The page is designed to navigate through different sections of the student portal, such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," "Services," "Manage," and "Mentees."
+- **Event Details**: The page displays detailed information about a specific event, including the event name, date, time, and booking status.
+- **Student Information**: It provides the student's name, registration number, mode of booking, and summary of attendance.
+- **Feedback**: The page shows whether the feedback has been posted and provides a link to view the feedback.
+
+#### 2. Data Element Blocks and Table Structure
+- **Event Details Table**:
+  - **Column Headers**: Session Date, Booking Info, Feedback Status, Feedback Posted, Session Details, Summary, and Student Information.
+  - **Rows**: Each row contains specific data about the event, booking, feedback, and student details.
+
+- **Student Information Table**:
+  - **Column Headers**: Student Name, Registration Number, Mode of Booking.
+  - **Rows**: Each row contains specific data about the student's details.
+
+- **Feedback Status Table**:
+  - **Column Headers**: Feedback Status, Feedback Posted.
+  - **Rows**: Each row contains specific data about the feedback status.
+
+#### 3. Structural Functionality
+- **Navigation Menu**: The left sidebar contains a navigation menu with links to different sections of the student portal. This helps users quickly access various functionalities.
+- **Event Details Section**: The main content area displays detailed information about the event, including the date, time, and booking status. This section is crucial for students to understand the event details and their participation status.
+- **Student Information Section**: This section provides the student's name, registration number, and mode of booking. It helps students verify their participation in the event.
+- **Feedback Section**: The feedback section shows whether the feedback has been posted and provides a link to view the feedback. This section is important for students to see their performance and any comments or suggestions from the event organizers.
+- **Summary Section**: The summary section shows the attendance percentage and the status of the attendance. This helps students understand their participation status and any issues that may have arisen during the event.
+
+### Summary
+This page is designed to provide students with detailed information about their participation in an event, including event details, student information, and feedback. The layout is structured to ensure that students can easily access and understand their participation status and any feedback received. The navigation menu and detailed sections work together to provide a comprehensive view of the event and the student's involvement.
+
+--•--•--
+
+## Portal Path Endpoint: DHANUSH D
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=1018#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: DHARSHIN M
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=5076#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
+
+--•--•--
+
+## Portal Path Endpoint: DHEEBASH SAI R
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=2603#event-student-chat
+### Structural Analysis Breakdown:
+### Home Page Layout Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+- **Page Navigation**: The page is designed to navigate through different sections of the student portal, including Core, Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Services, Manage, Mentees, and Mentorship.
+- **Event Details**: The page displays detailed information about an event, including the event name, date, time, booking status, and feedback status.
+- **User Authentication**: The page shows the user's logged-in status and profile details, although the profile details are not available.
+
+#### 2. Data Element Blocks and Table Structure
+- **Event Details**:
+  - **Event Name**: "Module/LeetCode/SA"
+  - **Event Type**: "26-27-ODD-EXAMCENTRE - EXAMINATIONS"
+  - **Date**: August 8, 2026
+  - **Time**: 11 a.m. - 11:59 a.m.
+  - **Booking Status**: Booked
+  - **Feedback Status**: Feedback Posted
+  - **Student Information**: Muhammad Asjad E, Register No. 212225240091, Mode: Booked
+
+- **Summary**:
+  - **Attendance**: Present
+  - **Attendance Percentage**: 100.0%
+  - **Feedback**: Feedback Posted
+
+- **Booking Info**:
+  - **Booking Date**: August 8, 2026, 05:13
+
+#### 3. Score Layout and Variable Values
+- **Score Layout**:
+  - **Event Score**: 0 pts
+  - **Student Rating**: 0 pts
+
+#### 4. Structural Functionality
+- **Page Structure**:
+  - The page is divided into sections for easy navigation and information retrieval.
+  - The sidebar contains quick links to different sections of the portal, making it easy for users to access specific information.
+  - The main content area displays detailed event information, student details, and summary statistics.
+
+- **User Interface**:
+  - The layout is designed to be user-friendly, with clear sections for different types of information.
+  - The use of color and icons helps in distinguishing between different sections and types of data.
+
+- **System Integration**:
+  - The page is part of a larger system that manages student events and activities.
+  - The detailed event information is likely integrated with other systems for tracking student attendance and feedback.
+  - The user authentication and profile details are part of a larger system for managing student profiles and activities.
+
+### Summary
+This page is a detailed view of an event for a student, providing comprehensive information about the event, student details, and summary statistics. The layout is designed to be user-friendly and integrates with a larger system for managing student activities and events. The page controls specific transactional parameters related to the event and student participation, and it serves as a critical component of the wider system's functionality.
+
+--•--•--
+
+## Portal Path Endpoint: DIVYA M
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=2314#event-student-chat
+### Structural Analysis Breakdown:
+### Home Page Layout Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+- **Page Navigation**: The page is designed to navigate through different sections of the student portal, including the main menu, event details, and student chat.
+- **Event Details**: The page displays detailed information about an event, including the module, date, time, and booking status.
+- **Student Chat**: The page includes a chat section where students can interact with mentors or peers.
+- **Feedback**: The page allows students to post feedback on the event.
+- **Attendance**: The page shows the student's attendance status and percentage.
+
+#### 2. Data Element Blocks and Table Structure
+- **Header Section**:
+  - **Event Title**: "Module/LeetCode/SA"
+  - **Event Details**: "26-27-ODD-EXAMCENTRE - EXAMINATIONS"
+  - **Date and Time**: "Aug 8, 2026, 11 a.m. - 11:59 a.m."
+  - **Booking Status**: "Booked"
+  - **Feedback Status**: "Feedback Posted"
+  - **Attendance Status**: "100.0%"
+
+- **Main Content Section**:
+  - **Overview**: Displays the student's name, registration number, mode of booking, and session details.
+  - **Summary**: Displays the student's attendance status and percentage.
+
+- **Footer Section**:
+  - **Copyright Information**: "Copyright © Saveetha Engineering College 2026"
+
+#### 3. Structural Functionality
+- **Navigation Menu**: The left sidebar contains a navigation menu with links to different sections of the student portal, such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Services, Mentees, Mentorship, and Logged in as.
+- **Event Details**: The main content area provides detailed information about the event, including the module, date, time, and booking status. This information is crucial for students to understand the event's context and plan their participation.
+- **Student Chat**: The chat section allows students to interact with mentors or peers, fostering a sense of community and support.
+- **Feedback Section**: The feedback section enables students to provide feedback on the event, which can be used to improve future events and enhance the student experience.
+- **Attendance Section**: The attendance section shows the student's attendance status and percentage, which helps in tracking the student's participation in the event.
+
+### Summary
+This page is designed to provide comprehensive information about an event and facilitate student interaction with mentors and peers. It serves the wider system functions by ensuring that students have access to all necessary information, can participate in the event, and can provide feedback to improve future events. The structured layout ensures that all critical information is easily accessible and accessible to students, enhancing their overall experience and engagement with the student portal.
+
+--•--•--
+
+## Portal Path Endpoint: DIVYA PRIYA S
+                        
+                    
+                    
+                        Student
+                        
+                    
+                    
+                        Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=5080#event-student-chat
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Page Title**: The page is titled "Module/LeetCode/SA" under the "26-27-ODD-EXAMCENTRE - EXAMINATIONS" section.
+- **Event Details**: The event is scheduled for August 8, 2026, from 11 a.m. to 11:59 a.m.
+- **Booking Status**: The booking is confirmed and booked on August 8, 2026, at 5:13 a.m.
+- **Feedback Status**: The feedback has been posted.
+- **Attendance Status**: The attendance is 100%, and the student is present.
+
+#### 2. Data Element Blocks and Table Structure
+- **Header Section**:
+  - **Event Title**: Module/LeetCode/SA
+  - **Event Type**: 26-27-ODD-EXAMCENTRE - EXAMINATIONS
+  - **Event Date**: August 8, 2026
+  - **Booking Status**: Booked
+  - **Feedback Status**: Feedback Posted
+  - **Session Date**: 11 a.m. - 11:59 a.m.
+
+- **Student Information**:
+  - **Student Name**: Muhammad Asjad E
+  - **Register Number**: 212225240091
+  - **Mode**: Booked
+
+- **Session Details**:
+  - **Event Term**: 26-27-ODD-EXAMCENTRE
+  - **Location**: 1851
+  - **Time**: 11 a.m. - 11:59 a.m.
+
+- **Attendance Summary**:
+  - **Attendance Status**: Present
+  - **Attendance Percentage**: 100%
+
+- **Feedback Summary**:
+  - **Feedback Status**: Feedback Posted
+
+#### 3. Structural Functionality
+- **Overview**: Provides a quick summary of the event details, student information, and session specifics.
+- **Chat**: Likely a chat or messaging section where students can communicate with each other or the instructor.
+- **Attendance**: Displays the student's attendance status and percentage.
+- **Feedback**: Shows the feedback status and any posted feedback.
+
+### Structural Role in the Wider System
+This page serves as a detailed view for students participating in the event, providing them with all the necessary information about their participation, including their attendance status, feedback, and booking details. It ensures transparency and accountability in the event management system, allowing students to verify their participation and receive updates on their performance.
+
+The structured layout helps in:
+- **Transparency**: Ensuring that students can see all the details of their participation.
+- **Accountability**: Providing a record of their attendance and feedback status.
+- **Communication**: Facilitating communication between students and the instructor or event organizers.
+
+Overall, this page is a critical component of the student portal, ensuring that students have all the necessary information to manage their participation effectively and stay informed about their event status.
+
+--•--•--
+
+## Portal Path Endpoint: GOWTHAM N
+Student
+Rating: 0 pts
+- **Direct Link Target:** https://learner.saveetha.in/academicevents/event-participating/12875/?peer_id=5989#event-student-chat
+### Structural Analysis Breakdown:
+Model processing fault: 400
 
 --•--•--
 
