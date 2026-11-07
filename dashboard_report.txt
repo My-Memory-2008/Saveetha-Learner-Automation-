@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 29217
-**Pending Unexplored Queue Scope:** 886
+**Total Unique Sub-System Paths Mapped:** 29233
+**Pending Unexplored Queue Scope:** 890
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -751677,6 +751677,184 @@ API server link offline:
 ## Portal Path Endpoint: 21
 MON
 - **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=21
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-24&include_completed=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-24
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-27&include_completed=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-27&include_completed=0
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to control and manage project tasks within a student portal. The specific transactional parameters include:
+- **Date Selection**: The user can select a specific date to view tasks for that day.
+- **Include Completed Tasks**: The user can choose to include completed tasks in the list.
+- **Project ID**: The page is associated with a specific project ID, which is likely used to filter and display tasks related to that project.
+
+#### 2. Data Element Blocks, Table Structure, and Variable Values
+The page is structured into several sections:
+- **Header**: Contains the project ID and a loading profile indicator.
+- **Main Content Area**: Divided into two main sections:
+  - **Scheduled Tasks**: Displays tasks that are currently scheduled.
+  - **Completed Tasks**: Displays tasks that have been completed or canceled.
+
+#### 3. Table Structure and Variable Values
+The page uses a table to display tasks:
+- **Scheduled Tasks Table**:
+  - **Columns**: Status, Assignment, Dates, Action
+  - **Rows**: Each row represents a task with its status, assignment details, and action options.
+- **Completed Tasks Table**:
+  - **Columns**: Status, Assignment, Dates, Action
+  - **Rows**: Each row represents a completed task with its status, assignment details, and action options.
+
+#### 4. Structural Functionality and System Integration
+The page serves the following broader system functions:
+- **Task Management**: Allows users to view, manage, and track tasks assigned to them.
+- **Project Tracking**: Provides a centralized view of tasks associated with a specific project.
+- **User Interface**: Facilitates easy navigation and access to task details.
+- **Data Integration**: Links to the broader system by using the project ID to filter and display relevant tasks.
+
+### Detailed Breakdown
+
+#### Header
+- **Project ID**: Displays the project ID, which is likely used to filter tasks.
+- **Loading Profile**: Indicates that the page is loading or processing data.
+
+#### Main Content Area
+- **Scheduled Tasks Section**:
+  - **Table Structure**: 
+    - **Columns**: Status, Assignment, Dates, Action
+    - **Rows**: Each row represents a task with its status, assignment details, and action options.
+  - **Action Options**: Likely includes options to update, delete, or view task details.
+
+- **Completed Tasks Section**:
+  - **Table Structure**: 
+    - **Columns**: Status, Assignment, Dates, Action
+    - **Rows**: Each row represents a completed task with its status, assignment details, and action options.
+  - **Action Options**: Likely includes options to view completed task details.
+
+#### Table Structure
+- **Scheduled Tasks Table**:
+  - **Status**: Indicates the current status of the task (e.g., "Scheduled", "In Progress", "Completed").
+  - **Assignment**: Details of the task assignment, including the person assigned and any relevant notes.
+  - **Dates**: The dates when the task was scheduled or completed.
+  - **Action**: Options to update, delete, or view task details.
+
+- **Completed Tasks Table**:
+  - **Status**: Indicates the current status of the task (e.g., "Completed", "Cancelled").
+  - **Assignment**: Details of the task assignment, including the person assigned and any relevant notes.
+  - **Dates**: The dates when the task was completed or cancelled.
+  - **Action**: Options to view completed task details.
+
+### Conclusion
+This page is designed to provide a comprehensive view of tasks associated with a specific project, allowing users to manage and track their assigned tasks. The structured table format and clear action options facilitate easy navigation and task management, while the inclusion of completed tasks ensures users can see all relevant information. The page is an integral part of the broader system, serving as a central hub for project task tracking and management.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-27#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-30&include_completed=0#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-26&include_completed=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=23#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 20
+SUN
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=20
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23&include_completed=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-26#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-25&include_completed=1
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=22#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 19
+SAT
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=19
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22&include_completed=1
 ### Structural Analysis Breakdown:
 API server link offline: 
 
