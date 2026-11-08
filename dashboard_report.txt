@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 30049
-**Pending Unexplored Queue Scope:** 629
+**Total Unique Sub-System Paths Mapped:** 30065
+**Pending Unexplored Queue Scope:** 628
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -771376,6 +771376,280 @@ API server link offline:
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-08-30&include_completed=0
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-08-30#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-02&include_completed=1#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Schedule**: Controls the scheduling of tasks.
+- **Circulars**: Manages circulars or announcements.
+- **My Reward Points**: Displays the user's reward points.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Elements and Variable Values
+- **Project Data Synchronization**: The page indicates that project data is being synchronized and suggests retrying the request.
+- **Logged in as**: Displays the user's logged-in status.
+- **Copyright**: Indicates the copyright information for Saveetha Engineering College 2026.
+
+#### 3. Structural Functionality
+- **Header**: Contains the site logo and version number.
+- **Sidebar**: Contains navigation links for different sections of the portal.
+- **Main Content Area**: Displays the main content of the page, including the project data synchronization message and retry button.
+- **Footer**: Contains the copyright information and possibly other legal or contact details.
+
+### Page Structure and Purpose
+This page is designed to manage and display various project-related activities within a student portal. The layout is structured to provide a clear and organized view of the user's tasks and responsibilities. Here’s a breakdown of how each section contributes to the overall functionality:
+
+1. **Header**:
+   - **Logo**: Displays the site logo, representing the institution.
+   - **Version Number**: Shows the version of the system, which is important for tracking and updating purposes.
+
+2. **Sidebar**:
+   - **Navigation Links**: Contains links to different sections of the portal, such as Schedule, Circulars, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Projects, Services, and Mentees. These links allow users to navigate to specific areas of the portal.
+   - **Quick Links**: Provides a quick access to frequently used sections, enhancing user experience.
+
+3. **Main Content Area**:
+   - **Project Data Synchronization Message**: Indicates that the system is in the process of synchronizing project data. This message is crucial for users to understand the current status of their data and to retry the request if needed.
+   - **Retry Button**: Allows users to retry the synchronization of project data if it fails. This button is essential for maintaining the integrity of the data and ensuring that users can access their project information.
+
+4. **Footer**:
+   - **Copyright Information**: Provides legal and attribution details, ensuring that users are aware of the source of the content and the rights associated with it.
+
+### Overall System Functionality
+This page serves as a central hub for managing various project-related activities. It allows users to access and manage their schedules, circulars, reward points, workflow requests, workflow approvals, bookings, projects, services, and mentees. The synchronization message and retry button ensure that the system remains functional and that users can access their project data even if there are temporary issues.
+
+By structuring the page in this way, the system ensures that users have easy access to the information they need, while also providing a clear indication of the current status of their data and the steps they can take to resolve any issues.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-02&include_completed=0
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=9&day=6#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Schedule**: Displays the student's schedule for the selected date.
+- **Circulars**: Shows the number of circulars assigned to the student.
+- **Workflow Requests**: Displays workflow requests.
+- **Workflow Approvals**: Shows workflow approvals.
+- **Bookings**: Displays bookings.
+- **Projects**: Displays open project tasks.
+- **Services**: Displays services.
+- **Mentees**: Displays mentees.
+- **Logged in as**: Displays the user's logged-in information.
+- **Copyright**: Displays the copyright information for the institution.
+
+#### 2. Data Element Blocks and Table Structure
+- **Header**: Displays the date and time.
+- **Calendar**: Displays the calendar for the selected month and year.
+- **Project Tasks**: Displays open project tasks for the selected date.
+- **Academic Classes/Events**: Displays any academic classes or events for the selected date.
+- **Footer**: Displays the institution's copyright information.
+
+#### 3. Structural Functionality
+- **Calendar Navigation**: Allows users to navigate to different months and years.
+- **Project Task Management**: Enables users to manage their open project tasks.
+- **Event Management**: Allows users to view and manage academic classes or events.
+- **User Profile**: Displays the user's logged-in information and profile.
+- **Institutional Information**: Displays the institution's copyright information.
+
+### Detailed Breakdown
+
+#### Header
+- **Date and Time**: Displays the date and time in the format "YYYY.MM.DD:HH:MM:SS".
+- **Calendar Navigation**: Allows users to navigate to different months and years using the left and right arrow buttons.
+
+#### Calendar
+- **Month and Year**: Displays the selected month and year.
+- **Days of the Week**: Displays the days of the week (Mon, Tue, Wed, Thu, Fri, Sat, Sun).
+- **Calendar Dates**: Displays the dates of the selected month.
+- **Event/Task Information**: Displays any academic classes or events for the selected date.
+
+#### Project Tasks
+- **Open Assigned Project Tasks**: Displays open project tasks for the selected date.
+- **Action Button**: Allows users to open the assigned project tasks.
+
+#### Academic Classes/Events
+- **No Academic Classes or Events for this Date**: Displays a message indicating that there are no academic classes or events for the selected date.
+
+#### Footer
+- **Copyright Information**: Displays the institution's copyright information.
+
+### Structural Role in the Wider System
+- **User Interface**: The page serves as the primary user interface for the student to manage their schedule, project tasks, and academic events.
+- **Data Management**: It allows users to view and manage their open project tasks, academic classes, and events.
+- **User Authentication**: Displays the user's logged-in information and profile.
+- **Institutional Information**: Displays the institution's copyright information, providing legal and institutional context.
+
+This layout ensures that students have a clear and organized view of their academic and personal tasks, while also providing a secure and authenticated user experience.
+
+--•--•--
+
+## Portal Path Endpoint: 9
+THU
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=9&day=9
+### Structural Analysis Breakdown:
+### 1. Actions or Specific Transactional Parameters Controlled
+This page controls the following specific transactional parameters:
+- **Schedule**: Displays scheduled tasks for the specified date.
+- **Circulars**: Lists circulars for the specified date.
+- **My Reward Points**: Displays reward points for the specified date.
+- **Workflow Requests**: Lists workflow requests for the specified date.
+- **Workflow Approvals**: Lists workflow approvals for the specified date.
+- **Bookings**: Displays bookings for the specified date.
+- **Projects**: Lists projects for the specified date.
+- **Services**: Lists services for the specified date.
+- **Mentees**: Displays mentees for the specified date.
+
+### 2. Data Element Block, Table Structure, Score Layout, or Variable Value Observed
+The page is structured as follows:
+- **Header**: Displays the date (September 9, 2027) and navigation controls.
+- **Main Content Area**: Divided into sections for different types of data.
+  - **Schedule**: Displays scheduled tasks with status, assignment, and dates.
+  - **Circulars**: Lists circulars with status and dates.
+  - **My Reward Points**: Displays reward points with status and dates.
+  - **Workflow Requests**: Lists workflow requests with status and dates.
+  - **Workflow Approvals**: Lists workflow approvals with status and dates.
+  - **Bookings**: Displays bookings with status and dates.
+  - **Projects**: Lists projects with status and dates.
+  - **Services**: Lists services with status and dates.
+  - **Mentees**: Displays mentees with status and dates.
+- **Footer**: Displays the logged-in user ID and profile details.
+
+### 3. Structural Functionality of This Layout Segment
+This layout segment serves the wider system functions by providing a comprehensive overview of various types of data and tasks for the specified date. It allows users to easily navigate and access different categories of information, such as scheduled tasks, circulars, reward points, workflow requests, and more. This structured approach ensures that users can quickly find and manage their responsibilities and tasks efficiently, enhancing their productivity and organization within the system.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-06
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page controls the following actions and transactional parameters:
+- **Schedule Tasks**: Displays a list of tasks assigned to the user.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured with a sidebar menu on the left and a main content area on the right. The main content area contains two main sections:
+1. **Scheduled Tasks**:
+   - **Status**: Displays the status of the tasks.
+   - **Assignment / Dates**: Shows the assignment and dates for the tasks.
+   - **Action**: Provides options for actions such as updating or canceling tasks.
+
+2. **Undated Tasks**:
+   - **Status**: Displays the status of the tasks.
+   - **Assignment / Dates**: Shows the assignment and dates for the tasks.
+   - **Action**: Provides options for actions such as updating or canceling tasks.
+
+#### 3. Structural Role in the Wider System Functions
+This layout segment serves the following broader system functions:
+- **User Interface (UI) for Task Management**: The page provides a user-friendly interface for managing various types of tasks, including scheduled and undated tasks. This helps in organizing and tracking tasks efficiently.
+- **Workflow Management**: The page includes sections for workflow requests, approvals, and bookings, which are crucial for managing business processes and ensuring that tasks are completed within the specified timelines.
+- **Project and Service Management**: The sections for projects and services allow users to manage their projects and services, which is essential for project tracking and service delivery.
+- **Mentee Management**: The section for mentees helps in managing relationships and mentorship programs, which is important for professional development and support.
+
+Overall, this layout ensures that users can easily access and manage their tasks, workflows, bookings, projects, services, and mentees, thereby enhancing their productivity and efficiency within the system.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-02#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-03&include_completed=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-03&include_completed=0
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-03#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=9&day=7#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: 10
+FRI
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=9&day=10
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-07
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-04&include_completed=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-04&include_completed=0
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-09-04#
 ### Structural Analysis Breakdown:
 API server link offline: 
 
