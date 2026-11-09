@@ -1,7 +1,7 @@
 # Saveetha Learner Portal Deep Reverse-Engineered Specification
 
-**Total Unique Sub-System Paths Mapped:** 30145
-**Pending Unexplored Queue Scope:** 627
+**Total Unique Sub-System Paths Mapped:** 30161
+**Pending Unexplored Queue Scope:** 620
 
 ## Portal Path Endpoint: Sub-System Node Channel
 - **Direct Link Target:** https://learner.saveetha.in
@@ -773608,6 +773608,795 @@ API server link offline:
 - **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-04&include_completed=0#
 ### Structural Analysis Breakdown:
 API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-03&include_completed=0#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page appears to be a student portal for managing academic tasks and schedules. The specific transactional parameters include:
+- **Schedule**: Displays tasks and their statuses.
+- **Circulars**: Shows circulars and their statuses.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Element Block, Table Structure, Score Layout, or Variable Value
+The page is structured with a sidebar menu on the left and a main content area on the right. The main content area contains a table with columns for:
+- **Status**: The current status of the task.
+- **Assignment / dates**: The assignment or dates associated with the task.
+- **Action**: Actions or options related to the task.
+
+The table is populated with data for "Scheduled tasks" and "Undated tasks." Each row in the table includes:
+- **Status**: Indicates the current status of the task.
+- **Assignment / dates**: Shows the assignment or dates associated with the task.
+- **Action**: Provides options or actions related to the task.
+
+#### 3. Structural Functionality and System Integration
+This layout segment serves the wider system functions by:
+- **Organizing Tasks**: It organizes tasks into scheduled and undated categories, making it easier for students to manage their academic responsibilities.
+- **Status Tracking**: It tracks the status of each task, allowing students to monitor their progress and deadlines.
+- **Action Options**: It provides options for students to take actions on each task, such as updating, canceling, or completing tasks.
+- **Integration with Other Modules**: It integrates with other modules like workflow requests, approvals, bookings, projects, services, and mentees, ensuring a comprehensive view of all academic activities.
+- **User Interface**: It provides a user-friendly interface for students to navigate and manage their academic tasks efficiently.
+
+Overall, this layout helps in maintaining a structured and organized view of academic tasks, ensuring that students can effectively manage their schedules and responsibilities.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-07&include_completed=1#
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-07&include_completed=0
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Transactional Parameters
+The page is designed to manage and display project tasks for a specific date. The key actions and parameters include:
+- **Date Selection**: The user can select a specific date to view tasks for that day.
+- **Include Completed/Cancelled**: A checkbox to filter tasks that are completed or cancelled.
+- **Project ID**: The project ID is likely used to filter tasks within a specific project.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with a table to display the tasks for the selected date. The table has the following columns:
+- **Status**: The current status of the task.
+- **Assignment / Dates**: The assignment date and any relevant dates associated with the task.
+- **Action**: Actions or options related to the task.
+
+The table is populated with rows for each task, showing the status, assignment dates, and actions. The table is dynamic, updating based on the selected date and the status filter.
+
+#### 3. Score Layout and Variable Values
+The page displays a score at the top, which is likely a cumulative score or progress indicator for the project. The score is updated in real-time and is visible to the user.
+
+#### 4. Structured Functionality
+The page serves the following broader system functions:
+- **Task Management**: Allows users to view, manage, and update tasks for a specific date.
+- **Date Filtering**: Enables users to filter tasks based on the date they are interested in.
+- **Status Filtering**: Allows users to filter tasks based on their status (e.g., completed, cancelled).
+- **Progress Tracking**: Displays a score or progress indicator to help users track their progress in the project.
+- **User Interface**: Provides a clean and user-friendly interface for managing tasks, with clear columns and actions.
+
+### Detailed Breakdown
+
+#### Date Selection
+- **Date Input**: The user can select a specific date using a date picker.
+- **Date Display**: The selected date is displayed prominently at the top of the page.
+
+#### Status Filter
+- **Checkbox**: A checkbox to filter tasks that are completed or cancelled.
+- **Status Filter**: The checkbox is checked by default if the user wants to include completed tasks.
+
+#### Project ID
+- **Project ID**: The project ID is likely used to filter tasks within a specific project.
+- **Project ID Input**: The project ID is entered in the input field.
+
+#### Task Table
+- **Table Structure**: The table is structured with three columns: Status, Assignment / Dates, and Action.
+- **Row Data**: Each row in the table displays the status, assignment dates, and actions for a specific task.
+
+#### Score Display
+- **Score**: A score is displayed at the top of the page, indicating the progress or status of the project.
+- **Score Update**: The score is updated in real-time based on the selected date and the status filter.
+
+### Conclusion
+This page is designed to provide a comprehensive view of project tasks for a specific date, with options to filter tasks based on their status and include completed tasks. The table structure and real-time updates ensure that users can easily manage and track their tasks, contributing to the broader system functions of task management and progress tracking.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=5&day=19#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Transactional Parameters
+- **Page Actions:**
+  - **Schedule:** Displays the schedule for the selected date.
+  - **Circulars:** Displays the list of circulars for the selected date.
+  - **Workflow Requests:** Displays workflow requests for the selected date.
+  - **Workflow Approvals:** Displays workflow approvals for the selected date.
+  - **Bookings:** Displays bookings for the selected date.
+  - **Projects:** Displays project tasks for the selected date.
+  - **Services:** Displays services for the selected date.
+  - **Mentees:** Displays mentees for the selected date.
+
+- **Transactional Parameters:**
+  - **Year:** 2027
+  - **Month:** May
+  - **Day:** 19
+
+#### 2. Data Element Blocks and Table Structure
+- **Header:**
+  - **Title:** "Saveetha Engineering College"
+  - **Date:** May 2027
+  - **User Information:** Logged in as [User Name]
+
+- **Main Content Area:**
+  - **Schedule:**
+    - **Date:** May 19, 2027
+    - **Tasks:** No academic classes or events for this date
+  - **Circulars:**
+    - **Count:** 200
+  - **Workflow Requests:**
+    - **Tasks:** No tasks listed
+  - **Workflow Approvals:**
+    - **Tasks:** No tasks listed
+  - **Bookings:**
+    - **Tasks:** No bookings listed
+  - **Projects:**
+    - **Tasks:** No project tasks listed
+  - **Services:**
+    - **Tasks:** No services listed
+  - **Mentees:**
+    - **Tasks:** No mentees listed
+
+- **Footer:**
+  - **Copyright:** Saveetha Engineering College 2026
+
+#### 3. Structural Functionality
+- **Navigation Menu:**
+  - The left sidebar contains a navigation menu with links to different sections of the page, such as Schedule, Circulars, Workflow Requests, Workflow Approvals, Bookings, Projects, Services, and Mentees. This menu allows users to quickly access different types of information and tasks.
+
+- **Main Content Area:**
+  - The main content area displays the specific information for the selected date. For example, on May 19, 2027, there are no academic classes or events, no workflow requests, no workflow approvals, no bookings, no project tasks, no services, and no mentees.
+
+- **Date Display:**
+  - The date is prominently displayed at the top of the page, making it easy for users to identify the specific date they are viewing.
+
+- **Refresh Button:**
+  - There is a refresh button on the right side of the page, which allows users to update the information displayed on the page.
+
+- **User Information:**
+  - The user information is displayed at the top of the page, indicating that the user is logged in.
+
+- **Footer:**
+  - The footer contains the copyright information, indicating the source of the page.
+
+### Summary
+This page is designed to provide a comprehensive view of the student's schedule, circulars, workflow requests, workflow approvals, bookings, projects, services, and mentees for a specific date. The navigation menu allows users to easily access different sections of the page, and the refresh button ensures that the information displayed is up-to-date. The footer provides copyright information, indicating the source of the page.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-19&include_completed=1
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page appears to control the scheduling and tracking of tasks within a project management system. Key actions and parameters include:
+- **Schedule**: Displays a list of tasks with their statuses and assignment dates.
+- **Circulars**: Lists announcements and statuses.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Element Blocks, Table Structure, and Variable Values
+The page is structured into several sections, each containing specific data elements and tables. Here’s a breakdown:
+
+##### Schedule
+- **Tasks**: Displays a list of tasks with their statuses and assignment dates.
+  - **Status**: Indicates the current status of the task (e.g., "Completed").
+  - **Assignment Dates**: Shows the dates when the task was assigned.
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+##### Circulars
+- **Announcements and statuses**: Lists announcements and their statuses.
+  - **Status**: Indicates the current status of the announcement (e.g., "Published").
+  - **Updated Date**: Shows the date when the announcement was last updated.
+
+##### Workflow Requests
+- **Workflow Requests**: Manages workflow requests.
+  - **Status**: Indicates the current status of the request (e.g., "Pending", "In Progress").
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+##### Workflow Approvals
+- **Workflow Approvals**: Manages workflow approvals.
+  - **Status**: Indicates the current status of the approval (e.g., "Approved", "Rejected").
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+##### Bookings
+- **Bookings**: Manages bookings.
+  - **Status**: Indicates the current status of the booking (e.g., "Confirmed", "Cancelled").
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+##### Projects
+- **Projects**: Manages projects.
+  - **Status**: Indicates the current status of the project (e.g., "Active", "Completed").
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+##### Services
+- **Services**: Manages services.
+  - **Status**: Indicates the current status of the service (e.g., "Active", "Inactive").
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+##### Mentees
+- **Mentees**: Manages mentees.
+  - **Status**: Indicates the current status of the mentee (e.g., "Active", "Inactive").
+  - **Action**: Provides options for actions such as "View" or "Edit".
+
+#### 3. Structural Functionality
+This layout segment serves the wider system functions by:
+- **Scheduling and Tracking**: Allows users to manage and track the progress of tasks, ensuring that all deadlines are met.
+- **Communication**: Facilitates the communication of announcements and statuses, ensuring that all stakeholders are informed.
+- **Workflow Management**: Ensures that workflows are managed efficiently, with clear statuses and actions available.
+- **Booking Management**: Facilitates the management of bookings, ensuring that resources are allocated effectively.
+- **Project Management**: Provides a comprehensive view of project statuses and progress, enabling effective project management.
+- **Service Management**: Ensures that services are managed effectively, with clear statuses and actions available.
+- **Mentee Management**: Facilitates the management of mentees, ensuring that mentees are tracked and managed effectively.
+
+Overall, this layout segment is designed to provide a comprehensive view of various project and system activities, ensuring that all stakeholders have access to the necessary information and tools to manage their tasks and projects efficiently.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-19
+### Structural Analysis Breakdown:
+API server link offline: 
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-22&include_completed=1#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+The page controls specific transactional parameters related to project schedules, task assignments, and workflow approvals. Key actions include:
+- **Schedule**: Displays a list of tasks with their statuses, assignments, and dates.
+- **Workflow Requests**: Manages workflow requests and approvals.
+- **Bookings**: Manages bookings or reservations.
+- **Projects**: Manages project-related tasks and approvals.
+- **Services**: Manages service-related tasks and approvals.
+- **Mentees**: Manages mentee-related tasks and approvals.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value
+The page is structured with a sidebar menu and a main content area. The main content area contains tables for different types of tasks and approvals. Key elements include:
+- **Sidebar Menu**:
+  - **Schedule**: Displays 4 tasks with statuses, assignments, and dates.
+  - **Circulars**: Displays 200 circulars.
+  - **My Reward Points**: Displays reward points.
+  - **Workflow Requests**: Displays workflow requests.
+  - **Workflow Approvals**: Displays workflow approvals.
+  - **Bookings**: Displays bookings.
+  - **Projects**: Displays project-related tasks and approvals.
+  - **Services**: Displays service-related tasks and approvals.
+  - **Mentees**: Displays mentee-related tasks and approvals.
+
+- **Main Content Area**:
+  - **Tasks Table**:
+    - **Status**: Displays the status of each task.
+    - **Assignment / dates**: Displays the assignment or date of each task.
+    - **Action**: Displays actions or options for each task.
+  - **Approvals Table**:
+    - **Status**: Displays the status of each approval.
+    - **Assignment / dates**: Displays the assignment or date of each approval.
+    - **Action**: Displays actions or options for each approval.
+
+#### 3. Structural Functionality
+The layout serves the wider system functions by:
+- **Organizing Tasks and Approvals**: It organizes tasks and approvals into clear, structured tables, making it easy for users to manage and track their progress.
+- **User Interface**: The sidebar menu provides quick access to different sections, enhancing user experience.
+- **Data Visualization**: The tables provide a visual representation of task and approval statuses, assignments, and dates, facilitating quick data retrieval and analysis.
+- **User Authentication**: The logged-in user information at the bottom ensures that users can access their specific tasks and approvals.
+
+### Summary
+This page is designed to manage and track various tasks and approvals within a system, providing a structured and user-friendly interface. The sidebar menu and main content area work together to organize and display data efficiently, ensuring that users can easily manage their tasks and approvals.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-22&include_completed=0
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page is designed to manage and display project tasks within a student portal. The specific transactional parameters include:
+- **Date Filtering**: The date filter is set to "2027-05-22".
+- **Include Completed Tasks**: The checkbox "Show completed/cancelled" is unchecked, indicating that only tasks that are not completed or cancelled are displayed.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured into several sections:
+- **Header**: Contains the user's profile icon, username, and quick links.
+- **Sidebar**: Displays various tabs such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," "Projects," and "Services."
+- **Main Content Area**:
+  - **Schedule Tasks**: Displays a list of tasks with their status, assignment dates, and action options.
+  - **Projects**: Lists projects with their status, assignment dates, and action options.
+  - **Mentees**: Displays mentees with their status, assignment dates, and action options.
+
+#### 3. Structural Functionality and System Integration
+The page serves the following broader system functions:
+- **Project Management**: Allows users to view, manage, and track project tasks and projects.
+- **Task Tracking**: Provides a clear view of task statuses, assignment dates, and action options for easy tracking and management.
+- **User Interface**: Facilitates easy navigation through various tabs for different types of tasks and projects.
+- **Date Filtering**: Enables users to filter tasks based on specific dates, ensuring that only relevant tasks are displayed.
+- **User Authentication**: Displays the user's profile information, username, and ref numbers, ensuring secure access and identification.
+
+### Detailed Breakdown of Each Section
+
+#### Header
+- **User Profile**: Displays the user's profile icon, username, and ref numbers.
+- **Quick Links**: Provides quick access to different sections of the portal.
+
+#### Sidebar
+- **Tabs**: Contains various tabs for different types of tasks and projects, such as "Schedule," "Circulars," "My Reward Points," "Workflow Requests," "Workflow Approvals," "Bookings," "Projects," and "Services."
+
+#### Main Content Area
+- **Schedule Tasks**:
+  - **Table Structure**: Displays tasks with columns for status, assignment dates, and action options.
+  - **Action Options**: Allows users to perform actions such as updating, canceling, or reviewing tasks.
+- **Projects**:
+  - **Table Structure**: Lists projects with columns for status, assignment dates, and action options.
+  - **Action Options**: Provides options for managing projects, such as updating, canceling, or reviewing.
+- **Mentees**:
+  - **Table Structure**: Displays mentees with columns for status, assignment dates, and action options.
+  - **Action Options**: Allows users to perform actions such as updating, canceling, or reviewing mentees.
+
+### Conclusion
+This page is designed to provide a comprehensive view of project tasks and projects within a student portal. It uses date filtering, user authentication, and clear tab navigation to facilitate easy management and tracking of tasks and projects. The structured layout ensures that users can quickly access and manage different types of tasks and projects, enhancing the overall user experience.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-22#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+This page is designed to manage and view tasks within a project schedule. The specific actions and parameters controlled by this page include:
+- **Viewing and Managing Tasks**: Users can see and update the status, assignment dates, and actions for tasks assigned to them.
+- **Filtering and Sorting**: Users can filter tasks by date, status, or other criteria to find specific tasks.
+- **Assigning and Reassigning Tasks**: Users can assign tasks to themselves or others, and reassign tasks as needed.
+- **Approval and Action**: Users can approve or take action on tasks, such as completing or canceling them.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured with a sidebar menu and a main content area. The main content area contains two main sections:
+- **Scheduled Tasks**: Displays tasks that are currently scheduled and have a status of "Scheduled."
+- **Undated Tasks**: Displays tasks that are not yet assigned and do not have a specific assignment date.
+
+##### Scheduled Tasks Table
+- **Columns**: 
+  - **Status**: Shows the current status of the task (e.g., "Scheduled").
+  - **Assignment / dates**: Displays the assignment date or status if applicable.
+  - **Action**: Provides options for actions such as "Approve," "Reassign," or "Cancel."
+
+##### Undated Tasks Table
+- **Columns**: 
+  - **Status**: Shows the current status of the task (e.g., "Undated").
+  - **Assignment / dates**: Displays the assignment date or status if applicable.
+  - **Action**: Provides options for actions such as "Approve," "Reassign," or "Cancel."
+
+#### 3. Structural Functionality and System Integration
+This layout segment serves the wider system functions by:
+- **Centralizing Task Management**: It allows users to centrally manage their tasks, ensuring that all relevant information is easily accessible.
+- **Enhanced User Experience**: The clear and organized layout helps users quickly find and manage their tasks, improving productivity.
+- **Integration with Other Systems**: The page is likely integrated with other systems such as project management tools, approval workflows, and task assignment systems, ensuring a seamless user experience.
+- **Accessibility and Usability**: The structured layout and clear column headers enhance usability, making it easier for users to navigate and perform tasks efficiently.
+
+### Summary
+This page is a critical component of a student portal, managing and displaying tasks assigned to users within a project schedule. It provides a structured and user-friendly interface for managing tasks, ensuring that users can easily view, assign, and approve tasks, while also integrating with other system functionalities for a comprehensive and efficient user experience.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-27&include_completed=0
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions or Specific Transactional Parameters
+The page controls specific actions related to project scheduling, task management, and workflow approvals. Key actions include:
+- **Scheduling Tasks**: Users can schedule tasks and assign them to specific dates.
+- **Workflow Approvals**: Users can manage workflow approvals for tasks.
+- **Bookings**: Users can manage bookings related to projects.
+- **Services**: Users can manage services associated with projects.
+- **Mentees**: Users can manage mentees related to projects.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured into several main sections:
+- **Header**: Contains the user's profile and quick links.
+- **Sidebar**: Displays various tabs such as Schedule, Circulants, My Reward Points, Workflow Requests, Workflow Approvals, Bookings, Projects, Services, and Mentees.
+- **Main Content Area**: Displays the list of tasks, their status, assignment dates, and actions.
+
+#### 3. Structural Functionality
+The layout serves the wider system functions by:
+- **Scheduling Tasks**: Allows users to schedule tasks and assign them to specific dates, ensuring that tasks are tracked and managed effectively.
+- **Workflow Approvals**: Facilitates the approval process for tasks, ensuring that all necessary steps are followed and that tasks are completed within the specified timeframe.
+- **Bookings**: Manages bookings related to projects, ensuring that resources are allocated and used efficiently.
+- **Services**: Manages services associated with projects, ensuring that all necessary services are provided and tracked.
+- **Mentees**: Manages mentees related to projects, ensuring that mentees are tracked and managed effectively.
+
+### Detailed Breakdown
+
+#### Header
+- **User Profile**: Displays the user's profile information.
+- **Quick Links**: Provides quick access to frequently used features.
+
+#### Sidebar
+- **Schedule**: Displays scheduled tasks and their status.
+- **Circulants**: Displays circulars and their status.
+- **My Reward Points**: Displays reward points and their status.
+- **Workflow Requests**: Displays workflow requests and their status.
+- **Workflow Approvals**: Displays workflow approvals and their status.
+- **Bookings**: Displays bookings and their status.
+- **Projects**: Displays projects and their status.
+- **Services**: Displays services and their status.
+- **Mentees**: Displays mentees and their status.
+
+#### Main Content Area
+- **Tasks List**: Displays a list of tasks, their status, assignment dates, and actions.
+- **Status**: Shows the current status of the task.
+- **Assignment Dates**: Shows the date the task was assigned.
+- **Actions**: Provides options for managing the task, such as approving, rejecting, or completing.
+
+### Conclusion
+This page is designed to facilitate the management of various aspects of project and task scheduling, workflow approvals, bookings, services, and mentees. The structured layout ensures that users can easily navigate and manage their tasks and projects, ensuring efficient and effective project management.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-25&include_completed=0#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page controls the following actions and transactional parameters:
+- **Schedule Tasks**: Displays a list of tasks assigned to the user.
+- **Circulars**: Shows a list of circulars or announcements.
+- **My Reward Points**: Displays the user's reward points.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured with a sidebar menu on the left and a main content area on the right. The main content area contains two main sections:
+- **Scheduled Tasks**: Displays tasks assigned to the user, including their status, assignment dates, and action options.
+- **Undated Tasks**: Displays tasks that have not been assigned a date, showing their status, assignment dates, and action options.
+
+#### 3. Structural Functionality and System Integration
+The layout serves the following broader system functions:
+- **User Management**: The page allows users to manage their tasks, circulars, reward points, workflow requests, approvals, bookings, projects, services, and mentees.
+- **Task Tracking**: Users can see and manage their assigned tasks, including their status, assignment dates, and options to take action.
+- **Notification and Updates**: The page shows the latest updates and notifications, such as the updated time of the schedule.
+- **User Authentication**: The page is logged in as a specific user, indicating the user's identity and access level.
+
+### Detailed Breakdown
+
+#### Sidebar Menu
+- **Schedule**: Displays 4 tasks.
+- **Circulars**: Shows 200 circulars.
+- **My Reward Points**: Displays the user's reward points.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### Main Content Area
+- **Scheduled Tasks**:
+  - **Status**: Displays the status of the task.
+  - **Assignment / dates**: Shows the assignment date of the task.
+  - **Action**: Provides options to take action on the task.
+
+- **Undated Tasks**:
+  - **Status**: Displays the status of the task.
+  - **Assignment / dates**: Shows the assignment date of the task.
+  - **Action**: Provides options to take action on the task.
+
+### Conclusion
+The page is designed to provide a comprehensive overview of the user's tasks, notifications, and updates, while also allowing for easy management of various aspects of the user's activities. The layout is structured to ensure that users can quickly access and manage their tasks, notifications, and other relevant information.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/academics/people_schedule/?year=2027&month=5&day=18#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Transactional Parameters
+The page appears to be a student portal for managing academic schedules and tasks. The specific transactional parameters include:
+- **Year**: 2027
+- **Month**: May
+- **Day**: 18
+- **User**: 25013957 (Logged in as)
+
+The page allows users to view and manage their academic tasks, assignments, and schedules for the specified date.
+
+#### 2. Data Element Blocks and Table Structure
+The page is structured with various data elements and tables to display and manage tasks. The main sections include:
+- **Schedule**: Displays tasks for the specified date.
+- **Circulars**: Lists circulars or announcements.
+- **My Reward Points**: Shows reward points.
+- **Workflow Requests**: Lists workflow requests.
+- **Workflow Approvals**: Displays workflow approvals.
+- **Bookings**: Lists bookings.
+- **Projects**: Displays project tasks.
+- **Services**: Lists service tasks.
+- **Mentees**: Displays mentees' tasks.
+
+The table structure is as follows:
+```plaintext
+| Schedule | Circulars | My Reward Points | Workflow Requests | Workflow Approvals | Bookings | Projects | Services | Mentees |
+|----------|-----------|------------------|-------------------|---------------------|-----------|----------|----------|----------|
+| Status   | Assignment / dates | Action |
+| Status   | Assignment / dates | Action |
+| Status   | Assignment / dates | Action |
+| Status   | Assignment / dates | Action |
+| Status   | Assignment / dates | Action |
+| Status   | Assignment / dates | Action |
+| Status   | Assignment / dates | Action |
+```
+
+#### 3. Variable Value and Functionality
+- **Logged in as**: The user is logged in as `25013957`.
+- **Date**: The date displayed is May 18, 2027.
+- **Status**: The status of the tasks is displayed under each section.
+- **Assignment / dates**: The assignment and dates for each task are listed.
+- **Action**: Actions such as viewing, editing, or canceling tasks are available.
+
+#### 4. Structural Functionality
+The page serves the wider system functions by:
+- **Displaying Tasks**: Allowing users to view and manage their academic tasks, assignments, and schedules.
+- **Notifications and Announcements**: Displaying circulars or announcements to keep users informed.
+- **Reward Points**: Showing reward points to motivate users.
+- **Workflow Management**: Managing workflow requests and approvals for administrative tasks.
+- **Booking and Project Management**: Allowing users to manage bookings and project tasks.
+- **Service Management**: Managing service tasks for users.
+- **Mentee Management**: Managing mentees' tasks for supervision and support.
+
+Overall, the page is designed to provide a comprehensive view of a student's academic and administrative tasks, ensuring they can manage their schedule and responsibilities efficiently.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-18&include_completed=1
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page controls the following actions and transactional parameters:
+- **Schedule Tasks**: Allows users to view and manage tasks assigned to them.
+- **Circulars**: Displays a list of circulars or announcements.
+- **My Reward Points**: Shows the user's reward points.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured into several sections, each containing specific data elements and tables. Here is a detailed breakdown:
+
+##### Schedule Tasks
+- **Status**: Displays the status of the tasks.
+- **Assignment / dates**: Shows the assignment dates and any relevant dates.
+- **Action**: Provides options for actions such as updating or canceling tasks.
+
+##### Circulars
+- **List**: Displays a list of circulars or announcements.
+- **Updated Time**: Shows the last update time.
+
+##### My Reward Points
+- **Points**: Displays the user's reward points.
+
+##### Workflow Requests
+- **Status**: Displays the status of the workflow requests.
+- **Action**: Provides options for actions such as updating or canceling workflow requests.
+
+##### Workflow Approvals
+- **Status**: Displays the status of the workflow approvals.
+- **Action**: Provides options for actions such as updating or canceling workflow approvals.
+
+##### Bookings
+- **Status**: Displays the status of the bookings.
+- **Action**: Provides options for actions such as updating or canceling bookings.
+
+##### Projects
+- **Status**: Displays the status of the projects.
+- **Action**: Provides options for actions such as updating or canceling projects.
+
+##### Services
+- **Status**: Displays the status of the services.
+- **Action**: Provides options for actions such as updating or canceling services.
+
+##### Mentees
+- **Status**: Displays the status of the mentees.
+- **Action**: Provides options for actions such as updating or canceling mentees.
+
+#### 3. Structural Functionality
+The layout serves the wider system functions by:
+- **Organizing Information**: It organizes the user's tasks, announcements, reward points, workflow requests, approvals, bookings, projects, services, and mentees into easily accessible sections.
+- **User Interface**: It provides a clean and intuitive interface for users to manage their tasks, announcements, and other activities.
+- **Action Buttons**: It includes action buttons for updating or canceling tasks, which are essential for maintaining the system's functionality and ensuring that tasks are managed efficiently.
+- **Status Indicators**: It uses status indicators to show the current status of tasks, approvals, and other activities, which helps users understand their progress and take appropriate actions.
+
+Overall, this layout ensures that users can easily manage their tasks, announcements, and other activities within the system, while also providing a clear and organized view of their progress and actions.
+
+--•--•--
+
+## Portal Path Endpoint: Sub-System Node Channel
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-18
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions or Specific Transactional Parameters Controlled
+- **Schedule**: Controls the scheduling and management of tasks within the system.
+- **Circulars**: Manages and displays circulars or announcements.
+- **My Reward Points**: Displays and manages reward points.
+- **Workflow Requests**: Manages workflow requests and approvals.
+- **WorkFlow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings or appointments.
+- **Projects**: Manages projects and their tasks.
+- **Services**: Manages services or resources.
+- **Mentees**: Manages mentees or trainees.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observed
+- **Header Section**:
+  - **User Profile**: Displays the logged-in user's profile.
+  - **Quick Links**: Provides quick access to frequently used features.
+  - **Project ID**: Displays the project ID (2360.999:2375.99).
+  - **Time Zone**: Displays the time zone (IST).
+
+- **Main Content Area**:
+  - **Schedule**: Displays the schedule with 4 tasks.
+  - **Circulars**: Displays 200 circulars.
+  - **My Reward Points**: Displays the reward points.
+  - **Workflow Requests**: Displays workflow requests.
+  - **WorkFlow Approvals**: Displays workflow approvals.
+  - **Bookings**: Displays bookings.
+  - **Projects**: Displays projects with tasks.
+  - **Services**: Displays services.
+  - **Mentees**: Displays mentees.
+
+- **Table Structure**:
+  - **Tasks Table**: Lists tasks with columns for status, assignment, and dates.
+  - **Workflow Requests Table**: Lists workflow requests with columns for status, assignment, and dates.
+  - **WorkFlow Approvals Table**: Lists workflow approvals with columns for status, assignment, and dates.
+  - **Bookings Table**: Lists bookings with columns for status, assignment, and dates.
+  - **Projects Table**: Lists projects with tasks and columns for status, assignment, and dates.
+  - **Services Table**: Lists services with columns for status, assignment, and dates.
+  - **Mentees Table**: Lists mentees with columns for status, assignment, and dates.
+
+- **Score Layout**:
+  - **Reward Points**: Displays the total reward points.
+  - **Completed/Canceled Tasks**: Provides an option to show completed or canceled tasks.
+
+#### 3. Structural Functionality and Wider System Integration
+- **Schedule Management**: Allows users to manage and schedule tasks within the system, ensuring that tasks are assigned and completed within the project timeline.
+- **Circulars and Announcements**: Provides a platform for distributing important information and updates to the team.
+- **Reward Points**: Encourages user engagement and recognition through points system.
+- **Workflow Requests and Approvals**: Facilitates the management of internal processes and approvals, ensuring that workflows are followed and completed.
+- **Bookings**: Manages appointments or bookings, ensuring that resources are allocated efficiently.
+- **Projects and Services**: Manages projects and services, ensuring that resources are allocated and tasks are completed within the project timeline.
+- **Mentees**: Manages mentees, providing support and guidance to new employees or trainees.
+
+This layout is designed to provide a comprehensive overview of the user's activities and tasks within the system, ensuring that all necessary information is easily accessible and manageable. The structured layout helps in maintaining order and efficiency within the system, facilitating better collaboration and communication among team members.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-21#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality
+
+#### 1. Actions and Specific Transactional Parameters
+- **Schedule**: Controls the scheduling and management of tasks within the system.
+- **Circulars**: Manages and displays circulars or announcements.
+- **My Reward Points**: Tracks and manages reward points.
+- **Workflow Requests**: Manages workflow requests and approvals.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings or appointments.
+- **Projects**: Manages projects and their tasks.
+- **Services**: Manages services or resources.
+- **Mentees**: Manages mentees or trainees.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+- **Header Section**:
+  - **User Profile**: Displays the logged-in user's information.
+  - **Quick Links**: Provides quick access to frequently used features.
+  - **User Profile Icon**: Indicates the logged-in user's profile.
+
+- **Main Content Area**:
+  - **Schedule**: Displays scheduled tasks with status, assignment dates, and action options.
+  - **Circulars**: Lists circulars with status and action options.
+  - **My Reward Points**: Displays reward points with status and action options.
+  - **Workflow Requests**: Lists workflow requests with status and action options.
+  - **Workflow Approvals**: Lists workflow approvals with status and action options.
+  - **Bookings**: Lists bookings with status and action options.
+  - **Projects**: Lists projects with status, assignment dates, and action options.
+  - **Services**: Lists services with status and action options.
+  - **Mentees**: Lists mentees with status and action options.
+
+- **Footer Section**:
+  - **Logged in as**: Displays the logged-in user's ID and name.
+
+#### 3. Structural Functionality and System Integration
+- **User Interface (UI) and User Experience (UX)**: The layout is designed to provide a clear and organized view of various transactional and management activities. Users can easily navigate to different sections and perform specific actions.
+- **Data Management**: Each section (Schedule, Circulars, My Reward Points, etc.) manages specific types of data. For example, the Schedule section manages task assignments and statuses, while the Workflow Approvals section manages workflow approvals.
+- **System Integration**: The layout is integrated with the broader system to ensure that users can access and manage their tasks, circulars, reward points, workflow requests, and other activities efficiently.
+- **Accessibility and Usability**: The layout is designed to be accessible and user-friendly, with clear labels and intuitive navigation. Users can easily find and perform specific actions without confusion.
+
+### Summary
+This page is a comprehensive management interface for various activities within a system. It controls and displays data related to schedules, circulars, reward points, workflow requests, workflow approvals, bookings, projects, services, and mentees. The layout is structured to provide a clear and organized view of these activities, ensuring that users can easily manage and perform specific actions. The system integrates this page with broader functionalities to ensure efficient data management and user experience.
+
+--•--•--
+
+## Portal Path Endpoint: Academics
+- **Direct Link Target:** https://learner.saveetha.in/projects/schedule-tasks/?date=2027-05-21&include_completed=1#
+### Structural Analysis Breakdown:
+### Page Layout and Functionality Analysis
+
+#### 1. Actions and Specific Transactional Parameters
+The page appears to be a student portal for managing academic tasks and schedules. The specific transactional parameters include:
+- **Schedule**: Displays a list of tasks assigned to the user.
+- **Circulars**: Shows a list of circulars or announcements.
+- **Workflow Requests**: Manages workflow requests.
+- **Workflow Approvals**: Manages workflow approvals.
+- **Bookings**: Manages bookings.
+- **Projects**: Manages projects.
+- **Services**: Manages services.
+- **Mentees**: Manages mentees.
+
+#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value Observations
+The page is structured with a sidebar menu on the left and a main content area on the right. The main content area contains two main sections:
+- **Scheduled Tasks**: Lists tasks assigned to the user, including status, assignment dates, and action options.
+- **Undated Tasks**: Lists tasks that have not been assigned a date, including status, assignment dates, and action options.
+
+The table structure is as follows:
+- **Scheduled Tasks Table**:
+  - **Status**: Status of the task.
+  - **Assignment / dates**: Date the task was assigned.
+  - **Action**: Options to perform actions on the task.
+
+- **Undated Tasks Table**:
+  - **Status**: Status of the task.
+  - **Assignment / dates**: Date the task was assigned (if applicable).
+  - **Action**: Options to perform actions on the task.
+
+#### 3. Structural Functionality and System Integration
+This layout segment serves the wider system functions by:
+- **Organizing Tasks**: It organizes tasks into scheduled and undated categories, making it easier for users to manage their academic responsibilities.
+- **Action Options**: Each task has options to perform actions such as updating, canceling, or reviewing, which are critical for managing tasks effectively.
+- **User Interface**: The sidebar menu provides quick access to different sections, enhancing user experience by reducing the number of clicks needed to perform tasks.
+- **Data Integration**: The page integrates data from the system, displaying the status, assignment dates, and actions for each task, ensuring that users have all the necessary information at their fingertips.
+
+Overall, this layout is designed to streamline the management of academic tasks, making it easier for students to keep track of their responsibilities and deadlines.
 
 --•--•--
 
