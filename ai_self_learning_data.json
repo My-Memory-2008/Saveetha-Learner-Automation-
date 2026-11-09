@@ -150564,26 +150564,90 @@
       "section_name": "Sub-System Node Channel",
       "functional_analysis": "API server link offline: ",
       "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23&include_completed=1#": {
+      "section_name": "Academics",
+      "functional_analysis": "### Page Layout and Functionality Analysis\n\n#### 1. Actions and Transactional Parameters\nThe page appears to control various academic and administrative tasks, including:\n- **Schedule**: Displays upcoming tasks and their statuses.\n- **Circulars**: Lists of circulars or announcements.\n- **My Reward Points**: Tracks rewards or points.\n- **Workflow Requests**: Manages workflow requests.\n- **Workflow Approvals**: Manages workflow approvals.\n- **Bookings**: Manages bookings.\n- **Projects**: Manages projects.\n- **Services**: Manages services.\n- **Mentees**: Manages mentees.\n\n#### 2. Data Element Blocks and Table Structure\nThe page is structured with a table that lists tasks and their statuses, assignments, and dates. The table is divided into two main sections:\n- **Scheduled Tasks**: Displays tasks that are scheduled for the current review period.\n- **Undated Tasks**: Displays tasks that are not scheduled for the current review period.\n\nThe table structure is as follows:\n```plaintext\n| Status | Assignment / dates | Action |\n|--------|---------------------|--------|\n| Scheduled tasks | [Task details] | [Action] |\n| Undated tasks | [Task details] | [Action] |\n```\n\n#### 3. Variable Value and Variable Structure\nThe page includes a variable value for the date:\n```plaintext\ndate=2027-06-23\n```\nThis variable is likely used to filter tasks based on the date.\n\nThe page also includes a variable for hiding completed/cancelled tasks:\n```plaintext\ninclude_completed=1\n```\nThis variable is used to control whether completed or cancelled tasks are displayed.\n\n#### 4. Structural Functionality\nThe page serves the wider system functions by:\n- **Displaying Task Statuses**: It shows the current status of tasks, whether they are scheduled, undated, completed, or cancelled.\n- **Filtering Tasks**: It allows users to filter tasks based on the date and include completed/cancelled tasks.\n- **Action Links**: Each task has an \"Action\" column, which likely contains links or buttons for further actions such as editing, deleting, or viewing more details.\n- **User Authentication**: The page includes a \"Logged in as:\" section, indicating the user's authentication status.\n\n### Summary\nThis page is a comprehensive task management tool within an academic or administrative system. It allows users to view, filter, and manage various tasks, including scheduled and undated tasks, and provides options for further actions. The page is designed to be user-friendly and efficient, ensuring that users can easily navigate and manage their tasks within the system.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23&include_completed=0": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-25&include_completed=1#": {
+      "section_name": "Academics",
+      "functional_analysis": "### Page Layout and Functionality Analysis\n\n#### 1. Actions and Specific Transactional Parameters\nThis page is designed to manage and display project tasks for a specific date. The key actions and parameters include:\n- **Date Selection**: The date can be selected using the input field `date=2027-06-25`.\n- **Include Completed Tasks**: The checkbox `include_completed=1` ensures that completed tasks are included in the list.\n- **Project Tasks**: The page lists tasks assigned to the user under the \"Projects\" section.\n\n#### 2. Data Element Blocks, Table Structure, and Variable Values\nThe page is structured into two main sections:\n- **Dated Tasks**: This section lists tasks that have been assigned and have a specific date.\n- **Undated Tasks**: This section lists tasks that have not been assigned a specific date.\n\n**Dated Tasks Table:**\n- **Status**: The status of the task (e.g., \"In Progress\").\n- **Assignment Dates**: The date the task was assigned to the user.\n- **Action**: The action available for the task (e.g., \"Update\", \"Cancel\").\n\n**Undated Tasks Table:**\n- **Status**: The status of the task (e.g., \"In Progress\").\n- **Assignment Dates**: The date the task was assigned to the user.\n- **Action**: The action available for the task (e.g., \"Update\", \"Cancel\").\n\n#### 3. Structural Functionality and System Integration\nThis layout segment serves the wider system functions by:\n- **User Interface**: Provides a clear and organized view of tasks for the user to manage and track progress.\n- **Task Management**: Facilitates the tracking and updating of tasks assigned to the user.\n- **Date Filtering**: Allows users to filter tasks based on specific dates, ensuring they only see tasks relevant to their current review period.\n- **Action Buttons**: Provides options for users to update or cancel tasks, ensuring they can manage their workload effectively.\n- **System Integration**: Ensures that the tasks are linked to the user's profile and project management system, allowing for seamless integration with other academic and administrative systems.\n\n### Detailed Breakdown\n\n#### Dated Tasks Section\n- **Header**: \"Dated tasks\"\n- **Table Headers**: \n  - **Status**: \"Status\"\n  - **Assignment Dates**: \"Assignment / dates\"\n  - **Action**: \"Action\"\n- **Rows**: Each row represents a task with:\n  - **Status**: \"In Progress\"\n  - **Assignment Dates**: \"2027-06-25\"\n  - **Action**: \"Update\", \"Cancel\"\n\n#### Undated Tasks Section\n- **Header**: \"Undated tasks\"\n- **Table Headers**: \n  - **Status**: \"Status\"\n  - **Assignment Dates**: \"Assignment / dates\"\n  - **Action**: \"Action\"\n- **Rows**: Each row represents a task with:\n  - **Status**: \"In Progress\"\n  - **Assignment Dates**: \"2027-06-25\"\n  - **Action**: \"Update\", \"Cancel\"\n\n### Conclusion\nThis page is designed to provide a comprehensive view of tasks assigned to the user, allowing them to manage and update their tasks efficiently. The structured layout ensures that users can easily navigate and interact with the tasks, while the system integration ensures that all tasks are linked to the user's profile and project management system.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-25&include_completed=0": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Schedule**: Controls the scheduling and management of tasks within the system.\n- **Circulars**: Manages and displays circulars or announcements.\n- **My Reward Points**: Displays the user's reward points.\n- **Workflow Requests**: Manages workflow requests.\n- **Workflow Approvals**: Manages workflow approvals.\n- **Bookings**: Manages bookings.\n- **Projects**: Manages projects.\n- **Services**: Manages services.\n- **Mentees**: Manages mentees.\n- **Logged in as**: Displays the user's login information.\n\n#### 2. Data Element Blocks and Table Structure\n- **Schedule**:\n  - **Status**: Displays the status of tasks.\n  - **Assignment / dates**: Displays the assignment and dates of tasks.\n  - **Action**: Provides options for actions on tasks.\n\n- **Circulars**:\n  - **Status**: Displays the status of circulars.\n  - **Assignment / dates**: Displays the assignment and dates of circulars.\n  - **Action**: Provides options for actions on circulars.\n\n- **My Reward Points**:\n  - **Status**: Displays the status of reward points.\n  - **Assignment / dates**: Displays the assignment and dates of reward points.\n  - **Action**: Provides options for actions on reward points.\n\n- **Workflow Requests**:\n  - **Status**: Displays the status of workflow requests.\n  - **Assignment / dates**: Displays the assignment and dates of workflow requests.\n  - **Action**: Provides options for actions on workflow requests.\n\n- **Workflow Approvals**:\n  - **Status**: Displays the status of workflow approvals.\n  - **Assignment / dates**: Displays the assignment and dates of workflow approvals.\n  - **Action**: Provides options for actions on workflow approvals.\n\n- **Bookings**:\n  - **Status**: Displays the status of bookings.\n  - **Assignment / dates**: Displays the assignment and dates of bookings.\n  - **Action**: Provides options for actions on bookings.\n\n- **Projects**:\n  - **Status**: Displays the status of projects.\n  - **Assignment / dates**: Displays the assignment and dates of projects.\n  - **Action**: Provides options for actions on projects.\n\n- **Services**:\n  - **Status**: Displays the status of services.\n  - **Assignment / dates**: Displays the assignment and dates of services.\n  - **Action**: Provides options for actions on services.\n\n- **Mentees**:\n  - **Status**: Displays the status of mentees.\n  - **Assignment / dates**: Displays the assignment and dates of mentees.\n  - **Action**: Provides options for actions on mentees.\n\n#### 3. Structural Functionality\n- **Schedule**: Allows users to view and manage tasks, including their status, assignment dates, and actions. This is crucial for project management and task tracking.\n- **Circulars**: Provides a platform for announcements and circulars, which are important for disseminating information and updates within the system.\n- **My Reward Points**: Displays the user's reward points, which can be used for various incentives or rewards within the system.\n- **Workflow Requests**: Manages workflow requests, which are essential for managing processes and ensuring that tasks are completed in a structured manner.\n- **Workflow Approvals**: Manages workflow approvals, which ensures that tasks are completed and approved before moving forward.\n- **Bookings**: Manages bookings, which are important for scheduling and managing appointments or reservations.\n- **Projects**: Manages projects, which are essential for tracking progress and managing large-scale tasks or projects.\n- **Services**: Manages services, which are important for providing support and services to users.\n- **Mentees**: Manages mentees, which are important for tracking and managing relationships and support within the system.\n\nThis layout is designed to provide a comprehensive view of various aspects of the system, allowing users to manage and track different types of tasks, announcements, rewards, processes, bookings, projects, services, and mentees. Each section is designed to be self-contained and easy to navigate, ensuring that users can efficiently manage their tasks and responsibilities within the system.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=19#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19&include_completed=1": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22&include_completed=1#": {
+      "section_name": "Academics",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Specific Transactional Parameters\n- **Schedule**: Controls the scheduling and management of tasks within the system.\n- **Circulars**: Manages and displays circulars or announcements.\n- **My Reward Points**: Tracks and manages reward points.\n- **Workflow Requests**: Manages workflow requests and approvals.\n- **WorkFlow Approvals**: Manages workflow approvals.\n- **Bookings**: Manages bookings or reservations.\n- **Projects**: Manages projects and their tasks.\n- **Services**: Manages services or resources.\n- **Mentees**: Manages mentees or trainees.\n\n#### 2. Data Element Blocks, Table Structure, Score Layout, or Variable Value\n- **Header**: Displays the user's profile and quick links.\n- **Main Content Area**:\n  - **Schedule**: Displays a list of tasks with their status, assignment dates, and action options.\n  - **Circulars**: Displays a list of circulars with their status and action options.\n  - **My Reward Points**: Displays the user's reward points.\n  - **Workflow Requests**: Displays a list of workflow requests with their status, assignment dates, and action options.\n  - **WorkFlow Approvals**: Displays a list of workflow approvals with their status, assignment dates, and action options.\n  - **Bookings**: Displays a list of bookings with their status and action options.\n  - **Projects**: Displays a list of projects with their status, assignment dates, and action options.\n  - **Services**: Displays a list of services with their status and action options.\n  - **Mentees**: Displays a list of mentees with their status and action options.\n- **Footer**: Displays the logged-in user's information.\n\n#### 3. Structural Functionality\n- **Navigation Menu**: Provides quick access to different sections of the system.\n- **Main Content Area**: Displays the main functionalities of the system, such as scheduling, managing circulars, rewards, workflows, bookings, projects, services, and mentees.\n- **Status and Action Options**: Allows users to update, approve, or cancel tasks, workflows, and bookings.\n- **Assignment Dates**: Displays the dates assigned to tasks, workflows, and bookings.\n- **Logged-in User Information**: Provides the user's profile and login information.\n\n### Structural Role in the Wider System Functions\nThis layout segment serves as the central hub for managing various aspects of the system, including scheduling, circulars, rewards, workflows, bookings, projects, services, and mentees. It allows users to perform actions such as updating, approving, or canceling tasks, workflows, and bookings, and provides a clear view of their status and assignment dates. The navigation menu ensures easy access to different functionalities, and the footer provides essential user information. Together, these elements ensure that users can efficiently manage and track their tasks and activities within the system.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22&include_completed=0": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "### Page Layout and Functionality\n\n#### 1. Actions and Transactional Parameters\n- **Schedule**: Controls the scheduling and management of tasks within the system.\n- **Circulars**: Manages and displays circulars or announcements.\n- **My Reward Points**: Displays the user's reward points.\n- **Workflow Requests**: Manages workflow requests.\n- **Workflow Approvals**: Manages workflow approvals.\n- **Bookings**: Manages bookings.\n- **Projects**: Manages projects.\n- **Services**: Manages services.\n- **Mentees**: Manages mentees.\n- **Logged in as**: Displays the logged-in user's ID.\n\n#### 2. Data Element Blocks and Table Structure\n- **Schedule**:\n  - **Status**: Displays the status of tasks.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling tasks.\n\n- **Circulars**:\n  - **Status**: Displays the status of circulars.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling circulars.\n\n- **My Reward Points**:\n  - **Status**: Displays the status of reward points.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling reward points.\n\n- **Workflow Requests**:\n  - **Status**: Displays the status of workflow requests.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling workflow requests.\n\n- **Workflow Approvals**:\n  - **Status**: Displays the status of workflow approvals.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling workflow approvals.\n\n- **Bookings**:\n  - **Status**: Displays the status of bookings.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling bookings.\n\n- **Projects**:\n  - **Status**: Displays the status of projects.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling projects.\n\n- **Services**:\n  - **Status**: Displays the status of services.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling services.\n\n- **Mentees**:\n  - **Status**: Displays the status of mentees.\n  - **Assignment / dates**: Displays the assignment dates and times.\n  - **Action**: Provides options for actions such as updating or canceling mentees.\n\n#### 3. Structural Functionality\n- **Schedule**: Manages the scheduling and tracking of tasks, ensuring that tasks are completed within the project timeline.\n- **Circulars**: Manages announcements and circulars, ensuring that important information is communicated to the team.\n- **My Reward Points**: Displays the user's reward points, which can be used for various incentives or rewards.\n- **Workflow Requests**: Manages workflow requests, ensuring that tasks are processed in a structured manner.\n- **Workflow Approvals**: Manages workflow approvals, ensuring that tasks are reviewed and approved before completion.\n- **Bookings**: Manages bookings, ensuring that resources are allocated and used efficiently.\n- **Projects**: Manages projects, ensuring that tasks are completed within the project timeline and goals are met.\n- **Services**: Manages services, ensuring that services are provided and managed effectively.\n- **Mentees**: Manages mentees, ensuring that mentees are mentored and supported effectively.\n\nThis layout serves the wider system functions by providing a comprehensive overview of various tasks, circulars, and resources, ensuring that all aspects of the system are managed efficiently and effectively.",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-08&include_completed=1": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=7&day=11#": {
+      "section_name": "Academics",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=7&day=14": {
+      "section_name": "14\nWED",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11&include_completed=1": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
+    },
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11": {
+      "section_name": "Sub-System Node Channel",
+      "functional_analysis": "API server link offline: ",
+      "status_checked": "verified"
     }
   },
   "site_structure": [],
   "queue": [
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23&include_completed=1#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23&include_completed=0",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-25&include_completed=1#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-25&include_completed=0",
-    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=6&day=19#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19&include_completed=1",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22&include_completed=1#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22&include_completed=0",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-08&include_completed=1",
-    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=7&day=11#",
-    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=7&day=14",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11&include_completed=1",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11",
     "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-08#",
     "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-05&include_completed=0#",
     "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-09&include_completed=1",
@@ -151198,7 +151262,21 @@
     "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-17",
     "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-20#",
     "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-20&include_completed=1#",
-    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-20&include_completed=0"
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-20&include_completed=0",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-23&include_completed=0#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-25&include_completed=0#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19&include_completed=1#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-19&include_completed=0",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-06-22&include_completed=0#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-08&include_completed=1#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-08&include_completed=0",
+    "https://learner.saveetha.in/academics/people_schedule/?year=2027&month=7&day=14#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-14&include_completed=1",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-14",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11&include_completed=1#",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11&include_completed=0",
+    "https://learner.saveetha.in/projects/schedule-tasks/?date=2027-07-11#"
   ],
   "visited": {
     "https://learner.saveetha.in": {
